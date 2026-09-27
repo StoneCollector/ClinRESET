@@ -21,6 +21,8 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any, Optional
 
+from clinical_extraction.terminology.models import AmbiguityStatus
+
 
 # ---------------------------------------------------------------------------
 # Enumerations and constants
@@ -85,6 +87,7 @@ class RelationType:
     HAS_MEASUREMENT = "HAS_MEASUREMENT"
     EVALUATES = "EVALUATES"
     HAS_FINDING = "HAS_FINDING"
+    RELATES_TO = "RELATES_TO"
 
     ALL = {
         ASSOCIATED_WITH,
@@ -93,6 +96,41 @@ class RelationType:
         HAS_MEASUREMENT,
         EVALUATES,
         HAS_FINDING,
+        RELATES_TO,
+    }
+
+
+class SemanticCategory:
+    """Standard controlled clinical semantic categories for Phase 4 / Phase 5."""
+
+    ANATOMY = "ANATOMY"
+    MEASUREMENT = "MEASUREMENT"
+    FUNCTION = "FUNCTION"
+    STRUCTURAL_FINDING = "STRUCTURAL_FINDING"
+    WALL_MOTION = "WALL_MOTION"
+    DIASTOLIC_FUNCTION = "DIASTOLIC_FUNCTION"
+    VALVULAR_FINDING = "VALVULAR_FINDING"
+    PRESSURE = "PRESSURE"
+    DOPPLER_MEASUREMENT = "DOPPLER_MEASUREMENT"
+    THROMBUS = "THROMBUS"
+    EFFUSION = "EFFUSION"
+    PROCEDURE = "PROCEDURE"
+    OTHER_CLINICAL = "OTHER_CLINICAL"
+
+    ALL = {
+        ANATOMY,
+        MEASUREMENT,
+        FUNCTION,
+        STRUCTURAL_FINDING,
+        WALL_MOTION,
+        DIASTOLIC_FUNCTION,
+        VALVULAR_FINDING,
+        PRESSURE,
+        DOPPLER_MEASUREMENT,
+        THROMBUS,
+        EFFUSION,
+        PROCEDURE,
+        OTHER_CLINICAL,
     }
 
 
@@ -131,26 +169,42 @@ class ClinicalEntity:
     text: str
     type: str
     normalized: Optional[str] = None
+    normalization_source: Optional[str] = None
+    ambiguity: bool = False
+    ambiguity_status: str = AmbiguityStatus.RESOLVED
+    candidates: list[str] = field(default_factory=list)
     assertion: str = AssertionStatus.PRESENT
     negated: bool = False
     page: Optional[int] = None
     source_section: Optional[str] = None
     source_text: Optional[str] = None
     confidence: float = 1.0
+    semantic_category: Optional[str] = None
+    modifiers: dict[str, Any] = field(default_factory=dict)
+    related_anatomy: list[str] = field(default_factory=list)
 
     def to_dict(self) -> dict[str, Any]:
         """Plain-dict representation for JSON serialisation."""
-        return {
+        d: dict[str, Any] = {
             "text": self.text,
             "type": self.type,
             "normalized": self.normalized,
+            "normalization_source": self.normalization_source,
+            "ambiguity": self.ambiguity,
+            "ambiguity_status": self.ambiguity_status,
             "assertion": self.assertion,
             "negated": self.negated,
             "page": self.page,
             "source_section": self.source_section,
             "source_text": self.source_text,
             "confidence": round(self.confidence, 4),
+            "semantic_category": self.semantic_category,
+            "modifiers": self.modifiers,
+            "related_anatomy": self.related_anatomy,
         }
+        if self.candidates:
+            d["candidates"] = self.candidates
+        return d
 
 
 @dataclass
@@ -180,6 +234,14 @@ class ClinicalMeasurement:
         Verbatim source text snippet for traceability.
     normalized_name:
         Standardised parameter name if mapped, else None.
+    normalization_source:
+        Provenance source string.
+    ambiguity:
+        True if the parameter name has unresolved competing expansions.
+    ambiguity_status:
+        RESOLVED | AMBIGUOUS | UNKNOWN | NOT_APPLICABLE.
+    candidates:
+        Alternative expansions if ambiguous.
     """
 
     name: str
@@ -190,10 +252,17 @@ class ClinicalMeasurement:
     source_section: Optional[str] = None
     source_text: Optional[str] = None
     normalized_name: Optional[str] = None
+    normalization_source: Optional[str] = None
+    ambiguity: bool = False
+    ambiguity_status: str = AmbiguityStatus.RESOLVED
+    candidates: list[str] = field(default_factory=list)
+    semantic_category: Optional[str] = None
+    modifiers: dict[str, Any] = field(default_factory=dict)
+    related_anatomy: list[str] = field(default_factory=list)
 
     def to_dict(self) -> dict[str, Any]:
         """Plain-dict representation for JSON serialisation."""
-        return {
+        d: dict[str, Any] = {
             "name": self.name,
             "value": self.value,
             "unit": self.unit,
@@ -202,7 +271,16 @@ class ClinicalMeasurement:
             "source_section": self.source_section,
             "source_text": self.source_text,
             "normalized_name": self.normalized_name,
+            "normalization_source": self.normalization_source,
+            "ambiguity": self.ambiguity,
+            "ambiguity_status": self.ambiguity_status,
+            "semantic_category": self.semantic_category,
+            "modifiers": self.modifiers,
+            "related_anatomy": self.related_anatomy,
         }
+        if self.candidates:
+            d["candidates"] = self.candidates
+        return d
 
 
 @dataclass
@@ -218,6 +296,14 @@ class ClinicalFinding:
         Exact wording of the finding (e.g. "No RWMA", "Conc LVH", "Mild TR").
     normalized:
         Standardised medical term if a reliable mapping exists, else None.
+    normalization_source:
+        Provenance source string.
+    ambiguity:
+        True if the finding expression is ambiguous.
+    ambiguity_status:
+        RESOLVED | AMBIGUOUS | UNKNOWN | NOT_APPLICABLE.
+    candidates:
+        Alternative expansions if ambiguous.
     assertion:
         Assertion status: PRESENT, ABSENT, NORMAL, POSSIBLE, HISTORICAL, UNKNOWN.
     negated:
@@ -232,23 +318,39 @@ class ClinicalFinding:
 
     text: str
     normalized: Optional[str] = None
+    normalization_source: Optional[str] = None
+    ambiguity: bool = False
+    ambiguity_status: str = AmbiguityStatus.RESOLVED
+    candidates: list[str] = field(default_factory=list)
     assertion: str = AssertionStatus.PRESENT
     negated: bool = False
     page: Optional[int] = None
     source_section: Optional[str] = None
     source_text: Optional[str] = None
+    semantic_category: Optional[str] = None
+    modifiers: dict[str, Any] = field(default_factory=dict)
+    related_anatomy: list[str] = field(default_factory=list)
 
     def to_dict(self) -> dict[str, Any]:
         """Plain-dict representation for JSON serialisation."""
-        return {
+        d: dict[str, Any] = {
             "text": self.text,
             "normalized": self.normalized,
+            "normalization_source": self.normalization_source,
+            "ambiguity": self.ambiguity,
+            "ambiguity_status": self.ambiguity_status,
             "assertion": self.assertion,
             "negated": self.negated,
             "page": self.page,
             "source_section": self.source_section,
             "source_text": self.source_text,
+            "semantic_category": self.semantic_category,
+            "modifiers": self.modifiers,
+            "related_anatomy": self.related_anatomy,
         }
+        if self.candidates:
+            d["candidates"] = self.candidates
+        return d
 
 
 @dataclass
@@ -262,6 +364,14 @@ class AnatomicalEntity:
         Original anatomical term (e.g. "left ventricle", "mitral valve", "LV").
     normalized:
         Standardised anatomical term (e.g. "Left Ventricle", "Mitral Valve").
+    normalization_source:
+        Provenance source string.
+    ambiguity:
+        True if the anatomical mention is ambiguous.
+    ambiguity_status:
+        RESOLVED | AMBIGUOUS | UNKNOWN | NOT_APPLICABLE.
+    candidates:
+        Alternative expansions if ambiguous.
     page:
         1-indexed document page number.
     source_section:
@@ -272,19 +382,33 @@ class AnatomicalEntity:
 
     text: str
     normalized: Optional[str] = None
+    normalization_source: Optional[str] = None
+    ambiguity: bool = False
+    ambiguity_status: str = AmbiguityStatus.RESOLVED
+    candidates: list[str] = field(default_factory=list)
     page: Optional[int] = None
     source_section: Optional[str] = None
     source_text: Optional[str] = None
+    semantic_category: str = "ANATOMY"
+    modifiers: dict[str, Any] = field(default_factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         """Plain-dict representation for JSON serialisation."""
-        return {
+        d: dict[str, Any] = {
             "text": self.text,
             "normalized": self.normalized,
+            "normalization_source": self.normalization_source,
+            "ambiguity": self.ambiguity,
+            "ambiguity_status": self.ambiguity_status,
             "page": self.page,
             "source_section": self.source_section,
             "source_text": self.source_text,
+            "semantic_category": self.semantic_category,
+            "modifiers": self.modifiers,
         }
+        if self.candidates:
+            d["candidates"] = self.candidates
+        return d
 
 
 @dataclass
@@ -344,13 +468,89 @@ class ClinicalInformation:
     findings: list[ClinicalFinding] = field(default_factory=list)
     anatomy: list[AnatomicalEntity] = field(default_factory=list)
     relationships: list[ClinicalRelationship] = field(default_factory=list)
+    explanations: list[dict[str, Any]] = field(default_factory=list)
+    explanation_sections: list[dict[str, Any]] = field(default_factory=list)
+
+    def to_phase5_contract(self) -> list[dict[str, Any]]:
+        """
+        Produce validated structured clinical concepts conforming to the Phase 5 contract:
+        {
+          "concept": "...",
+          "original_text": "...",
+          "type": "...",
+          "semantic_category": "...",
+          "value": null,
+          "unit": null,
+          "reference_range": null,
+          "assertion": "...",
+          "modifiers": {},
+          "related_anatomy": [],
+          "provenance": {}
+        }
+        """
+        concepts: list[dict[str, Any]] = []
+
+        for f in self.findings:
+            concepts.append({
+                "concept": f.normalized or f.text,
+                "original_text": f.text,
+                "type": EntityType.FINDING,
+                "semantic_category": f.semantic_category or SemanticCategory.OTHER_CLINICAL,
+                "value": None,
+                "unit": None,
+                "reference_range": None,
+                "assertion": f.assertion,
+                "modifiers": dict(f.modifiers),
+                "related_anatomy": list(f.related_anatomy),
+                "provenance": {
+                    "page": f.page,
+                    "source_section": f.source_section,
+                    "source_text": f.source_text,
+                    "normalization_source": f.normalization_source,
+                    "ambiguity": f.ambiguity,
+                    "ambiguity_status": f.ambiguity_status,
+                    "candidates": list(f.candidates),
+                },
+            })
+
+        for m in self.measurements:
+            concepts.append({
+                "concept": m.normalized_name or m.name,
+                "original_text": m.name,
+                "type": EntityType.MEASUREMENT,
+                "semantic_category": m.semantic_category or SemanticCategory.MEASUREMENT,
+                "value": m.value,
+                "unit": m.unit,
+                "reference_range": m.reference_range,
+                "assertion": AssertionStatus.PRESENT,
+                "modifiers": dict(m.modifiers),
+                "related_anatomy": list(m.related_anatomy),
+                "provenance": {
+                    "page": m.page,
+                    "source_section": m.source_section,
+                    "source_text": m.source_text,
+                    "normalization_source": m.normalization_source,
+                    "ambiguity": m.ambiguity,
+                    "ambiguity_status": m.ambiguity_status,
+                    "candidates": list(m.candidates),
+                },
+            })
+
+        return concepts
 
     def to_dict(self) -> dict[str, Any]:
         """Plain-dict representation for JSON serialisation in report.json."""
-        return {
+        d: dict[str, Any] = {
             "entities": [e.to_dict() for e in self.entities],
             "measurements": [m.to_dict() for m in self.measurements],
             "findings": [f.to_dict() for f in self.findings],
             "anatomy": [a.to_dict() for a in self.anatomy],
             "relationships": [r.to_dict() for r in self.relationships],
+            "structured_clinical_concepts": self.to_phase5_contract(),
         }
+        if self.explanations:
+            d["explanations"] = self.explanations
+        if self.explanation_sections:
+            d["explanation_sections"] = self.explanation_sections
+        return d
+

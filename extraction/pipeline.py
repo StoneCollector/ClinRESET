@@ -83,6 +83,22 @@ def _extract_clinical_info(result: ExtractionResult) -> None:
         from clinical_extraction import extract_clinical_info
 
         clinical_info = extract_clinical_info(result)
+
+        # Phase 5A: Deterministic clinical explanation generation
+        try:
+            from clinical_explanation import generate_clinical_explanations
+
+            report_exp = generate_clinical_explanations(clinical_info.to_phase5_contract())
+            clinical_info.explanations = [e.to_dict() for e in report_exp.explanations]
+            clinical_info.explanation_sections = [s.to_dict() for s in report_exp.sections]
+            logger.info(
+                "Clinical explanations: %d concepts explained across %d sections",
+                len(clinical_info.explanations),
+                len(clinical_info.explanation_sections),
+            )
+        except Exception as exp_exc:
+            logger.warning("Clinical explanation step failed (non-fatal): %s", exp_exc)
+
         result.clinical_information = clinical_info
         logger.info(
             "Clinical extraction: entities=%d, measurements=%d, findings=%d, anatomy=%d, relationships=%d",

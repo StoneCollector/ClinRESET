@@ -11,7 +11,14 @@ fields. If no confident mapping exists, the normalized field is left as None.
 from __future__ import annotations
 
 import re
-from typing import Optional
+from typing import Any, Optional
+
+from clinical_extraction.terminology.models import (
+    AmbiguityStatus,
+    ResolutionContext,
+    ResolutionResult,
+)
+from clinical_extraction.terminology.resolver import get_resolver
 
 
 # ---------------------------------------------------------------------------
@@ -114,6 +121,32 @@ ECHOCARDIOGRAPHY_TERMINOLOGY: dict[str, str] = {
     "rv function": "Right Ventricular Function",
     "aortic velocity": "Aortic Velocity",
     "pulmonary velocity": "Pulmonary Velocity",
+    # Additional Findings & Valvular Observations
+    "no effusion": "Pericardial Effusion",
+    "no la/lv clot": "Thrombus",
+    "la/lv clot": "Thrombus",
+    "no clot": "Thrombus",
+    "no gradient across lvot": "Left Ventricular Outflow Tract Gradient",
+    "gradient across lvot": "Left Ventricular Outflow Tract Gradient",
+    "ias/ivs intact": "Intact Interatrial and Interventricular Septa",
+    "mitral valve: normal": "Normal Mitral Valve",
+    "mitral valve normal": "Normal Mitral Valve",
+    "pulmonary valve: normal": "Normal Pulmonary Valve",
+    "pulmonary valve normal": "Normal Pulmonary Valve",
+    "normal, opens well": "Normal Valve Motion",
+    "opens well": "Normal Valve Motion",
+    "no prolapse": "Valve Prolapse",
+    "prolapse": "Valve Prolapse",
+    "normal 'ef' slope": "Normal Pulmonary Valve EF Slope",
+    "normal ef slope": "Normal Pulmonary Valve EF Slope",
+    "ef slope": "Pulmonary Valve EF Slope",
+    "'ef' slope": "Pulmonary Valve EF Slope",
+    "normal 'a' wave": "Normal Pulmonary Valve A Wave",
+    "normal a wave": "Normal Pulmonary Valve A Wave",
+    "a wave": "Pulmonary Valve A Wave",
+    "'a' wave": "Pulmonary Valve A Wave",
+    "no midsystolic notch": "Midsystolic Notch",
+    "midsystolic notch": "Midsystolic Notch",
 }
 
 CBC_TERMINOLOGY: dict[str, str] = {
@@ -272,6 +305,174 @@ for _d in (
 # ---------------------------------------------------------------------------
 
 
+def resolve_term(
+    term: str,
+    context: Optional[ResolutionContext] = None,
+    report_type: Optional[str] = None,
+    section_title: Optional[str] = None,
+    nearby_text: Optional[str] = None,
+    anatomy_context: Optional[list[str]] = None,
+    measurement_context: Optional[list[str]] = None,
+    extracted_entities: Optional[list[Any]] = None,
+    relationships: Optional[list[Any]] = None,
+) -> ResolutionResult:
+    """
+    Resolve and normalize a clinical surface form with full contextual disambiguation.
+
+    Uses the 8-level contextual resolution hierarchy:
+    1. report_type
+    2. section title
+    3. nearby terminology
+    4. anatomy context
+    5. measurement context
+    6. existing Phase 3 extracted entities
+    7. existing relationships
+    8. domain-specific terminology mappings
+    """
+    if not term:
+        return ResolutionResult(
+            text=term or "",
+            normalized=None,
+            ambiguity=False,
+            ambiguity_status=AmbiguityStatus.NOT_APPLICABLE,
+            provenance="empty_input",
+        )
+
+    # Clean formatting and normalize quotation marks
+    cleaned = term.replace("‘", "'").replace("’", "'").replace("“", '"').replace("”", '"')
+    cleaned = re.sub(r"[*_`#:]", "", cleaned)
+    cleaned = " ".join(cleaned.split()).strip()
+
+    # Build context
+    if context is None:
+        domain_mappings = REPORT_TYPE_REGISTRY.get(report_type) if report_type else None
+        context = ResolutionContext(
+            report_type=report_type,
+            section_title=section_title,
+            nearby_text=nearby_text,
+            anatomy_context=anatomy_context or [],
+            measurement_context=measurement_context or [],
+            extracted_entities=extracted_entities or [],
+            relationships=relationships or [],
+            domain_mappings=domain_mappings,
+        )
+    else:
+        if report_type and not context.report_type:
+            context.report_type = report_type
+        if section_title and not context.section_title:
+            context.section_title = section_title
+        if nearby_text and not context.nearby_text:
+            context.nearby_text = nearby_text
+        if not context.domain_mappings and context.report_type:
+            context.domain_mappings = REPORT_TYPE_REGISTRY.get(context.report_type)
+
+    resolver = get_resolver()
+
+    # Prefix expansion mappings
+    prefix_expansions = {
+        "mild ": "Mild",
+        "moderate ": "Moderate",
+        "severe ": "Severe",
+        "conc ": "Concentric",
+        "concentric ": "Concentric",
+        "eccentric ": "Eccentric",
+        "grade 1 ": "Grade 1",
+        "grade 2 ": "Grade 2",
+        "grade 3 ": "Grade 3",
+        "grade i ": "Grade 1",
+        "grade ii ": "Grade 2",
+        "grade iii ": "Grade 3",
+    }
+
+    cleaned_lower = cleaned.lower()
+    cleaned_no_quotes = cleaned_lower.replace("'", "").replace('"', '')
+
+    # 1. Direct match in domain dictionary if report_type specified (Requirement 11)
+    if context.report_type and context.domain_mappings:
+        dict_key = None
+        if cleaned_lower in context.domain_mappings:
+            dict_key = cleaned_lower
+        elif cleaned_no_quotes in context.domain_mappings:
+            dict_key = cleaned_no_quotes
+
+        if dict_key:
+            mapped_val = context.domain_mappings[dict_key]
+            rec = resolver.corpus.lookup(dict_key)
+            cands = [c.term for c in rec.candidates] if rec else [mapped_val]
+            safety = None
+            if rec and any(c.is_safety_warning for c in rec.candidates):
+                safety = f"Joint Commission safety warning for '{term}'"
+            return ResolutionResult(
+                text=term,
+                normalized=mapped_val,
+                normalization_source="domain_specific_mappings",
+                ambiguity=False,
+                ambiguity_status=AmbiguityStatus.RESOLVED,
+                candidates=cands,
+                domain=context.report_type,
+                safety_warning=safety,
+                provenance="report_type_registry_match",
+            )
+
+    # 2. Check common clinical prefixes (e.g. "mild tr", "moderate mr", "grade 1 lvdd", "conc lvh")
+    for prefix, prefix_title in prefix_expansions.items():
+        if cleaned_lower.startswith(prefix):
+            core = cleaned[len(prefix):].strip()
+            core_res = resolver.resolve(core, context=context)
+            if core_res.ambiguity_status == AmbiguityStatus.RESOLVED and core_res.normalized:
+                return ResolutionResult(
+                    text=term,
+                    normalized=f"{prefix_title} {core_res.normalized}",
+                    normalization_source=core_res.normalization_source,
+                    ambiguity=False,
+                    ambiguity_status=AmbiguityStatus.RESOLVED,
+                    candidates=[f"{prefix_title} {c}" for c in core_res.candidates],
+                    domain=core_res.domain,
+                    safety_warning=core_res.safety_warning,
+                    provenance=f"qualified_term: {core_res.provenance}",
+                )
+            elif core_res.ambiguity_status == AmbiguityStatus.AMBIGUOUS:
+                return ResolutionResult(
+                    text=term,
+                    normalized=None,
+                    normalization_source=core_res.normalization_source,
+                    ambiguity=True,
+                    ambiguity_status=AmbiguityStatus.AMBIGUOUS,
+                    candidates=[f"{prefix_title} {c}" for c in core_res.candidates],
+                    domain=core_res.domain,
+                    safety_warning=core_res.safety_warning,
+                    provenance=f"qualified_ambiguous_term: {core_res.provenance}",
+                )
+
+    # 3. Use hierarchical terminology corpus resolver
+    corpus_res = resolver.resolve(term, context=context)
+    if corpus_res.ambiguity_status != AmbiguityStatus.UNKNOWN:
+        corpus_res.text = term
+        return corpus_res
+
+    # 4. Fallback: check universal dictionary for multi-word phrases not in corpus
+    fb_key = None
+    if cleaned_lower in UNIVERSAL_TERMINOLOGY:
+        fb_key = cleaned_lower
+    elif cleaned_no_quotes in UNIVERSAL_TERMINOLOGY:
+        fb_key = cleaned_no_quotes
+
+    if fb_key:
+        mapped_val = UNIVERSAL_TERMINOLOGY[fb_key]
+        return ResolutionResult(
+            text=term,
+            normalized=mapped_val,
+            normalization_source="universal_dictionary",
+            ambiguity=False,
+            ambiguity_status=AmbiguityStatus.RESOLVED,
+            candidates=[mapped_val],
+            provenance="universal_dictionary_match",
+        )
+
+    corpus_res.text = term
+    return corpus_res
+
+
 def normalize_term(
     term: str,
     report_type: Optional[str] = None,
@@ -279,48 +480,13 @@ def normalize_term(
     """
     Look up the normalized representation of a clinical term.
 
-    Parameters
-    ----------
-    term:
-        The term as extracted from source text (e.g. 'LVH', 'Mild TR').
-    report_type:
-        Optional report type for context-specific dictionary preference.
-
-    Returns
-    -------
-    Optional[str]
-        Canonical medical term if a confident match exists, else None.
+    Maintains backward compatibility with Phase 3 callers.
+    Returns canonical string if resolved, or None if ambiguous, unknown, or not applicable.
     """
     if not term:
         return None
 
-    # Clean punctuation, strip whitespace, lowercase
-    cleaned = re.sub(r"[*_`#:]", "", term).strip().lower()
-
-    # 1. Try report-type specific dictionary
-    if report_type and report_type in REPORT_TYPE_REGISTRY:
-        domain_dict = REPORT_TYPE_REGISTRY[report_type]
-        if cleaned in domain_dict:
-            return domain_dict[cleaned]
-
-    # 2. Try universal dictionary
-    if cleaned in UNIVERSAL_TERMINOLOGY:
-        return UNIVERSAL_TERMINOLOGY[cleaned]
-
-    # 3. Strip leading qualifier (e.g. "mild tr" -> lookup "tr" -> prepend "Mild ")
-    # or handle common prefixes
-    for prefix in ("mild ", "moderate ", "severe ", "conc ", "concentric ", "grade 1 ", "grade 2 ", "grade 3 "):
-        if cleaned.startswith(prefix):
-            core = cleaned[len(prefix):].strip()
-            # Try core in domain or universal
-            norm_core = None
-            if report_type and report_type in REPORT_TYPE_REGISTRY:
-                norm_core = REPORT_TYPE_REGISTRY[report_type].get(core)
-            if not norm_core:
-                norm_core = UNIVERSAL_TERMINOLOGY.get(core)
-
-            if norm_core:
-                prefix_title = prefix.strip().title()
-                return f"{prefix_title} {norm_core}"
-
+    res = resolve_term(term, report_type=report_type)
+    if res.ambiguity_status == AmbiguityStatus.RESOLVED:
+        return res.normalized
     return None

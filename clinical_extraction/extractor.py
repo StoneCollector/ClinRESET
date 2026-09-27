@@ -20,13 +20,16 @@ from typing import Any, Optional
 from clinical_extraction.entities import create_entity
 from clinical_extraction.measurements import extract_measurements
 from clinical_extraction.models import (
+    AmbiguityStatus,
     AssertionStatus,
     ClinicalEntity,
     ClinicalInformation,
     EntityType,
 )
+from clinical_extraction.normalization import resolve_term
 from clinical_extraction.relations import extract_relationships
 from clinical_extraction.report_rules import get_rules_for_report_type
+from clinical_extraction.semantic import assign_semantic_metadata
 
 
 logger = logging.getLogger("clinical_extraction.extractor")
@@ -144,6 +147,85 @@ def extract_clinical_info(result: Any) -> ClinicalInformation:
         findings=findings,
         measurements=measurements,
         anatomy=anatomy,
+        report_type=report_type,
+    )
+
+    # 9. Terminology Resolution Layer (Phase 3/4)
+    # Disambiguate and normalize extracted entities using 8-level contextual hierarchy
+    anatomy_context = [a.text for a in anatomy]
+    meas_context = [m.name for m in measurements]
+
+    def _resolve_item(item: Any, surface_text: str, is_measurement: bool = False) -> None:
+        source_sec = getattr(item, "source_section", None)
+        source_txt = getattr(item, "source_text", None)
+        res = resolve_term(
+            term=surface_text,
+            report_type=report_type,
+            section_title=source_sec,
+            nearby_text=source_txt,
+            anatomy_context=anatomy_context,
+            measurement_context=meas_context,
+            extracted_entities=entities,
+            relationships=relationships,
+        )
+
+        current_norm = getattr(item, "normalized_name" if is_measurement else "normalized", None)
+
+        if res.ambiguity_status == AmbiguityStatus.RESOLVED and res.normalized:
+            norm_val = res.normalized
+            norm_src = res.normalization_source or "terminology_corpus"
+            is_ambig = False
+            status = AmbiguityStatus.RESOLVED
+            cands = res.candidates
+        elif res.ambiguity_status == AmbiguityStatus.AMBIGUOUS:
+            norm_val = None
+            norm_src = res.normalization_source or "terminology_corpus"
+            is_ambig = True
+            status = AmbiguityStatus.AMBIGUOUS
+            cands = res.candidates
+        elif current_norm:
+            norm_val = current_norm
+            norm_src = "rule_based"
+            is_ambig = False
+            status = AmbiguityStatus.RESOLVED
+            cands = [current_norm]
+        else:
+            norm_val = None
+            norm_src = None
+            is_ambig = False
+            status = AmbiguityStatus.UNKNOWN
+            cands = []
+
+        if is_measurement:
+            item.normalized_name = norm_val
+        else:
+            item.normalized = norm_val
+
+        item.normalization_source = norm_src
+        item.ambiguity = is_ambig
+        item.ambiguity_status = status
+        item.candidates = cands
+
+    for f in findings:
+        _resolve_item(f, f.text)
+
+    for a in anatomy:
+        _resolve_item(a, a.text)
+
+    for m in measurements:
+        _resolve_item(m, m.name, is_measurement=True)
+
+    for e in entities:
+        _resolve_item(e, e.text)
+
+    # 10. Semantic Structuring Layer (Phase 4)
+    # Assign controlled semantic categories, linguistic modifiers, and related anatomy
+    assign_semantic_metadata(
+        findings=findings,
+        measurements=measurements,
+        entities=entities,
+        anatomy=anatomy,
+        relationships=relationships,
         report_type=report_type,
     )
 

@@ -61,7 +61,25 @@ ECHO_ANATOMY_MAPPINGS: dict[str, str] = {
     "pasp": "pulmonary artery",
     "aortic velocity": "aorta",
     "pulmonary velocity": "pulmonary artery",
-    "no gradient across lvot": "LVOT",
+    "no gradient across lvot": "left ventricular outflow tract",
+    "gradient across lvot": "left ventricular outflow tract",
+    "lvot": "left ventricular outflow tract",
+    "mitral valve: normal": "mitral valve",
+    "mitral valve normal": "mitral valve",
+    "pulmonary valve: normal": "pulmonary valve",
+    "pulmonary valve normal": "pulmonary valve",
+    "normal, opens well": "aortic valve",
+    "opens well": "aortic valve",
+    "no prolapse": "tricuspid valve",
+    "prolapse": "tricuspid valve",
+    "normal 'ef' slope": "pulmonary valve",
+    "normal ef slope": "pulmonary valve",
+    "ef slope": "pulmonary valve",
+    "normal 'a' wave": "pulmonary valve",
+    "normal a wave": "pulmonary valve",
+    "a wave": "pulmonary valve",
+    "no midsystolic notch": "pulmonary valve",
+    "midsystolic notch": "pulmonary valve",
 }
 
 
@@ -96,15 +114,25 @@ def extract_relationships(
 
     # 1. Co-occurrence / Syntactic matching in findings
     for f in findings:
-        f_text_clean = f.text.strip().lower()
+        f_text_clean = " ".join(f.text.strip().lower().replace("‘", "'").replace("’", "'").replace("“", '"').replace("”", '"').split())
+        f_text_no_quotes = f_text_clean.replace("'", "")
+        f_text_no_colon = f_text_clean.replace(":", "")
         f_src = f.source_text or f.text
 
         # Check explicit domain mappings
-        target_anatomy = ECHO_ANATOMY_MAPPINGS.get(f_text_clean)
+        target_anatomy = (
+            ECHO_ANATOMY_MAPPINGS.get(f_text_clean)
+            or ECHO_ANATOMY_MAPPINGS.get(f_text_no_quotes)
+            or ECHO_ANATOMY_MAPPINGS.get(f_text_no_colon)
+        )
         if not target_anatomy:
             # Check if any mapping key is substring of finding
             for k, anat in ECHO_ANATOMY_MAPPINGS.items():
-                if re.search(rf"\b{re.escape(k)}\b", f_text_clean):
+                if (
+                    re.search(rf"\b{re.escape(k)}\b", f_text_clean)
+                    or re.search(rf"\b{re.escape(k)}\b", f_text_no_quotes)
+                    or re.search(rf"\b{re.escape(k)}\b", f_text_no_colon)
+                ):
                     target_anatomy = anat
                     break
 

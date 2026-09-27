@@ -22,6 +22,20 @@ from clinical_extraction.models import (
     ClinicalRelationship,
     EntityType,
     RelationType,
+    SemanticCategory,
+)
+from clinical_extraction.normalization import normalize_term, resolve_term
+from clinical_extraction.semantic import assign_semantic_metadata
+from clinical_extraction.terminology import (
+    AmbiguityStatus,
+    CandidateConcept,
+    ResolutionContext,
+    ResolutionResult,
+    TerminologyCorpus,
+    TerminologyRecord,
+    TerminologyResolver,
+    get_corpus,
+    get_resolver,
 )
 
 __all__ = [
@@ -35,4 +49,17 @@ __all__ = [
     "EntityType",
     "AssertionStatus",
     "RelationType",
+    "SemanticCategory",
+    "assign_semantic_metadata",
+    "normalize_term",
+    "resolve_term",
+    "AmbiguityStatus",
+    "CandidateConcept",
+    "TerminologyRecord",
+    "ResolutionContext",
+    "ResolutionResult",
+    "TerminologyCorpus",
+    "TerminologyResolver",
+    "get_corpus",
+    "get_resolver",
 ]

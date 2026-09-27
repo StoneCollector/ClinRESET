@@ -12,6 +12,7 @@ from __future__ import annotations
 from typing import Optional
 
 from clinical_extraction.models import (
+    AmbiguityStatus,
     AnatomicalEntity,
     AssertionStatus,
     ClinicalEntity,
@@ -43,6 +44,10 @@ def create_entity(
     source_section: Optional[str] = None,
     source_text: Optional[str] = None,
     confidence: float = 1.0,
+    normalization_source: Optional[str] = None,
+    ambiguity: bool = False,
+    ambiguity_status: str = AmbiguityStatus.RESOLVED,
+    candidates: Optional[list[str]] = None,
 ) -> ClinicalEntity:
     """Create a validated ClinicalEntity with complete provenance."""
     if not validate_entity_type(entity_type):
@@ -55,6 +60,10 @@ def create_entity(
         text=text.strip(),
         type=entity_type,
         normalized=normalized,
+        normalization_source=normalization_source,
+        ambiguity=ambiguity,
+        ambiguity_status=ambiguity_status,
+        candidates=candidates or [],
         assertion=assertion,
         negated=negated,
         page=page,
@@ -72,6 +81,10 @@ def create_finding(
     page: Optional[int] = None,
     source_section: Optional[str] = None,
     source_text: Optional[str] = None,
+    normalization_source: Optional[str] = None,
+    ambiguity: bool = False,
+    ambiguity_status: str = AmbiguityStatus.RESOLVED,
+    candidates: Optional[list[str]] = None,
 ) -> ClinicalFinding:
     """Create a ClinicalFinding tracking negation and assertion."""
     if not validate_assertion_status(assertion):
@@ -80,6 +93,10 @@ def create_finding(
     return ClinicalFinding(
         text=text.strip(),
         normalized=normalized,
+        normalization_source=normalization_source,
+        ambiguity=ambiguity,
+        ambiguity_status=ambiguity_status,
+        candidates=candidates or [],
         assertion=assertion,
         negated=negated,
         page=page,
@@ -94,11 +111,19 @@ def create_anatomy(
     page: Optional[int] = None,
     source_section: Optional[str] = None,
     source_text: Optional[str] = None,
+    normalization_source: Optional[str] = None,
+    ambiguity: bool = False,
+    ambiguity_status: str = AmbiguityStatus.RESOLVED,
+    candidates: Optional[list[str]] = None,
 ) -> AnatomicalEntity:
     """Create an AnatomicalEntity tracking location and source."""
     return AnatomicalEntity(
         text=text.strip(),
         normalized=normalized,
+        normalization_source=normalization_source,
+        ambiguity=ambiguity,
+        ambiguity_status=ambiguity_status,
+        candidates=candidates or [],
         page=page,
         source_section=source_section,
         source_text=source_text.strip() if source_text else None,
