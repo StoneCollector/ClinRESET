@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClinRESET — Clinical Report Simplifier</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="app-wrapper">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="brand-container">
+        <div class="brand-logo">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+            <path d="M12 5v14"/>
+            <path d="M5 12h14"/>
+          </svg>
+        </div>
+        <div>
+          <h1 class="brand-title">ClinRESET</h1>
+          <p class="brand-tagline">Clinical Report Simplification & Explanation Tool</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="app-main">
+      <!-- UPLOAD VIEW -->
+      <section id="upload-view" class="view-panel active">
+        <div class="upload-card">
+          <div class="card-intro">
+            <h2>Analyze Medical Report</h2>
+            <p>Upload a clinical PDF to run deterministic extraction, terminology normalization, reference range evaluation, and plain-language explanation generation.</p>
+          </div>
+
+          <!-- Dropzone -->
+          <div id="drop-zone" class="drop-zone">
+            <input type="file" id="pdf-input" accept="application/pdf" hidden>
+            <div class="drop-icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <path d="M12 18v-6"/>
+                <path d="m9 15 3-3 3 3"/>
+              </svg>
+            </div>
+            <div class="drop-text">
+              <h3>Drag & drop medical PDF report</h3>
+              <p>or <button type="button" id="btn-browse" class="btn-text">browse from your computer</button></p>
+            </div>
+            <div class="drop-footer">
+              <span>Standard digital PDF supported</span>
+              <span>•</span>
+              <span>100% Deterministic Engine</span>
+            </div>
+          </div>
+
+          <!-- Processing State (Cosmetic Progress Sequence) -->
+          <div id="processing-state" class="processing-state is-hidden" hidden>
+            <div class="spinner-container">
+              <div class="pulse-ring"></div>
+              <div class="spinner"></div>
+            </div>
+            <h3 id="status-title">Processing Report</h3>
+            <!-- Client-side cosmetic status progression clearly commented in app.js -->
+            <p id="status-text" class="status-animated-text">Extracting document text & tables...</p>
+            <div class="progress-bar-track">
+              <div id="progress-bar-fill" class="progress-bar-fill"></div>
+            </div>
+          </div>
+
+          <!-- Error State -->
+          <div id="error-state" class="error-state is-hidden" hidden>
+            <div class="error-icon">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="12" y1="8" x2="12" y2="12"/>
+                <line x1="12" y1="16" x2="12.01" y2="16"/>
+              </svg>
+            </div>
+            <div class="error-content">
+              <h3>Analysis Failed</h3>
+              <p id="error-message">An error occurred during report processing.</p>
+              <button type="button" id="btn-retry" class="btn-secondary">Try Another File</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESULTS VIEW -->
+      <section id="results-view" class="view-panel is-hidden" hidden>
+        <!-- Top Toolbar -->
+        <div class="results-toolbar">
+          <div class="report-meta-header" id="report-meta-header">
+            <!-- Populated dynamically: report_type, status, confidence -->
+          </div>
+          <button type="button" id="btn-reset" class="btn-secondary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+              <path d="M3 3v5h5"/>
+            </svg>
+            Process Another Report
+          </button>
+        </div>
+
+        <!-- Side Navigation & Action Dock -->
+        <aside class="results-sidebar" id="results-sidebar">
+          <!-- Compact Alert-Color Legend (Minimizable) -->
+          <div class="alert-legend-bar" id="alert-legend-bar">
+            <div class="legend-header" id="legend-header" role="button" tabindex="0" aria-expanded="true" aria-controls="legend-items" title="Click to toggle legend">
+              <div class="legend-title-group">
+                <svg class="legend-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <line x1="12" y1="16" x2="12" y2="12"/>
+                  <line x1="12" y1="8" x2="12.01" y2="8"/>
+                </svg>
+                <span class="legend-title legend-title-expanded">Triage Legend</span>
+                <span class="legend-title legend-title-collapsed">Legend</span>
+              </div>
+              <button type="button" class="btn-legend-toggle" id="btn-legend-toggle" aria-label="Toggle legend">
+                <svg class="toggle-icon-collapse" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m18 15-6-6-6 6"/>
+                </svg>
+                <svg class="toggle-icon-expand" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m6 9 6 6 6-6"/>
+                </svg>
+              </button>
+            </div>
+            <div class="legend-items" id="legend-items">
+              <div class="legend-item">
+                <span class="legend-dot dot-green"></span>
+                <span class="legend-label"><strong>Green</strong> = Within reported range</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-dot dot-yellow"></span>
+                <span class="legend-label"><strong>Yellow</strong> = Notable finding</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-dot dot-orange"></span>
+                <span class="legend-label"><strong>Orange</strong> = Outside reported range</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-dot dot-red"></span>
+                <span class="legend-label"><strong>Red</strong> = Critical</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-dot dot-grey"></span>
+                <span class="legend-label"><strong>Grey</strong> = Unresolved</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section Toggle Buttons Dock -->
+          <div class="section-nav-dock" id="section-nav-dock">
+            <button type="button" class="section-nav-btn" data-section="sec-findings" title="Minimize / Maximize Section 1: Key Clinical Findings">
+              <span class="sec-nav-label-box">
+                <span class="sec-nav-label">Findings</span>
+              </span>
+            </button>
+
+            <button type="button" class="section-nav-btn" data-section="sec-measurements" title="Minimize / Maximize Section 2: Measurements of Interest">
+              <span class="sec-nav-label-box">
+                <span class="sec-nav-label">Measurements</span>
+              </span>
+            </button>
+
+            <button type="button" class="section-nav-btn" data-section="sec-context" title="Minimize / Maximize Section 3: Contextual Relationships">
+              <span class="sec-nav-label-box">
+                <span class="sec-nav-label">Context</span>
+              </span>
+            </button>
+
+            <button type="button" class="section-nav-btn" data-section="sec-limitations" title="Minimize / Maximize Section 4: Clinical Limitations">
+              <span class="sec-nav-label-box">
+                <span class="sec-nav-label">Limitations</span>
+              </span>
+            </button>
+          </div>
+        </aside>
+
+        <!-- 1. Key Findings Section -->
+        <section class="results-section" id="sec-findings">
+          <div class="section-title-wrap">
+            <div class="section-badge-row">
+              <div class="section-badge">Section 1</div>
+              <span class="section-minimized-badge">Minimized — Click to expand</span>
+            </div>
+            <h2>Key Clinical Findings</h2>
+            <span class="section-subtitle">Qualitative observations, wall motion assessments, and structural findings</span>
+          </div>
+          <div id="key-findings-container" class="cards-grid">
+            <!-- Cards rendered dynamically -->
+          </div>
+        </section>
+
+        <!-- 2. Measurements of Interest Section -->
+        <section class="results-section" id="sec-measurements">
+          <div class="section-title-wrap">
+            <div class="section-badge-row">
+              <div class="section-badge">Section 2</div>
+              <span class="section-minimized-badge">Minimized — Click to expand</span>
+            </div>
+            <h2>Measurements of Interest</h2>
+            <span class="section-subtitle">Quantitative dimensions and Doppler velocities evaluated against reported reference ranges</span>
+          </div>
+          <div id="measurements-container" class="measurements-list">
+            <!-- Measurements rendered dynamically -->
+          </div>
+        </section>
+
+        <!-- 3. Contextual Relationships Section -->
+        <section class="results-section" id="sec-context">
+          <div class="section-title-wrap">
+            <div class="section-badge-row">
+              <div class="section-badge neutral">Section 3</div>
+              <span class="section-minimized-badge">Minimized — Click to expand</span>
+            </div>
+            <h2>Contextual Relationships</h2>
+            <span class="section-subtitle">Observed co-occurring findings evaluated in standard clinical assessment</span>
+          </div>
+          <div id="context-container" class="context-grid">
+            <!-- Context cards rendered dynamically -->
+          </div>
+        </section>
+
+        <!-- 4. Clinical Limitations Disclaimer -->
+        <section class="results-section limitations-section" id="sec-limitations">
+          <div class="section-title-wrap">
+            <div class="section-badge-row">
+              <div class="section-badge" style="background-color: rgba(234, 179, 8, 0.15); color: var(--alert-yellow);">Section 4</div>
+              <span class="section-minimized-badge">Minimized — Click to expand</span>
+            </div>
+          </div>
+          <div class="limitations-box">
+            <div class="limitations-header">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
+                <path d="m9 12 2 2 4-4"/>
+              </svg>
+              <h3>Deterministic System Limitations & Clinical Governance</h3>
+            </div>
+            <ul id="limitations-list" class="limitations-list">
+              <!-- Populated dynamically from FinalReport.limitations -->
+            </ul>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <p>ClinRESET — Advanced Agentic Medical Information Extraction & Explanation Framework</p>
+    </footer>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,517 @@
+{
+  "document": {
+    "file_name": "d8091e48-9771-41bf-9885-c16e7448cef7.pdf",
+    "page_count": 1,
+    "source_type": "digital_pdf",
+    "extractor": "pymupdf4llm"
+  },
+  "classification": {
+    "report_type": "unknown",
+    "confidence": 0.2286,
+    "status": "AMBIGUOUS",
+    "evidence": [
+      {
+        "signal_text": "|Patient ID : PA03|| |---|---| ||Plain CT Scan of Brain| |Report :|| |POSTERIOR FOSSA|IV ventricle is normal & midline. ",
+        "signal_category": "strong_keyword",
+        "source_field": "section_text",
+        "weight": 5.0,
+        "page": 1,
+        "section": null,
+        "matched_pattern": "CT scan"
+      },
+      {
+        "signal_text": "|Patient ID : PA03|| |---|---| ||Plain CT Scan of Brain| |Report :|| |POSTERIOR FOSSA|IV ventricle is normal & midline. ",
+        "signal_category": "supporting_keyword",
+        "source_field": "section_text",
+        "weight": 1.5,
+        "page": 1,
+        "section": null,
+        "matched_pattern": "posterior"
+      },
+      {
+        "signal_text": "|Patient ID : PA03|| |---|---| ||Plain CT Scan of Brain| |Report :|| |POSTERIOR FOSSA|IV ventricle is normal & midline. ",
+        "signal_category": "supporting_keyword",
+        "source_field": "section_text",
+        "weight": 1.5,
+        "page": 1,
+        "section": null,
+        "matched_pattern": "left"
+      }
+    ],
+    "alternatives": [
+      {
+        "report_type": "radiology",
+        "score": 8.0,
+        "evidence_count": 3
+      },
+      {
+        "report_type": "echocardiography",
+        "score": 6.5,
+        "evidence_count": 2
+      }
+    ]
+  },
+  "clinical_information": {
+    "entities": [
+      {
+        "text": "| || Plain CT Scan of Brain | | Report : || |POSTERIOR FOSSA|IV ventricle is normal & midline",
+        "type": "FINDING",
+        "normalized": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "assertion": "NORMAL",
+        "negated": false,
+        "page": 1,
+        "source_section": null,
+        "source_text": "| || Plain CT Scan of Brain | | Report : || |POSTERIOR FOSSA|IV ventricle is normal & midline",
+        "confidence": 1.0,
+        "semantic_category": "OTHER_CLINICAL",
+        "modifiers": {},
+        "related_anatomy": []
+      },
+      {
+        "text": "Both cerebellar hemisphere &<br>region of brain stem are normal.| |SUPRATENTORIAL|Focal small gliosis is seen in left basal ganglia.| ||3<sup>rd</sup>ventricle & both lateral ventricles are prominent & shape<br>with septum in midline.| ||Elsewhere attenuation value of brain parenchyma is normal.| ||Both sylvian fissure , cortical sulci & basal cistern are<br>prominent.| | Impression | Focal small gliosis in left basal ganglia .| || Age related diffuse cerebral atrophy",
+        "type": "FINDING",
+        "normalized": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "assertion": "NORMAL",
+        "negated": false,
+        "page": 1,
+        "source_section": null,
+        "source_text": "Both cerebellar hemisphere &<br>region of brain stem are normal.| |SUPRATENTORIAL|Focal small gliosis is seen in left basal ganglia.| ||3<sup>rd</sup>ventricle & both lateral ventricles are prominent & shape<br>with septum in midline.| ||Elsewhere attenuation value of brain parenchyma is normal.| ||Both sylvian fissure , cortical sulci & basal cistern are<br>prominent.| | Impression | Focal small gliosis in left basal ganglia .| || Age related diffuse cerebral atrophy",
+        "confidence": 1.0,
+        "semantic_category": "STRUCTURAL_FINDING",
+        "modifiers": {},
+        "related_anatomy": [
+          "Left Atrium",
+          "Left Ventricle"
+        ]
+      },
+      {
+        "text": "brain",
+        "type": "ANATOMY",
+        "normalized": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 1,
+        "source_section": null,
+        "source_text": "lar hemisphere &<br>region of brain stem are normal.|\n|SUPRATENTO",
+        "confidence": 1.0,
+        "semantic_category": "ANATOMY",
+        "modifiers": {},
+        "related_anatomy": [
+          "Brain"
+        ]
+      }
+    ],
+    "measurements": [],
+    "findings": [
+      {
+        "text": "| || Plain CT Scan of Brain | | Report : || |POSTERIOR FOSSA|IV ventricle is normal & midline",
+        "normalized": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "assertion": "NORMAL",
+        "negated": false,
+        "page": 1,
+        "source_section": null,
+        "source_text": "| || Plain CT Scan of Brain | | Report : || |POSTERIOR FOSSA|IV ventricle is normal & midline",
+        "semantic_category": "OTHER_CLINICAL",
+        "modifiers": {},
+        "related_anatomy": []
+      },
+      {
+        "text": "Both cerebellar hemisphere &<br>region of brain stem are normal.| |SUPRATENTORIAL|Focal small gliosis is seen in left basal ganglia.| ||3<sup>rd</sup>ventricle & both lateral ventricles are prominent & shape<br>with septum in midline.| ||Elsewhere attenuation value of brain parenchyma is normal.| ||Both sylvian fissure , cortical sulci & basal cistern are<br>prominent.| | Impression | Focal small gliosis in left basal ganglia .| || Age related diffuse cerebral atrophy",
+        "normalized": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "assertion": "NORMAL",
+        "negated": false,
+        "page": 1,
+        "source_section": null,
+        "source_text": "Both cerebellar hemisphere &<br>region of brain stem are normal.| |SUPRATENTORIAL|Focal small gliosis is seen in left basal ganglia.| ||3<sup>rd</sup>ventricle & both lateral ventricles are prominent & shape<br>with septum in midline.| ||Elsewhere attenuation value of brain parenchyma is normal.| ||Both sylvian fissure , cortical sulci & basal cistern are<br>prominent.| | Impression | Focal small gliosis in left basal ganglia .| || Age related diffuse cerebral atrophy",
+        "semantic_category": "STRUCTURAL_FINDING",
+        "modifiers": {},
+        "related_anatomy": [
+          "Left Atrium",
+          "Left Ventricle"
+        ]
+      }
+    ],
+    "anatomy": [
+      {
+        "text": "brain",
+        "normalized": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "page": 1,
+        "source_section": null,
+        "source_text": "lar hemisphere &<br>region of brain stem are normal.|\n|SUPRATENTO",
+        "semantic_category": "ANATOMY",
+        "modifiers": {}
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Both cerebellar hemisphere &<br>region of brain stem are normal.| |SUPRATENTORIAL|Focal small gliosis is seen in left basal ganglia.| ||3<sup>rd</sup>ventricle & both lateral ventricles are prominent & shape<br>with septum in midline.| ||Elsewhere attenuation value of brain parenchyma is normal.| ||Both sylvian fissure , cortical sulci & basal cistern are<br>prominent.| | Impression | Focal small gliosis in left basal ganglia .| || Age related diffuse cerebral atrophy",
+        "relation": "ASSOCIATED_WITH",
+        "target": "left atrium",
+        "page": 1,
+        "source_text": "Both cerebellar hemisphere &<br>region of brain stem are normal.| |SUPRATENTORIAL|Focal small gliosis is seen in left basal ganglia.| ||3<sup>rd</sup>ventricle & both lateral ventricles are prominent & shape<br>with septum in midline.| ||Elsewhere attenuation value of brain parenchyma is normal.| ||Both sylvian fissure , cortical sulci & basal cistern are<br>prominent.| | Impression | Focal small gliosis in left basal ganglia .| || Age related diffuse cerebral atrophy"
+      },
+      {
+        "source": "Both cerebellar hemisphere &<br>region of brain stem are normal.| |SUPRATENTORIAL|Focal small gliosis is seen in left basal ganglia.| ||3<sup>rd</sup>ventricle & both lateral ventricles are prominent & shape<br>with septum in midline.| ||Elsewhere attenuation value of brain parenchyma is normal.| ||Both sylvian fissure , cortical sulci & basal cistern are<br>prominent.| | Impression | Focal small gliosis in left basal ganglia .| || Age related diffuse cerebral atrophy",
+        "relation": "ASSOCIATED_WITH",
+        "target": "left ventricle",
+        "page": 1,
+        "source_text": "Both cerebellar hemisphere &<br>region of brain stem are normal.| |SUPRATENTORIAL|Focal small gliosis is seen in left basal ganglia.| ||3<sup>rd</sup>ventricle & both lateral ventricles are prominent & shape<br>with septum in midline.| ||Elsewhere attenuation value of brain parenchyma is normal.| ||Both sylvian fissure , cortical sulci & basal cistern are<br>prominent.| | Impression | Focal small gliosis in left basal ganglia .| || Age related diffuse cerebral atrophy"
+      }
+    ],
+    "structured_clinical_concepts": [
+      {
+        "concept": "| || Plain CT Scan of Brain | | Report : || |POSTERIOR FOSSA|IV ventricle is normal & midline",
+        "original_text": "| || Plain CT Scan of Brain | | Report : || |POSTERIOR FOSSA|IV ventricle is normal & midline",
+        "type": "FINDING",
+        "semantic_category": "OTHER_CLINICAL",
+        "value": null,
+        "unit": null,
+        "reference_range": null,
+        "assertion": "NORMAL",
+        "modifiers": {},
+        "related_anatomy": [],
+        "provenance": {
+          "page": 1,
+          "source_section": null,
+          "source_text": "| || Plain CT Scan of Brain | | Report : || |POSTERIOR FOSSA|IV ventricle is normal & midline",
+          "normalization_source": null,
+          "ambiguity": false,
+          "ambiguity_status": "UNKNOWN",
+          "candidates": []
+        }
+      },
+      {
+        "concept": "Both cerebellar hemisphere &<br>region of brain stem are normal.| |SUPRATENTORIAL|Focal small gliosis is seen in left basal ganglia.| ||3<sup>rd</sup>ventricle & both lateral ventricles are prominent & shape<br>with septum in midline.| ||Elsewhere attenuation value of brain parenchyma is normal.| ||Both sylvian fissure , cortical sulci & basal cistern are<br>prominent.| | Impression | Focal small gliosis in left basal ganglia .| || Age related diffuse cerebral atrophy",
+        "original_text": "Both cerebellar hemisphere &<br>region of brain stem are normal.| |SUPRATENTORIAL|Focal small gliosis is seen in left basal ganglia.| ||3<sup>rd</sup>ventricle & both lateral ventricles are prominent & shape<br>with septum in midline.| ||Elsewhere attenuation value of brain parenchyma is normal.| ||Both sylvian fissure , cortical sulci & basal cistern are<br>prominent.| | Impression | Focal small gliosis in left basal ganglia .| || Age related diffuse cerebral atrophy",
+        "type": "FINDING",
+        "semantic_category": "STRUCTURAL_FINDING",
+        "value": null,
+        "unit": null,
+        "reference_range": null,
+        "assertion": "NORMAL",
+        "modifiers": {},
+        "related_anatomy": [
+          "Left Atrium",
+          "Left Ventricle"
+        ],
+        "provenance": {
+          "page": 1,
+          "source_section": null,
+          "source_text": "Both cerebellar hemisphere &<br>region of brain stem are normal.| |SUPRATENTORIAL|Focal small gliosis is seen in left basal ganglia.| ||3<sup>rd</sup>ventricle & both lateral ventricles are prominent & shape<br>with septum in midline.| ||Elsewhere attenuation value of brain parenchyma is normal.| ||Both sylvian fissure , cortical sulci & basal cistern are<br>prominent.| | Impression | Focal small gliosis in left basal ganglia .| || Age related diffuse cerebral atrophy",
+          "normalization_source": null,
+          "ambiguity": false,
+          "ambiguity_status": "UNKNOWN",
+          "candidates": []
+        }
+      }
+    ],
+    "explanations": [
+      {
+        "concept": "| || Plain CT Scan of Brain | | Report : || |POSTERIOR FOSSA|IV ventricle is normal & midline",
+        "original_text": "| || Plain CT Scan of Brain | | Report : || |POSTERIOR FOSSA|IV ventricle is normal & midline",
+        "type": "FINDING",
+        "semantic_category": "OTHER_CLINICAL",
+        "assertion": "NORMAL",
+        "value": null,
+        "unit": null,
+        "reference_range": null,
+        "related_anatomy": [],
+        "modifiers": {},
+        "status": "EXPLANATION_UNAVAILABLE",
+        "explanation": "Explanation unavailable: unmapped or unknown concept.",
+        "provenance": {
+          "page": 1,
+          "source_section": null,
+          "source_text": "| || Plain CT Scan of Brain | | Report : || |POSTERIOR FOSSA|IV ventricle is normal & midline",
+          "normalization_source": null,
+          "ambiguity": false,
+          "ambiguity_status": "UNKNOWN",
+          "candidates": []
+        },
+        "unavailability_reason": "UNKNOWN_CONCEPT"
+      },
+      {
+        "concept": "Both cerebellar hemisphere &<br>region of brain stem are normal.| |SUPRATENTORIAL|Focal small gliosis is seen in left basal ganglia.| ||3<sup>rd</sup>ventricle & both lateral ventricles are prominent & shape<br>with septum in midline.| ||Elsewhere attenuation value of brain parenchyma is normal.| ||Both sylvian fissure , cortical sulci & basal cistern are<br>prominent.| | Impression | Focal small gliosis in left basal ganglia .| || Age related diffuse cerebral atrophy",
+        "original_text": "Both cerebellar hemisphere &<br>region of brain stem are normal.| |SUPRATENTORIAL|Focal small gliosis is seen in left basal ganglia.| ||3<sup>rd</sup>ventricle & both lateral ventricles are prominent & shape<br>with septum in midline.| ||Elsewhere attenuation value of brain parenchyma is normal.| ||Both sylvian fissure , cortical sulci & basal cistern are<br>prominent.| | Impression | Focal small gliosis in left basal ganglia .| || Age related diffuse cerebral atrophy",
+        "type": "FINDING",
+        "semantic_category": "STRUCTURAL_FINDING",
+        "assertion": "NORMAL",
+        "value": null,
+        "unit": null,
+        "reference_range": null,
+        "related_anatomy": [
+          "Left Atrium",
+          "Left Ventricle"
+        ],
+        "modifiers": {},
+        "status": "EXPLANATION_UNAVAILABLE",
+        "explanation": "Explanation unavailable: unmapped or unknown concept.",
+        "provenance": {
+          "page": 1,
+          "source_section": null,
+          "source_text": "Both cerebellar hemisphere &<br>region of brain stem are normal.| |SUPRATENTORIAL|Focal small gliosis is seen in left basal ganglia.| ||3<sup>rd</sup>ventricle & both lateral ventricles are prominent & shape<br>with septum in midline.| ||Elsewhere attenuation value of brain parenchyma is normal.| ||Both sylvian fissure , cortical sulci & basal cistern are<br>prominent.| | Impression | Focal small gliosis in left basal ganglia .| || Age related diffuse cerebral atrophy",
+          "normalization_source": null,
+          "ambiguity": false,
+          "ambiguity_status": "UNKNOWN",
+          "candidates": []
+        },
+        "unavailability_reason": "UNKNOWN_CONCEPT"
+      }
+    ],
+    "explanation_sections": [
+      {
+        "title": "Heart Structure",
+        "category": "STRUCTURAL_FINDING",
+        "explanations": [
+          {
+            "concept": "Both cerebellar hemisphere &<br>region of brain stem are normal.| |SUPRATENTORIAL|Focal small gliosis is seen in left basal ganglia.| ||3<sup>rd</sup>ventricle & both lateral ventricles are prominent & shape<br>with septum in midline.| ||Elsewhere attenuation value of brain parenchyma is normal.| ||Both sylvian fissure , cortical sulci & basal cistern are<br>prominent.| | Impression | Focal small gliosis in left basal ganglia .| || Age related diffuse cerebral atrophy",
+            "original_text": "Both cerebellar hemisphere &<br>region of brain stem are normal.| |SUPRATENTORIAL|Focal small gliosis is seen in left basal ganglia.| ||3<sup>rd</sup>ventricle & both lateral ventricles are prominent & shape<br>with septum in midline.| ||Elsewhere attenuation value of brain parenchyma is normal.| ||Both sylvian fissure , cortical sulci & basal cistern are<br>prominent.| | Impression | Focal small gliosis in left basal ganglia .| || Age related diffuse cerebral atrophy",
+            "type": "FINDING",
+            "semantic_category": "STRUCTURAL_FINDING",
+            "assertion": "NORMAL",
+            "value": null,
+            "unit": null,
+            "reference_range": null,
+            "related_anatomy": [
+              "Left Atrium",
+              "Left Ventricle"
+            ],
+            "modifiers": {},
+            "status": "EXPLANATION_UNAVAILABLE",
+            "explanation": "Explanation unavailable: unmapped or unknown concept.",
+            "provenance": {
+              "page": 1,
+              "source_section": null,
+              "source_text": "Both cerebellar hemisphere &<br>region of brain stem are normal.| |SUPRATENTORIAL|Focal small gliosis is seen in left basal ganglia.| ||3<sup>rd</sup>ventricle & both lateral ventricles are prominent & shape<br>with septum in midline.| ||Elsewhere attenuation value of brain parenchyma is normal.| ||Both sylvian fissure , cortical sulci & basal cistern are<br>prominent.| | Impression | Focal small gliosis in left basal ganglia .| || Age related diffuse cerebral atrophy",
+              "normalization_source": null,
+              "ambiguity": false,
+              "ambiguity_status": "UNKNOWN",
+              "candidates": []
+            },
+            "unavailability_reason": "UNKNOWN_CONCEPT"
+          }
+        ]
+      },
+      {
+        "title": "Other Findings",
+        "category": "OTHER_CLINICAL",
+        "explanations": [
+          {
+            "concept": "| || Plain CT Scan of Brain | | Report : || |POSTERIOR FOSSA|IV ventricle is normal & midline",
+            "original_text": "| || Plain CT Scan of Brain | | Report : || |POSTERIOR FOSSA|IV ventricle is normal & midline",
+            "type": "FINDING",
+            "semantic_category": "OTHER_CLINICAL",
+            "assertion": "NORMAL",
+            "value": null,
+            "unit": null,
+            "reference_range": null,
+            "related_anatomy": [],
+            "modifiers": {},
+            "status": "EXPLANATION_UNAVAILABLE",
+            "explanation": "Explanation unavailable: unmapped or unknown concept.",
+            "provenance": {
+              "page": 1,
+              "source_section": null,
+              "source_text": "| || Plain CT Scan of Brain | | Report : || |POSTERIOR FOSSA|IV ventricle is normal & midline",
+              "normalization_source": null,
+              "ambiguity": false,
+              "ambiguity_status": "UNKNOWN",
+              "candidates": []
+            },
+            "unavailability_reason": "UNKNOWN_CONCEPT"
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "title": null,
+      "page": 1,
+      "text": "|**Patient ID : PA03**||\n|---|---|\n||**_Plain CT Scan of  Brain_**|\n|**Report :**||\n|POSTERIOR FOSSA|IV ventricle is normal & midline. Both cerebellar hemisphere &<br>region of brain stem are normal.|\n|SUPRATENTORIAL|Focal small gliosis is seen in left basal ganglia.|\n||3<sup>rd</sup>ventricle  & both lateral ventricles are prominent & shape<br>with  septum in midline.|\n||Elsewhere attenuation value of brain parenchyma is normal.|\n||Both sylvian fissure , cortical sulci & basal cistern are<br>prominent.|\n|**Impression**|**Focal small gliosis in left basal ganglia**.|\n||**Age related diffuse cerebral atrophy.**|\n||Advise: Clinical correlation|",
+      "table_refs": []
+    }
+  ],
+  "tables": [
+    {
+      "title": null,
+      "page": 1,
+      "headers": [
+        "**Patient ID : PA03**"
+      ],
+      "rows": [
+        {
+          "name": null,
+          "value": null,
+          "unit": null,
+          "reference_range": null,
+          "extra": {
+            "Patient ID : PA03": "Plain CT Scan of  Brain"
+          }
+        },
+        {
+          "name": null,
+          "value": null,
+          "unit": null,
+          "reference_range": null,
+          "extra": {
+            "Patient ID : PA03": "Report :"
+          }
+        },
+        {
+          "name": null,
+          "value": null,
+          "unit": null,
+          "reference_range": null,
+          "extra": {
+            "Patient ID : PA03": "POSTERIOR FOSSA"
+          }
+        },
+        {
+          "name": null,
+          "value": null,
+          "unit": null,
+          "reference_range": null,
+          "extra": {
+            "Patient ID : PA03": "SUPRATENTORIAL"
+          }
+        },
+        {
+          "name": null,
+          "value": null,
+          "unit": null,
+          "reference_range": null,
+          "extra": {
+            "Patient ID : PA03": "3<sup>rd</sup>ventricle  & both lateral ventricles are prominent & shape with  septum in midline."
+          }
+        },
+        {
+          "name": null,
+          "value": null,
+          "unit": null,
+          "reference_range": null,
+          "extra": {
+            "Patient ID : PA03": "Elsewhere attenuation value of brain parenchyma is normal."
+          }
+        },
+        {
+          "name": null,
+          "value": null,
+          "unit": null,
+          "reference_range": null,
+          "extra": {
+            "Patient ID : PA03": "Both sylvian fissure , cortical sulci & basal cistern are prominent."
+          }
+        },
+        {
+          "name": null,
+          "value": null,
+          "unit": null,
+          "reference_range": null,
+          "extra": {
+            "Patient ID : PA03": "Impression"
+          }
+        },
+        {
+          "name": null,
+          "value": null,
+          "unit": null,
+          "reference_range": null,
+          "extra": {
+            "Patient ID : PA03": "Age related diffuse cerebral atrophy."
+          }
+        },
+        {
+          "name": null,
+          "value": null,
+          "unit": null,
+          "reference_range": null,
+          "extra": {
+            "Patient ID : PA03": "Advise: Clinical correlation"
+          }
+        }
+      ],
+      "raw_rows": [
+        [
+          "**Patient ID : PA03**"
+        ],
+        [
+          "**Patient ID : PA03**"
+        ],
+        [
+          "**_Plain CT Scan of  Brain_**"
+        ],
+        [
+          "**Report :**"
+        ],
+        [
+          "POSTERIOR FOSSA",
+          "IV ventricle is normal & midline. Both cerebellar hemisphere &<br>region of brain stem are normal."
+        ],
+        [
+          "SUPRATENTORIAL",
+          "Focal small gliosis is seen in left basal ganglia."
+        ],
+        [
+          "3<sup>rd</sup>ventricle  & both lateral ventricles are prominent & shape<br>with  septum in midline."
+        ],
+        [
+          "Elsewhere attenuation value of brain parenchyma is normal."
+        ],
+        [
+          "Both sylvian fissure , cortical sulci & basal cistern are<br>prominent."
+        ],
+        [
+          "**Impression**",
+          "**Focal small gliosis in left basal ganglia**."
+        ],
+        [
+          "**Age related diffuse cerebral atrophy.**"
+        ],
+        [
+          "Advise: Clinical correlation"
+        ]
+      ]
+    }
+  ],
+  "measurements": [],
+  "raw": {
+    "text": "|Patient ID : PA03||\n|---|---|\n||Plain CT Scan of  Brain|\n|Report :||\n|POSTERIOR FOSSA|IV ventricle is normal & midline. Both cerebellar hemisphere &<br>region of brain stem are normal.|\n|SUPRATENTORIAL|Focal small gliosis is seen in left basal ganglia.|\n||3<sup>rd</sup>ventricle  & both lateral ventricles are prominent & shape<br>with  septum in midline.|\n||Elsewhere attenuation value of brain parenchyma is normal.|\n||Both sylvian fissure , cortical sulci & basal cistern are<br>prominent.|\n|Impression|Focal small gliosis in left basal ganglia.|\n||Age related diffuse cerebral atrophy.|\n||Advise: Clinical correlation|",
+    "markdown": "\n<!-- page 1 -->\n|**Patient ID : PA03**||\n|---|---|\n||**_Plain CT Scan of  Brain_**|\n|**Report :**||\n|POSTERIOR FOSSA|IV ventricle is normal & midline. Both cerebellar hemisphere &<br>region of brain stem are normal.|\n|SUPRATENTORIAL|Focal small gliosis is seen in left basal ganglia.|\n||3<sup>rd</sup>ventricle  & both lateral ventricles are prominent & shape<br>with  septum in midline.|\n||Elsewhere attenuation value of brain parenchyma is normal.|\n||Both sylvian fissure , cortical sulci & basal cistern are<br>prominent.|\n|**Impression**|**Focal small gliosis in left basal ganglia**.|\n||**Age related diffuse cerebral atrophy.**|\n||Advise: Clinical correlation|\n\n\n\n"
+  },
+  "validation": {
+    "status": "GOOD",
+    "warnings": [
+      "[table_coherence] Minor table inconsistencies (3/11 rows)",
+      "[heading_preservation] No recognisable headings found (Markdown or ALL-CAPS)."
+    ],
+    "scores": {
+      "non_empty": 1.0,
+      "garbage_ratio": 1.0,
+      "meaningful_words": 1.0,
+      "line_count": 1.0,
+      "table_coherence": 0.7,
+      "heading_preservation": 0.8,
+      "measurement_plausibility": 1.0,
+      "_aggregate": 0.9389
+    }
+  }
+}
