@@ -1,0 +1,83 @@
+[1] UncategorizedText
+NAME: PA01 DATED:
+
+[2] Title
+AGE/SEX: 61y /F REF BY: IPD
+
+[3] Title
+ECHO CARDIOGRAPHY REPORT
+
+[4] UncategorizedText
+MITRAL VALVE :
+
+[5] Title
+Normal
+
+[6] Title
+TRICUSPID VALVE : Thin. Opening well. No Prolapse.
+
+[7] UncategorizedText
+AORTIC VALVE:
+
+[8] NarrativeText
+Tricuspid, normal, opens well.
+
+[9] NarrativeText
+PULMONARY VALVE: Normal. Normal ‘EF’ slope. Normal ‘A’ wave. No
+
+[10] Title
+midsystolic notch.
+
+[11] Title
+M-MODE PARAMETERS MEASUREMENTS Aortic root diameter Left Atrial diameter
+
+[12] UncategorizedText
+23 25
+
+[13] Title
+(NORMAL VALUES) (20-37mm) (19-40mm)
+
+[14] NarrativeText
+Left Ventricular ED Dimension Left Ventricular ES Dimension Inter Vent. Septum thickness D LV posterior wall thickness D LEFT VENTRICLE FUNCTION INDICES Ejection Fraction Fractional shortening
+
+[15] UncategorizedText
+42 25 13 10
+
+[16] UncategorizedText
+60 % 32.5%
+
+[17] UncategorizedText
+(33-55mm) (22-40mm) (06-11mm) (06-11mm)
+
+[18] Title
+NORMAL VALUES
+
+[19] UncategorizedText
+(55-74%) (28-40%)
+
+[20] UncategorizedText
+ON INTERROGATING WITH PULSE & CONTINUOUS WAVE DOPPLER IT WAS FOUND THAT THERE IS:-
+
+[21] NarrativeText
+No Aortic regurgitation. No Pulmonary regurgitation present. No gradient across LVOT Mitral inflow. E <A
+
+[22] Title
+Aortic Velocity = 1.47 m/s
+
+[23] NarrativeText
+Pulmonary velocity = 1.0m/s
+
+[24] Title
+OTHERS
+
+[25] UncategorizedText
+IAS/IVS intact No evidence of any mass / vegetation No effusion No LA/LV clot
+
+[26] UncategorizedText
+FINAL IMPRESSION: -
+
+[27] ListItem
+Conc LVH, No RWMA • EF- 60% normal LV function • Grade 1 LVDD • Mild TR PASP=34mmHg. • Normal RV function
+
+[28] Title
+Consultant DM Cardiologist

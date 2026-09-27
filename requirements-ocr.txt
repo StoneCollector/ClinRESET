@@ -1,0 +1,20 @@
+# ClinRESET — OCR dependencies (OPTIONAL, for scanned PDFs only)
+#
+# These packages are NOT required for normal digital-PDF processing.
+# Install this file only when OCR support is needed:
+#
+#     pip install -r requirements-ocr.txt
+#
+# The OCR implementation is currently PENDING.
+# See extraction/ocr/interface.py for implementation guidance.
+
+# Tesseract-based OCR (requires system Tesseract installation)
+# pytesseract>=0.3.10
+# pdf2image>=1.17.0
+
+# Neural OCR (no system Tesseract required)
+# easyocr>=1.7.0
+
+# Cloud OCR (requires API credentials)
+# google-cloud-vision>=3.7.0
+# azure-cognitiveservices-vision-computervision>=0.9.0

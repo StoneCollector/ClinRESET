@@ -1,106 +1,45 @@
 --- PAGE 1 ---
 
-NAME: PA01 DATED:
-AGE/SEX: 61y /F REF BY: IPD
+NAME: PA01 | DATED:
+AGE/SEX: 61y /F | REF BY: IPD
 ECHO CARDIOGRAPHY REPORT
-
-MITRAL VALVE :
-Normal
-TRICUSPID VALVE : Thin. Opening well. No Prolapse.
-
-AORTIC VALVE:
-Tricuspid, normal, opens well.
-
-PULMONARY VALVE: Normal. Normal ‘EF’ slope. Normal ‘A’ wave. No
+MITRAL VALVE : | Normal
+TRICUSPID VALVE : | Thin. Opening well. No Prolapse.
+AORTIC VALVE: | Tricuspid, normal, opens well.
+PULMONARY VALVE: | Normal. Normal ‘EF’ slope. Normal ‘A’ wave. No
 midsystolic notch.
-
-
-
-
 M-MODE PARAMETERS
-MEASUREMENTS
-
-
-(NORMAL VALUES)
-Aortic root diameter
-23
-
-(20-37mm)
-Left Atrial diameter
-25
-
-(19-40mm)
-Left Ventricular ED Dimension
-42
-
-(33-55mm)
-Left Ventricular ES Dimension
-25
-
-(22-40mm)
-Inter Vent. Septum thickness D
-13
-
-(06-11mm)
-LV posterior wall thickness D
-10
-
-(06-11mm)
-LEFT VENTRICLE FUNCTION
+MEASUREMENTS | (NORMAL VALUES)
+Aortic root diameter | 23 | (20-37mm)
+Left Atrial diameter | 25 | (19-40mm)
+Left Ventricular ED Dimension | 42 | (33-55mm)
+Left Ventricular ES Dimension | 25 | (22-40mm)
+Inter Vent. Septum thickness D | 13 | (06-11mm)
+LV posterior wall thickness D | 10 | (06-11mm)
+LEFT VENTRICLE FUNCTION | NORMAL VALUES
 INDICES
-
-
-NORMAL VALUES
-Ejection Fraction
-Fractional shortening
-60 %
-32.5%
-
-(55-74%)
-(28-40%)
+Ejection Fraction | 60 % | (55-74%)
+Fractional shortening | 32.5% | (28-40%)
 
 --- PAGE 2 ---
 
 ON INTERROGATING WITH PULSE & CONTINUOUS WAVE DOPPLER IT WAS
 FOUND THAT THERE IS:-
-
 No Aortic regurgitation.
-
-
-
 No Pulmonary regurgitation present.
-
-
-
-
 No gradient across LVOT
-
-
-
-
 Mitral inflow. E <A
 Aortic Velocity = 1.47 m/s
 Pulmonary velocity = 1.0m/s
-
 OTHERS
 IAS/IVS intact
 No evidence of any mass / vegetation
 No effusion
 No LA/LV clot
-
-
 FINAL IMPRESSION: -
-
 • Conc LVH, No RWMA
 • EF- 60% normal LV function
 • Grade 1 LVDD
 • Mild TR PASP=34mmHg.
 • Normal RV function
-
-
-
-
-
-
-
 Consultant DM Cardiologist

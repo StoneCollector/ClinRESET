@@ -1,0 +1,10 @@
+# ClinRESET — Production dependencies
+# Extraction layer: digital PDF path only.
+#
+# These are the ONLY libraries required for normal production use.
+# Do NOT add pdfplumber, pypdfium2, pypdf, textract, unstructured, or
+# marker-pdf to this file.  Those are available only for benchmark/research
+# purposes.
+
+pymupdf>=1.24.0
+pymupdf4llm>=0.0.17

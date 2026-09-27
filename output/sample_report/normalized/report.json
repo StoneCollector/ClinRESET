@@ -1,0 +1,1741 @@
+{
+  "document": {
+    "file_name": "sample_report.pdf",
+    "page_count": 2,
+    "source_type": "digital_pdf",
+    "extractor": "pymupdf4llm"
+  },
+  "classification": {
+    "report_type": "echocardiography",
+    "confidence": 1.0,
+    "status": "CONFIDENT",
+    "evidence": [
+      {
+        "signal_text": "ECHO CARDIOGRAPHY REPORT",
+        "signal_category": "title_match",
+        "source_field": "document_title",
+        "weight": 15.0,
+        "page": 1,
+        "section": null,
+        "matched_pattern": "ECHO CARDIOGRAPHY REPORT"
+      },
+      {
+        "signal_text": "ECHO CARDIOGRAPHY REPORT",
+        "signal_category": "title_match",
+        "source_field": "section_title",
+        "weight": 9.0,
+        "page": 1,
+        "section": "ECHO CARDIOGRAPHY REPORT",
+        "matched_pattern": "ECHO CARDIOGRAPHY REPORT"
+      },
+      {
+        "signal_text": "M-MODE PARAMETERS",
+        "signal_category": "section_indicator",
+        "source_field": "section_title",
+        "weight": 9.0,
+        "page": 1,
+        "section": "M-MODE PARAMETERS",
+        "matched_pattern": "M-MODE PARAMETERS"
+      },
+      {
+        "signal_text": "ON INTERROGATING WITH PULSE & CONTINUOUS WAVE DOPPLER IT WAS FOUND THAT THERE IS:-",
+        "signal_category": "section_indicator",
+        "source_field": "section_title",
+        "weight": 9.0,
+        "page": 2,
+        "section": "ON INTERROGATING WITH PULSE & CONTINUOUS WAVE DOPPLER IT WAS FOUND THAT THERE IS:-",
+        "matched_pattern": "DOPPLER"
+      },
+      {
+        "signal_text": "ON INTERROGATING WITH PULSE & CONTINUOUS WAVE DOPPLER IT WAS FOUND THAT THERE IS:-",
+        "signal_category": "section_indicator",
+        "source_field": "section_title",
+        "weight": 9.0,
+        "page": 2,
+        "section": "ON INTERROGATING WITH PULSE & CONTINUOUS WAVE DOPPLER IT WAS FOUND THAT THERE IS:-",
+        "matched_pattern": "CONTINUOUS WAVE DOPPLER"
+      },
+      {
+        "signal_text": "FINAL IMPRESSION: -",
+        "signal_category": "section_indicator",
+        "source_field": "section_title",
+        "weight": 9.0,
+        "page": 2,
+        "section": "FINAL IMPRESSION: -",
+        "matched_pattern": "FINAL IMPRESSION"
+      },
+      {
+        "signal_text": "M-MODE PARAMETERS",
+        "signal_category": "table_indicator",
+        "source_field": "table_title",
+        "weight": 7.0,
+        "page": 1,
+        "section": "M-MODE PARAMETERS",
+        "matched_pattern": "M-MODE PARAMETERS"
+      },
+      {
+        "signal_text": "Aortic root diameter",
+        "signal_category": "measurement_indicator",
+        "source_field": "measurement_name",
+        "weight": 5.0,
+        "page": 1,
+        "section": "## **<u>M-MODE PARAMETERS</u>**",
+        "matched_pattern": "Aortic root diameter"
+      },
+      {
+        "signal_text": "Left Atrial diameter",
+        "signal_category": "measurement_indicator",
+        "source_field": "measurement_name",
+        "weight": 5.0,
+        "page": 1,
+        "section": "## **<u>M-MODE PARAMETERS</u>**",
+        "matched_pattern": "Left Atrial diameter"
+      },
+      {
+        "signal_text": "Left Ventricular ED Dimension",
+        "signal_category": "measurement_indicator",
+        "source_field": "measurement_name",
+        "weight": 5.0,
+        "page": 1,
+        "section": "## **<u>M-MODE PARAMETERS</u>**",
+        "matched_pattern": "Left Ventricular ED Dimension"
+      },
+      {
+        "signal_text": "Left Ventricular ES Dimension",
+        "signal_category": "measurement_indicator",
+        "source_field": "measurement_name",
+        "weight": 5.0,
+        "page": 1,
+        "section": "## **<u>M-MODE PARAMETERS</u>**",
+        "matched_pattern": "Left Ventricular ES Dimension"
+      },
+      {
+        "signal_text": "Inter Vent. Septum thickness D",
+        "signal_category": "measurement_indicator",
+        "source_field": "measurement_name",
+        "weight": 5.0,
+        "page": 1,
+        "section": "## **<u>M-MODE PARAMETERS</u>**",
+        "matched_pattern": "Inter Vent. Septum thickness"
+      },
+      {
+        "signal_text": "LVposterior wall thickness D",
+        "signal_category": "measurement_indicator",
+        "source_field": "measurement_name",
+        "weight": 5.0,
+        "page": 1,
+        "section": "## **<u>M-MODE PARAMETERS</u>**",
+        "matched_pattern": "LVposterior wall thickness"
+      },
+      {
+        "signal_text": "Ejection Fraction",
+        "signal_category": "measurement_indicator",
+        "source_field": "measurement_name",
+        "weight": 5.0,
+        "page": 1,
+        "section": "## **<u>M-MODE PARAMETERS</u>**",
+        "matched_pattern": "Ejection Fraction"
+      },
+      {
+        "signal_text": "Fractional shortening",
+        "signal_category": "measurement_indicator",
+        "source_field": "measurement_name",
+        "weight": 5.0,
+        "page": 1,
+        "section": "## **<u>M-MODE PARAMETERS</u>**",
+        "matched_pattern": "Fractional shortening"
+      },
+      {
+        "signal_text": "|MEASUREMENTS||(NORMAL VALUES)| |---|---|---| |Aortic root diameter|23|(20-37mm)| |Left Atrial diameter|25|(19-40mm)| |L",
+        "signal_category": "strong_keyword",
+        "source_field": "section_text",
+        "weight": 5.0,
+        "page": 1,
+        "section": "**<u>M-MODE PARAMETERS</u>**",
+        "matched_pattern": "Ejection Fraction"
+      },
+      {
+        "signal_text": "Left Atrial diameter",
+        "signal_category": "strong_keyword",
+        "source_field": "measurement_name",
+        "weight": 5.0,
+        "page": 1,
+        "section": "## **<u>M-MODE PARAMETERS</u>**",
+        "matched_pattern": "EF"
+      },
+      {
+        "signal_text": "NAME: PA01 DATED: AGE/SEX: 61y /F REF BY: IPD",
+        "signal_category": "strong_keyword",
+        "source_field": "section_text",
+        "weight": 5.0,
+        "page": 1,
+        "section": null,
+        "matched_pattern": "EF"
+      },
+      {
+        "signal_text": "|MEASUREMENTS||(NORMAL VALUES)| |---|---|---| |Aortic root diameter|23|(20-37mm)| |Left Atrial diameter|25|(19-40mm)| |L",
+        "signal_category": "strong_keyword",
+        "source_field": "section_text",
+        "weight": 5.0,
+        "page": 1,
+        "section": "**<u>M-MODE PARAMETERS</u>**",
+        "matched_pattern": "Fractional Shortening"
+      },
+      {
+        "signal_text": "M-MODE PARAMETERS",
+        "signal_category": "strong_keyword",
+        "source_field": "section_title",
+        "weight": 5.0,
+        "page": 1,
+        "section": "M-MODE PARAMETERS",
+        "matched_pattern": "M-MODE"
+      },
+      {
+        "signal_text": "M-MODE PARAMETERS",
+        "signal_category": "strong_keyword",
+        "source_field": "table_title",
+        "weight": 5.0,
+        "page": 1,
+        "section": "M-MODE PARAMETERS",
+        "matched_pattern": "M-MODE"
+      },
+      {
+        "signal_text": "ECHO CARDIOGRAPHY REPORT",
+        "signal_category": "strong_keyword",
+        "source_field": "document_title",
+        "weight": 5.0,
+        "page": 1,
+        "section": null,
+        "matched_pattern": "ECHO CARDIOGRAPHY"
+      },
+      {
+        "signal_text": "ECHO CARDIOGRAPHY REPORT",
+        "signal_category": "strong_keyword",
+        "source_field": "section_title",
+        "weight": 5.0,
+        "page": 1,
+        "section": "ECHO CARDIOGRAPHY REPORT",
+        "matched_pattern": "ECHO CARDIOGRAPHY"
+      },
+      {
+        "signal_text": "MEASUREMENTS",
+        "signal_category": "table_indicator",
+        "source_field": "table_header",
+        "weight": 4.0,
+        "page": 1,
+        "section": "## **<u>M-MODE PARAMETERS</u>**",
+        "matched_pattern": "MEASUREMENTS"
+      },
+      {
+        "signal_text": "- Conc LVH, No RWMA - EF- 60% normal LV function - Grade 1 LVDD - Mild TR PASP=34mmHg. - Normal RV function",
+        "signal_category": "strong_keyword",
+        "source_field": "section_text",
+        "weight": 4.0,
+        "page": 2,
+        "section": "**_<u>FINAL IMPRESSION: -</u>_**",
+        "matched_pattern": "PASP"
+      },
+      {
+        "signal_text": "- Conc LVH, No RWMA - EF- 60% normal LV function - Grade 1 LVDD - Mild TR PASP=34mmHg. - Normal RV function",
+        "signal_category": "strong_keyword",
+        "source_field": "section_text",
+        "weight": 4.0,
+        "page": 2,
+        "section": "**_<u>FINAL IMPRESSION: -</u>_**",
+        "matched_pattern": "LVDD"
+      },
+      {
+        "signal_text": "- Conc LVH, No RWMA - EF- 60% normal LV function - Grade 1 LVDD - Mild TR PASP=34mmHg. - Normal RV function",
+        "signal_category": "strong_keyword",
+        "source_field": "section_text",
+        "weight": 4.0,
+        "page": 2,
+        "section": "**_<u>FINAL IMPRESSION: -</u>_**",
+        "matched_pattern": "LVH"
+      },
+      {
+        "signal_text": "- Conc LVH, No RWMA - EF- 60% normal LV function - Grade 1 LVDD - Mild TR PASP=34mmHg. - Normal RV function",
+        "signal_category": "strong_keyword",
+        "source_field": "section_text",
+        "weight": 4.0,
+        "page": 2,
+        "section": "**_<u>FINAL IMPRESSION: -</u>_**",
+        "matched_pattern": "RWMA"
+      },
+      {
+        "signal_text": "No Aortic regurgitation. No Pulmonary regurgitation present. No gradient across LVOT Mitral inflow. E <A Aortic Velocity",
+        "signal_category": "strong_keyword",
+        "source_field": "section_text",
+        "weight": 4.0,
+        "page": 2,
+        "section": "**ON INTERROGATING WITH PULSE & CONTINUOUS WAVE DOPPLER IT WAS FOUND THAT THERE IS:-**",
+        "matched_pattern": "mitral inflow"
+      },
+      {
+        "signal_text": "No Aortic regurgitation. No Pulmonary regurgitation present. No gradient across LVOT Mitral inflow. E <A Aortic Velocity",
+        "signal_category": "strong_keyword",
+        "source_field": "section_text",
+        "weight": 4.0,
+        "page": 2,
+        "section": "**ON INTERROGATING WITH PULSE & CONTINUOUS WAVE DOPPLER IT WAS FOUND THAT THERE IS:-**",
+        "matched_pattern": "aortic regurgitation"
+      },
+      {
+        "signal_text": "No Aortic regurgitation. No Pulmonary regurgitation present. No gradient across LVOT Mitral inflow. E <A Aortic Velocity",
+        "signal_category": "strong_keyword",
+        "source_field": "section_text",
+        "weight": 4.0,
+        "page": 2,
+        "section": "**ON INTERROGATING WITH PULSE & CONTINUOUS WAVE DOPPLER IT WAS FOUND THAT THERE IS:-**",
+        "matched_pattern": "pulmonary regurgitation"
+      },
+      {
+        "signal_text": "IAS/IVS intact No evidence of any mass / vegetation No effusion No LA/LV clot",
+        "signal_category": "strong_keyword",
+        "source_field": "section_text",
+        "weight": 4.0,
+        "page": 2,
+        "section": "**OTHERS**",
+        "matched_pattern": "IAS"
+      },
+      {
+        "signal_text": "IAS/IVS intact No evidence of any mass / vegetation No effusion No LA/LV clot",
+        "signal_category": "strong_keyword",
+        "source_field": "section_text",
+        "weight": 4.0,
+        "page": 2,
+        "section": "**OTHERS**",
+        "matched_pattern": "IVS"
+      },
+      {
+        "signal_text": "- Conc LVH, No RWMA - EF- 60% normal LV function - Grade 1 LVDD - Mild TR PASP=34mmHg. - Normal RV function",
+        "signal_category": "supporting_keyword",
+        "source_field": "section_text",
+        "weight": 1.5,
+        "page": 2,
+        "section": "**_<u>FINAL IMPRESSION: -</u>_**",
+        "matched_pattern": "LV function"
+      },
+      {
+        "signal_text": "- Conc LVH, No RWMA - EF- 60% normal LV function - Grade 1 LVDD - Mild TR PASP=34mmHg. - Normal RV function",
+        "signal_category": "supporting_keyword",
+        "source_field": "section_text",
+        "weight": 1.5,
+        "page": 2,
+        "section": "**_<u>FINAL IMPRESSION: -</u>_**",
+        "matched_pattern": "RV function"
+      },
+      {
+        "signal_text": "LVposterior wall thickness D",
+        "signal_category": "supporting_keyword",
+        "source_field": "measurement_name",
+        "weight": 1.5,
+        "page": 1,
+        "section": "## **<u>M-MODE PARAMETERS</u>**",
+        "matched_pattern": "LV"
+      },
+      {
+        "signal_text": "MITRAL VALVE : Normal TRICUSPID VALVE : Thin. Opening well. No Prolapse. AORTIC VALVE: Tricuspid , normal, opens well. P",
+        "signal_category": "supporting_keyword",
+        "source_field": "section_text",
+        "weight": 1.5,
+        "page": 1,
+        "section": "**<u>ECHO CARDIOGRAPHY REPORT</u>**",
+        "matched_pattern": "LV"
+      },
+      {
+        "signal_text": "- Conc LVH, No RWMA - EF- 60% normal LV function - Grade 1 LVDD - Mild TR PASP=34mmHg. - Normal RV function",
+        "signal_category": "supporting_keyword",
+        "source_field": "section_text",
+        "weight": 1.5,
+        "page": 2,
+        "section": "**_<u>FINAL IMPRESSION: -</u>_**",
+        "matched_pattern": "RV"
+      },
+      {
+        "signal_text": "MITRAL VALVE : Normal TRICUSPID VALVE : Thin. Opening well. No Prolapse. AORTIC VALVE: Tricuspid , normal, opens well. P",
+        "signal_category": "supporting_keyword",
+        "source_field": "section_text",
+        "weight": 1.5,
+        "page": 1,
+        "section": "**<u>ECHO CARDIOGRAPHY REPORT</u>**",
+        "matched_pattern": "mitral valve"
+      },
+      {
+        "signal_text": "MITRAL VALVE : Normal TRICUSPID VALVE : Thin. Opening well. No Prolapse. AORTIC VALVE: Tricuspid , normal, opens well. P",
+        "signal_category": "supporting_keyword",
+        "source_field": "section_text",
+        "weight": 1.5,
+        "page": 1,
+        "section": "**<u>ECHO CARDIOGRAPHY REPORT</u>**",
+        "matched_pattern": "tricuspid valve"
+      },
+      {
+        "signal_text": "MITRAL VALVE : Normal TRICUSPID VALVE : Thin. Opening well. No Prolapse. AORTIC VALVE: Tricuspid , normal, opens well. P",
+        "signal_category": "supporting_keyword",
+        "source_field": "section_text",
+        "weight": 1.5,
+        "page": 1,
+        "section": "**<u>ECHO CARDIOGRAPHY REPORT</u>**",
+        "matched_pattern": "aortic valve"
+      },
+      {
+        "signal_text": "MITRAL VALVE : Normal TRICUSPID VALVE : Thin. Opening well. No Prolapse. AORTIC VALVE: Tricuspid , normal, opens well. P",
+        "signal_category": "supporting_keyword",
+        "source_field": "section_text",
+        "weight": 1.5,
+        "page": 1,
+        "section": "**<u>ECHO CARDIOGRAPHY REPORT</u>**",
+        "matched_pattern": "pulmonary valve"
+      },
+      {
+        "signal_text": "Consultant DM Cardiologist",
+        "signal_category": "supporting_keyword",
+        "source_field": "section_title",
+        "weight": 1.5,
+        "page": 2,
+        "section": "Consultant DM Cardiologist",
+        "matched_pattern": "cardiologist"
+      },
+      {
+        "signal_text": "No Aortic regurgitation. No Pulmonary regurgitation present. No gradient across LVOT Mitral inflow. E <A Aortic Velocity",
+        "signal_category": "supporting_keyword",
+        "source_field": "section_text",
+        "weight": 1.5,
+        "page": 2,
+        "section": "**ON INTERROGATING WITH PULSE & CONTINUOUS WAVE DOPPLER IT WAS FOUND THAT THERE IS:-**",
+        "matched_pattern": "regurgitation"
+      },
+      {
+        "signal_text": "IAS/IVS intact No evidence of any mass / vegetation No effusion No LA/LV clot",
+        "signal_category": "supporting_keyword",
+        "source_field": "section_text",
+        "weight": 1.5,
+        "page": 2,
+        "section": "**OTHERS**",
+        "matched_pattern": "vegetation"
+      },
+      {
+        "signal_text": "IAS/IVS intact No evidence of any mass / vegetation No effusion No LA/LV clot",
+        "signal_category": "supporting_keyword",
+        "source_field": "section_text",
+        "weight": 1.5,
+        "page": 2,
+        "section": "**OTHERS**",
+        "matched_pattern": "effusion"
+      },
+      {
+        "signal_text": "IAS/IVS intact No evidence of any mass / vegetation No effusion No LA/LV clot",
+        "signal_category": "supporting_keyword",
+        "source_field": "section_text",
+        "weight": 1.5,
+        "page": 2,
+        "section": "**OTHERS**",
+        "matched_pattern": "clot"
+      }
+    ],
+    "alternatives": [
+      {
+        "report_type": "radiology",
+        "score": 17.0,
+        "evidence_count": 9
+      },
+      {
+        "report_type": "ecg",
+        "score": 7.0,
+        "evidence_count": 4
+      },
+      {
+        "report_type": "renal_function_test",
+        "score": 5.0,
+        "evidence_count": 2
+      }
+    ]
+  },
+  "clinical_information": {
+    "entities": [
+      {
+        "text": "MITRAL VALVE: Normal",
+        "type": "FINDING",
+        "normalized": null,
+        "assertion": "NORMAL",
+        "negated": false,
+        "page": 1,
+        "source_section": "**<u>ECHO CARDIOGRAPHY REPORT</u>**",
+        "source_text": "**MITRAL VALVE : Normal TRICUSPID VALVE :** Thin. Opening well. No Prolapse. **AORTIC VALVE:** Tricuspid **,** normal, opens well. **PULMONARY VALVE:** Normal. Normal ‘EF’ slope. Normal ‘A’ wave. No midsystolic notch.",
+        "confidence": 1.0
+      },
+      {
+        "text": "No Prolapse",
+        "type": "FINDING",
+        "normalized": null,
+        "assertion": "ABSENT",
+        "negated": true,
+        "page": 1,
+        "source_section": "**<u>ECHO CARDIOGRAPHY REPORT</u>**",
+        "source_text": "**MITRAL VALVE : Normal TRICUSPID VALVE :** Thin. Opening well. No Prolapse. **AORTIC VALVE:** Tricuspid **,** normal, opens well. **PULMONARY VALVE:** Normal. Normal ‘EF’ slope. Normal ‘A’ wave. No midsystolic notch.",
+        "confidence": 1.0
+      },
+      {
+        "text": "normal, opens well",
+        "type": "FINDING",
+        "normalized": null,
+        "assertion": "NORMAL",
+        "negated": false,
+        "page": 1,
+        "source_section": "**<u>ECHO CARDIOGRAPHY REPORT</u>**",
+        "source_text": "**MITRAL VALVE : Normal TRICUSPID VALVE :** Thin. Opening well. No Prolapse. **AORTIC VALVE:** Tricuspid **,** normal, opens well. **PULMONARY VALVE:** Normal. Normal ‘EF’ slope. Normal ‘A’ wave. No midsystolic notch.",
+        "confidence": 1.0
+      },
+      {
+        "text": "PULMONARY VALVE:   Normal",
+        "type": "FINDING",
+        "normalized": null,
+        "assertion": "NORMAL",
+        "negated": false,
+        "page": 1,
+        "source_section": "**<u>ECHO CARDIOGRAPHY REPORT</u>**",
+        "source_text": "**MITRAL VALVE : Normal TRICUSPID VALVE :** Thin. Opening well. No Prolapse. **AORTIC VALVE:** Tricuspid **,** normal, opens well. **PULMONARY VALVE:** Normal. Normal ‘EF’ slope. Normal ‘A’ wave. No midsystolic notch.",
+        "confidence": 1.0
+      },
+      {
+        "text": "Normal ‘EF’ slope",
+        "type": "FINDING",
+        "normalized": null,
+        "assertion": "NORMAL",
+        "negated": false,
+        "page": 1,
+        "source_section": "**<u>ECHO CARDIOGRAPHY REPORT</u>**",
+        "source_text": "**MITRAL VALVE : Normal TRICUSPID VALVE :** Thin. Opening well. No Prolapse. **AORTIC VALVE:** Tricuspid **,** normal, opens well. **PULMONARY VALVE:** Normal. Normal ‘EF’ slope. Normal ‘A’ wave. No midsystolic notch.",
+        "confidence": 1.0
+      },
+      {
+        "text": "Normal ‘A’ wave",
+        "type": "FINDING",
+        "normalized": null,
+        "assertion": "NORMAL",
+        "negated": false,
+        "page": 1,
+        "source_section": "**<u>ECHO CARDIOGRAPHY REPORT</u>**",
+        "source_text": "**MITRAL VALVE : Normal TRICUSPID VALVE :** Thin. Opening well. No Prolapse. **AORTIC VALVE:** Tricuspid **,** normal, opens well. **PULMONARY VALVE:** Normal. Normal ‘EF’ slope. Normal ‘A’ wave. No midsystolic notch.",
+        "confidence": 1.0
+      },
+      {
+        "text": "No midsystolic notch",
+        "type": "FINDING",
+        "normalized": null,
+        "assertion": "ABSENT",
+        "negated": true,
+        "page": 1,
+        "source_section": "**<u>ECHO CARDIOGRAPHY REPORT</u>**",
+        "source_text": "**MITRAL VALVE : Normal TRICUSPID VALVE :** Thin. Opening well. No Prolapse. **AORTIC VALVE:** Tricuspid **,** normal, opens well. **PULMONARY VALVE:** Normal. Normal ‘EF’ slope. Normal ‘A’ wave. No midsystolic notch.",
+        "confidence": 1.0
+      },
+      {
+        "text": "No Aortic regurgitation",
+        "type": "FINDING",
+        "normalized": "Aortic Regurgitation",
+        "assertion": "ABSENT",
+        "negated": true,
+        "page": 2,
+        "source_section": "**ON INTERROGATING WITH PULSE & CONTINUOUS WAVE DOPPLER IT WAS FOUND THAT THERE IS:-**",
+        "source_text": "No Aortic regurgitation. No Pulmonary regurgitation present. No gradient across LVOT Mitral inflow. E <A Aortic Velocity = 1.47 m/s Pulmonary velocity = 1.0m/s",
+        "confidence": 1.0
+      },
+      {
+        "text": "No Pulmonary regurgitation present",
+        "type": "FINDING",
+        "normalized": "Pulmonary Regurgitation",
+        "assertion": "ABSENT",
+        "negated": true,
+        "page": 2,
+        "source_section": "**ON INTERROGATING WITH PULSE & CONTINUOUS WAVE DOPPLER IT WAS FOUND THAT THERE IS:-**",
+        "source_text": "No Aortic regurgitation. No Pulmonary regurgitation present. No gradient across LVOT Mitral inflow. E <A Aortic Velocity = 1.47 m/s Pulmonary velocity = 1.0m/s",
+        "confidence": 1.0
+      },
+      {
+        "text": "No gradient across LVOT",
+        "type": "FINDING",
+        "normalized": null,
+        "assertion": "ABSENT",
+        "negated": true,
+        "page": 2,
+        "source_section": "**ON INTERROGATING WITH PULSE & CONTINUOUS WAVE DOPPLER IT WAS FOUND THAT THERE IS:-**",
+        "source_text": "No Aortic regurgitation. No Pulmonary regurgitation present. No gradient across LVOT Mitral inflow. E <A Aortic Velocity = 1.47 m/s Pulmonary velocity = 1.0m/s",
+        "confidence": 1.0
+      },
+      {
+        "text": "IAS/IVS intact",
+        "type": "FINDING",
+        "normalized": null,
+        "assertion": "NORMAL",
+        "negated": false,
+        "page": 2,
+        "source_section": "**OTHERS**",
+        "source_text": "IAS/IVS intact",
+        "confidence": 1.0
+      },
+      {
+        "text": "No evidence of any mass / vegetation",
+        "type": "FINDING",
+        "normalized": "Vegetation",
+        "assertion": "ABSENT",
+        "negated": true,
+        "page": 2,
+        "source_section": "**OTHERS**",
+        "source_text": "No evidence of any mass / vegetation No effusion No LA/LV clot",
+        "confidence": 1.0
+      },
+      {
+        "text": "No effusion",
+        "type": "FINDING",
+        "normalized": "Pericardial Effusion",
+        "assertion": "ABSENT",
+        "negated": true,
+        "page": 2,
+        "source_section": "**OTHERS**",
+        "source_text": "No evidence of any mass / vegetation No effusion No LA/LV clot",
+        "confidence": 1.0
+      },
+      {
+        "text": "No LA/LV clot",
+        "type": "FINDING",
+        "normalized": "Thrombus",
+        "assertion": "ABSENT",
+        "negated": true,
+        "page": 2,
+        "source_section": "**OTHERS**",
+        "source_text": "No evidence of any mass / vegetation No effusion No LA/LV clot",
+        "confidence": 1.0
+      },
+      {
+        "text": "Conc LVH",
+        "type": "FINDING",
+        "normalized": "Concentric Left Ventricular Hypertrophy",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 2,
+        "source_section": "**_<u>FINAL IMPRESSION: -</u>_**",
+        "source_text": "- **Conc LVH, No RWMA**",
+        "confidence": 1.0
+      },
+      {
+        "text": "No RWMA",
+        "type": "FINDING",
+        "normalized": "Regional Wall Motion Abnormality",
+        "assertion": "ABSENT",
+        "negated": true,
+        "page": 2,
+        "source_section": "**_<u>FINAL IMPRESSION: -</u>_**",
+        "source_text": "- **Conc LVH, No RWMA**",
+        "confidence": 1.0
+      },
+      {
+        "text": "normal LV function",
+        "type": "FINDING",
+        "normalized": "Normal Left Ventricular Function",
+        "assertion": "NORMAL",
+        "negated": false,
+        "page": 2,
+        "source_section": "**_<u>FINAL IMPRESSION: -</u>_**",
+        "source_text": "- **EF-  60% normal LV function**",
+        "confidence": 1.0
+      },
+      {
+        "text": "Grade 1 LVDD",
+        "type": "FINDING",
+        "normalized": "Grade 1 Left Ventricular Diastolic Dysfunction",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 2,
+        "source_section": "**_<u>FINAL IMPRESSION: -</u>_**",
+        "source_text": "- **Grade 1 LVDD**",
+        "confidence": 1.0
+      },
+      {
+        "text": "Mild TR",
+        "type": "FINDING",
+        "normalized": "Mild Tricuspid Regurgitation",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 2,
+        "source_section": "**_<u>FINAL IMPRESSION: -</u>_**",
+        "source_text": "- **Mild TR PASP=34mmHg.**",
+        "confidence": 1.0
+      },
+      {
+        "text": "Normal RV function",
+        "type": "FINDING",
+        "normalized": "Normal Right Ventricular Function",
+        "assertion": "NORMAL",
+        "negated": false,
+        "page": 2,
+        "source_section": "**_<u>FINAL IMPRESSION: -</u>_**",
+        "source_text": "- **Normal RV function**",
+        "confidence": 1.0
+      },
+      {
+        "text": "MITRAL VALVE",
+        "type": "ANATOMY",
+        "normalized": "Mitral Valve",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 1,
+        "source_section": "**<u>ECHO CARDIOGRAPHY REPORT</u>**",
+        "source_text": "O CARDIOGRAPHY REPORT</u>** **MITRAL VALVE : Normal TRICUSPID VALVE :**",
+        "confidence": 1.0
+      },
+      {
+        "text": "TRICUSPID VALVE",
+        "type": "ANATOMY",
+        "normalized": "Tricuspid Valve",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 1,
+        "source_section": "**<u>ECHO CARDIOGRAPHY REPORT</u>**",
+        "source_text": "/u>** **MITRAL VALVE : Normal TRICUSPID VALVE :** Thin. Opening well. No Pr",
+        "confidence": 1.0
+      },
+      {
+        "text": "AORTIC VALVE",
+        "type": "ANATOMY",
+        "normalized": "Aortic Valve",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 1,
+        "source_section": "**<u>ECHO CARDIOGRAPHY REPORT</u>**",
+        "source_text": "Opening well. No Prolapse. **AORTIC VALVE:** Tricuspid **,** normal, op",
+        "confidence": 1.0
+      },
+      {
+        "text": "PULMONARY VALVE",
+        "type": "ANATOMY",
+        "normalized": "Pulmonary Valve",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 1,
+        "source_section": "**<u>ECHO CARDIOGRAPHY REPORT</u>**",
+        "source_text": "d **,** normal, opens well. **PULMONARY VALVE:** Normal. Normal ‘EF’ slope.",
+        "confidence": 1.0
+      },
+      {
+        "text": "LEFT VENTRICLE",
+        "type": "ANATOMY",
+        "normalized": "Left Ventricle",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 1,
+        "source_section": "**<u>M-MODE PARAMETERS</u>**",
+        "source_text": "thickness D|10|(06-11mm)|\n|**LEFT VENTRICLE FUNCTION**<br>**INDICES**||**",
+        "confidence": 1.0
+      },
+      {
+        "text": "Aortic root",
+        "type": "ANATOMY",
+        "normalized": "Aortic Root",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 1,
+        "source_section": "**<u>M-MODE PARAMETERS</u>**",
+        "source_text": "MAL VALUES)**|\n|---|---|---|\n|Aortic root diameter|23|(20-37mm)|\n|Left",
+        "confidence": 1.0
+      },
+      {
+        "text": "LVOT",
+        "type": "ANATOMY",
+        "normalized": "Left Ventricular Outflow Tract",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 2,
+        "source_section": "**ON INTERROGATING WITH PULSE & CONTINUOUS WAVE DOPPLER IT WAS FOUND THAT THERE IS:-**",
+        "source_text": "n present. No gradient across LVOT Mitral inflow. E <A Aortic Ve",
+        "confidence": 1.0
+      },
+      {
+        "text": "IVS",
+        "type": "ANATOMY",
+        "normalized": "Interventricular Septum",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 2,
+        "source_section": "**OTHERS**",
+        "source_text": "**OTHERS** IAS/IVS intact \n\nNo evidence of any m",
+        "confidence": 1.0
+      },
+      {
+        "text": "IAS",
+        "type": "ANATOMY",
+        "normalized": "Interatrial Septum",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 2,
+        "source_section": "**OTHERS**",
+        "source_text": "**OTHERS** IAS/IVS intact \n\nNo evidence of a",
+        "confidence": 1.0
+      },
+      {
+        "text": "LV",
+        "type": "ANATOMY",
+        "normalized": "Left Ventricle",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 2,
+        "source_section": "**OTHERS**",
+        "source_text": "vegetation No effusion No LA/LV clot",
+        "confidence": 1.0
+      },
+      {
+        "text": "LA",
+        "type": "ANATOMY",
+        "normalized": "Left Atrium",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 2,
+        "source_section": "**OTHERS**",
+        "source_text": "s / vegetation No effusion No LA/LV clot",
+        "confidence": 1.0
+      },
+      {
+        "text": "RV",
+        "type": "ANATOMY",
+        "normalized": "Right Ventricle",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 2,
+        "source_section": "**_<u>FINAL IMPRESSION: -</u>_**",
+        "source_text": "R PASP=34mmHg.** \n\n- **Normal RV function**",
+        "confidence": 1.0
+      },
+      {
+        "text": "Aortic root diameter",
+        "type": "MEASUREMENT",
+        "normalized": "Aortic Root Diameter",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 1,
+        "source_section": "## **<u>M-MODE PARAMETERS</u>**",
+        "source_text": "Aortic root diameter: 23",
+        "confidence": 1.0
+      },
+      {
+        "text": "Left Atrial diameter",
+        "type": "MEASUREMENT",
+        "normalized": "Left Atrial Diameter",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 1,
+        "source_section": "## **<u>M-MODE PARAMETERS</u>**",
+        "source_text": "Left Atrial diameter: 25",
+        "confidence": 1.0
+      },
+      {
+        "text": "Left Ventricular ED Dimension",
+        "type": "MEASUREMENT",
+        "normalized": "Left Ventricular End-Diastolic Dimension",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 1,
+        "source_section": "## **<u>M-MODE PARAMETERS</u>**",
+        "source_text": "Left Ventricular ED Dimension: 42",
+        "confidence": 1.0
+      },
+      {
+        "text": "Left Ventricular ES Dimension",
+        "type": "MEASUREMENT",
+        "normalized": "Left Ventricular End-Systolic Dimension",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 1,
+        "source_section": "## **<u>M-MODE PARAMETERS</u>**",
+        "source_text": "Left Ventricular ES Dimension: 25",
+        "confidence": 1.0
+      },
+      {
+        "text": "Inter Vent. Septum thickness D",
+        "type": "MEASUREMENT",
+        "normalized": "Interventricular Septum Thickness in Diastole",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 1,
+        "source_section": "## **<u>M-MODE PARAMETERS</u>**",
+        "source_text": "Inter Vent. Septum thickness D: 13",
+        "confidence": 1.0
+      },
+      {
+        "text": "LVposterior wall thickness D",
+        "type": "MEASUREMENT",
+        "normalized": "Left Ventricular Posterior Wall Thickness in Diastole",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 1,
+        "source_section": "## **<u>M-MODE PARAMETERS</u>**",
+        "source_text": "LVposterior wall thickness D: 10",
+        "confidence": 1.0
+      },
+      {
+        "text": "Ejection Fraction",
+        "type": "MEASUREMENT",
+        "normalized": "Ejection Fraction",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 1,
+        "source_section": "## **<u>M-MODE PARAMETERS</u>**",
+        "source_text": "Ejection Fraction: 60 %",
+        "confidence": 1.0
+      },
+      {
+        "text": "Fractional shortening",
+        "type": "MEASUREMENT",
+        "normalized": "Fractional Shortening",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 1,
+        "source_section": "## **<u>M-MODE PARAMETERS</u>**",
+        "source_text": "Fractional shortening: 32.5 %",
+        "confidence": 1.0
+      },
+      {
+        "text": "Aortic Velocity",
+        "type": "MEASUREMENT",
+        "normalized": "Aortic Velocity",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 2,
+        "source_section": "**ON INTERROGATING WITH PULSE & CONTINUOUS WAVE DOPPLER IT WAS FOUND THAT THERE IS:-**",
+        "source_text": "No Aortic regurgitation. No Pulmonary regurgitation present. No gradient across LVOT Mitral inflow. E <A Aortic Velocity = 1.47 m/s Pulmonary velocity = 1.0m/s",
+        "confidence": 1.0
+      },
+      {
+        "text": "Pulmonary velocity",
+        "type": "MEASUREMENT",
+        "normalized": "Pulmonary Velocity",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 2,
+        "source_section": "**ON INTERROGATING WITH PULSE & CONTINUOUS WAVE DOPPLER IT WAS FOUND THAT THERE IS:-**",
+        "source_text": "No Aortic regurgitation. No Pulmonary regurgitation present. No gradient across LVOT Mitral inflow. E <A Aortic Velocity = 1.47 m/s Pulmonary velocity = 1.0m/s",
+        "confidence": 1.0
+      },
+      {
+        "text": "PASP",
+        "type": "MEASUREMENT",
+        "normalized": "Pulmonary Artery Systolic Pressure",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 2,
+        "source_section": "**_<u>FINAL IMPRESSION: -</u>_**",
+        "source_text": "- **Mild TR PASP=34mmHg.**",
+        "confidence": 1.0
+      }
+    ],
+    "measurements": [
+      {
+        "name": "Aortic root diameter",
+        "value": 23,
+        "unit": null,
+        "reference_range": "20-37mm",
+        "page": 1,
+        "source_section": "## **<u>M-MODE PARAMETERS</u>**",
+        "source_text": "Aortic root diameter: 23",
+        "normalized_name": "Aortic Root Diameter"
+      },
+      {
+        "name": "Left Atrial diameter",
+        "value": 25,
+        "unit": null,
+        "reference_range": "19-40mm",
+        "page": 1,
+        "source_section": "## **<u>M-MODE PARAMETERS</u>**",
+        "source_text": "Left Atrial diameter: 25",
+        "normalized_name": "Left Atrial Diameter"
+      },
+      {
+        "name": "Left Ventricular ED Dimension",
+        "value": 42,
+        "unit": null,
+        "reference_range": "33-55mm",
+        "page": 1,
+        "source_section": "## **<u>M-MODE PARAMETERS</u>**",
+        "source_text": "Left Ventricular ED Dimension: 42",
+        "normalized_name": "Left Ventricular End-Diastolic Dimension"
+      },
+      {
+        "name": "Left Ventricular ES Dimension",
+        "value": 25,
+        "unit": null,
+        "reference_range": "22-40mm",
+        "page": 1,
+        "source_section": "## **<u>M-MODE PARAMETERS</u>**",
+        "source_text": "Left Ventricular ES Dimension: 25",
+        "normalized_name": "Left Ventricular End-Systolic Dimension"
+      },
+      {
+        "name": "Inter Vent. Septum thickness D",
+        "value": 13,
+        "unit": null,
+        "reference_range": "06-11mm",
+        "page": 1,
+        "source_section": "## **<u>M-MODE PARAMETERS</u>**",
+        "source_text": "Inter Vent. Septum thickness D: 13",
+        "normalized_name": "Interventricular Septum Thickness in Diastole"
+      },
+      {
+        "name": "LVposterior wall thickness D",
+        "value": 10,
+        "unit": null,
+        "reference_range": "06-11mm",
+        "page": 1,
+        "source_section": "## **<u>M-MODE PARAMETERS</u>**",
+        "source_text": "LVposterior wall thickness D: 10",
+        "normalized_name": "Left Ventricular Posterior Wall Thickness in Diastole"
+      },
+      {
+        "name": "Ejection Fraction",
+        "value": 60,
+        "unit": "%",
+        "reference_range": "55-74%",
+        "page": 1,
+        "source_section": "## **<u>M-MODE PARAMETERS</u>**",
+        "source_text": "Ejection Fraction: 60 %",
+        "normalized_name": "Ejection Fraction"
+      },
+      {
+        "name": "Fractional shortening",
+        "value": 32.5,
+        "unit": "%",
+        "reference_range": "28-40%",
+        "page": 1,
+        "source_section": "## **<u>M-MODE PARAMETERS</u>**",
+        "source_text": "Fractional shortening: 32.5 %",
+        "normalized_name": "Fractional Shortening"
+      },
+      {
+        "name": "Aortic Velocity",
+        "value": 1.47,
+        "unit": "m/s",
+        "reference_range": null,
+        "page": 2,
+        "source_section": "**ON INTERROGATING WITH PULSE & CONTINUOUS WAVE DOPPLER IT WAS FOUND THAT THERE IS:-**",
+        "source_text": "No Aortic regurgitation. No Pulmonary regurgitation present. No gradient across LVOT Mitral inflow. E <A Aortic Velocity = 1.47 m/s Pulmonary velocity = 1.0m/s",
+        "normalized_name": "Aortic Velocity"
+      },
+      {
+        "name": "Pulmonary velocity",
+        "value": 1.0,
+        "unit": "m/s",
+        "reference_range": null,
+        "page": 2,
+        "source_section": "**ON INTERROGATING WITH PULSE & CONTINUOUS WAVE DOPPLER IT WAS FOUND THAT THERE IS:-**",
+        "source_text": "No Aortic regurgitation. No Pulmonary regurgitation present. No gradient across LVOT Mitral inflow. E <A Aortic Velocity = 1.47 m/s Pulmonary velocity = 1.0m/s",
+        "normalized_name": "Pulmonary Velocity"
+      },
+      {
+        "name": "PASP",
+        "value": 34,
+        "unit": "mmHg",
+        "reference_range": null,
+        "page": 2,
+        "source_section": "**_<u>FINAL IMPRESSION: -</u>_**",
+        "source_text": "- **Mild TR PASP=34mmHg.**",
+        "normalized_name": "Pulmonary Artery Systolic Pressure"
+      }
+    ],
+    "findings": [
+      {
+        "text": "MITRAL VALVE: Normal",
+        "normalized": null,
+        "assertion": "NORMAL",
+        "negated": false,
+        "page": 1,
+        "source_section": "**<u>ECHO CARDIOGRAPHY REPORT</u>**",
+        "source_text": "**MITRAL VALVE : Normal TRICUSPID VALVE :** Thin. Opening well. No Prolapse. **AORTIC VALVE:** Tricuspid **,** normal, opens well. **PULMONARY VALVE:** Normal. Normal ‘EF’ slope. Normal ‘A’ wave. No midsystolic notch."
+      },
+      {
+        "text": "No Prolapse",
+        "normalized": null,
+        "assertion": "ABSENT",
+        "negated": true,
+        "page": 1,
+        "source_section": "**<u>ECHO CARDIOGRAPHY REPORT</u>**",
+        "source_text": "**MITRAL VALVE : Normal TRICUSPID VALVE :** Thin. Opening well. No Prolapse. **AORTIC VALVE:** Tricuspid **,** normal, opens well. **PULMONARY VALVE:** Normal. Normal ‘EF’ slope. Normal ‘A’ wave. No midsystolic notch."
+      },
+      {
+        "text": "normal, opens well",
+        "normalized": null,
+        "assertion": "NORMAL",
+        "negated": false,
+        "page": 1,
+        "source_section": "**<u>ECHO CARDIOGRAPHY REPORT</u>**",
+        "source_text": "**MITRAL VALVE : Normal TRICUSPID VALVE :** Thin. Opening well. No Prolapse. **AORTIC VALVE:** Tricuspid **,** normal, opens well. **PULMONARY VALVE:** Normal. Normal ‘EF’ slope. Normal ‘A’ wave. No midsystolic notch."
+      },
+      {
+        "text": "PULMONARY VALVE:   Normal",
+        "normalized": null,
+        "assertion": "NORMAL",
+        "negated": false,
+        "page": 1,
+        "source_section": "**<u>ECHO CARDIOGRAPHY REPORT</u>**",
+        "source_text": "**MITRAL VALVE : Normal TRICUSPID VALVE :** Thin. Opening well. No Prolapse. **AORTIC VALVE:** Tricuspid **,** normal, opens well. **PULMONARY VALVE:** Normal. Normal ‘EF’ slope. Normal ‘A’ wave. No midsystolic notch."
+      },
+      {
+        "text": "Normal ‘EF’ slope",
+        "normalized": null,
+        "assertion": "NORMAL",
+        "negated": false,
+        "page": 1,
+        "source_section": "**<u>ECHO CARDIOGRAPHY REPORT</u>**",
+        "source_text": "**MITRAL VALVE : Normal TRICUSPID VALVE :** Thin. Opening well. No Prolapse. **AORTIC VALVE:** Tricuspid **,** normal, opens well. **PULMONARY VALVE:** Normal. Normal ‘EF’ slope. Normal ‘A’ wave. No midsystolic notch."
+      },
+      {
+        "text": "Normal ‘A’ wave",
+        "normalized": null,
+        "assertion": "NORMAL",
+        "negated": false,
+        "page": 1,
+        "source_section": "**<u>ECHO CARDIOGRAPHY REPORT</u>**",
+        "source_text": "**MITRAL VALVE : Normal TRICUSPID VALVE :** Thin. Opening well. No Prolapse. **AORTIC VALVE:** Tricuspid **,** normal, opens well. **PULMONARY VALVE:** Normal. Normal ‘EF’ slope. Normal ‘A’ wave. No midsystolic notch."
+      },
+      {
+        "text": "No midsystolic notch",
+        "normalized": null,
+        "assertion": "ABSENT",
+        "negated": true,
+        "page": 1,
+        "source_section": "**<u>ECHO CARDIOGRAPHY REPORT</u>**",
+        "source_text": "**MITRAL VALVE : Normal TRICUSPID VALVE :** Thin. Opening well. No Prolapse. **AORTIC VALVE:** Tricuspid **,** normal, opens well. **PULMONARY VALVE:** Normal. Normal ‘EF’ slope. Normal ‘A’ wave. No midsystolic notch."
+      },
+      {
+        "text": "No Aortic regurgitation",
+        "normalized": "Aortic Regurgitation",
+        "assertion": "ABSENT",
+        "negated": true,
+        "page": 2,
+        "source_section": "**ON INTERROGATING WITH PULSE & CONTINUOUS WAVE DOPPLER IT WAS FOUND THAT THERE IS:-**",
+        "source_text": "No Aortic regurgitation. No Pulmonary regurgitation present. No gradient across LVOT Mitral inflow. E <A Aortic Velocity = 1.47 m/s Pulmonary velocity = 1.0m/s"
+      },
+      {
+        "text": "No Pulmonary regurgitation present",
+        "normalized": "Pulmonary Regurgitation",
+        "assertion": "ABSENT",
+        "negated": true,
+        "page": 2,
+        "source_section": "**ON INTERROGATING WITH PULSE & CONTINUOUS WAVE DOPPLER IT WAS FOUND THAT THERE IS:-**",
+        "source_text": "No Aortic regurgitation. No Pulmonary regurgitation present. No gradient across LVOT Mitral inflow. E <A Aortic Velocity = 1.47 m/s Pulmonary velocity = 1.0m/s"
+      },
+      {
+        "text": "No gradient across LVOT",
+        "normalized": null,
+        "assertion": "ABSENT",
+        "negated": true,
+        "page": 2,
+        "source_section": "**ON INTERROGATING WITH PULSE & CONTINUOUS WAVE DOPPLER IT WAS FOUND THAT THERE IS:-**",
+        "source_text": "No Aortic regurgitation. No Pulmonary regurgitation present. No gradient across LVOT Mitral inflow. E <A Aortic Velocity = 1.47 m/s Pulmonary velocity = 1.0m/s"
+      },
+      {
+        "text": "IAS/IVS intact",
+        "normalized": null,
+        "assertion": "NORMAL",
+        "negated": false,
+        "page": 2,
+        "source_section": "**OTHERS**",
+        "source_text": "IAS/IVS intact"
+      },
+      {
+        "text": "No evidence of any mass / vegetation",
+        "normalized": "Vegetation",
+        "assertion": "ABSENT",
+        "negated": true,
+        "page": 2,
+        "source_section": "**OTHERS**",
+        "source_text": "No evidence of any mass / vegetation No effusion No LA/LV clot"
+      },
+      {
+        "text": "No effusion",
+        "normalized": "Pericardial Effusion",
+        "assertion": "ABSENT",
+        "negated": true,
+        "page": 2,
+        "source_section": "**OTHERS**",
+        "source_text": "No evidence of any mass / vegetation No effusion No LA/LV clot"
+      },
+      {
+        "text": "No LA/LV clot",
+        "normalized": "Thrombus",
+        "assertion": "ABSENT",
+        "negated": true,
+        "page": 2,
+        "source_section": "**OTHERS**",
+        "source_text": "No evidence of any mass / vegetation No effusion No LA/LV clot"
+      },
+      {
+        "text": "Conc LVH",
+        "normalized": "Concentric Left Ventricular Hypertrophy",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 2,
+        "source_section": "**_<u>FINAL IMPRESSION: -</u>_**",
+        "source_text": "- **Conc LVH, No RWMA**"
+      },
+      {
+        "text": "No RWMA",
+        "normalized": "Regional Wall Motion Abnormality",
+        "assertion": "ABSENT",
+        "negated": true,
+        "page": 2,
+        "source_section": "**_<u>FINAL IMPRESSION: -</u>_**",
+        "source_text": "- **Conc LVH, No RWMA**"
+      },
+      {
+        "text": "normal LV function",
+        "normalized": "Normal Left Ventricular Function",
+        "assertion": "NORMAL",
+        "negated": false,
+        "page": 2,
+        "source_section": "**_<u>FINAL IMPRESSION: -</u>_**",
+        "source_text": "- **EF-  60% normal LV function**"
+      },
+      {
+        "text": "Grade 1 LVDD",
+        "normalized": "Grade 1 Left Ventricular Diastolic Dysfunction",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 2,
+        "source_section": "**_<u>FINAL IMPRESSION: -</u>_**",
+        "source_text": "- **Grade 1 LVDD**"
+      },
+      {
+        "text": "Mild TR",
+        "normalized": "Mild Tricuspid Regurgitation",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 2,
+        "source_section": "**_<u>FINAL IMPRESSION: -</u>_**",
+        "source_text": "- **Mild TR PASP=34mmHg.**"
+      },
+      {
+        "text": "Normal RV function",
+        "normalized": "Normal Right Ventricular Function",
+        "assertion": "NORMAL",
+        "negated": false,
+        "page": 2,
+        "source_section": "**_<u>FINAL IMPRESSION: -</u>_**",
+        "source_text": "- **Normal RV function**"
+      }
+    ],
+    "anatomy": [
+      {
+        "text": "MITRAL VALVE",
+        "normalized": "Mitral Valve",
+        "page": 1,
+        "source_section": "**<u>ECHO CARDIOGRAPHY REPORT</u>**",
+        "source_text": "O CARDIOGRAPHY REPORT</u>** **MITRAL VALVE : Normal TRICUSPID VALVE :**"
+      },
+      {
+        "text": "TRICUSPID VALVE",
+        "normalized": "Tricuspid Valve",
+        "page": 1,
+        "source_section": "**<u>ECHO CARDIOGRAPHY REPORT</u>**",
+        "source_text": "/u>** **MITRAL VALVE : Normal TRICUSPID VALVE :** Thin. Opening well. No Pr"
+      },
+      {
+        "text": "AORTIC VALVE",
+        "normalized": "Aortic Valve",
+        "page": 1,
+        "source_section": "**<u>ECHO CARDIOGRAPHY REPORT</u>**",
+        "source_text": "Opening well. No Prolapse. **AORTIC VALVE:** Tricuspid **,** normal, op"
+      },
+      {
+        "text": "PULMONARY VALVE",
+        "normalized": "Pulmonary Valve",
+        "page": 1,
+        "source_section": "**<u>ECHO CARDIOGRAPHY REPORT</u>**",
+        "source_text": "d **,** normal, opens well. **PULMONARY VALVE:** Normal. Normal ‘EF’ slope."
+      },
+      {
+        "text": "LEFT VENTRICLE",
+        "normalized": "Left Ventricle",
+        "page": 1,
+        "source_section": "**<u>M-MODE PARAMETERS</u>**",
+        "source_text": "thickness D|10|(06-11mm)|\n|**LEFT VENTRICLE FUNCTION**<br>**INDICES**||**"
+      },
+      {
+        "text": "Aortic root",
+        "normalized": "Aortic Root",
+        "page": 1,
+        "source_section": "**<u>M-MODE PARAMETERS</u>**",
+        "source_text": "MAL VALUES)**|\n|---|---|---|\n|Aortic root diameter|23|(20-37mm)|\n|Left"
+      },
+      {
+        "text": "LVOT",
+        "normalized": "Left Ventricular Outflow Tract",
+        "page": 2,
+        "source_section": "**ON INTERROGATING WITH PULSE & CONTINUOUS WAVE DOPPLER IT WAS FOUND THAT THERE IS:-**",
+        "source_text": "n present. No gradient across LVOT Mitral inflow. E <A Aortic Ve"
+      },
+      {
+        "text": "IVS",
+        "normalized": "Interventricular Septum",
+        "page": 2,
+        "source_section": "**OTHERS**",
+        "source_text": "**OTHERS** IAS/IVS intact \n\nNo evidence of any m"
+      },
+      {
+        "text": "IAS",
+        "normalized": "Interatrial Septum",
+        "page": 2,
+        "source_section": "**OTHERS**",
+        "source_text": "**OTHERS** IAS/IVS intact \n\nNo evidence of a"
+      },
+      {
+        "text": "LV",
+        "normalized": "Left Ventricle",
+        "page": 2,
+        "source_section": "**OTHERS**",
+        "source_text": "vegetation No effusion No LA/LV clot"
+      },
+      {
+        "text": "LA",
+        "normalized": "Left Atrium",
+        "page": 2,
+        "source_section": "**OTHERS**",
+        "source_text": "s / vegetation No effusion No LA/LV clot"
+      },
+      {
+        "text": "RV",
+        "normalized": "Right Ventricle",
+        "page": 2,
+        "source_section": "**_<u>FINAL IMPRESSION: -</u>_**",
+        "source_text": "R PASP=34mmHg.** \n\n- **Normal RV function**"
+      }
+    ],
+    "relationships": [
+      {
+        "source": "No Aortic regurgitation",
+        "relation": "ASSOCIATED_WITH",
+        "target": "aortic valve",
+        "page": 2,
+        "source_text": "No Aortic regurgitation. No Pulmonary regurgitation present. No gradient across LVOT Mitral inflow. E <A Aortic Velocity = 1.47 m/s Pulmonary velocity = 1.0m/s"
+      },
+      {
+        "source": "No Pulmonary regurgitation present",
+        "relation": "ASSOCIATED_WITH",
+        "target": "pulmonary valve",
+        "page": 2,
+        "source_text": "No Aortic regurgitation. No Pulmonary regurgitation present. No gradient across LVOT Mitral inflow. E <A Aortic Velocity = 1.47 m/s Pulmonary velocity = 1.0m/s"
+      },
+      {
+        "source": "No gradient across LVOT",
+        "relation": "ASSOCIATED_WITH",
+        "target": "LVOT",
+        "page": 2,
+        "source_text": "No Aortic regurgitation. No Pulmonary regurgitation present. No gradient across LVOT Mitral inflow. E <A Aortic Velocity = 1.47 m/s Pulmonary velocity = 1.0m/s"
+      },
+      {
+        "source": "IAS/IVS intact",
+        "relation": "ASSOCIATED_WITH",
+        "target": "interatrial septum",
+        "page": 2,
+        "source_text": "IAS/IVS intact"
+      },
+      {
+        "source": "IAS/IVS intact",
+        "relation": "ASSOCIATED_WITH",
+        "target": "interventricular septum",
+        "page": 2,
+        "source_text": "IAS/IVS intact"
+      },
+      {
+        "source": "No effusion",
+        "relation": "ASSOCIATED_WITH",
+        "target": "pericardium",
+        "page": 2,
+        "source_text": "No evidence of any mass / vegetation No effusion No LA/LV clot"
+      },
+      {
+        "source": "No LA/LV clot",
+        "relation": "ASSOCIATED_WITH",
+        "target": "left atrium",
+        "page": 2,
+        "source_text": "No evidence of any mass / vegetation No effusion No LA/LV clot"
+      },
+      {
+        "source": "No LA/LV clot",
+        "relation": "ASSOCIATED_WITH",
+        "target": "left ventricle",
+        "page": 2,
+        "source_text": "No evidence of any mass / vegetation No effusion No LA/LV clot"
+      },
+      {
+        "source": "Conc LVH",
+        "relation": "ASSOCIATED_WITH",
+        "target": "left ventricle",
+        "page": 2,
+        "source_text": "- **Conc LVH, No RWMA**"
+      },
+      {
+        "source": "No RWMA",
+        "relation": "ASSOCIATED_WITH",
+        "target": "left ventricle",
+        "page": 2,
+        "source_text": "- **Conc LVH, No RWMA**"
+      },
+      {
+        "source": "normal LV function",
+        "relation": "ASSOCIATED_WITH",
+        "target": "left ventricle",
+        "page": 2,
+        "source_text": "- **EF-  60% normal LV function**"
+      },
+      {
+        "source": "Grade 1 LVDD",
+        "relation": "ASSOCIATED_WITH",
+        "target": "left ventricle",
+        "page": 2,
+        "source_text": "- **Grade 1 LVDD**"
+      },
+      {
+        "source": "Mild TR",
+        "relation": "ASSOCIATED_WITH",
+        "target": "tricuspid valve",
+        "page": 2,
+        "source_text": "- **Mild TR PASP=34mmHg.**"
+      },
+      {
+        "source": "Normal RV function",
+        "relation": "ASSOCIATED_WITH",
+        "target": "right ventricle",
+        "page": 2,
+        "source_text": "- **Normal RV function**"
+      },
+      {
+        "source": "Aortic root diameter",
+        "relation": "MEASURES",
+        "target": "aortic root",
+        "page": 1,
+        "source_text": "Aortic root diameter: 23"
+      },
+      {
+        "source": "Left Atrial diameter",
+        "relation": "MEASURES",
+        "target": "left atrium",
+        "page": 1,
+        "source_text": "Left Atrial diameter: 25"
+      },
+      {
+        "source": "Left Ventricular ED Dimension",
+        "relation": "MEASURES",
+        "target": "left ventricle",
+        "page": 1,
+        "source_text": "Left Ventricular ED Dimension: 42"
+      },
+      {
+        "source": "Left Ventricular ES Dimension",
+        "relation": "MEASURES",
+        "target": "left ventricle",
+        "page": 1,
+        "source_text": "Left Ventricular ES Dimension: 25"
+      },
+      {
+        "source": "Inter Vent. Septum thickness D",
+        "relation": "MEASURES",
+        "target": "interventricular septum",
+        "page": 1,
+        "source_text": "Inter Vent. Septum thickness D: 13"
+      },
+      {
+        "source": "LVposterior wall thickness D",
+        "relation": "MEASURES",
+        "target": "left ventricle",
+        "page": 1,
+        "source_text": "LVposterior wall thickness D: 10"
+      },
+      {
+        "source": "Ejection Fraction",
+        "relation": "MEASURES",
+        "target": "left ventricle",
+        "page": 1,
+        "source_text": "Ejection Fraction: 60 %"
+      },
+      {
+        "source": "Fractional shortening",
+        "relation": "MEASURES",
+        "target": "left ventricle",
+        "page": 1,
+        "source_text": "Fractional shortening: 32.5 %"
+      },
+      {
+        "source": "Aortic Velocity",
+        "relation": "MEASURES",
+        "target": "aorta",
+        "page": 2,
+        "source_text": "No Aortic regurgitation. No Pulmonary regurgitation present. No gradient across LVOT Mitral inflow. E <A Aortic Velocity = 1.47 m/s Pulmonary velocity = 1.0m/s"
+      },
+      {
+        "source": "Pulmonary velocity",
+        "relation": "MEASURES",
+        "target": "pulmonary artery",
+        "page": 2,
+        "source_text": "No Aortic regurgitation. No Pulmonary regurgitation present. No gradient across LVOT Mitral inflow. E <A Aortic Velocity = 1.47 m/s Pulmonary velocity = 1.0m/s"
+      },
+      {
+        "source": "PASP",
+        "relation": "MEASURES",
+        "target": "pulmonary artery",
+        "page": 2,
+        "source_text": "- **Mild TR PASP=34mmHg.**"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "title": null,
+      "page": 1,
+      "text": "**NAME: PA01                                                                                DATED:** \n\n**AGE/SEX: 61y /F                                                                          REF BY: IPD**",
+      "table_refs": []
+    },
+    {
+      "title": "**<u>ECHO CARDIOGRAPHY REPORT</u>**",
+      "page": 1,
+      "text": "**MITRAL VALVE : Normal TRICUSPID VALVE :** Thin. Opening well. No Prolapse. **AORTIC VALVE:** Tricuspid **,** normal, opens well. **PULMONARY VALVE:** Normal. Normal ‘EF’ slope. Normal ‘A’ wave. No midsystolic notch.",
+      "table_refs": []
+    },
+    {
+      "title": "**<u>M-MODE PARAMETERS</u>**",
+      "page": 1,
+      "text": "|**MEASUREMENTS**||**(NORMAL VALUES)**|\n|---|---|---|\n|Aortic root diameter|23|(20-37mm)|\n|Left Atrial diameter|25|(19-40mm)|\n|Left Ventricular ED Dimension|42|(33-55mm)|\n|Left Ventricular ES Dimension|25|(22-40mm)|\n|Inter Vent. Septum thickness D|13|(06-11mm)|\n|LVposterior wall thickness D|10|(06-11mm)|\n|**LEFT VENTRICLE FUNCTION**<br>**INDICES**||**NORMAL VALUES**|\n|**Ejection Fraction**|**60 %**|**(55-74%)**|\n|**Fractional shortening**|**32.5%**|**(28-40%)**|",
+      "table_refs": []
+    },
+    {
+      "title": "**ON INTERROGATING WITH PULSE & CONTINUOUS WAVE DOPPLER IT WAS FOUND THAT THERE IS:-**",
+      "page": 2,
+      "text": "No Aortic regurgitation. No Pulmonary regurgitation present. No gradient across LVOT Mitral inflow. E <A Aortic Velocity = 1.47 m/s Pulmonary velocity = 1.0m/s",
+      "table_refs": []
+    },
+    {
+      "title": "**OTHERS**",
+      "page": 2,
+      "text": "IAS/IVS intact \n\nNo evidence of any mass / vegetation No effusion No LA/LV clot",
+      "table_refs": []
+    },
+    {
+      "title": "**_<u>FINAL IMPRESSION: -</u>_**",
+      "page": 2,
+      "text": "- **Conc LVH, No RWMA** \n\n- **EF-  60% normal LV function** \n\n- **Grade 1 LVDD** \n\n- **Mild TR PASP=34mmHg.** \n\n- **Normal RV function**",
+      "table_refs": []
+    },
+    {
+      "title": "**Consultant DM Cardiologist**",
+      "page": 2,
+      "text": "",
+      "table_refs": []
+    }
+  ],
+  "tables": [
+    {
+      "title": "## **<u>M-MODE PARAMETERS</u>**",
+      "page": 1,
+      "headers": [
+        "**MEASUREMENTS**",
+        "",
+        "**(NORMAL VALUES)**"
+      ],
+      "rows": [
+        {
+          "name": "Aortic root diameter",
+          "value": "23",
+          "unit": null,
+          "reference_range": "(20-37mm)"
+        },
+        {
+          "name": "Left Atrial diameter",
+          "value": "25",
+          "unit": null,
+          "reference_range": "(19-40mm)"
+        },
+        {
+          "name": "Left Ventricular ED Dimension",
+          "value": "42",
+          "unit": null,
+          "reference_range": "(33-55mm)"
+        },
+        {
+          "name": "Left Ventricular ES Dimension",
+          "value": "25",
+          "unit": null,
+          "reference_range": "(22-40mm)"
+        },
+        {
+          "name": "Inter Vent. Septum thickness D",
+          "value": "13",
+          "unit": null,
+          "reference_range": "(06-11mm)"
+        },
+        {
+          "name": "LVposterior wall thickness D",
+          "value": "10",
+          "unit": null,
+          "reference_range": "(06-11mm)"
+        },
+        {
+          "name": "LEFT VENTRICLE FUNCTION INDICES",
+          "value": null,
+          "unit": null,
+          "reference_range": "NORMAL VALUES"
+        },
+        {
+          "name": "Ejection Fraction",
+          "value": "60 %",
+          "unit": null,
+          "reference_range": "(55-74%)"
+        },
+        {
+          "name": "Fractional shortening",
+          "value": "32.5%",
+          "unit": null,
+          "reference_range": "(28-40%)"
+        }
+      ],
+      "raw_rows": [
+        [
+          "**MEASUREMENTS**",
+          "",
+          "**(NORMAL VALUES)**"
+        ],
+        [
+          "**MEASUREMENTS**",
+          "",
+          "**(NORMAL VALUES)**"
+        ],
+        [
+          "Aortic root diameter",
+          "23",
+          "(20-37mm)"
+        ],
+        [
+          "Left Atrial diameter",
+          "25",
+          "(19-40mm)"
+        ],
+        [
+          "Left Ventricular ED Dimension",
+          "42",
+          "(33-55mm)"
+        ],
+        [
+          "Left Ventricular ES Dimension",
+          "25",
+          "(22-40mm)"
+        ],
+        [
+          "Inter Vent. Septum thickness D",
+          "13",
+          "(06-11mm)"
+        ],
+        [
+          "LVposterior wall thickness D",
+          "10",
+          "(06-11mm)"
+        ],
+        [
+          "**LEFT VENTRICLE FUNCTION**<br>**INDICES**",
+          "",
+          "**NORMAL VALUES**"
+        ],
+        [
+          "**Ejection Fraction**",
+          "**60 %**",
+          "**(55-74%)**"
+        ],
+        [
+          "**Fractional shortening**",
+          "**32.5%**",
+          "**(28-40%)**"
+        ]
+      ]
+    }
+  ],
+  "measurements": [
+    {
+      "name": "Aortic root diameter",
+      "value": "23",
+      "unit": null,
+      "reference_range": "(20-37mm)",
+      "page": 1,
+      "source_section": "## **<u>M-MODE PARAMETERS</u>**"
+    },
+    {
+      "name": "Left Atrial diameter",
+      "value": "25",
+      "unit": null,
+      "reference_range": "(19-40mm)",
+      "page": 1,
+      "source_section": "## **<u>M-MODE PARAMETERS</u>**"
+    },
+    {
+      "name": "Left Ventricular ED Dimension",
+      "value": "42",
+      "unit": null,
+      "reference_range": "(33-55mm)",
+      "page": 1,
+      "source_section": "## **<u>M-MODE PARAMETERS</u>**"
+    },
+    {
+      "name": "Left Ventricular ES Dimension",
+      "value": "25",
+      "unit": null,
+      "reference_range": "(22-40mm)",
+      "page": 1,
+      "source_section": "## **<u>M-MODE PARAMETERS</u>**"
+    },
+    {
+      "name": "Inter Vent. Septum thickness D",
+      "value": "13",
+      "unit": null,
+      "reference_range": "(06-11mm)",
+      "page": 1,
+      "source_section": "## **<u>M-MODE PARAMETERS</u>**"
+    },
+    {
+      "name": "LVposterior wall thickness D",
+      "value": "10",
+      "unit": null,
+      "reference_range": "(06-11mm)",
+      "page": 1,
+      "source_section": "## **<u>M-MODE PARAMETERS</u>**"
+    },
+    {
+      "name": "Ejection Fraction",
+      "value": "60",
+      "unit": "%",
+      "reference_range": "(55-74%)",
+      "page": 1,
+      "source_section": "## **<u>M-MODE PARAMETERS</u>**"
+    },
+    {
+      "name": "Fractional shortening",
+      "value": "32.5",
+      "unit": "%",
+      "reference_range": "(28-40%)",
+      "page": 1,
+      "source_section": "## **<u>M-MODE PARAMETERS</u>**"
+    }
+  ],
+  "raw": {
+    "text": "NAME: PA01                                                                                DATED: \n\nAGE/SEX: 61y /F                                                                          REF BY: IPD \n\n<u>ECHO CARDIOGRAPHY REPORT</u> \n\nMITRAL VALVE : Normal TRICUSPID VALVE : Thin. Opening well. No Prolapse. AORTIC VALVE: Tricuspid , normal, opens well. PULMONARY VALVE: Normal. Normal ‘EF’ slope. Normal ‘A’ wave. No midsystolic notch. \n\n<u>M-MODE PARAMETERS</u> \n\n|MEASUREMENTS||(NORMAL VALUES)|\n|---|---|---|\n|Aortic root diameter|23|(20-37mm)|\n|Left Atrial diameter|25|(19-40mm)|\n|Left Ventricular ED Dimension|42|(33-55mm)|\n|Left Ventricular ES Dimension|25|(22-40mm)|\n|Inter Vent. Septum thickness D|13|(06-11mm)|\n|LVposterior wall thickness D|10|(06-11mm)|\n|LEFT VENTRICLE FUNCTION<br>INDICES||NORMAL VALUES|\n|Ejection Fraction|60 %|(55-74%)|\n|Fractional shortening|32.5%|(28-40%)|\n\n\n\n\n\nON INTERROGATING WITH PULSE & CONTINUOUS WAVE DOPPLER IT WAS FOUND THAT THERE IS:- \n\nNo Aortic regurgitation. No Pulmonary regurgitation present. No gradient across LVOT Mitral inflow. E <A Aortic Velocity = 1.47 m/s Pulmonary velocity = 1.0m/s \n\nOTHERS \n\nIAS/IVS intact \n\nNo evidence of any mass / vegetation No effusion No LA/LV clot \n\n<u>FINAL IMPRESSION: -</u> \n\n- Conc LVH, No RWMA \n\n- EF-  60% normal LV function \n\n- Grade 1 LVDD \n\n- Mild TR PASP=34mmHg. \n\n- Normal RV function \n\nConsultant DM Cardiologist",
+    "markdown": "\n<!-- page 1 -->\n**NAME: PA01                                                                                DATED:** \n\n**AGE/SEX: 61y /F                                                                          REF BY: IPD** \n\n# **<u>ECHO CARDIOGRAPHY REPORT</u>** \n\n**MITRAL VALVE : Normal TRICUSPID VALVE :** Thin. Opening well. No Prolapse. **AORTIC VALVE:** Tricuspid **,** normal, opens well. **PULMONARY VALVE:** Normal. Normal ‘EF’ slope. Normal ‘A’ wave. No midsystolic notch. \n\n## **<u>M-MODE PARAMETERS</u>** \n\n|**MEASUREMENTS**||**(NORMAL VALUES)**|\n|---|---|---|\n|Aortic root diameter|23|(20-37mm)|\n|Left Atrial diameter|25|(19-40mm)|\n|Left Ventricular ED Dimension|42|(33-55mm)|\n|Left Ventricular ES Dimension|25|(22-40mm)|\n|Inter Vent. Septum thickness D|13|(06-11mm)|\n|LVposterior wall thickness D|10|(06-11mm)|\n|**LEFT VENTRICLE FUNCTION**<br>**INDICES**||**NORMAL VALUES**|\n|**Ejection Fraction**|**60 %**|**(55-74%)**|\n|**Fractional shortening**|**32.5%**|**(28-40%)**|\n\n\n\n\n<!-- page 2 -->\n## **ON INTERROGATING WITH PULSE & CONTINUOUS WAVE DOPPLER IT WAS FOUND THAT THERE IS:-** \n\nNo Aortic regurgitation. No Pulmonary regurgitation present. No gradient across LVOT Mitral inflow. E <A Aortic Velocity = 1.47 m/s Pulmonary velocity = 1.0m/s \n\n## **OTHERS** \n\nIAS/IVS intact \n\nNo evidence of any mass / vegetation No effusion No LA/LV clot \n\n# **_<u>FINAL IMPRESSION: -</u>_** \n\n- **Conc LVH, No RWMA** \n\n- **EF-  60% normal LV function** \n\n- **Grade 1 LVDD** \n\n- **Mild TR PASP=34mmHg.** \n\n- **Normal RV function** \n\n## **Consultant DM Cardiologist** \n\n"
+  },
+  "validation": {
+    "status": "GOOD",
+    "warnings": [],
+    "scores": {
+      "non_empty": 1.0,
+      "garbage_ratio": 1.0,
+      "meaningful_words": 1.0,
+      "line_count": 1.0,
+      "table_coherence": 1.0,
+      "heading_preservation": 1.0,
+      "measurement_plausibility": 1.0,
+      "_aggregate": 1.0
+    }
+  }
+}

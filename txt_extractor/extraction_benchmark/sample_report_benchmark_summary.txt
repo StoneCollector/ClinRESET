@@ -1,0 +1,13 @@
+PDF EXTRACTION BENCHMARK
+================================================================================
+Input: C:\Projects\NLP\txt_extractor\sample_report.pdf
+
+Methodology | Status | Time(s) | Characters | Output
+--------------------------------------------------------------------------------
+pypdfium2 | OK | 0.192 | 1,252 | sample_report_pypdfium2.txt
+pypdf | OK | 0.693 | 1,604 | sample_report_pypdf.txt
+pdfplumber | OK | 0.463 | 1,649 | sample_report_pdfplumber.txt
+pymupdf4llm | OK | 2.661 | 1,538 | sample_report_pymupdf4llm.txt
+unstructured | OK | 17.579 | 1,656 | sample_report_unstructured.txt
+marker-pdf | OK | 13.561 | 1,414 | sample_report_marker_pdf.txt
+textract | OK | 0.342 | 1,269 | sample_report_textract.txt
