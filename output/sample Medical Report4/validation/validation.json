@@ -1,0 +1,16 @@
+{
+  "status": "GOOD",
+  "warnings": [
+    "[heading_preservation] No recognisable headings found (Markdown or ALL-CAPS)."
+  ],
+  "scores": {
+    "non_empty": 1.0,
+    "garbage_ratio": 1.0,
+    "meaningful_words": 1.0,
+    "line_count": 1.0,
+    "table_coherence": 1.0,
+    "heading_preservation": 0.8,
+    "measurement_plausibility": 1.0,
+    "_aggregate": 0.9889
+  }
+}

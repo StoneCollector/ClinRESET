@@ -64,9 +64,36 @@ def extract_clinical_info(result: Any) -> ClinicalInformation:
 
     if classification:
         if isinstance(classification, dict):
-            report_type = classification.get("report_type")
+            status = classification.get("status")
+            if status != "UNKNOWN":
+                report_type = classification.get("report_type")
         else:
-            report_type = getattr(classification, "report_type", None)
+            status = getattr(classification, "status", None)
+            if status != "UNKNOWN":
+                report_type = getattr(classification, "report_type", None)
+
+    if not report_type:
+        # Check if unclassified input contains unmistakable echo-specific markers
+        # (e.g. from Phase 3 test cases that bypass Phase 2 classification)
+        raw_sections = _get_field(result, "sections", []) or []
+        combined_text = " ".join(
+            (getattr(s, "text", "") or "") + " " + (getattr(s, "title", "") or "")
+            for s in raw_sections
+        ).lower()
+        echo_markers = [
+            "lvh",
+            "rwma",
+            "lvdd",
+            "left ventricle",
+            "interventricular septum",
+            "mitral valve",
+            "tricuspid valve",
+            "aortic valve",
+            "mild tr",
+            "conc lvh",
+        ]
+        if any(marker in combined_text for marker in echo_markers):
+            report_type = "echocardiography"
 
     logger.info("Extracting clinical information (report_type=%s)", report_type)
 
@@ -107,11 +134,10 @@ def extract_clinical_info(result: Any) -> ClinicalInformation:
         else:
             normalized_sec_inputs.append(s)
 
-    # 4. Extract Measurements (reuses Phase 1 + narrative inline)
-    measurements = extract_measurements(
-        normalized_meas_inputs,
-        normalized_sec_inputs,
-        report_type=report_type,
+    # 4. Extract Measurements (reuses Phase 1 + narrative inline via rule engine)
+    measurements = rules.extract_measurements(
+        sections=normalized_sec_inputs,
+        phase1_measurements=normalized_meas_inputs,
     )
 
     # 5. Extract Anatomy

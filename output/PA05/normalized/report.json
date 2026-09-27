@@ -1,0 +1,1788 @@
+{
+  "document": {
+    "file_name": "PA05.pdf",
+    "page_count": 2,
+    "source_type": "digital_pdf",
+    "extractor": "pymupdf4llm"
+  },
+  "classification": {
+    "report_type": "unknown",
+    "confidence": 0.7143,
+    "status": "AMBIGUOUS",
+    "evidence": [
+      {
+        "signal_text": "IMPRESSION",
+        "signal_category": "section_indicator",
+        "source_field": "section_title",
+        "weight": 9.0,
+        "page": 2,
+        "section": "IMPRESSION",
+        "matched_pattern": "IMPRESSION"
+      },
+      {
+        "signal_text": "- Single live intrauterine fetus of approx GA 31week’s 5days +/- 2weeks in cephalic presentation. - Normal colour Dopple",
+        "signal_category": "strong_keyword",
+        "source_field": "section_text",
+        "weight": 5.0,
+        "page": 2,
+        "section": "**<u>IMPRESSION</u>**",
+        "matched_pattern": "sonography"
+      },
+      {
+        "signal_text": "NAME : PA05 DATE : 14.10.2024 AGE/ SEX : 20years/Female REF. BY: Obstetric Fetal well Being Colour Doppler Study and BPP",
+        "signal_category": "strong_keyword",
+        "source_field": "section_text",
+        "weight": 5.0,
+        "page": 1,
+        "section": null,
+        "matched_pattern": "USG"
+      },
+      {
+        "signal_text": "Consultant MD Radiologist",
+        "signal_category": "supporting_keyword",
+        "source_field": "section_title",
+        "weight": 1.5,
+        "page": 2,
+        "section": "Consultant MD Radiologist",
+        "matched_pattern": "radiologist"
+      },
+      {
+        "signal_text": "NAME : PA05 DATE : 14.10.2024 AGE/ SEX : 20years/Female REF. BY: Obstetric Fetal well Being Colour Doppler Study and BPP",
+        "signal_category": "supporting_keyword",
+        "source_field": "section_text",
+        "weight": 1.5,
+        "page": 1,
+        "section": null,
+        "matched_pattern": "anterior"
+      },
+      {
+        "signal_text": "DOPPLER ||PSV|EDV|PI|RI|S/D | |---|---|---|---|---|---| |Umbilical artery|38.1|12.4|1.29|0.67|3.1| |Fetal MCA |45.2|7.09",
+        "signal_category": "supporting_keyword",
+        "source_field": "section_text",
+        "weight": 1.5,
+        "page": 1,
+        "section": "**EFW- 1805gms +/- 264gms**",
+        "matched_pattern": "right"
+      },
+      {
+        "signal_text": "DOPPLER ||PSV|EDV|PI|RI|S/D | |---|---|---|---|---|---| |Umbilical artery|38.1|12.4|1.29|0.67|3.1| |Fetal MCA |45.2|7.09",
+        "signal_category": "supporting_keyword",
+        "source_field": "section_text",
+        "weight": 1.5,
+        "page": 1,
+        "section": "**EFW- 1805gms +/- 264gms**",
+        "matched_pattern": "left"
+      }
+    ],
+    "alternatives": [
+      {
+        "report_type": "radiology",
+        "score": 25.0,
+        "evidence_count": 7
+      },
+      {
+        "report_type": "echocardiography",
+        "score": 24.5,
+        "evidence_count": 6
+      }
+    ]
+  },
+  "clinical_information": {
+    "entities": [
+      {
+        "text": "Single PRESENTATION Cephalic LIQUOR is adequate (AFI 10) CARDIAC ACTIVITY Normal",
+        "type": "FINDING",
+        "normalized": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "assertion": "NORMAL",
+        "negated": false,
+        "page": 1,
+        "source_section": null,
+        "source_text": "Single PRESENTATION Cephalic LIQUOR is adequate (AFI 10) CARDIAC ACTIVITY Normal",
+        "confidence": 1.0,
+        "semantic_category": "OTHER_CLINICAL",
+        "modifiers": {},
+        "related_anatomy": []
+      },
+      {
+        "text": "| | Umbilical artery |38.1|12.4|1.29|0.67|3.1| | Fetal MCA |45.2|7.09|2.40|0.84|6.4| | Right Uterine artery |72.2|37.6|0.66|0.48|1.9| | left uterine artery |129|62.6|0.75|0.52|2.1| Fetal MCA and umbilical artery are normal, show colour flow and flow pattern",
+        "type": "FINDING",
+        "normalized": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "assertion": "NORMAL",
+        "negated": false,
+        "page": 1,
+        "source_section": "**EFW- 1805gms +/- 264gms**",
+        "source_text": "| | Umbilical artery |38.1|12.4|1.29|0.67|3.1| | Fetal MCA |45.2|7.09|2.40|0.84|6.4| | Right Uterine artery |72.2|37.6|0.66|0.48|1.9| | left uterine artery |129|62.6|0.75|0.52|2.1| Fetal MCA and umbilical artery are normal, show colour flow and flow pattern",
+        "confidence": 1.0,
+        "semantic_category": "DOPPLER_MEASUREMENT",
+        "modifiers": {},
+        "related_anatomy": []
+      },
+      {
+        "text": "The SD Ratio of umbilical artery is (Which is normal)",
+        "type": "FINDING",
+        "normalized": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "assertion": "NORMAL",
+        "negated": false,
+        "page": 1,
+        "source_section": "**EFW- 1805gms +/- 264gms**",
+        "source_text": "The SD Ratio of umbilical artery is (Which is normal)",
+        "confidence": 1.0,
+        "semantic_category": "OTHER_CLINICAL",
+        "modifiers": {},
+        "related_anatomy": []
+      },
+      {
+        "text": "B/L Uterine arteries show normal colour flow & spectral trace",
+        "type": "FINDING",
+        "normalized": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "assertion": "NORMAL",
+        "negated": false,
+        "page": 1,
+        "source_section": "**EFW- 1805gms +/- 264gms**",
+        "source_text": "B/L Uterine arteries show normal colour flow & spectral trace",
+        "confidence": 1.0,
+        "semantic_category": "DOPPLER_MEASUREMENT",
+        "modifiers": {
+          "severity_text": "Trace"
+        },
+        "related_anatomy": []
+      },
+      {
+        "text": "Fetal thoracic aorta show normal colour flow and flow pattern",
+        "type": "FINDING",
+        "normalized": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "assertion": "NORMAL",
+        "negated": false,
+        "page": 1,
+        "source_section": "**EFW- 1805gms +/- 264gms**",
+        "source_text": "Fetal thoracic aorta show normal colour flow and flow pattern",
+        "confidence": 1.0,
+        "semantic_category": "DOPPLER_MEASUREMENT",
+        "modifiers": {},
+        "related_anatomy": []
+      },
+      {
+        "text": "| Biophysical variable | Normal | Score | |",
+        "type": "FINDING",
+        "normalized": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "assertion": "NORMAL",
+        "negated": false,
+        "page": 2,
+        "source_section": "**BIOPHYSICAL PROFILE SCORING**",
+        "source_text": "| Biophysical variable | Normal | Score | |",
+        "confidence": 1.0,
+        "semantic_category": "OTHER_CLINICAL",
+        "modifiers": {},
+        "related_anatomy": []
+      },
+      {
+        "text": "opening and closing of <br> hand considered normal tone",
+        "type": "FINDING",
+        "normalized": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "assertion": "NORMAL",
+        "negated": false,
+        "page": 2,
+        "source_section": "**BIOPHYSICAL PROFILE SCORING**",
+        "source_text": "opening and closing of <br> hand considered normal tone",
+        "confidence": 1.0,
+        "semantic_category": "OTHER_CLINICAL",
+        "modifiers": {},
+        "related_anatomy": []
+      },
+      {
+        "text": "Normal colour Doppler study",
+        "type": "FINDING",
+        "normalized": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "assertion": "NORMAL",
+        "negated": false,
+        "page": 2,
+        "source_section": "**<u>IMPRESSION</u>**",
+        "source_text": "Normal colour Doppler study",
+        "confidence": 1.0,
+        "semantic_category": "OTHER_CLINICAL",
+        "modifiers": {},
+        "related_anatomy": []
+      },
+      {
+        "text": "AGE/ SEX",
+        "type": "MEASUREMENT",
+        "normalized": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 1,
+        "source_section": null,
+        "source_text": "**NAME         : PA05                                                              DATE    :  14.10.2024** **<u>AGE/ SEX   : 20years/Female                                            REF. BY: Obstetric Fetal well Being Colour Doppler Study and BPP</u> LMP: 03.03.2024                                                                  EDD BY LMP: 08.12.2024 Gestational Age:  32wks 1day                                             EDD BY USG: 11.12.2024 FETAL. NO** . Single **PRESENTATION** Cephalic **LIQUOR** is adequate (AFI~10) **CARDIAC ACTIVITY** Normal - 136bpm/min **PLACENTA** is anterior, well above internal os, Grade- I, not low lying.",
+        "confidence": 1.0,
+        "semantic_category": "MEASUREMENT",
+        "modifiers": {},
+        "related_anatomy": []
+      },
+      {
+        "text": "LMP",
+        "type": "MEASUREMENT",
+        "normalized": "Last Menstrual Period",
+        "normalization_source": "terminology_corpus",
+        "ambiguity": false,
+        "ambiguity_status": "RESOLVED",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 1,
+        "source_section": null,
+        "source_text": "**NAME         : PA05                                                              DATE    :  14.10.2024** **<u>AGE/ SEX   : 20years/Female                                            REF. BY: Obstetric Fetal well Being Colour Doppler Study and BPP</u> LMP: 03.03.2024                                                                  EDD BY LMP: 08.12.2024 Gestational Age:  32wks 1day                                             EDD BY USG: 11.12.2024 FETAL. NO** . Single **PRESENTATION** Cephalic **LIQUOR** is adequate (AFI~10) **CARDIAC ACTIVITY** Normal - 136bpm/min **PLACENTA** is anterior, well above internal os, Grade- I, not low lying.",
+        "confidence": 1.0,
+        "semantic_category": "MEASUREMENT",
+        "modifiers": {},
+        "related_anatomy": [],
+        "candidates": [
+          "Last Menstrual Period"
+        ]
+      },
+      {
+        "text": "EDD BY LMP",
+        "type": "MEASUREMENT",
+        "normalized": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 1,
+        "source_section": null,
+        "source_text": "**NAME         : PA05                                                              DATE    :  14.10.2024** **<u>AGE/ SEX   : 20years/Female                                            REF. BY: Obstetric Fetal well Being Colour Doppler Study and BPP</u> LMP: 03.03.2024                                                                  EDD BY LMP: 08.12.2024 Gestational Age:  32wks 1day                                             EDD BY USG: 11.12.2024 FETAL. NO** . Single **PRESENTATION** Cephalic **LIQUOR** is adequate (AFI~10) **CARDIAC ACTIVITY** Normal - 136bpm/min **PLACENTA** is anterior, well above internal os, Grade- I, not low lying.",
+        "confidence": 1.0,
+        "semantic_category": "MEASUREMENT",
+        "modifiers": {},
+        "related_anatomy": []
+      },
+      {
+        "text": "Gestational Age",
+        "type": "MEASUREMENT",
+        "normalized": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 1,
+        "source_section": null,
+        "source_text": "**NAME         : PA05                                                              DATE    :  14.10.2024** **<u>AGE/ SEX   : 20years/Female                                            REF. BY: Obstetric Fetal well Being Colour Doppler Study and BPP</u> LMP: 03.03.2024                                                                  EDD BY LMP: 08.12.2024 Gestational Age:  32wks 1day                                             EDD BY USG: 11.12.2024 FETAL. NO** . Single **PRESENTATION** Cephalic **LIQUOR** is adequate (AFI~10) **CARDIAC ACTIVITY** Normal - 136bpm/min **PLACENTA** is anterior, well above internal os, Grade- I, not low lying.",
+        "confidence": 1.0,
+        "semantic_category": "MEASUREMENT",
+        "modifiers": {},
+        "related_anatomy": []
+      },
+      {
+        "text": "EDD BY USG",
+        "type": "MEASUREMENT",
+        "normalized": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 1,
+        "source_section": null,
+        "source_text": "**NAME         : PA05                                                              DATE    :  14.10.2024** **<u>AGE/ SEX   : 20years/Female                                            REF. BY: Obstetric Fetal well Being Colour Doppler Study and BPP</u> LMP: 03.03.2024                                                                  EDD BY LMP: 08.12.2024 Gestational Age:  32wks 1day                                             EDD BY USG: 11.12.2024 FETAL. NO** . Single **PRESENTATION** Cephalic **LIQUOR** is adequate (AFI~10) **CARDIAC ACTIVITY** Normal - 136bpm/min **PLACENTA** is anterior, well above internal os, Grade- I, not low lying.",
+        "confidence": 1.0,
+        "semantic_category": "MEASUREMENT",
+        "modifiers": {},
+        "related_anatomy": []
+      }
+    ],
+    "measurements": [
+      {
+        "name": "AGE/ SEX",
+        "value": 20,
+        "unit": "years/Female",
+        "reference_range": null,
+        "page": 1,
+        "source_section": null,
+        "source_text": "**NAME         : PA05                                                              DATE    :  14.10.2024** **<u>AGE/ SEX   : 20years/Female                                            REF. BY: Obstetric Fetal well Being Colour Doppler Study and BPP</u> LMP: 03.03.2024                                                                  EDD BY LMP: 08.12.2024 Gestational Age:  32wks 1day                                             EDD BY USG: 11.12.2024 FETAL. NO** . Single **PRESENTATION** Cephalic **LIQUOR** is adequate (AFI~10) **CARDIAC ACTIVITY** Normal - 136bpm/min **PLACENTA** is anterior, well above internal os, Grade- I, not low lying.",
+        "normalized_name": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "semantic_category": "MEASUREMENT",
+        "modifiers": {},
+        "related_anatomy": []
+      },
+      {
+        "name": "LMP",
+        "value": 3.03,
+        "unit": null,
+        "reference_range": null,
+        "page": 1,
+        "source_section": null,
+        "source_text": "**NAME         : PA05                                                              DATE    :  14.10.2024** **<u>AGE/ SEX   : 20years/Female                                            REF. BY: Obstetric Fetal well Being Colour Doppler Study and BPP</u> LMP: 03.03.2024                                                                  EDD BY LMP: 08.12.2024 Gestational Age:  32wks 1day                                             EDD BY USG: 11.12.2024 FETAL. NO** . Single **PRESENTATION** Cephalic **LIQUOR** is adequate (AFI~10) **CARDIAC ACTIVITY** Normal - 136bpm/min **PLACENTA** is anterior, well above internal os, Grade- I, not low lying.",
+        "normalized_name": "Last Menstrual Period",
+        "normalization_source": "terminology_corpus",
+        "ambiguity": false,
+        "ambiguity_status": "RESOLVED",
+        "semantic_category": "MEASUREMENT",
+        "modifiers": {},
+        "related_anatomy": [],
+        "candidates": [
+          "Last Menstrual Period"
+        ]
+      },
+      {
+        "name": "EDD BY LMP",
+        "value": 8.12,
+        "unit": null,
+        "reference_range": null,
+        "page": 1,
+        "source_section": null,
+        "source_text": "**NAME         : PA05                                                              DATE    :  14.10.2024** **<u>AGE/ SEX   : 20years/Female                                            REF. BY: Obstetric Fetal well Being Colour Doppler Study and BPP</u> LMP: 03.03.2024                                                                  EDD BY LMP: 08.12.2024 Gestational Age:  32wks 1day                                             EDD BY USG: 11.12.2024 FETAL. NO** . Single **PRESENTATION** Cephalic **LIQUOR** is adequate (AFI~10) **CARDIAC ACTIVITY** Normal - 136bpm/min **PLACENTA** is anterior, well above internal os, Grade- I, not low lying.",
+        "normalized_name": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "semantic_category": "MEASUREMENT",
+        "modifiers": {},
+        "related_anatomy": []
+      },
+      {
+        "name": "Gestational Age",
+        "value": 32,
+        "unit": "wks",
+        "reference_range": null,
+        "page": 1,
+        "source_section": null,
+        "source_text": "**NAME         : PA05                                                              DATE    :  14.10.2024** **<u>AGE/ SEX   : 20years/Female                                            REF. BY: Obstetric Fetal well Being Colour Doppler Study and BPP</u> LMP: 03.03.2024                                                                  EDD BY LMP: 08.12.2024 Gestational Age:  32wks 1day                                             EDD BY USG: 11.12.2024 FETAL. NO** . Single **PRESENTATION** Cephalic **LIQUOR** is adequate (AFI~10) **CARDIAC ACTIVITY** Normal - 136bpm/min **PLACENTA** is anterior, well above internal os, Grade- I, not low lying.",
+        "normalized_name": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "semantic_category": "MEASUREMENT",
+        "modifiers": {},
+        "related_anatomy": []
+      },
+      {
+        "name": "EDD BY USG",
+        "value": 11.12,
+        "unit": null,
+        "reference_range": null,
+        "page": 1,
+        "source_section": null,
+        "source_text": "**NAME         : PA05                                                              DATE    :  14.10.2024** **<u>AGE/ SEX   : 20years/Female                                            REF. BY: Obstetric Fetal well Being Colour Doppler Study and BPP</u> LMP: 03.03.2024                                                                  EDD BY LMP: 08.12.2024 Gestational Age:  32wks 1day                                             EDD BY USG: 11.12.2024 FETAL. NO** . Single **PRESENTATION** Cephalic **LIQUOR** is adequate (AFI~10) **CARDIAC ACTIVITY** Normal - 136bpm/min **PLACENTA** is anterior, well above internal os, Grade- I, not low lying.",
+        "normalized_name": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "semantic_category": "MEASUREMENT",
+        "modifiers": {},
+        "related_anatomy": []
+      }
+    ],
+    "findings": [
+      {
+        "text": "Single PRESENTATION Cephalic LIQUOR is adequate (AFI 10) CARDIAC ACTIVITY Normal",
+        "normalized": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "assertion": "NORMAL",
+        "negated": false,
+        "page": 1,
+        "source_section": null,
+        "source_text": "Single PRESENTATION Cephalic LIQUOR is adequate (AFI 10) CARDIAC ACTIVITY Normal",
+        "semantic_category": "OTHER_CLINICAL",
+        "modifiers": {},
+        "related_anatomy": []
+      },
+      {
+        "text": "| | Umbilical artery |38.1|12.4|1.29|0.67|3.1| | Fetal MCA |45.2|7.09|2.40|0.84|6.4| | Right Uterine artery |72.2|37.6|0.66|0.48|1.9| | left uterine artery |129|62.6|0.75|0.52|2.1| Fetal MCA and umbilical artery are normal, show colour flow and flow pattern",
+        "normalized": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "assertion": "NORMAL",
+        "negated": false,
+        "page": 1,
+        "source_section": "**EFW- 1805gms +/- 264gms**",
+        "source_text": "| | Umbilical artery |38.1|12.4|1.29|0.67|3.1| | Fetal MCA |45.2|7.09|2.40|0.84|6.4| | Right Uterine artery |72.2|37.6|0.66|0.48|1.9| | left uterine artery |129|62.6|0.75|0.52|2.1| Fetal MCA and umbilical artery are normal, show colour flow and flow pattern",
+        "semantic_category": "DOPPLER_MEASUREMENT",
+        "modifiers": {},
+        "related_anatomy": []
+      },
+      {
+        "text": "The SD Ratio of umbilical artery is (Which is normal)",
+        "normalized": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "assertion": "NORMAL",
+        "negated": false,
+        "page": 1,
+        "source_section": "**EFW- 1805gms +/- 264gms**",
+        "source_text": "The SD Ratio of umbilical artery is (Which is normal)",
+        "semantic_category": "OTHER_CLINICAL",
+        "modifiers": {},
+        "related_anatomy": []
+      },
+      {
+        "text": "B/L Uterine arteries show normal colour flow & spectral trace",
+        "normalized": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "assertion": "NORMAL",
+        "negated": false,
+        "page": 1,
+        "source_section": "**EFW- 1805gms +/- 264gms**",
+        "source_text": "B/L Uterine arteries show normal colour flow & spectral trace",
+        "semantic_category": "DOPPLER_MEASUREMENT",
+        "modifiers": {
+          "severity_text": "Trace"
+        },
+        "related_anatomy": []
+      },
+      {
+        "text": "Fetal thoracic aorta show normal colour flow and flow pattern",
+        "normalized": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "assertion": "NORMAL",
+        "negated": false,
+        "page": 1,
+        "source_section": "**EFW- 1805gms +/- 264gms**",
+        "source_text": "Fetal thoracic aorta show normal colour flow and flow pattern",
+        "semantic_category": "DOPPLER_MEASUREMENT",
+        "modifiers": {},
+        "related_anatomy": [
+          "Aorta"
+        ]
+      },
+      {
+        "text": "| Biophysical variable | Normal | Score | |",
+        "normalized": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "assertion": "NORMAL",
+        "negated": false,
+        "page": 2,
+        "source_section": "**BIOPHYSICAL PROFILE SCORING**",
+        "source_text": "| Biophysical variable | Normal | Score | |",
+        "semantic_category": "OTHER_CLINICAL",
+        "modifiers": {},
+        "related_anatomy": []
+      },
+      {
+        "text": "opening and closing of <br> hand considered normal tone",
+        "normalized": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "assertion": "NORMAL",
+        "negated": false,
+        "page": 2,
+        "source_section": "**BIOPHYSICAL PROFILE SCORING**",
+        "source_text": "opening and closing of <br> hand considered normal tone",
+        "semantic_category": "OTHER_CLINICAL",
+        "modifiers": {},
+        "related_anatomy": []
+      },
+      {
+        "text": "Normal colour Doppler study",
+        "normalized": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "assertion": "NORMAL",
+        "negated": false,
+        "page": 2,
+        "source_section": "**<u>IMPRESSION</u>**",
+        "source_text": "Normal colour Doppler study",
+        "semantic_category": "OTHER_CLINICAL",
+        "modifiers": {},
+        "related_anatomy": []
+      }
+    ],
+    "anatomy": [],
+    "relationships": [],
+    "structured_clinical_concepts": [
+      {
+        "concept": "Single PRESENTATION Cephalic LIQUOR is adequate (AFI 10) CARDIAC ACTIVITY Normal",
+        "original_text": "Single PRESENTATION Cephalic LIQUOR is adequate (AFI 10) CARDIAC ACTIVITY Normal",
+        "type": "FINDING",
+        "semantic_category": "OTHER_CLINICAL",
+        "value": null,
+        "unit": null,
+        "reference_range": null,
+        "assertion": "NORMAL",
+        "modifiers": {},
+        "related_anatomy": [],
+        "provenance": {
+          "page": 1,
+          "source_section": null,
+          "source_text": "Single PRESENTATION Cephalic LIQUOR is adequate (AFI 10) CARDIAC ACTIVITY Normal",
+          "normalization_source": null,
+          "ambiguity": false,
+          "ambiguity_status": "UNKNOWN",
+          "candidates": []
+        }
+      },
+      {
+        "concept": "| | Umbilical artery |38.1|12.4|1.29|0.67|3.1| | Fetal MCA |45.2|7.09|2.40|0.84|6.4| | Right Uterine artery |72.2|37.6|0.66|0.48|1.9| | left uterine artery |129|62.6|0.75|0.52|2.1| Fetal MCA and umbilical artery are normal, show colour flow and flow pattern",
+        "original_text": "| | Umbilical artery |38.1|12.4|1.29|0.67|3.1| | Fetal MCA |45.2|7.09|2.40|0.84|6.4| | Right Uterine artery |72.2|37.6|0.66|0.48|1.9| | left uterine artery |129|62.6|0.75|0.52|2.1| Fetal MCA and umbilical artery are normal, show colour flow and flow pattern",
+        "type": "FINDING",
+        "semantic_category": "DOPPLER_MEASUREMENT",
+        "value": null,
+        "unit": null,
+        "reference_range": null,
+        "assertion": "NORMAL",
+        "modifiers": {},
+        "related_anatomy": [],
+        "provenance": {
+          "page": 1,
+          "source_section": "**EFW- 1805gms +/- 264gms**",
+          "source_text": "| | Umbilical artery |38.1|12.4|1.29|0.67|3.1| | Fetal MCA |45.2|7.09|2.40|0.84|6.4| | Right Uterine artery |72.2|37.6|0.66|0.48|1.9| | left uterine artery |129|62.6|0.75|0.52|2.1| Fetal MCA and umbilical artery are normal, show colour flow and flow pattern",
+          "normalization_source": null,
+          "ambiguity": false,
+          "ambiguity_status": "UNKNOWN",
+          "candidates": []
+        }
+      },
+      {
+        "concept": "The SD Ratio of umbilical artery is (Which is normal)",
+        "original_text": "The SD Ratio of umbilical artery is (Which is normal)",
+        "type": "FINDING",
+        "semantic_category": "OTHER_CLINICAL",
+        "value": null,
+        "unit": null,
+        "reference_range": null,
+        "assertion": "NORMAL",
+        "modifiers": {},
+        "related_anatomy": [],
+        "provenance": {
+          "page": 1,
+          "source_section": "**EFW- 1805gms +/- 264gms**",
+          "source_text": "The SD Ratio of umbilical artery is (Which is normal)",
+          "normalization_source": null,
+          "ambiguity": false,
+          "ambiguity_status": "UNKNOWN",
+          "candidates": []
+        }
+      },
+      {
+        "concept": "B/L Uterine arteries show normal colour flow & spectral trace",
+        "original_text": "B/L Uterine arteries show normal colour flow & spectral trace",
+        "type": "FINDING",
+        "semantic_category": "DOPPLER_MEASUREMENT",
+        "value": null,
+        "unit": null,
+        "reference_range": null,
+        "assertion": "NORMAL",
+        "modifiers": {
+          "severity_text": "Trace"
+        },
+        "related_anatomy": [],
+        "provenance": {
+          "page": 1,
+          "source_section": "**EFW- 1805gms +/- 264gms**",
+          "source_text": "B/L Uterine arteries show normal colour flow & spectral trace",
+          "normalization_source": null,
+          "ambiguity": false,
+          "ambiguity_status": "UNKNOWN",
+          "candidates": []
+        }
+      },
+      {
+        "concept": "Fetal thoracic aorta show normal colour flow and flow pattern",
+        "original_text": "Fetal thoracic aorta show normal colour flow and flow pattern",
+        "type": "FINDING",
+        "semantic_category": "DOPPLER_MEASUREMENT",
+        "value": null,
+        "unit": null,
+        "reference_range": null,
+        "assertion": "NORMAL",
+        "modifiers": {},
+        "related_anatomy": [
+          "Aorta"
+        ],
+        "provenance": {
+          "page": 1,
+          "source_section": "**EFW- 1805gms +/- 264gms**",
+          "source_text": "Fetal thoracic aorta show normal colour flow and flow pattern",
+          "normalization_source": null,
+          "ambiguity": false,
+          "ambiguity_status": "UNKNOWN",
+          "candidates": []
+        }
+      },
+      {
+        "concept": "| Biophysical variable | Normal | Score | |",
+        "original_text": "| Biophysical variable | Normal | Score | |",
+        "type": "FINDING",
+        "semantic_category": "OTHER_CLINICAL",
+        "value": null,
+        "unit": null,
+        "reference_range": null,
+        "assertion": "NORMAL",
+        "modifiers": {},
+        "related_anatomy": [],
+        "provenance": {
+          "page": 2,
+          "source_section": "**BIOPHYSICAL PROFILE SCORING**",
+          "source_text": "| Biophysical variable | Normal | Score | |",
+          "normalization_source": null,
+          "ambiguity": false,
+          "ambiguity_status": "UNKNOWN",
+          "candidates": []
+        }
+      },
+      {
+        "concept": "opening and closing of <br> hand considered normal tone",
+        "original_text": "opening and closing of <br> hand considered normal tone",
+        "type": "FINDING",
+        "semantic_category": "OTHER_CLINICAL",
+        "value": null,
+        "unit": null,
+        "reference_range": null,
+        "assertion": "NORMAL",
+        "modifiers": {},
+        "related_anatomy": [],
+        "provenance": {
+          "page": 2,
+          "source_section": "**BIOPHYSICAL PROFILE SCORING**",
+          "source_text": "opening and closing of <br> hand considered normal tone",
+          "normalization_source": null,
+          "ambiguity": false,
+          "ambiguity_status": "UNKNOWN",
+          "candidates": []
+        }
+      },
+      {
+        "concept": "Normal colour Doppler study",
+        "original_text": "Normal colour Doppler study",
+        "type": "FINDING",
+        "semantic_category": "OTHER_CLINICAL",
+        "value": null,
+        "unit": null,
+        "reference_range": null,
+        "assertion": "NORMAL",
+        "modifiers": {},
+        "related_anatomy": [],
+        "provenance": {
+          "page": 2,
+          "source_section": "**<u>IMPRESSION</u>**",
+          "source_text": "Normal colour Doppler study",
+          "normalization_source": null,
+          "ambiguity": false,
+          "ambiguity_status": "UNKNOWN",
+          "candidates": []
+        }
+      },
+      {
+        "concept": "AGE/ SEX",
+        "original_text": "AGE/ SEX",
+        "type": "MEASUREMENT",
+        "semantic_category": "MEASUREMENT",
+        "value": 20,
+        "unit": "years/Female",
+        "reference_range": null,
+        "assertion": "PRESENT",
+        "modifiers": {},
+        "related_anatomy": [],
+        "provenance": {
+          "page": 1,
+          "source_section": null,
+          "source_text": "**NAME         : PA05                                                              DATE    :  14.10.2024** **<u>AGE/ SEX   : 20years/Female                                            REF. BY: Obstetric Fetal well Being Colour Doppler Study and BPP</u> LMP: 03.03.2024                                                                  EDD BY LMP: 08.12.2024 Gestational Age:  32wks 1day                                             EDD BY USG: 11.12.2024 FETAL. NO** . Single **PRESENTATION** Cephalic **LIQUOR** is adequate (AFI~10) **CARDIAC ACTIVITY** Normal - 136bpm/min **PLACENTA** is anterior, well above internal os, Grade- I, not low lying.",
+          "normalization_source": null,
+          "ambiguity": false,
+          "ambiguity_status": "UNKNOWN",
+          "candidates": []
+        }
+      },
+      {
+        "concept": "Last Menstrual Period",
+        "original_text": "LMP",
+        "type": "MEASUREMENT",
+        "semantic_category": "MEASUREMENT",
+        "value": 3.03,
+        "unit": null,
+        "reference_range": null,
+        "assertion": "PRESENT",
+        "modifiers": {},
+        "related_anatomy": [],
+        "provenance": {
+          "page": 1,
+          "source_section": null,
+          "source_text": "**NAME         : PA05                                                              DATE    :  14.10.2024** **<u>AGE/ SEX   : 20years/Female                                            REF. BY: Obstetric Fetal well Being Colour Doppler Study and BPP</u> LMP: 03.03.2024                                                                  EDD BY LMP: 08.12.2024 Gestational Age:  32wks 1day                                             EDD BY USG: 11.12.2024 FETAL. NO** . Single **PRESENTATION** Cephalic **LIQUOR** is adequate (AFI~10) **CARDIAC ACTIVITY** Normal - 136bpm/min **PLACENTA** is anterior, well above internal os, Grade- I, not low lying.",
+          "normalization_source": "terminology_corpus",
+          "ambiguity": false,
+          "ambiguity_status": "RESOLVED",
+          "candidates": [
+            "Last Menstrual Period"
+          ]
+        }
+      },
+      {
+        "concept": "EDD BY LMP",
+        "original_text": "EDD BY LMP",
+        "type": "MEASUREMENT",
+        "semantic_category": "MEASUREMENT",
+        "value": 8.12,
+        "unit": null,
+        "reference_range": null,
+        "assertion": "PRESENT",
+        "modifiers": {},
+        "related_anatomy": [],
+        "provenance": {
+          "page": 1,
+          "source_section": null,
+          "source_text": "**NAME         : PA05                                                              DATE    :  14.10.2024** **<u>AGE/ SEX   : 20years/Female                                            REF. BY: Obstetric Fetal well Being Colour Doppler Study and BPP</u> LMP: 03.03.2024                                                                  EDD BY LMP: 08.12.2024 Gestational Age:  32wks 1day                                             EDD BY USG: 11.12.2024 FETAL. NO** . Single **PRESENTATION** Cephalic **LIQUOR** is adequate (AFI~10) **CARDIAC ACTIVITY** Normal - 136bpm/min **PLACENTA** is anterior, well above internal os, Grade- I, not low lying.",
+          "normalization_source": null,
+          "ambiguity": false,
+          "ambiguity_status": "UNKNOWN",
+          "candidates": []
+        }
+      },
+      {
+        "concept": "Gestational Age",
+        "original_text": "Gestational Age",
+        "type": "MEASUREMENT",
+        "semantic_category": "MEASUREMENT",
+        "value": 32,
+        "unit": "wks",
+        "reference_range": null,
+        "assertion": "PRESENT",
+        "modifiers": {},
+        "related_anatomy": [],
+        "provenance": {
+          "page": 1,
+          "source_section": null,
+          "source_text": "**NAME         : PA05                                                              DATE    :  14.10.2024** **<u>AGE/ SEX   : 20years/Female                                            REF. BY: Obstetric Fetal well Being Colour Doppler Study and BPP</u> LMP: 03.03.2024                                                                  EDD BY LMP: 08.12.2024 Gestational Age:  32wks 1day                                             EDD BY USG: 11.12.2024 FETAL. NO** . Single **PRESENTATION** Cephalic **LIQUOR** is adequate (AFI~10) **CARDIAC ACTIVITY** Normal - 136bpm/min **PLACENTA** is anterior, well above internal os, Grade- I, not low lying.",
+          "normalization_source": null,
+          "ambiguity": false,
+          "ambiguity_status": "UNKNOWN",
+          "candidates": []
+        }
+      },
+      {
+        "concept": "EDD BY USG",
+        "original_text": "EDD BY USG",
+        "type": "MEASUREMENT",
+        "semantic_category": "MEASUREMENT",
+        "value": 11.12,
+        "unit": null,
+        "reference_range": null,
+        "assertion": "PRESENT",
+        "modifiers": {},
+        "related_anatomy": [],
+        "provenance": {
+          "page": 1,
+          "source_section": null,
+          "source_text": "**NAME         : PA05                                                              DATE    :  14.10.2024** **<u>AGE/ SEX   : 20years/Female                                            REF. BY: Obstetric Fetal well Being Colour Doppler Study and BPP</u> LMP: 03.03.2024                                                                  EDD BY LMP: 08.12.2024 Gestational Age:  32wks 1day                                             EDD BY USG: 11.12.2024 FETAL. NO** . Single **PRESENTATION** Cephalic **LIQUOR** is adequate (AFI~10) **CARDIAC ACTIVITY** Normal - 136bpm/min **PLACENTA** is anterior, well above internal os, Grade- I, not low lying.",
+          "normalization_source": null,
+          "ambiguity": false,
+          "ambiguity_status": "UNKNOWN",
+          "candidates": []
+        }
+      }
+    ],
+    "explanations": [
+      {
+        "concept": "Single PRESENTATION Cephalic LIQUOR is adequate (AFI 10) CARDIAC ACTIVITY Normal",
+        "original_text": "Single PRESENTATION Cephalic LIQUOR is adequate (AFI 10) CARDIAC ACTIVITY Normal",
+        "type": "FINDING",
+        "semantic_category": "OTHER_CLINICAL",
+        "assertion": "NORMAL",
+        "value": null,
+        "unit": null,
+        "reference_range": null,
+        "related_anatomy": [],
+        "modifiers": {},
+        "status": "EXPLANATION_UNAVAILABLE",
+        "explanation": "Explanation unavailable: unmapped or unknown concept.",
+        "provenance": {
+          "page": 1,
+          "source_section": null,
+          "source_text": "Single PRESENTATION Cephalic LIQUOR is adequate (AFI 10) CARDIAC ACTIVITY Normal",
+          "normalization_source": null,
+          "ambiguity": false,
+          "ambiguity_status": "UNKNOWN",
+          "candidates": []
+        },
+        "unavailability_reason": "UNKNOWN_CONCEPT"
+      },
+      {
+        "concept": "| | Umbilical artery |38.1|12.4|1.29|0.67|3.1| | Fetal MCA |45.2|7.09|2.40|0.84|6.4| | Right Uterine artery |72.2|37.6|0.66|0.48|1.9| | left uterine artery |129|62.6|0.75|0.52|2.1| Fetal MCA and umbilical artery are normal, show colour flow and flow pattern",
+        "original_text": "| | Umbilical artery |38.1|12.4|1.29|0.67|3.1| | Fetal MCA |45.2|7.09|2.40|0.84|6.4| | Right Uterine artery |72.2|37.6|0.66|0.48|1.9| | left uterine artery |129|62.6|0.75|0.52|2.1| Fetal MCA and umbilical artery are normal, show colour flow and flow pattern",
+        "type": "FINDING",
+        "semantic_category": "DOPPLER_MEASUREMENT",
+        "assertion": "NORMAL",
+        "value": null,
+        "unit": null,
+        "reference_range": null,
+        "related_anatomy": [],
+        "modifiers": {},
+        "status": "EXPLANATION_UNAVAILABLE",
+        "explanation": "Explanation unavailable: unmapped or unknown concept.",
+        "provenance": {
+          "page": 1,
+          "source_section": "**EFW- 1805gms +/- 264gms**",
+          "source_text": "| | Umbilical artery |38.1|12.4|1.29|0.67|3.1| | Fetal MCA |45.2|7.09|2.40|0.84|6.4| | Right Uterine artery |72.2|37.6|0.66|0.48|1.9| | left uterine artery |129|62.6|0.75|0.52|2.1| Fetal MCA and umbilical artery are normal, show colour flow and flow pattern",
+          "normalization_source": null,
+          "ambiguity": false,
+          "ambiguity_status": "UNKNOWN",
+          "candidates": []
+        },
+        "unavailability_reason": "UNKNOWN_CONCEPT"
+      },
+      {
+        "concept": "The SD Ratio of umbilical artery is (Which is normal)",
+        "original_text": "The SD Ratio of umbilical artery is (Which is normal)",
+        "type": "FINDING",
+        "semantic_category": "OTHER_CLINICAL",
+        "assertion": "NORMAL",
+        "value": null,
+        "unit": null,
+        "reference_range": null,
+        "related_anatomy": [],
+        "modifiers": {},
+        "status": "EXPLANATION_UNAVAILABLE",
+        "explanation": "Explanation unavailable: unmapped or unknown concept.",
+        "provenance": {
+          "page": 1,
+          "source_section": "**EFW- 1805gms +/- 264gms**",
+          "source_text": "The SD Ratio of umbilical artery is (Which is normal)",
+          "normalization_source": null,
+          "ambiguity": false,
+          "ambiguity_status": "UNKNOWN",
+          "candidates": []
+        },
+        "unavailability_reason": "UNKNOWN_CONCEPT"
+      },
+      {
+        "concept": "B/L Uterine arteries show normal colour flow & spectral trace",
+        "original_text": "B/L Uterine arteries show normal colour flow & spectral trace",
+        "type": "FINDING",
+        "semantic_category": "DOPPLER_MEASUREMENT",
+        "assertion": "NORMAL",
+        "value": null,
+        "unit": null,
+        "reference_range": null,
+        "related_anatomy": [],
+        "modifiers": {
+          "severity_text": "Trace"
+        },
+        "status": "EXPLANATION_UNAVAILABLE",
+        "explanation": "Explanation unavailable: unmapped or unknown concept.",
+        "provenance": {
+          "page": 1,
+          "source_section": "**EFW- 1805gms +/- 264gms**",
+          "source_text": "B/L Uterine arteries show normal colour flow & spectral trace",
+          "normalization_source": null,
+          "ambiguity": false,
+          "ambiguity_status": "UNKNOWN",
+          "candidates": []
+        },
+        "unavailability_reason": "UNKNOWN_CONCEPT"
+      },
+      {
+        "concept": "Fetal thoracic aorta show normal colour flow and flow pattern",
+        "original_text": "Fetal thoracic aorta show normal colour flow and flow pattern",
+        "type": "FINDING",
+        "semantic_category": "DOPPLER_MEASUREMENT",
+        "assertion": "NORMAL",
+        "value": null,
+        "unit": null,
+        "reference_range": null,
+        "related_anatomy": [
+          "Aorta"
+        ],
+        "modifiers": {},
+        "status": "EXPLANATION_UNAVAILABLE",
+        "explanation": "Explanation unavailable: unmapped or unknown concept.",
+        "provenance": {
+          "page": 1,
+          "source_section": "**EFW- 1805gms +/- 264gms**",
+          "source_text": "Fetal thoracic aorta show normal colour flow and flow pattern",
+          "normalization_source": null,
+          "ambiguity": false,
+          "ambiguity_status": "UNKNOWN",
+          "candidates": []
+        },
+        "unavailability_reason": "UNKNOWN_CONCEPT"
+      },
+      {
+        "concept": "| Biophysical variable | Normal | Score | |",
+        "original_text": "| Biophysical variable | Normal | Score | |",
+        "type": "FINDING",
+        "semantic_category": "OTHER_CLINICAL",
+        "assertion": "NORMAL",
+        "value": null,
+        "unit": null,
+        "reference_range": null,
+        "related_anatomy": [],
+        "modifiers": {},
+        "status": "EXPLANATION_UNAVAILABLE",
+        "explanation": "Explanation unavailable: unmapped or unknown concept.",
+        "provenance": {
+          "page": 2,
+          "source_section": "**BIOPHYSICAL PROFILE SCORING**",
+          "source_text": "| Biophysical variable | Normal | Score | |",
+          "normalization_source": null,
+          "ambiguity": false,
+          "ambiguity_status": "UNKNOWN",
+          "candidates": []
+        },
+        "unavailability_reason": "UNKNOWN_CONCEPT"
+      },
+      {
+        "concept": "opening and closing of <br> hand considered normal tone",
+        "original_text": "opening and closing of <br> hand considered normal tone",
+        "type": "FINDING",
+        "semantic_category": "OTHER_CLINICAL",
+        "assertion": "NORMAL",
+        "value": null,
+        "unit": null,
+        "reference_range": null,
+        "related_anatomy": [],
+        "modifiers": {},
+        "status": "EXPLANATION_UNAVAILABLE",
+        "explanation": "Explanation unavailable: unmapped or unknown concept.",
+        "provenance": {
+          "page": 2,
+          "source_section": "**BIOPHYSICAL PROFILE SCORING**",
+          "source_text": "opening and closing of <br> hand considered normal tone",
+          "normalization_source": null,
+          "ambiguity": false,
+          "ambiguity_status": "UNKNOWN",
+          "candidates": []
+        },
+        "unavailability_reason": "UNKNOWN_CONCEPT"
+      },
+      {
+        "concept": "Normal colour Doppler study",
+        "original_text": "Normal colour Doppler study",
+        "type": "FINDING",
+        "semantic_category": "OTHER_CLINICAL",
+        "assertion": "NORMAL",
+        "value": null,
+        "unit": null,
+        "reference_range": null,
+        "related_anatomy": [],
+        "modifiers": {},
+        "status": "EXPLANATION_UNAVAILABLE",
+        "explanation": "Explanation unavailable: unmapped or unknown concept.",
+        "provenance": {
+          "page": 2,
+          "source_section": "**<u>IMPRESSION</u>**",
+          "source_text": "Normal colour Doppler study",
+          "normalization_source": null,
+          "ambiguity": false,
+          "ambiguity_status": "UNKNOWN",
+          "candidates": []
+        },
+        "unavailability_reason": "UNKNOWN_CONCEPT"
+      },
+      {
+        "concept": "AGE/ SEX",
+        "original_text": "AGE/ SEX",
+        "type": "MEASUREMENT",
+        "semantic_category": "MEASUREMENT",
+        "assertion": "PRESENT",
+        "value": 20,
+        "unit": "years/Female",
+        "reference_range": null,
+        "related_anatomy": [],
+        "modifiers": {},
+        "status": "EXPLANATION_UNAVAILABLE",
+        "explanation": "Explanation unavailable: unmapped or unknown concept.",
+        "provenance": {
+          "page": 1,
+          "source_section": null,
+          "source_text": "**NAME         : PA05                                                              DATE    :  14.10.2024** **<u>AGE/ SEX   : 20years/Female                                            REF. BY: Obstetric Fetal well Being Colour Doppler Study and BPP</u> LMP: 03.03.2024                                                                  EDD BY LMP: 08.12.2024 Gestational Age:  32wks 1day                                             EDD BY USG: 11.12.2024 FETAL. NO** . Single **PRESENTATION** Cephalic **LIQUOR** is adequate (AFI~10) **CARDIAC ACTIVITY** Normal - 136bpm/min **PLACENTA** is anterior, well above internal os, Grade- I, not low lying.",
+          "normalization_source": null,
+          "ambiguity": false,
+          "ambiguity_status": "UNKNOWN",
+          "candidates": []
+        },
+        "unavailability_reason": "UNKNOWN_CONCEPT"
+      },
+      {
+        "concept": "Last Menstrual Period",
+        "original_text": "LMP",
+        "type": "MEASUREMENT",
+        "semantic_category": "MEASUREMENT",
+        "assertion": "PRESENT",
+        "value": 3.03,
+        "unit": null,
+        "reference_range": null,
+        "related_anatomy": [],
+        "modifiers": {},
+        "status": "EXPLANATION_UNAVAILABLE",
+        "explanation": "Explanation unavailable: concept is not currently in the knowledge base.",
+        "provenance": {
+          "page": 1,
+          "source_section": null,
+          "source_text": "**NAME         : PA05                                                              DATE    :  14.10.2024** **<u>AGE/ SEX   : 20years/Female                                            REF. BY: Obstetric Fetal well Being Colour Doppler Study and BPP</u> LMP: 03.03.2024                                                                  EDD BY LMP: 08.12.2024 Gestational Age:  32wks 1day                                             EDD BY USG: 11.12.2024 FETAL. NO** . Single **PRESENTATION** Cephalic **LIQUOR** is adequate (AFI~10) **CARDIAC ACTIVITY** Normal - 136bpm/min **PLACENTA** is anterior, well above internal os, Grade- I, not low lying.",
+          "normalization_source": "terminology_corpus",
+          "ambiguity": false,
+          "ambiguity_status": "RESOLVED",
+          "candidates": [
+            "Last Menstrual Period"
+          ]
+        },
+        "unavailability_reason": "NOT_IN_KNOWLEDGE_BASE"
+      },
+      {
+        "concept": "EDD BY LMP",
+        "original_text": "EDD BY LMP",
+        "type": "MEASUREMENT",
+        "semantic_category": "MEASUREMENT",
+        "assertion": "PRESENT",
+        "value": 8.12,
+        "unit": null,
+        "reference_range": null,
+        "related_anatomy": [],
+        "modifiers": {},
+        "status": "EXPLANATION_UNAVAILABLE",
+        "explanation": "Explanation unavailable: unmapped or unknown concept.",
+        "provenance": {
+          "page": 1,
+          "source_section": null,
+          "source_text": "**NAME         : PA05                                                              DATE    :  14.10.2024** **<u>AGE/ SEX   : 20years/Female                                            REF. BY: Obstetric Fetal well Being Colour Doppler Study and BPP</u> LMP: 03.03.2024                                                                  EDD BY LMP: 08.12.2024 Gestational Age:  32wks 1day                                             EDD BY USG: 11.12.2024 FETAL. NO** . Single **PRESENTATION** Cephalic **LIQUOR** is adequate (AFI~10) **CARDIAC ACTIVITY** Normal - 136bpm/min **PLACENTA** is anterior, well above internal os, Grade- I, not low lying.",
+          "normalization_source": null,
+          "ambiguity": false,
+          "ambiguity_status": "UNKNOWN",
+          "candidates": []
+        },
+        "unavailability_reason": "UNKNOWN_CONCEPT"
+      },
+      {
+        "concept": "Gestational Age",
+        "original_text": "Gestational Age",
+        "type": "MEASUREMENT",
+        "semantic_category": "MEASUREMENT",
+        "assertion": "PRESENT",
+        "value": 32,
+        "unit": "wks",
+        "reference_range": null,
+        "related_anatomy": [],
+        "modifiers": {},
+        "status": "EXPLANATION_UNAVAILABLE",
+        "explanation": "Explanation unavailable: unmapped or unknown concept.",
+        "provenance": {
+          "page": 1,
+          "source_section": null,
+          "source_text": "**NAME         : PA05                                                              DATE    :  14.10.2024** **<u>AGE/ SEX   : 20years/Female                                            REF. BY: Obstetric Fetal well Being Colour Doppler Study and BPP</u> LMP: 03.03.2024                                                                  EDD BY LMP: 08.12.2024 Gestational Age:  32wks 1day                                             EDD BY USG: 11.12.2024 FETAL. NO** . Single **PRESENTATION** Cephalic **LIQUOR** is adequate (AFI~10) **CARDIAC ACTIVITY** Normal - 136bpm/min **PLACENTA** is anterior, well above internal os, Grade- I, not low lying.",
+          "normalization_source": null,
+          "ambiguity": false,
+          "ambiguity_status": "UNKNOWN",
+          "candidates": []
+        },
+        "unavailability_reason": "UNKNOWN_CONCEPT"
+      },
+      {
+        "concept": "EDD BY USG",
+        "original_text": "EDD BY USG",
+        "type": "MEASUREMENT",
+        "semantic_category": "MEASUREMENT",
+        "assertion": "PRESENT",
+        "value": 11.12,
+        "unit": null,
+        "reference_range": null,
+        "related_anatomy": [],
+        "modifiers": {},
+        "status": "EXPLANATION_UNAVAILABLE",
+        "explanation": "Explanation unavailable: unmapped or unknown concept.",
+        "provenance": {
+          "page": 1,
+          "source_section": null,
+          "source_text": "**NAME         : PA05                                                              DATE    :  14.10.2024** **<u>AGE/ SEX   : 20years/Female                                            REF. BY: Obstetric Fetal well Being Colour Doppler Study and BPP</u> LMP: 03.03.2024                                                                  EDD BY LMP: 08.12.2024 Gestational Age:  32wks 1day                                             EDD BY USG: 11.12.2024 FETAL. NO** . Single **PRESENTATION** Cephalic **LIQUOR** is adequate (AFI~10) **CARDIAC ACTIVITY** Normal - 136bpm/min **PLACENTA** is anterior, well above internal os, Grade- I, not low lying.",
+          "normalization_source": null,
+          "ambiguity": false,
+          "ambiguity_status": "UNKNOWN",
+          "candidates": []
+        },
+        "unavailability_reason": "UNKNOWN_CONCEPT"
+      }
+    ],
+    "explanation_sections": [
+      {
+        "title": "Heart Dimensions & Thickness",
+        "category": "MEASUREMENT",
+        "explanations": [
+          {
+            "concept": "AGE/ SEX",
+            "original_text": "AGE/ SEX",
+            "type": "MEASUREMENT",
+            "semantic_category": "MEASUREMENT",
+            "assertion": "PRESENT",
+            "value": 20,
+            "unit": "years/Female",
+            "reference_range": null,
+            "related_anatomy": [],
+            "modifiers": {},
+            "status": "EXPLANATION_UNAVAILABLE",
+            "explanation": "Explanation unavailable: unmapped or unknown concept.",
+            "provenance": {
+              "page": 1,
+              "source_section": null,
+              "source_text": "**NAME         : PA05                                                              DATE    :  14.10.2024** **<u>AGE/ SEX   : 20years/Female                                            REF. BY: Obstetric Fetal well Being Colour Doppler Study and BPP</u> LMP: 03.03.2024                                                                  EDD BY LMP: 08.12.2024 Gestational Age:  32wks 1day                                             EDD BY USG: 11.12.2024 FETAL. NO** . Single **PRESENTATION** Cephalic **LIQUOR** is adequate (AFI~10) **CARDIAC ACTIVITY** Normal - 136bpm/min **PLACENTA** is anterior, well above internal os, Grade- I, not low lying.",
+              "normalization_source": null,
+              "ambiguity": false,
+              "ambiguity_status": "UNKNOWN",
+              "candidates": []
+            },
+            "unavailability_reason": "UNKNOWN_CONCEPT"
+          },
+          {
+            "concept": "Last Menstrual Period",
+            "original_text": "LMP",
+            "type": "MEASUREMENT",
+            "semantic_category": "MEASUREMENT",
+            "assertion": "PRESENT",
+            "value": 3.03,
+            "unit": null,
+            "reference_range": null,
+            "related_anatomy": [],
+            "modifiers": {},
+            "status": "EXPLANATION_UNAVAILABLE",
+            "explanation": "Explanation unavailable: concept is not currently in the knowledge base.",
+            "provenance": {
+              "page": 1,
+              "source_section": null,
+              "source_text": "**NAME         : PA05                                                              DATE    :  14.10.2024** **<u>AGE/ SEX   : 20years/Female                                            REF. BY: Obstetric Fetal well Being Colour Doppler Study and BPP</u> LMP: 03.03.2024                                                                  EDD BY LMP: 08.12.2024 Gestational Age:  32wks 1day                                             EDD BY USG: 11.12.2024 FETAL. NO** . Single **PRESENTATION** Cephalic **LIQUOR** is adequate (AFI~10) **CARDIAC ACTIVITY** Normal - 136bpm/min **PLACENTA** is anterior, well above internal os, Grade- I, not low lying.",
+              "normalization_source": "terminology_corpus",
+              "ambiguity": false,
+              "ambiguity_status": "RESOLVED",
+              "candidates": [
+                "Last Menstrual Period"
+              ]
+            },
+            "unavailability_reason": "NOT_IN_KNOWLEDGE_BASE"
+          },
+          {
+            "concept": "EDD BY LMP",
+            "original_text": "EDD BY LMP",
+            "type": "MEASUREMENT",
+            "semantic_category": "MEASUREMENT",
+            "assertion": "PRESENT",
+            "value": 8.12,
+            "unit": null,
+            "reference_range": null,
+            "related_anatomy": [],
+            "modifiers": {},
+            "status": "EXPLANATION_UNAVAILABLE",
+            "explanation": "Explanation unavailable: unmapped or unknown concept.",
+            "provenance": {
+              "page": 1,
+              "source_section": null,
+              "source_text": "**NAME         : PA05                                                              DATE    :  14.10.2024** **<u>AGE/ SEX   : 20years/Female                                            REF. BY: Obstetric Fetal well Being Colour Doppler Study and BPP</u> LMP: 03.03.2024                                                                  EDD BY LMP: 08.12.2024 Gestational Age:  32wks 1day                                             EDD BY USG: 11.12.2024 FETAL. NO** . Single **PRESENTATION** Cephalic **LIQUOR** is adequate (AFI~10) **CARDIAC ACTIVITY** Normal - 136bpm/min **PLACENTA** is anterior, well above internal os, Grade- I, not low lying.",
+              "normalization_source": null,
+              "ambiguity": false,
+              "ambiguity_status": "UNKNOWN",
+              "candidates": []
+            },
+            "unavailability_reason": "UNKNOWN_CONCEPT"
+          },
+          {
+            "concept": "Gestational Age",
+            "original_text": "Gestational Age",
+            "type": "MEASUREMENT",
+            "semantic_category": "MEASUREMENT",
+            "assertion": "PRESENT",
+            "value": 32,
+            "unit": "wks",
+            "reference_range": null,
+            "related_anatomy": [],
+            "modifiers": {},
+            "status": "EXPLANATION_UNAVAILABLE",
+            "explanation": "Explanation unavailable: unmapped or unknown concept.",
+            "provenance": {
+              "page": 1,
+              "source_section": null,
+              "source_text": "**NAME         : PA05                                                              DATE    :  14.10.2024** **<u>AGE/ SEX   : 20years/Female                                            REF. BY: Obstetric Fetal well Being Colour Doppler Study and BPP</u> LMP: 03.03.2024                                                                  EDD BY LMP: 08.12.2024 Gestational Age:  32wks 1day                                             EDD BY USG: 11.12.2024 FETAL. NO** . Single **PRESENTATION** Cephalic **LIQUOR** is adequate (AFI~10) **CARDIAC ACTIVITY** Normal - 136bpm/min **PLACENTA** is anterior, well above internal os, Grade- I, not low lying.",
+              "normalization_source": null,
+              "ambiguity": false,
+              "ambiguity_status": "UNKNOWN",
+              "candidates": []
+            },
+            "unavailability_reason": "UNKNOWN_CONCEPT"
+          },
+          {
+            "concept": "EDD BY USG",
+            "original_text": "EDD BY USG",
+            "type": "MEASUREMENT",
+            "semantic_category": "MEASUREMENT",
+            "assertion": "PRESENT",
+            "value": 11.12,
+            "unit": null,
+            "reference_range": null,
+            "related_anatomy": [],
+            "modifiers": {},
+            "status": "EXPLANATION_UNAVAILABLE",
+            "explanation": "Explanation unavailable: unmapped or unknown concept.",
+            "provenance": {
+              "page": 1,
+              "source_section": null,
+              "source_text": "**NAME         : PA05                                                              DATE    :  14.10.2024** **<u>AGE/ SEX   : 20years/Female                                            REF. BY: Obstetric Fetal well Being Colour Doppler Study and BPP</u> LMP: 03.03.2024                                                                  EDD BY LMP: 08.12.2024 Gestational Age:  32wks 1day                                             EDD BY USG: 11.12.2024 FETAL. NO** . Single **PRESENTATION** Cephalic **LIQUOR** is adequate (AFI~10) **CARDIAC ACTIVITY** Normal - 136bpm/min **PLACENTA** is anterior, well above internal os, Grade- I, not low lying.",
+              "normalization_source": null,
+              "ambiguity": false,
+              "ambiguity_status": "UNKNOWN",
+              "candidates": []
+            },
+            "unavailability_reason": "UNKNOWN_CONCEPT"
+          }
+        ]
+      },
+      {
+        "title": "Pressure and Doppler",
+        "category": "DOPPLER_MEASUREMENT",
+        "explanations": [
+          {
+            "concept": "| | Umbilical artery |38.1|12.4|1.29|0.67|3.1| | Fetal MCA |45.2|7.09|2.40|0.84|6.4| | Right Uterine artery |72.2|37.6|0.66|0.48|1.9| | left uterine artery |129|62.6|0.75|0.52|2.1| Fetal MCA and umbilical artery are normal, show colour flow and flow pattern",
+            "original_text": "| | Umbilical artery |38.1|12.4|1.29|0.67|3.1| | Fetal MCA |45.2|7.09|2.40|0.84|6.4| | Right Uterine artery |72.2|37.6|0.66|0.48|1.9| | left uterine artery |129|62.6|0.75|0.52|2.1| Fetal MCA and umbilical artery are normal, show colour flow and flow pattern",
+            "type": "FINDING",
+            "semantic_category": "DOPPLER_MEASUREMENT",
+            "assertion": "NORMAL",
+            "value": null,
+            "unit": null,
+            "reference_range": null,
+            "related_anatomy": [],
+            "modifiers": {},
+            "status": "EXPLANATION_UNAVAILABLE",
+            "explanation": "Explanation unavailable: unmapped or unknown concept.",
+            "provenance": {
+              "page": 1,
+              "source_section": "**EFW- 1805gms +/- 264gms**",
+              "source_text": "| | Umbilical artery |38.1|12.4|1.29|0.67|3.1| | Fetal MCA |45.2|7.09|2.40|0.84|6.4| | Right Uterine artery |72.2|37.6|0.66|0.48|1.9| | left uterine artery |129|62.6|0.75|0.52|2.1| Fetal MCA and umbilical artery are normal, show colour flow and flow pattern",
+              "normalization_source": null,
+              "ambiguity": false,
+              "ambiguity_status": "UNKNOWN",
+              "candidates": []
+            },
+            "unavailability_reason": "UNKNOWN_CONCEPT"
+          },
+          {
+            "concept": "B/L Uterine arteries show normal colour flow & spectral trace",
+            "original_text": "B/L Uterine arteries show normal colour flow & spectral trace",
+            "type": "FINDING",
+            "semantic_category": "DOPPLER_MEASUREMENT",
+            "assertion": "NORMAL",
+            "value": null,
+            "unit": null,
+            "reference_range": null,
+            "related_anatomy": [],
+            "modifiers": {
+              "severity_text": "Trace"
+            },
+            "status": "EXPLANATION_UNAVAILABLE",
+            "explanation": "Explanation unavailable: unmapped or unknown concept.",
+            "provenance": {
+              "page": 1,
+              "source_section": "**EFW- 1805gms +/- 264gms**",
+              "source_text": "B/L Uterine arteries show normal colour flow & spectral trace",
+              "normalization_source": null,
+              "ambiguity": false,
+              "ambiguity_status": "UNKNOWN",
+              "candidates": []
+            },
+            "unavailability_reason": "UNKNOWN_CONCEPT"
+          },
+          {
+            "concept": "Fetal thoracic aorta show normal colour flow and flow pattern",
+            "original_text": "Fetal thoracic aorta show normal colour flow and flow pattern",
+            "type": "FINDING",
+            "semantic_category": "DOPPLER_MEASUREMENT",
+            "assertion": "NORMAL",
+            "value": null,
+            "unit": null,
+            "reference_range": null,
+            "related_anatomy": [
+              "Aorta"
+            ],
+            "modifiers": {},
+            "status": "EXPLANATION_UNAVAILABLE",
+            "explanation": "Explanation unavailable: unmapped or unknown concept.",
+            "provenance": {
+              "page": 1,
+              "source_section": "**EFW- 1805gms +/- 264gms**",
+              "source_text": "Fetal thoracic aorta show normal colour flow and flow pattern",
+              "normalization_source": null,
+              "ambiguity": false,
+              "ambiguity_status": "UNKNOWN",
+              "candidates": []
+            },
+            "unavailability_reason": "UNKNOWN_CONCEPT"
+          }
+        ]
+      },
+      {
+        "title": "Other Findings",
+        "category": "OTHER_CLINICAL",
+        "explanations": [
+          {
+            "concept": "Single PRESENTATION Cephalic LIQUOR is adequate (AFI 10) CARDIAC ACTIVITY Normal",
+            "original_text": "Single PRESENTATION Cephalic LIQUOR is adequate (AFI 10) CARDIAC ACTIVITY Normal",
+            "type": "FINDING",
+            "semantic_category": "OTHER_CLINICAL",
+            "assertion": "NORMAL",
+            "value": null,
+            "unit": null,
+            "reference_range": null,
+            "related_anatomy": [],
+            "modifiers": {},
+            "status": "EXPLANATION_UNAVAILABLE",
+            "explanation": "Explanation unavailable: unmapped or unknown concept.",
+            "provenance": {
+              "page": 1,
+              "source_section": null,
+              "source_text": "Single PRESENTATION Cephalic LIQUOR is adequate (AFI 10) CARDIAC ACTIVITY Normal",
+              "normalization_source": null,
+              "ambiguity": false,
+              "ambiguity_status": "UNKNOWN",
+              "candidates": []
+            },
+            "unavailability_reason": "UNKNOWN_CONCEPT"
+          },
+          {
+            "concept": "The SD Ratio of umbilical artery is (Which is normal)",
+            "original_text": "The SD Ratio of umbilical artery is (Which is normal)",
+            "type": "FINDING",
+            "semantic_category": "OTHER_CLINICAL",
+            "assertion": "NORMAL",
+            "value": null,
+            "unit": null,
+            "reference_range": null,
+            "related_anatomy": [],
+            "modifiers": {},
+            "status": "EXPLANATION_UNAVAILABLE",
+            "explanation": "Explanation unavailable: unmapped or unknown concept.",
+            "provenance": {
+              "page": 1,
+              "source_section": "**EFW- 1805gms +/- 264gms**",
+              "source_text": "The SD Ratio of umbilical artery is (Which is normal)",
+              "normalization_source": null,
+              "ambiguity": false,
+              "ambiguity_status": "UNKNOWN",
+              "candidates": []
+            },
+            "unavailability_reason": "UNKNOWN_CONCEPT"
+          },
+          {
+            "concept": "| Biophysical variable | Normal | Score | |",
+            "original_text": "| Biophysical variable | Normal | Score | |",
+            "type": "FINDING",
+            "semantic_category": "OTHER_CLINICAL",
+            "assertion": "NORMAL",
+            "value": null,
+            "unit": null,
+            "reference_range": null,
+            "related_anatomy": [],
+            "modifiers": {},
+            "status": "EXPLANATION_UNAVAILABLE",
+            "explanation": "Explanation unavailable: unmapped or unknown concept.",
+            "provenance": {
+              "page": 2,
+              "source_section": "**BIOPHYSICAL PROFILE SCORING**",
+              "source_text": "| Biophysical variable | Normal | Score | |",
+              "normalization_source": null,
+              "ambiguity": false,
+              "ambiguity_status": "UNKNOWN",
+              "candidates": []
+            },
+            "unavailability_reason": "UNKNOWN_CONCEPT"
+          },
+          {
+            "concept": "opening and closing of <br> hand considered normal tone",
+            "original_text": "opening and closing of <br> hand considered normal tone",
+            "type": "FINDING",
+            "semantic_category": "OTHER_CLINICAL",
+            "assertion": "NORMAL",
+            "value": null,
+            "unit": null,
+            "reference_range": null,
+            "related_anatomy": [],
+            "modifiers": {},
+            "status": "EXPLANATION_UNAVAILABLE",
+            "explanation": "Explanation unavailable: unmapped or unknown concept.",
+            "provenance": {
+              "page": 2,
+              "source_section": "**BIOPHYSICAL PROFILE SCORING**",
+              "source_text": "opening and closing of <br> hand considered normal tone",
+              "normalization_source": null,
+              "ambiguity": false,
+              "ambiguity_status": "UNKNOWN",
+              "candidates": []
+            },
+            "unavailability_reason": "UNKNOWN_CONCEPT"
+          },
+          {
+            "concept": "Normal colour Doppler study",
+            "original_text": "Normal colour Doppler study",
+            "type": "FINDING",
+            "semantic_category": "OTHER_CLINICAL",
+            "assertion": "NORMAL",
+            "value": null,
+            "unit": null,
+            "reference_range": null,
+            "related_anatomy": [],
+            "modifiers": {},
+            "status": "EXPLANATION_UNAVAILABLE",
+            "explanation": "Explanation unavailable: unmapped or unknown concept.",
+            "provenance": {
+              "page": 2,
+              "source_section": "**<u>IMPRESSION</u>**",
+              "source_text": "Normal colour Doppler study",
+              "normalization_source": null,
+              "ambiguity": false,
+              "ambiguity_status": "UNKNOWN",
+              "candidates": []
+            },
+            "unavailability_reason": "UNKNOWN_CONCEPT"
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "title": null,
+      "page": 1,
+      "text": "**NAME         : PA05                                                              DATE    :  14.10.2024** **<u>AGE/ SEX   : 20years/Female                                            REF. BY: Obstetric Fetal well Being Colour Doppler Study and BPP</u> LMP: 03.03.2024                                                                  EDD BY LMP: 08.12.2024 Gestational Age:  32wks 1day                                             EDD BY USG: 11.12.2024 FETAL. NO** . Single **PRESENTATION** Cephalic **LIQUOR** is adequate (AFI~10) **CARDIAC ACTIVITY** Normal - 136bpm/min **PLACENTA** is anterior, well above internal os, Grade- I, not low lying. \n\n|**BPD**|8.06cm|32weeks 3days|\n|---|---|---|\n|**HC**|28.57cm|31weeks 3days|\n|**FL**|5.94cm|31weeks 0days|\n|**AC**|27.90cm|32weeks 0days|",
+      "table_refs": []
+    },
+    {
+      "title": "**EFW- 1805gms +/- 264gms**",
+      "page": 1,
+      "text": "**<u>DOPPLER</u>** \n\n||**PSV**|**EDV**|**PI**|**RI**|**S/D **|\n|---|---|---|---|---|---|\n|**Umbilical artery**|38.1|12.4|1.29|0.67|3.1|\n|**Fetal MCA **|45.2|7.09|2.40|0.84|6.4|\n|**Right Uterine artery**|72.2|37.6|0.66|0.48|1.9|\n|**left uterine artery**|129|62.6|0.75|0.52|2.1|\n\n\n\nFetal MCA and umbilical artery are normal, show colour flow and flow pattern. The SD Ratio of umbilical artery is (Which is normal). \n\nB/L Uterine arteries show normal colour flow & spectral trace. \n\nFetal thoracic aorta show normal colour flow and flow pattern.",
+      "table_refs": []
+    },
+    {
+      "title": "**BIOPHYSICAL PROFILE SCORING**",
+      "page": 2,
+      "text": "|**Biophysical variable**|**Normal **|**Score**|\n|---|---|---|\n|**Fetal posture and tone (FT)**|**2 episodes of active extension with**<br>**return to flexion of fetal limb(s) or**<br>**trunk; opening and closing of**<br>**hand considered normal tone.**|**2**|\n|**Fetal movement (FM)**<br>**Fetal breathing movement**<br>**(FBM)**|**3 discrete body/limb movements**<br>**in 30 min or less (episodes of**<br>**active continuous movement**<br>**considered as single movement).**<br>**3-4 episodes of >30 s of FBM in**<br>**30min or less.**|**2**<br>**2**|\n|**Amniotic fluid volume**<br>**(AFV)**|**Adequate (AFI ~10).**|**2**|",
+      "table_refs": []
+    },
+    {
+      "title": "**Total Score = 8/8**",
+      "page": 2,
+      "text": "No loop of cord seen around fetal neck in present scan.",
+      "table_refs": []
+    },
+    {
+      "title": "**<u>IMPRESSION</u>**",
+      "page": 2,
+      "text": "- **Single live intrauterine fetus of approx GA 31week’s 5days +/- 2weeks in cephalic presentation.** \n\n- **Normal colour Doppler study.** \n\n- **BPP – 8/8** \n\n**<u>Suggested: Interval growth scans.</u>** \n\n**I, [Doctor Name]** declare that while conducting Ultrasonography/image scanning on **[Patient Name]** I have neither detected nor disclosed the sex of her fetus to anybody in any manner. (Not all the anomalies can be diagnosed on USG. Difficulty in assessment increases with increasing gestation age. Some anomalies may be missed due to the position of the fetus at the time of examination, not allowing proper visualizations. Subtle defects (cleft lip, anomalies of hand and feet, ear etc.) may not be detected in a 2D scan.)",
+      "table_refs": []
+    },
+    {
+      "title": "**Consultant MD Radiologist**",
+      "page": 2,
+      "text": "",
+      "table_refs": []
+    }
+  ],
+  "tables": [
+    {
+      "title": null,
+      "page": 1,
+      "headers": [
+        "**BPD**",
+        "8.06cm",
+        "32weeks 3days"
+      ],
+      "rows": [
+        {
+          "name": null,
+          "value": null,
+          "unit": null,
+          "reference_range": null,
+          "extra": {
+            "BPD": "HC",
+            "8.06cm": "28.57cm",
+            "32weeks 3days": "31weeks 3days"
+          }
+        },
+        {
+          "name": null,
+          "value": null,
+          "unit": null,
+          "reference_range": null,
+          "extra": {
+            "BPD": "FL",
+            "8.06cm": "5.94cm",
+            "32weeks 3days": "31weeks 0days"
+          }
+        },
+        {
+          "name": null,
+          "value": null,
+          "unit": null,
+          "reference_range": null,
+          "extra": {
+            "BPD": "AC",
+            "8.06cm": "27.90cm",
+            "32weeks 3days": "32weeks 0days"
+          }
+        }
+      ],
+      "raw_rows": [
+        [
+          "**BPD**",
+          "8.06cm",
+          "32weeks 3days"
+        ],
+        [
+          "**BPD**",
+          "8.06cm",
+          "32weeks 3days"
+        ],
+        [
+          "**HC**",
+          "28.57cm",
+          "31weeks 3days"
+        ],
+        [
+          "**FL**",
+          "5.94cm",
+          "31weeks 0days"
+        ],
+        [
+          "**AC**",
+          "27.90cm",
+          "32weeks 0days"
+        ]
+      ]
+    },
+    {
+      "title": "**<u>DOPPLER</u>**",
+      "page": 1,
+      "headers": [
+        "**PSV**",
+        "**EDV**",
+        "**PI**",
+        "**RI**",
+        "**S/D **"
+      ],
+      "rows": [
+        {
+          "name": null,
+          "value": null,
+          "unit": null,
+          "reference_range": null,
+          "extra": {
+            "PSV": "Umbilical artery",
+            "EDV": "38.1",
+            "PI": "12.4",
+            "RI": "1.29",
+            "S/D": "0.67"
+          }
+        },
+        {
+          "name": null,
+          "value": null,
+          "unit": null,
+          "reference_range": null,
+          "extra": {
+            "PSV": "Fetal MCA",
+            "EDV": "45.2",
+            "PI": "7.09",
+            "RI": "2.40",
+            "S/D": "0.84"
+          }
+        },
+        {
+          "name": null,
+          "value": null,
+          "unit": null,
+          "reference_range": null,
+          "extra": {
+            "PSV": "Right Uterine artery",
+            "EDV": "72.2",
+            "PI": "37.6",
+            "RI": "0.66",
+            "S/D": "0.48"
+          }
+        },
+        {
+          "name": null,
+          "value": null,
+          "unit": null,
+          "reference_range": null,
+          "extra": {
+            "PSV": "left uterine artery",
+            "EDV": "129",
+            "PI": "62.6",
+            "RI": "0.75",
+            "S/D": "0.52"
+          }
+        }
+      ],
+      "raw_rows": [
+        [
+          "**PSV**",
+          "**EDV**",
+          "**PI**",
+          "**RI**",
+          "**S/D **"
+        ],
+        [
+          "**PSV**",
+          "**EDV**",
+          "**PI**",
+          "**RI**",
+          "**S/D **"
+        ],
+        [
+          "**Umbilical artery**",
+          "38.1",
+          "12.4",
+          "1.29",
+          "0.67",
+          "3.1"
+        ],
+        [
+          "**Fetal MCA **",
+          "45.2",
+          "7.09",
+          "2.40",
+          "0.84",
+          "6.4"
+        ],
+        [
+          "**Right Uterine artery**",
+          "72.2",
+          "37.6",
+          "0.66",
+          "0.48",
+          "1.9"
+        ],
+        [
+          "**left uterine artery**",
+          "129",
+          "62.6",
+          "0.75",
+          "0.52",
+          "2.1"
+        ]
+      ]
+    },
+    {
+      "title": "# **BIOPHYSICAL PROFILE SCORING**",
+      "page": 2,
+      "headers": [
+        "**Biophysical variable**",
+        "**Normal **",
+        "**Score**"
+      ],
+      "rows": [
+        {
+          "name": null,
+          "value": null,
+          "unit": null,
+          "reference_range": null,
+          "extra": {
+            "Biophysical variable": "Fetal posture and tone (FT)",
+            "Normal": "2 episodes of active extension with return to flexion of fetal limb(s) or trunk; opening and closing of hand considered normal tone.",
+            "Score": "2"
+          }
+        },
+        {
+          "name": null,
+          "value": null,
+          "unit": null,
+          "reference_range": null,
+          "extra": {
+            "Biophysical variable": "Fetal movement (FM) Fetal breathing movement (FBM)",
+            "Normal": "3 discrete body/limb movements in 30 min or less (episodes of active continuous movement considered as single movement). 3-4 episodes of >30 s of FBM in 30min or less.",
+            "Score": "2 2"
+          }
+        },
+        {
+          "name": null,
+          "value": null,
+          "unit": null,
+          "reference_range": null,
+          "extra": {
+            "Biophysical variable": "Amniotic fluid volume (AFV)",
+            "Normal": "Adequate (AFI ~10).",
+            "Score": "2"
+          }
+        }
+      ],
+      "raw_rows": [
+        [
+          "**Biophysical variable**",
+          "**Normal **",
+          "**Score**"
+        ],
+        [
+          "**Biophysical variable**",
+          "**Normal **",
+          "**Score**"
+        ],
+        [
+          "**Fetal posture and tone (FT)**",
+          "**2 episodes of active extension with**<br>**return to flexion of fetal limb(s) or**<br>**trunk; opening and closing of**<br>**hand considered normal tone.**",
+          "**2**"
+        ],
+        [
+          "**Fetal movement (FM)**<br>**Fetal breathing movement**<br>**(FBM)**",
+          "**3 discrete body/limb movements**<br>**in 30 min or less (episodes of**<br>**active continuous movement**<br>**considered as single movement).**<br>**3-4 episodes of >30 s of FBM in**<br>**30min or less.**",
+          "**2**<br>**2**"
+        ],
+        [
+          "**Amniotic fluid volume**<br>**(AFV)**",
+          "**Adequate (AFI ~10).**",
+          "**2**"
+        ]
+      ]
+    }
+  ],
+  "measurements": [],
+  "raw": {
+    "text": "NAME         : PA05                                                              DATE    :  14.10.2024 <u>AGE/ SEX   : 20years/Female                                            REF. BY: Obstetric Fetal well Being Colour Doppler Study and BPP</u> LMP: 03.03.2024                                                                  EDD BY LMP: 08.12.2024 Gestational Age:  32wks 1day                                             EDD BY USG: 11.12.2024 FETAL. NO . Single PRESENTATION Cephalic LIQUOR is adequate (AFI~10) CARDIAC ACTIVITY Normal - 136bpm/min PLACENTA is anterior, well above internal os, Grade- I, not low lying. \n\n|BPD|8.06cm|32weeks 3days|\n|---|---|---|\n|HC|28.57cm|31weeks 3days|\n|FL|5.94cm|31weeks 0days|\n|AC|27.90cm|32weeks 0days|\n\n\n\nEFW- 1805gms +/- 264gms \n\n<u>DOPPLER</u> \n\n||PSV|EDV|PI|RI|S/D |\n|---|---|---|---|---|---|\n|Umbilical artery|38.1|12.4|1.29|0.67|3.1|\n|Fetal MCA |45.2|7.09|2.40|0.84|6.4|\n|Right Uterine artery|72.2|37.6|0.66|0.48|1.9|\n|left uterine artery|129|62.6|0.75|0.52|2.1|\n\n\n\nFetal MCA and umbilical artery are normal, show colour flow and flow pattern. The SD Ratio of umbilical artery is (Which is normal). \n\nB/L Uterine arteries show normal colour flow & spectral trace. \n\nFetal thoracic aorta show normal colour flow and flow pattern. \n\n\n\nBIOPHYSICAL PROFILE SCORING \n\n|Biophysical variable|Normal |Score|\n|---|---|---|\n|Fetal posture and tone (FT)|2 episodes of active extension with<br>return to flexion of fetal limb(s) or<br>trunk; opening and closing of<br>hand considered normal tone.|2|\n|Fetal movement (FM)<br>Fetal breathing movement<br>(FBM)|3 discrete body/limb movements<br>in 30 min or less (episodes of<br>active continuous movement<br>considered as single movement).<br>3-4 episodes of >30 s of FBM in<br>30min or less.|2<br>2|\n|Amniotic fluid volume<br>(AFV)|Adequate (AFI ~10).|2|\n\n\n\nTotal Score = 8/8 \n\nNo loop of cord seen around fetal neck in present scan. \n\n<u>IMPRESSION</u> \n\n- Single live intrauterine fetus of approx GA 31week’s 5days +/- 2weeks in cephalic presentation. \n\n- Normal colour Doppler study. \n\n- BPP – 8/8 \n\n<u>Suggested: Interval growth scans.</u> \n\nI, [Doctor Name] declare that while conducting Ultrasonography/image scanning on [Patient Name] I have neither detected nor disclosed the sex of her fetus to anybody in any manner. (Not all the anomalies can be diagnosed on USG. Difficulty in assessment increases with increasing gestation age. Some anomalies may be missed due to the position of the fetus at the time of examination, not allowing proper visualizations. Subtle defects (cleft lip, anomalies of hand and feet, ear etc.) may not be detected in a 2D scan.) \n\nConsultant MD Radiologist",
+    "markdown": "\n<!-- page 1 -->\n**NAME         : PA05                                                              DATE    :  14.10.2024** **<u>AGE/ SEX   : 20years/Female                                            REF. BY: Obstetric Fetal well Being Colour Doppler Study and BPP</u> LMP: 03.03.2024                                                                  EDD BY LMP: 08.12.2024 Gestational Age:  32wks 1day                                             EDD BY USG: 11.12.2024 FETAL. NO** . Single **PRESENTATION** Cephalic **LIQUOR** is adequate (AFI~10) **CARDIAC ACTIVITY** Normal - 136bpm/min **PLACENTA** is anterior, well above internal os, Grade- I, not low lying. \n\n|**BPD**|8.06cm|32weeks 3days|\n|---|---|---|\n|**HC**|28.57cm|31weeks 3days|\n|**FL**|5.94cm|31weeks 0days|\n|**AC**|27.90cm|32weeks 0days|\n\n\n\n# **EFW- 1805gms +/- 264gms** \n\n**<u>DOPPLER</u>** \n\n||**PSV**|**EDV**|**PI**|**RI**|**S/D **|\n|---|---|---|---|---|---|\n|**Umbilical artery**|38.1|12.4|1.29|0.67|3.1|\n|**Fetal MCA **|45.2|7.09|2.40|0.84|6.4|\n|**Right Uterine artery**|72.2|37.6|0.66|0.48|1.9|\n|**left uterine artery**|129|62.6|0.75|0.52|2.1|\n\n\n\nFetal MCA and umbilical artery are normal, show colour flow and flow pattern. The SD Ratio of umbilical artery is (Which is normal). \n\nB/L Uterine arteries show normal colour flow & spectral trace. \n\nFetal thoracic aorta show normal colour flow and flow pattern. \n\n\n<!-- page 2 -->\n# **BIOPHYSICAL PROFILE SCORING** \n\n|**Biophysical variable**|**Normal **|**Score**|\n|---|---|---|\n|**Fetal posture and tone (FT)**|**2 episodes of active extension with**<br>**return to flexion of fetal limb(s) or**<br>**trunk; opening and closing of**<br>**hand considered normal tone.**|**2**|\n|**Fetal movement (FM)**<br>**Fetal breathing movement**<br>**(FBM)**|**3 discrete body/limb movements**<br>**in 30 min or less (episodes of**<br>**active continuous movement**<br>**considered as single movement).**<br>**3-4 episodes of >30 s of FBM in**<br>**30min or less.**|**2**<br>**2**|\n|**Amniotic fluid volume**<br>**(AFV)**|**Adequate (AFI ~10).**|**2**|\n\n\n\n# **Total Score = 8/8** \n\nNo loop of cord seen around fetal neck in present scan. \n\n# **<u>IMPRESSION</u>** \n\n- **Single live intrauterine fetus of approx GA 31week’s 5days +/- 2weeks in cephalic presentation.** \n\n- **Normal colour Doppler study.** \n\n- **BPP – 8/8** \n\n**<u>Suggested: Interval growth scans.</u>** \n\n**I, [Doctor Name]** declare that while conducting Ultrasonography/image scanning on **[Patient Name]** I have neither detected nor disclosed the sex of her fetus to anybody in any manner. (Not all the anomalies can be diagnosed on USG. Difficulty in assessment increases with increasing gestation age. Some anomalies may be missed due to the position of the fetus at the time of examination, not allowing proper visualizations. Subtle defects (cleft lip, anomalies of hand and feet, ear etc.) may not be detected in a 2D scan.) \n\n# **Consultant MD Radiologist** \n\n"
+  },
+  "validation": {
+    "status": "GOOD",
+    "warnings": [
+      "[table_coherence] Minor table inconsistencies (5/13 rows)"
+    ],
+    "scores": {
+      "non_empty": 1.0,
+      "garbage_ratio": 1.0,
+      "meaningful_words": 1.0,
+      "line_count": 1.0,
+      "table_coherence": 0.7,
+      "heading_preservation": 1.0,
+      "measurement_plausibility": 1.0,
+      "_aggregate": 0.95
+    }
+  }
+}

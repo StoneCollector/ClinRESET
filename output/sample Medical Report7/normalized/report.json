@@ -1,0 +1,238 @@
+{
+  "document": {
+    "file_name": "sample Medical Report7.pdf",
+    "page_count": 1,
+    "source_type": "digital_pdf",
+    "extractor": "pymupdf4llm"
+  },
+  "classification": {
+    "report_type": "echocardiography",
+    "confidence": 0.4714,
+    "status": "CONFIDENT",
+    "evidence": [
+      {
+        "signal_text": "Chief Complaint:",
+        "signal_category": "strong_keyword",
+        "source_field": "document_title",
+        "weight": 5.0,
+        "page": 1,
+        "section": null,
+        "matched_pattern": "EF"
+      },
+      {
+        "signal_text": "Chief Complaint:",
+        "signal_category": "strong_keyword",
+        "source_field": "section_title",
+        "weight": 5.0,
+        "page": 1,
+        "section": "Chief Complaint:",
+        "matched_pattern": "EF"
+      },
+      {
+        "signal_text": "Sudden onset of intense chest pain radiating to the left arm, accompanied by shortness of breath and dizziness.",
+        "signal_category": "strong_keyword",
+        "source_field": "section_text",
+        "weight": 5.0,
+        "page": 1,
+        "section": "**Chief Complaint:**",
+        "matched_pattern": "EF"
+      },
+      {
+        "signal_text": "Clinical Observations:",
+        "signal_category": "supporting_keyword",
+        "source_field": "section_title",
+        "weight": 1.5,
+        "page": 1,
+        "section": "Clinical Observations:",
+        "matched_pattern": "RV"
+      }
+    ],
+    "alternatives": [
+      {
+        "report_type": "radiology",
+        "score": 10.5,
+        "evidence_count": 2
+      },
+      {
+        "report_type": "ecg",
+        "score": 6.5,
+        "evidence_count": 2
+      }
+    ]
+  },
+  "clinical_information": {
+    "entities": [
+      {
+        "text": "Oxygen saturation",
+        "type": "MEASUREMENT",
+        "normalized": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 1,
+        "source_section": "**Clinical Observations:**",
+        "source_text": "- Oxygen saturation: 89%",
+        "confidence": 1.0,
+        "semantic_category": "MEASUREMENT",
+        "modifiers": {},
+        "related_anatomy": []
+      }
+    ],
+    "measurements": [
+      {
+        "name": "Oxygen saturation",
+        "value": 89,
+        "unit": null,
+        "reference_range": null,
+        "page": 1,
+        "source_section": "**Clinical Observations:**",
+        "source_text": "- Oxygen saturation: 89%",
+        "normalized_name": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "semantic_category": "MEASUREMENT",
+        "modifiers": {},
+        "related_anatomy": []
+      }
+    ],
+    "findings": [],
+    "anatomy": [],
+    "relationships": [],
+    "structured_clinical_concepts": [
+      {
+        "concept": "Oxygen saturation",
+        "original_text": "Oxygen saturation",
+        "type": "MEASUREMENT",
+        "semantic_category": "MEASUREMENT",
+        "value": 89,
+        "unit": null,
+        "reference_range": null,
+        "assertion": "PRESENT",
+        "modifiers": {},
+        "related_anatomy": [],
+        "provenance": {
+          "page": 1,
+          "source_section": "**Clinical Observations:**",
+          "source_text": "- Oxygen saturation: 89%",
+          "normalization_source": null,
+          "ambiguity": false,
+          "ambiguity_status": "UNKNOWN",
+          "candidates": []
+        }
+      }
+    ],
+    "explanations": [
+      {
+        "concept": "Oxygen saturation",
+        "original_text": "Oxygen saturation",
+        "type": "MEASUREMENT",
+        "semantic_category": "MEASUREMENT",
+        "assertion": "PRESENT",
+        "value": 89,
+        "unit": null,
+        "reference_range": null,
+        "related_anatomy": [],
+        "modifiers": {},
+        "status": "EXPLANATION_UNAVAILABLE",
+        "explanation": "Explanation unavailable: unmapped or unknown concept.",
+        "provenance": {
+          "page": 1,
+          "source_section": "**Clinical Observations:**",
+          "source_text": "- Oxygen saturation: 89%",
+          "normalization_source": null,
+          "ambiguity": false,
+          "ambiguity_status": "UNKNOWN",
+          "candidates": []
+        },
+        "unavailability_reason": "UNKNOWN_CONCEPT"
+      }
+    ],
+    "explanation_sections": [
+      {
+        "title": "Heart Dimensions & Thickness",
+        "category": "MEASUREMENT",
+        "explanations": [
+          {
+            "concept": "Oxygen saturation",
+            "original_text": "Oxygen saturation",
+            "type": "MEASUREMENT",
+            "semantic_category": "MEASUREMENT",
+            "assertion": "PRESENT",
+            "value": 89,
+            "unit": null,
+            "reference_range": null,
+            "related_anatomy": [],
+            "modifiers": {},
+            "status": "EXPLANATION_UNAVAILABLE",
+            "explanation": "Explanation unavailable: unmapped or unknown concept.",
+            "provenance": {
+              "page": 1,
+              "source_section": "**Clinical Observations:**",
+              "source_text": "- Oxygen saturation: 89%",
+              "normalization_source": null,
+              "ambiguity": false,
+              "ambiguity_status": "UNKNOWN",
+              "candidates": []
+            },
+            "unavailability_reason": "UNKNOWN_CONCEPT"
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "title": "**Patient Name:** David Miller",
+      "page": 1,
+      "text": "**Age:** 62 **Gender:** Male",
+      "table_refs": []
+    },
+    {
+      "title": "**Chief Complaint:**",
+      "page": 1,
+      "text": "Sudden onset of intense chest pain radiating to the left arm, accompanied by shortness of breath and dizziness.",
+      "table_refs": []
+    },
+    {
+      "title": "**Clinical Observations:**",
+      "page": 1,
+      "text": "- Vitals: BP 165/110 mmHg, Pulse 102 bpm, Temp 98.2°F \n\n- ECG shows ST-segment elevation \n\n- Patient appears pale and diaphoretic \n\n- Oxygen saturation: 89%",
+      "table_refs": []
+    },
+    {
+      "title": "**Preliminary Diagnosis:**",
+      "page": 1,
+      "text": "Acute Myocardial Infarction (Heart Attack) — STEMI type",
+      "table_refs": []
+    },
+    {
+      "title": "**Recommendations:**",
+      "page": 1,
+      "text": "1. Immediate transfer to cardiac ICU \n\n2. Administer aspirin (325 mg) and initiate oxygen therapy \n\n3. Prepare for emergency angiography and possible PCI \n\n4. Monitor cardiac enzymes (Troponin, CK-MB) \n\n5. Continuous ECG monitoring and IV nitroglycerin if BP allows \n\n**Physician:** Dr. Emily Roberts **Date:** 2025-04-08",
+      "table_refs": []
+    }
+  ],
+  "tables": [],
+  "measurements": [],
+  "raw": {
+    "text": "Patient Name: David Miller \n\nAge: 62 Gender: Male \n\nChief Complaint: \n\nSudden onset of intense chest pain radiating to the left arm, accompanied by shortness of breath and dizziness. \n\nClinical Observations: \n\n- Vitals: BP 165/110 mmHg, Pulse 102 bpm, Temp 98.2°F \n\n- ECG shows ST-segment elevation \n\n- Patient appears pale and diaphoretic \n\n- Oxygen saturation: 89% \n\nPreliminary Diagnosis: \n\nAcute Myocardial Infarction (Heart Attack) — STEMI type \n\nRecommendations: \n\n1. Immediate transfer to cardiac ICU \n\n2. Administer aspirin (325 mg) and initiate oxygen therapy \n\n3. Prepare for emergency angiography and possible PCI \n\n4. Monitor cardiac enzymes (Troponin, CK-MB) \n\n5. Continuous ECG monitoring and IV nitroglycerin if BP allows \n\nPhysician: Dr. Emily Roberts Date: 2025-04-08",
+    "markdown": "\n<!-- page 1 -->\n# **Patient Name:** David Miller \n\n**Age:** 62 **Gender:** Male \n\n# **Chief Complaint:** \n\nSudden onset of intense chest pain radiating to the left arm, accompanied by shortness of breath and dizziness. \n\n# **Clinical Observations:** \n\n- Vitals: BP 165/110 mmHg, Pulse 102 bpm, Temp 98.2°F \n\n- ECG shows ST-segment elevation \n\n- Patient appears pale and diaphoretic \n\n- Oxygen saturation: 89% \n\n# **Preliminary Diagnosis:** \n\nAcute Myocardial Infarction (Heart Attack) — STEMI type \n\n# **Recommendations:** \n\n1. Immediate transfer to cardiac ICU \n\n2. Administer aspirin (325 mg) and initiate oxygen therapy \n\n3. Prepare for emergency angiography and possible PCI \n\n4. Monitor cardiac enzymes (Troponin, CK-MB) \n\n5. Continuous ECG monitoring and IV nitroglycerin if BP allows \n\n**Physician:** Dr. Emily Roberts **Date:** 2025-04-08 \n\n"
+  },
+  "validation": {
+    "status": "GOOD",
+    "warnings": [],
+    "scores": {
+      "non_empty": 1.0,
+      "garbage_ratio": 1.0,
+      "meaningful_words": 1.0,
+      "line_count": 1.0,
+      "table_coherence": 1.0,
+      "heading_preservation": 1.0,
+      "measurement_plausibility": 1.0,
+      "_aggregate": 1.0
+    }
+  }
+}

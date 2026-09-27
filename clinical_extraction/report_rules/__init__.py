@@ -12,6 +12,7 @@ from clinical_extraction.report_rules.base import BaseReportRules
 from clinical_extraction.report_rules.cbc import CBCRules
 from clinical_extraction.report_rules.echocardiography import EchocardiographyRules
 from clinical_extraction.report_rules.ecg import ECGRules
+from clinical_extraction.report_rules.general_note import GeneralNoteRules
 from clinical_extraction.report_rules.generic import GenericRules
 from clinical_extraction.report_rules.kidney_function import KidneyFunctionRules
 from clinical_extraction.report_rules.lipid_profile import LipidProfileRules
@@ -40,6 +41,10 @@ RULE_REGISTRY: dict[str, type[BaseReportRules]] = {
     "ecg": ECGRules,
     "ekg": ECGRules,
     "radiology": RadiologyRules,
+    "general_clinical_note": GeneralNoteRules,
+    "general_note": GeneralNoteRules,
+    "general": GeneralNoteRules,
+    "clinical_note": GeneralNoteRules,
     "generic": GenericRules,
 }
 
@@ -68,6 +73,7 @@ __all__ = [
     "ThyroidRules",
     "ECGRules",
     "RadiologyRules",
+    "GeneralNoteRules",
     "GenericRules",
     "get_rules_for_report_type",
 ]

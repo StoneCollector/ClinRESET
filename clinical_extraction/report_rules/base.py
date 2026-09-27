@@ -22,6 +22,7 @@ from clinical_extraction.models import (
     AssertionStatus,
     ClinicalEntity,
     ClinicalFinding,
+    ClinicalMeasurement,
     EntityType,
 )
 from clinical_extraction.negation import detect_assertion, split_into_clauses
@@ -176,3 +177,16 @@ class BaseReportRules:
                 seen.add(key)
 
         return entities
+
+    def extract_measurements(
+        self,
+        sections: list[Any],
+        phase1_measurements: Optional[list[Any]] = None,
+    ) -> list[ClinicalMeasurement]:
+        """Extract measurements from document sections and existing Phase 1 measurements."""
+        from clinical_extraction.measurements import extract_measurements
+        return extract_measurements(
+            phase1_measurements=phase1_measurements or [],
+            sections=sections,
+            report_type=self.report_type,
+        )

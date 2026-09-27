@@ -1,0 +1,16 @@
+{
+  "status": "GOOD",
+  "warnings": [
+    "[table_coherence] Minor table inconsistencies (4/12 rows)"
+  ],
+  "scores": {
+    "non_empty": 1.0,
+    "garbage_ratio": 1.0,
+    "meaningful_words": 1.0,
+    "line_count": 1.0,
+    "table_coherence": 0.7,
+    "heading_preservation": 1.0,
+    "measurement_plausibility": 1.0,
+    "_aggregate": 0.95
+  }
+}

@@ -1,0 +1,503 @@
+{
+  "document": {
+    "file_name": "PA06.pdf",
+    "page_count": 1,
+    "source_type": "digital_pdf",
+    "extractor": "pymupdf4llm"
+  },
+  "classification": {
+    "report_type": "radiology",
+    "confidence": 0.5286,
+    "status": "CONFIDENT",
+    "evidence": [
+      {
+        "signal_text": "INVESTIGATION: ULTRASOUND WHOLE ABDOMEN",
+        "signal_category": "strong_keyword",
+        "source_field": "document_title",
+        "weight": 5.0,
+        "page": 1,
+        "section": null,
+        "matched_pattern": "ultrasound"
+      },
+      {
+        "signal_text": "INVESTIGATION: ULTRASOUND WHOLE ABDOMEN",
+        "signal_category": "strong_keyword",
+        "source_field": "section_title",
+        "weight": 5.0,
+        "page": 1,
+        "section": "INVESTIGATION: ULTRASOUND WHOLE ABDOMEN",
+        "matched_pattern": "ultrasound"
+      },
+      {
+        "signal_text": "======================================================= Liver: is normal in size (~11.2cm), outline and showing diffusel",
+        "signal_category": "strong_keyword",
+        "source_field": "section_text",
+        "weight": 4.0,
+        "page": 1,
+        "section": "**INVESTIGATION:     ULTRASOUND WHOLE ABDOMEN**",
+        "matched_pattern": "mass"
+      },
+      {
+        "signal_text": "Consultant MD Radiologist",
+        "signal_category": "supporting_keyword",
+        "source_field": "section_title",
+        "weight": 1.5,
+        "page": 1,
+        "section": "Consultant MD Radiologist",
+        "matched_pattern": "radiologist"
+      },
+      {
+        "signal_text": "======================================================= Liver: is normal in size (~11.2cm), outline and showing diffusel",
+        "signal_category": "supporting_keyword",
+        "source_field": "section_text",
+        "weight": 1.5,
+        "page": 1,
+        "section": "**INVESTIGATION:     ULTRASOUND WHOLE ABDOMEN**",
+        "matched_pattern": "right"
+      },
+      {
+        "signal_text": "======================================================= Liver: is normal in size (~11.2cm), outline and showing diffusel",
+        "signal_category": "supporting_keyword",
+        "source_field": "section_text",
+        "weight": 1.5,
+        "page": 1,
+        "section": "**INVESTIGATION:     ULTRASOUND WHOLE ABDOMEN**",
+        "matched_pattern": "left"
+      }
+    ],
+    "alternatives": [
+      {
+        "report_type": "liver_function_test",
+        "score": 5.5,
+        "evidence_count": 2
+      },
+      {
+        "report_type": "echocardiography",
+        "score": 5.0,
+        "evidence_count": 1
+      }
+    ]
+  },
+  "clinical_information": {
+    "entities": [
+      {
+        "text": "No e/o any calculus / mass seen in its lumen",
+        "type": "FINDING",
+        "normalized": "Cardiac Mass",
+        "normalization_source": "rule_based",
+        "ambiguity": false,
+        "ambiguity_status": "RESOLVED",
+        "assertion": "ABSENT",
+        "negated": true,
+        "page": 1,
+        "source_section": "**INVESTIGATION:     ULTRASOUND WHOLE ABDOMEN**",
+        "source_text": "No e/o any calculus / mass seen in its lumen",
+        "confidence": 1.0,
+        "semantic_category": "STRUCTURAL_FINDING",
+        "modifiers": {},
+        "related_anatomy": [],
+        "candidates": [
+          "Cardiac Mass"
+        ]
+      },
+      {
+        "text": "No lymphadenopathy / free fluid seen",
+        "type": "FINDING",
+        "normalized": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "assertion": "ABSENT",
+        "negated": true,
+        "page": 1,
+        "source_section": "**INVESTIGATION:     ULTRASOUND WHOLE ABDOMEN**",
+        "source_text": "No lymphadenopathy / free fluid seen",
+        "confidence": 1.0,
+        "semantic_category": "OTHER_CLINICAL",
+        "modifiers": {},
+        "related_anatomy": []
+      },
+      {
+        "text": "ABDOMEN",
+        "type": "ANATOMY",
+        "normalized": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 1,
+        "source_section": "**INVESTIGATION:     ULTRASOUND WHOLE ABDOMEN**",
+        "source_text": "IGATION:     ULTRASOUND WHOLE ABDOMEN** **_========================",
+        "confidence": 1.0,
+        "semantic_category": "ANATOMY",
+        "modifiers": {},
+        "related_anatomy": [
+          "Abdomen"
+        ]
+      },
+      {
+        "text": "PA06 DATE",
+        "type": "MEASUREMENT",
+        "normalized": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 1,
+        "source_section": null,
+        "source_text": "**_NAME: PA06 DATE: 11.03.2024_**",
+        "confidence": 1.0,
+        "semantic_category": "MEASUREMENT",
+        "modifiers": {},
+        "related_anatomy": []
+      }
+    ],
+    "measurements": [
+      {
+        "name": "PA06 DATE",
+        "value": 11.03,
+        "unit": null,
+        "reference_range": null,
+        "page": 1,
+        "source_section": null,
+        "source_text": "**_NAME: PA06 DATE: 11.03.2024_**",
+        "normalized_name": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "semantic_category": "MEASUREMENT",
+        "modifiers": {},
+        "related_anatomy": []
+      }
+    ],
+    "findings": [
+      {
+        "text": "No e/o any calculus / mass seen in its lumen",
+        "normalized": "Cardiac Mass",
+        "normalization_source": "rule_based",
+        "ambiguity": false,
+        "ambiguity_status": "RESOLVED",
+        "assertion": "ABSENT",
+        "negated": true,
+        "page": 1,
+        "source_section": "**INVESTIGATION:     ULTRASOUND WHOLE ABDOMEN**",
+        "source_text": "No e/o any calculus / mass seen in its lumen",
+        "semantic_category": "STRUCTURAL_FINDING",
+        "modifiers": {},
+        "related_anatomy": [],
+        "candidates": [
+          "Cardiac Mass"
+        ]
+      },
+      {
+        "text": "No lymphadenopathy / free fluid seen",
+        "normalized": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "assertion": "ABSENT",
+        "negated": true,
+        "page": 1,
+        "source_section": "**INVESTIGATION:     ULTRASOUND WHOLE ABDOMEN**",
+        "source_text": "No lymphadenopathy / free fluid seen",
+        "semantic_category": "OTHER_CLINICAL",
+        "modifiers": {},
+        "related_anatomy": []
+      }
+    ],
+    "anatomy": [
+      {
+        "text": "ABDOMEN",
+        "normalized": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "page": 1,
+        "source_section": "**INVESTIGATION:     ULTRASOUND WHOLE ABDOMEN**",
+        "source_text": "IGATION:     ULTRASOUND WHOLE ABDOMEN** **_========================",
+        "semantic_category": "ANATOMY",
+        "modifiers": {}
+      }
+    ],
+    "relationships": [],
+    "structured_clinical_concepts": [
+      {
+        "concept": "Cardiac Mass",
+        "original_text": "No e/o any calculus / mass seen in its lumen",
+        "type": "FINDING",
+        "semantic_category": "STRUCTURAL_FINDING",
+        "value": null,
+        "unit": null,
+        "reference_range": null,
+        "assertion": "ABSENT",
+        "modifiers": {},
+        "related_anatomy": [],
+        "provenance": {
+          "page": 1,
+          "source_section": "**INVESTIGATION:     ULTRASOUND WHOLE ABDOMEN**",
+          "source_text": "No e/o any calculus / mass seen in its lumen",
+          "normalization_source": "rule_based",
+          "ambiguity": false,
+          "ambiguity_status": "RESOLVED",
+          "candidates": [
+            "Cardiac Mass"
+          ]
+        }
+      },
+      {
+        "concept": "No lymphadenopathy / free fluid seen",
+        "original_text": "No lymphadenopathy / free fluid seen",
+        "type": "FINDING",
+        "semantic_category": "OTHER_CLINICAL",
+        "value": null,
+        "unit": null,
+        "reference_range": null,
+        "assertion": "ABSENT",
+        "modifiers": {},
+        "related_anatomy": [],
+        "provenance": {
+          "page": 1,
+          "source_section": "**INVESTIGATION:     ULTRASOUND WHOLE ABDOMEN**",
+          "source_text": "No lymphadenopathy / free fluid seen",
+          "normalization_source": null,
+          "ambiguity": false,
+          "ambiguity_status": "UNKNOWN",
+          "candidates": []
+        }
+      },
+      {
+        "concept": "PA06 DATE",
+        "original_text": "PA06 DATE",
+        "type": "MEASUREMENT",
+        "semantic_category": "MEASUREMENT",
+        "value": 11.03,
+        "unit": null,
+        "reference_range": null,
+        "assertion": "PRESENT",
+        "modifiers": {},
+        "related_anatomy": [],
+        "provenance": {
+          "page": 1,
+          "source_section": null,
+          "source_text": "**_NAME: PA06 DATE: 11.03.2024_**",
+          "normalization_source": null,
+          "ambiguity": false,
+          "ambiguity_status": "UNKNOWN",
+          "candidates": []
+        }
+      }
+    ],
+    "explanations": [
+      {
+        "concept": "Cardiac Mass",
+        "original_text": "No e/o any calculus / mass seen in its lumen",
+        "type": "FINDING",
+        "semantic_category": "STRUCTURAL_FINDING",
+        "assertion": "ABSENT",
+        "value": null,
+        "unit": null,
+        "reference_range": null,
+        "related_anatomy": [],
+        "modifiers": {},
+        "status": "EXPLANATION_UNAVAILABLE",
+        "explanation": "Explanation unavailable: concept is not currently in the knowledge base.",
+        "provenance": {
+          "page": 1,
+          "source_section": "**INVESTIGATION:     ULTRASOUND WHOLE ABDOMEN**",
+          "source_text": "No e/o any calculus / mass seen in its lumen",
+          "normalization_source": "rule_based",
+          "ambiguity": false,
+          "ambiguity_status": "RESOLVED",
+          "candidates": [
+            "Cardiac Mass"
+          ]
+        },
+        "unavailability_reason": "NOT_IN_KNOWLEDGE_BASE"
+      },
+      {
+        "concept": "No lymphadenopathy / free fluid seen",
+        "original_text": "No lymphadenopathy / free fluid seen",
+        "type": "FINDING",
+        "semantic_category": "OTHER_CLINICAL",
+        "assertion": "ABSENT",
+        "value": null,
+        "unit": null,
+        "reference_range": null,
+        "related_anatomy": [],
+        "modifiers": {},
+        "status": "EXPLANATION_UNAVAILABLE",
+        "explanation": "Explanation unavailable: unmapped or unknown concept.",
+        "provenance": {
+          "page": 1,
+          "source_section": "**INVESTIGATION:     ULTRASOUND WHOLE ABDOMEN**",
+          "source_text": "No lymphadenopathy / free fluid seen",
+          "normalization_source": null,
+          "ambiguity": false,
+          "ambiguity_status": "UNKNOWN",
+          "candidates": []
+        },
+        "unavailability_reason": "UNKNOWN_CONCEPT"
+      },
+      {
+        "concept": "PA06 DATE",
+        "original_text": "PA06 DATE",
+        "type": "MEASUREMENT",
+        "semantic_category": "MEASUREMENT",
+        "assertion": "PRESENT",
+        "value": 11.03,
+        "unit": null,
+        "reference_range": null,
+        "related_anatomy": [],
+        "modifiers": {},
+        "status": "EXPLANATION_UNAVAILABLE",
+        "explanation": "Explanation unavailable: unmapped or unknown concept.",
+        "provenance": {
+          "page": 1,
+          "source_section": null,
+          "source_text": "**_NAME: PA06 DATE: 11.03.2024_**",
+          "normalization_source": null,
+          "ambiguity": false,
+          "ambiguity_status": "UNKNOWN",
+          "candidates": []
+        },
+        "unavailability_reason": "UNKNOWN_CONCEPT"
+      }
+    ],
+    "explanation_sections": [
+      {
+        "title": "Heart Structure",
+        "category": "STRUCTURAL_FINDING",
+        "explanations": [
+          {
+            "concept": "Cardiac Mass",
+            "original_text": "No e/o any calculus / mass seen in its lumen",
+            "type": "FINDING",
+            "semantic_category": "STRUCTURAL_FINDING",
+            "assertion": "ABSENT",
+            "value": null,
+            "unit": null,
+            "reference_range": null,
+            "related_anatomy": [],
+            "modifiers": {},
+            "status": "EXPLANATION_UNAVAILABLE",
+            "explanation": "Explanation unavailable: concept is not currently in the knowledge base.",
+            "provenance": {
+              "page": 1,
+              "source_section": "**INVESTIGATION:     ULTRASOUND WHOLE ABDOMEN**",
+              "source_text": "No e/o any calculus / mass seen in its lumen",
+              "normalization_source": "rule_based",
+              "ambiguity": false,
+              "ambiguity_status": "RESOLVED",
+              "candidates": [
+                "Cardiac Mass"
+              ]
+            },
+            "unavailability_reason": "NOT_IN_KNOWLEDGE_BASE"
+          }
+        ]
+      },
+      {
+        "title": "Heart Dimensions & Thickness",
+        "category": "MEASUREMENT",
+        "explanations": [
+          {
+            "concept": "PA06 DATE",
+            "original_text": "PA06 DATE",
+            "type": "MEASUREMENT",
+            "semantic_category": "MEASUREMENT",
+            "assertion": "PRESENT",
+            "value": 11.03,
+            "unit": null,
+            "reference_range": null,
+            "related_anatomy": [],
+            "modifiers": {},
+            "status": "EXPLANATION_UNAVAILABLE",
+            "explanation": "Explanation unavailable: unmapped or unknown concept.",
+            "provenance": {
+              "page": 1,
+              "source_section": null,
+              "source_text": "**_NAME: PA06 DATE: 11.03.2024_**",
+              "normalization_source": null,
+              "ambiguity": false,
+              "ambiguity_status": "UNKNOWN",
+              "candidates": []
+            },
+            "unavailability_reason": "UNKNOWN_CONCEPT"
+          }
+        ]
+      },
+      {
+        "title": "Other Findings",
+        "category": "OTHER_CLINICAL",
+        "explanations": [
+          {
+            "concept": "No lymphadenopathy / free fluid seen",
+            "original_text": "No lymphadenopathy / free fluid seen",
+            "type": "FINDING",
+            "semantic_category": "OTHER_CLINICAL",
+            "assertion": "ABSENT",
+            "value": null,
+            "unit": null,
+            "reference_range": null,
+            "related_anatomy": [],
+            "modifiers": {},
+            "status": "EXPLANATION_UNAVAILABLE",
+            "explanation": "Explanation unavailable: unmapped or unknown concept.",
+            "provenance": {
+              "page": 1,
+              "source_section": "**INVESTIGATION:     ULTRASOUND WHOLE ABDOMEN**",
+              "source_text": "No lymphadenopathy / free fluid seen",
+              "normalization_source": null,
+              "ambiguity": false,
+              "ambiguity_status": "UNKNOWN",
+              "candidates": []
+            },
+            "unavailability_reason": "UNKNOWN_CONCEPT"
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "title": null,
+      "page": 1,
+      "text": "**_NAME: PA06 DATE: 11.03.2024_** \n\n**_AGE/SEX: 38Yrs/Male REF. BY:_** \n\n**_=======================================================_**",
+      "table_refs": []
+    },
+    {
+      "title": "**INVESTIGATION:     ULTRASOUND WHOLE ABDOMEN**",
+      "page": 1,
+      "text": "**_=======================================================_** \n\n**Liver:** is normal in size (~11.2cm), outline and **showing diffusely increased parenchymal echogenicity** . No focal lesion is seen. No intrahepatic biliary dilatation seen. Hepatic veins are normal. Portal vein is normal. \n\n**Gall bladder** : Well distended. No e/o any calculus / mass seen in its lumen. No e/o any GB wall thickening or pericholecystic collection. Proximal CBD is normal in caliber. \n\n**Pancreas:** is normal (head and body) in bulk and echogenicity, tail is obscured due to overlying bowel gases. MPD is not dilated. \n\n**Spleen:** is normal in size (~7cm), outline and echogenicity. No focal lesion seen. \n\n**Right kidney:** is normal in size (~10.5cm), shape and outline with normal cortical echogenicity. Corticomedullary differentiation is maintained. No calculus or hydronephrosis is seen. \n\n**Left kidney:** is normal in size (~10.3cm), shape and outline with normal cortical echogenicity. Corticomedullary differentiation is maintained. \n\n**Moderate hydrouretronephrosis is seen (Proximal ureter ~ 8 mm in SAD) however no obvious calculus is seen in PCS and visualized proximal ureter -?Distal uretric calculus.** \n\n**Urinary Bladder:** It is well distended and shows normal wall thickness. **Multiple moving echoes are seen in its lumen- ? UTI.** \n\n**Prostate:** It is normal in size (Vol~15cc), shape and echotexture. No lymphadenopathy / free fluid seen. <u>Bowel loops are normal in calibre.</u> \n\n**IMPRESSION:** \n\n- **Grade I fatty liver. (Adv: LFT & Lipid Profile).** \n\n- **Moderate left HDUN-? Distal ureteric calculus.** \n\n- **Multiple moving echoes in its lumen- ? UTI.** **<u>(Adv: NCCT-KUB, RFT & Urine R/E for further evaluation if clinically indicated).</u>** \n\nPlease correlate clinically and with other relevant investigations.",
+      "table_refs": []
+    },
+    {
+      "title": "**Consultant MD Radiologist**",
+      "page": 1,
+      "text": "",
+      "table_refs": []
+    }
+  ],
+  "tables": [],
+  "measurements": [],
+  "raw": {
+    "text": "NAME: PA06 DATE: 11.03.2024 \n\nAGE/SEX: 38Yrs/Male REF. BY: \n\n======================================================= \n\nINVESTIGATION:     ULTRASOUND WHOLE ABDOMEN \n\n======================================================= \n\nLiver: is normal in size (~11.2cm), outline and showing diffusely increased parenchymal echogenicity . No focal lesion is seen. No intrahepatic biliary dilatation seen. Hepatic veins are normal. Portal vein is normal. \n\nGall bladder : Well distended. No e/o any calculus / mass seen in its lumen. No e/o any GB wall thickening or pericholecystic collection. Proximal CBD is normal in caliber. \n\nPancreas: is normal (head and body) in bulk and echogenicity, tail is obscured due to overlying bowel gases. MPD is not dilated. \n\nSpleen: is normal in size (~7cm), outline and echogenicity. No focal lesion seen. \n\nRight kidney: is normal in size (~10.5cm), shape and outline with normal cortical echogenicity. Corticomedullary differentiation is maintained. No calculus or hydronephrosis is seen. \n\nLeft kidney: is normal in size (~10.3cm), shape and outline with normal cortical echogenicity. Corticomedullary differentiation is maintained. \n\nModerate hydrouretronephrosis is seen (Proximal ureter ~ 8 mm in SAD) however no obvious calculus is seen in PCS and visualized proximal ureter -?Distal uretric calculus. \n\nUrinary Bladder: It is well distended and shows normal wall thickness. Multiple moving echoes are seen in its lumen- ? UTI. \n\nProstate: It is normal in size (Vol~15cc), shape and echotexture. No lymphadenopathy / free fluid seen. <u>Bowel loops are normal in calibre.</u> \n\nIMPRESSION: \n\n- Grade I fatty liver. (Adv: LFT & Lipid Profile). \n\n- Moderate left HDUN-? Distal ureteric calculus. \n\n- Multiple moving echoes in its lumen- ? UTI. <u>(Adv: NCCT-KUB, RFT & Urine R/E for further evaluation if clinically indicated).</u> \n\nPlease correlate clinically and with other relevant investigations. \n\nConsultant MD Radiologist",
+    "markdown": "\n<!-- page 1 -->\n**_NAME: PA06 DATE: 11.03.2024_** \n\n**_AGE/SEX: 38Yrs/Male REF. BY:_** \n\n**_=======================================================_** \n\n# **INVESTIGATION:     ULTRASOUND WHOLE ABDOMEN** \n\n**_=======================================================_** \n\n**Liver:** is normal in size (~11.2cm), outline and **showing diffusely increased parenchymal echogenicity** . No focal lesion is seen. No intrahepatic biliary dilatation seen. Hepatic veins are normal. Portal vein is normal. \n\n**Gall bladder** : Well distended. No e/o any calculus / mass seen in its lumen. No e/o any GB wall thickening or pericholecystic collection. Proximal CBD is normal in caliber. \n\n**Pancreas:** is normal (head and body) in bulk and echogenicity, tail is obscured due to overlying bowel gases. MPD is not dilated. \n\n**Spleen:** is normal in size (~7cm), outline and echogenicity. No focal lesion seen. \n\n**Right kidney:** is normal in size (~10.5cm), shape and outline with normal cortical echogenicity. Corticomedullary differentiation is maintained. No calculus or hydronephrosis is seen. \n\n**Left kidney:** is normal in size (~10.3cm), shape and outline with normal cortical echogenicity. Corticomedullary differentiation is maintained. \n\n**Moderate hydrouretronephrosis is seen (Proximal ureter ~ 8 mm in SAD) however no obvious calculus is seen in PCS and visualized proximal ureter -?Distal uretric calculus.** \n\n**Urinary Bladder:** It is well distended and shows normal wall thickness. **Multiple moving echoes are seen in its lumen- ? UTI.** \n\n**Prostate:** It is normal in size (Vol~15cc), shape and echotexture. No lymphadenopathy / free fluid seen. <u>Bowel loops are normal in calibre.</u> \n\n**IMPRESSION:** \n\n- **Grade I fatty liver. (Adv: LFT & Lipid Profile).** \n\n- **Moderate left HDUN-? Distal ureteric calculus.** \n\n- **Multiple moving echoes in its lumen- ? UTI.** **<u>(Adv: NCCT-KUB, RFT & Urine R/E for further evaluation if clinically indicated).</u>** \n\nPlease correlate clinically and with other relevant investigations. \n\n# **Consultant MD Radiologist** \n\n"
+  },
+  "validation": {
+    "status": "GOOD",
+    "warnings": [],
+    "scores": {
+      "non_empty": 1.0,
+      "garbage_ratio": 1.0,
+      "meaningful_words": 1.0,
+      "line_count": 1.0,
+      "table_coherence": 1.0,
+      "heading_preservation": 1.0,
+      "measurement_plausibility": 1.0,
+      "_aggregate": 1.0
+    }
+  }
+}

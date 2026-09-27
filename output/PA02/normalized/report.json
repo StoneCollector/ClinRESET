@@ -1,0 +1,465 @@
+{
+  "document": {
+    "file_name": "PA02.pdf",
+    "page_count": 2,
+    "source_type": "digital_pdf",
+    "extractor": "pymupdf4llm"
+  },
+  "classification": {
+    "report_type": "radiology",
+    "confidence": 0.8429,
+    "status": "CONFIDENT",
+    "evidence": [
+      {
+        "signal_text": "IMPRESSION: -",
+        "signal_category": "section_indicator",
+        "source_field": "section_title",
+        "weight": 9.0,
+        "page": 2,
+        "section": "IMPRESSION: -",
+        "matched_pattern": "IMPRESSION"
+      },
+      {
+        "signal_text": "MRI LUMBAR SPINE + WSS",
+        "signal_category": "strong_keyword",
+        "source_field": "document_title",
+        "weight": 5.0,
+        "page": 1,
+        "section": null,
+        "matched_pattern": "MRI"
+      },
+      {
+        "signal_text": "MRI LUMBAR SPINE + WSS",
+        "signal_category": "strong_keyword",
+        "source_field": "section_title",
+        "weight": 5.0,
+        "page": 1,
+        "section": "MRI LUMBAR SPINE + WSS",
+        "matched_pattern": "MRI"
+      },
+      {
+        "signal_text": "|Patient ID: PA02|Patient Name: Anonymous| |---|---| |Age:27 Years|Sex:F| |Accession Number:|Modality:MR| |Referring Phy",
+        "signal_category": "strong_keyword",
+        "source_field": "section_text",
+        "weight": 5.0,
+        "page": 1,
+        "section": null,
+        "matched_pattern": "MRI"
+      },
+      {
+        "signal_text": "Mild Diffuse disc bulge with posterocentral disc is seen at the L5-S1 level indenting the thecal sac with mild narrowing",
+        "signal_category": "strong_keyword",
+        "source_field": "section_text",
+        "weight": 4.0,
+        "page": 1,
+        "section": "**Marginal osteophytes are seen at multiple levels**",
+        "matched_pattern": "soft tissue"
+      },
+      {
+        "signal_text": "Mild Diffuse disc bulge with posterocentral disc is seen at the L5-S1 level indenting the thecal sac with mild narrowing",
+        "signal_category": "supporting_keyword",
+        "source_field": "section_text",
+        "weight": 1.5,
+        "page": 1,
+        "section": "**Marginal osteophytes are seen at multiple levels**",
+        "matched_pattern": "bilateral"
+      }
+    ],
+    "alternatives": [
+      {
+        "report_type": "liver_function_test",
+        "score": 10.0,
+        "evidence_count": 2
+      },
+      {
+        "report_type": "echocardiography",
+        "score": 8.0,
+        "evidence_count": 3
+      }
+    ]
+  },
+  "clinical_information": {
+    "entities": [
+      {
+        "text": "SPINE",
+        "type": "ANATOMY",
+        "normalized": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 1,
+        "source_section": null,
+        "source_text": "ician**:|**Study**:MRI LUMBAR SPINE +WSS|\n|**Study Date**:||",
+        "confidence": 1.0,
+        "semantic_category": "ANATOMY",
+        "modifiers": {},
+        "related_anatomy": [
+          "Spine"
+        ]
+      },
+      {
+        "text": "SPINE",
+        "type": "ANATOMY",
+        "normalized": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 2,
+        "source_section": null,
+        "source_text": "ician**:|**Study**:MRI LUMBAR SPINE +WSS|\n|**Study Date**:||",
+        "confidence": 1.0,
+        "semantic_category": "ANATOMY",
+        "modifiers": {},
+        "related_anatomy": [
+          "Spine"
+        ]
+      },
+      {
+        "text": "soft tissue",
+        "type": "ANATOMY",
+        "normalized": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 2,
+        "source_section": "**There is reversal of cervical curvature with mild diffuse disc bulges at C3-C4 to C6 C7 levels**",
+        "source_text": "bnormal pre or para vertebral soft tissue is seen._",
+        "confidence": 1.0,
+        "semantic_category": "ANATOMY",
+        "modifiers": {},
+        "related_anatomy": [
+          "Soft Tissue"
+        ]
+      }
+    ],
+    "measurements": [],
+    "findings": [],
+    "anatomy": [
+      {
+        "text": "SPINE",
+        "normalized": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "page": 1,
+        "source_section": null,
+        "source_text": "ician**:|**Study**:MRI LUMBAR SPINE +WSS|\n|**Study Date**:||",
+        "semantic_category": "ANATOMY",
+        "modifiers": {}
+      },
+      {
+        "text": "SPINE",
+        "normalized": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "page": 2,
+        "source_section": null,
+        "source_text": "ician**:|**Study**:MRI LUMBAR SPINE +WSS|\n|**Study Date**:||",
+        "semantic_category": "ANATOMY",
+        "modifiers": {}
+      },
+      {
+        "text": "soft tissue",
+        "normalized": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "page": 2,
+        "source_section": "**There is reversal of cervical curvature with mild diffuse disc bulges at C3-C4 to C6 C7 levels**",
+        "source_text": "bnormal pre or para vertebral soft tissue is seen._",
+        "semantic_category": "ANATOMY",
+        "modifiers": {}
+      }
+    ],
+    "relationships": [],
+    "structured_clinical_concepts": []
+  },
+  "sections": [
+    {
+      "title": null,
+      "page": 1,
+      "text": "|**Patient ID**: PA02|**Patient Name**: Anonymous|\n|---|---|\n|**Age**:27 Years|**Sex**:F|\n|**Accession Number**:|**Modality**:MR|\n|**Referring Physician**:|**Study**:MRI LUMBAR SPINE +WSS|\n|**Study Date**:||",
+      "table_refs": []
+    },
+    {
+      "title": "**<u>MRI LUMBAR SPINE + WSS</u>**",
+      "page": 1,
+      "text": "",
+      "table_refs": []
+    },
+    {
+      "title": "**<u>PROTOCOL:-</u>**",
+      "page": 1,
+      "text": "Axial T1 Spin Echo and T2 Fast Spin Echo. \n\nSagittal T1 Spin Echo and T2 Fast Spin Echo. \n\nCoronal STIR.",
+      "table_refs": []
+    },
+    {
+      "title": "**<u>OBSERVATIONS:-</u>**",
+      "page": 1,
+      "text": "Lumbar lordosis straightened",
+      "table_refs": []
+    },
+    {
+      "title": "**Marginal osteophytes are seen at multiple levels**",
+      "page": 1,
+      "text": "**Mild Diffuse disc bulge with posterocentral disc is seen at the L5-S1 level indenting the thecal sac with mild  narrowing of bilateral lateral recess and neural foramina** \n\nNo subluxation / dislocation / spondylolisthesis is seen. \n\nVertebral body, pedicle, transverse process, spinous process, lamina and articular surfaces are normal. Pars interarticularis appear normal. \n\nFacetal joints appear normal. \n\nNo altered signal intensity noted in the lumbar vertebral body. \n\nThe intervertebral disc seen at lumbar vertebra shows normal signal intensity. \n\nThere is no altered signal intensity noted in the visualised part of spinal cord. \n\nCord ends at L1 vertebral body and show normal signal intensity. \n\nCauda equina & filum terminale appear normal. \n\nThe iliopsoas and perivertebral soft tissues are unremarkable. Sacroiliac joint appear normal. \n\nThe sagittal diameters of the lumbar spinal canal are as follows (in mm): \n\n|Level :|L1-2|L2-3|L3-4|L4-5|L5-S1|\n|---|---|---|---|---|---|\n|(mm):|**15.4**|**14.5**|**13.5**|**12.8**|**13.2**|",
+      "table_refs": []
+    },
+    {
+      "title": null,
+      "page": 2,
+      "text": "|**Patient ID**:  PA02|**Patient Name**:|\n|---|---|\n|**Age**:27 Years|**Sex**:F|\n|**Accession Number**:|**Modality**:MR|\n|**Referring Physician**:|**Study**:MRI LUMBAR SPINE +WSS|\n|**Study Date**:||",
+      "table_refs": []
+    },
+    {
+      "title": "**_CERVICAL SPINE:_**",
+      "page": 2,
+      "text": "",
+      "table_refs": []
+    },
+    {
+      "title": "**There is reversal of cervical curvature with mild diffuse disc bulges at C3-C4 to C6 C7 levels**",
+      "page": 2,
+      "text": "_The cervical vertebrae reveal normal signal intensity and alignment._ \n\n_The intervertebral discs are of normal signal intensity on T2 weighted images._ \n\n_No disc bulge is noted. The facet joints are unremarkable._ \n\n_The cord is of normal signal intensity._ \n\n_No abnormal pre or para vertebral soft tissue is seen._",
+      "table_refs": []
+    },
+    {
+      "title": "**_DORSAL SPINE:_**",
+      "page": 2,
+      "text": "_The dorsal vertebrae reveal normal signal intensity and alignment._ \n\n_The intervertebral discs are of normal signal intensity on T2 weighted images._ \n\n_No disc bulge is noted. The facet joints are unremarkable._ \n\n_The cord is of normal signal intensity. No abnormality is detected in the conus medullaris._ \n\n_No abnormal pre or para vertebral soft tissue is seen._",
+      "table_refs": []
+    },
+    {
+      "title": "**<u>IMPRESSION: -</u>**",
+      "page": 2,
+      "text": "- **Mild Diffuse disc bulge with posterocentral disc is seen at the L5-S1 level indenting the thecal sac with mild  narrowing of bilateral lateral recess and neural foramina**",
+      "table_refs": []
+    }
+  ],
+  "tables": [
+    {
+      "title": null,
+      "page": 1,
+      "headers": [
+        "**Patient ID**: PA02",
+        "**Patient Name**: Anonymous"
+      ],
+      "rows": [
+        {
+          "name": "Sex:F",
+          "value": null,
+          "unit": null,
+          "reference_range": null,
+          "extra": {
+            "Patient ID: PA02": "Age:27 Years"
+          }
+        },
+        {
+          "name": "Modality:MR",
+          "value": null,
+          "unit": null,
+          "reference_range": null,
+          "extra": {
+            "Patient ID: PA02": "Accession Number:"
+          }
+        },
+        {
+          "name": "Study:MRI LUMBAR SPINE +WSS",
+          "value": null,
+          "unit": null,
+          "reference_range": null,
+          "extra": {
+            "Patient ID: PA02": "Referring Physician:"
+          }
+        },
+        {
+          "name": null,
+          "value": null,
+          "unit": null,
+          "reference_range": null,
+          "extra": {
+            "Patient ID: PA02": "Study Date:"
+          }
+        }
+      ],
+      "raw_rows": [
+        [
+          "**Patient ID**: PA02",
+          "**Patient Name**: Anonymous"
+        ],
+        [
+          "**Patient ID**: PA02",
+          "**Patient Name**: Anonymous"
+        ],
+        [
+          "**Age**:27 Years",
+          "**Sex**:F"
+        ],
+        [
+          "**Accession Number**:",
+          "**Modality**:MR"
+        ],
+        [
+          "**Referring Physician**:",
+          "**Study**:MRI LUMBAR SPINE +WSS"
+        ],
+        [
+          "**Study Date**:"
+        ]
+      ]
+    },
+    {
+      "title": "The sagittal diameters of the lumbar spinal canal are as follows (in mm):",
+      "page": 1,
+      "headers": [
+        "Level :",
+        "L1-2",
+        "L2-3",
+        "L3-4",
+        "L4-5",
+        "L5-S1"
+      ],
+      "rows": [
+        {
+          "name": null,
+          "value": null,
+          "unit": null,
+          "reference_range": null,
+          "extra": {
+            "Level :": "(mm):",
+            "L1-2": "15.4",
+            "L2-3": "14.5",
+            "L3-4": "13.5",
+            "L4-5": "12.8",
+            "L5-S1": "13.2"
+          }
+        }
+      ],
+      "raw_rows": [
+        [
+          "Level :",
+          "L1-2",
+          "L2-3",
+          "L3-4",
+          "L4-5",
+          "L5-S1"
+        ],
+        [
+          "Level :",
+          "L1-2",
+          "L2-3",
+          "L3-4",
+          "L4-5",
+          "L5-S1"
+        ],
+        [
+          "(mm):",
+          "**15.4**",
+          "**14.5**",
+          "**13.5**",
+          "**12.8**",
+          "**13.2**"
+        ]
+      ]
+    },
+    {
+      "title": null,
+      "page": 2,
+      "headers": [
+        "**Patient ID**:  PA02",
+        "**Patient Name**:"
+      ],
+      "rows": [
+        {
+          "name": "Sex:F",
+          "value": null,
+          "unit": null,
+          "reference_range": null,
+          "extra": {
+            "Patient ID:  PA02": "Age:27 Years"
+          }
+        },
+        {
+          "name": "Modality:MR",
+          "value": null,
+          "unit": null,
+          "reference_range": null,
+          "extra": {
+            "Patient ID:  PA02": "Accession Number:"
+          }
+        },
+        {
+          "name": "Study:MRI LUMBAR SPINE +WSS",
+          "value": null,
+          "unit": null,
+          "reference_range": null,
+          "extra": {
+            "Patient ID:  PA02": "Referring Physician:"
+          }
+        },
+        {
+          "name": null,
+          "value": null,
+          "unit": null,
+          "reference_range": null,
+          "extra": {
+            "Patient ID:  PA02": "Study Date:"
+          }
+        }
+      ],
+      "raw_rows": [
+        [
+          "**Patient ID**:  PA02",
+          "**Patient Name**:"
+        ],
+        [
+          "**Patient ID**:  PA02",
+          "**Patient Name**:"
+        ],
+        [
+          "**Age**:27 Years",
+          "**Sex**:F"
+        ],
+        [
+          "**Accession Number**:",
+          "**Modality**:MR"
+        ],
+        [
+          "**Referring Physician**:",
+          "**Study**:MRI LUMBAR SPINE +WSS"
+        ],
+        [
+          "**Study Date**:"
+        ]
+      ]
+    }
+  ],
+  "measurements": [],
+  "raw": {
+    "text": "|Patient ID: PA02|Patient Name: Anonymous|\n|---|---|\n|Age:27 Years|Sex:F|\n|Accession Number:|Modality:MR|\n|Referring Physician:|Study:MRI LUMBAR SPINE +WSS|\n|Study Date:||\n\n\n\n<u>MRI LUMBAR SPINE + WSS</u> \n\n<u>PROTOCOL:-</u> \n\nAxial T1 Spin Echo and T2 Fast Spin Echo. \n\nSagittal T1 Spin Echo and T2 Fast Spin Echo. \n\nCoronal STIR. \n\n<u>OBSERVATIONS:-</u> \n\nLumbar lordosis straightened \n\nMarginal osteophytes are seen at multiple levels \n\nMild Diffuse disc bulge with posterocentral disc is seen at the L5-S1 level indenting the thecal sac with mild  narrowing of bilateral lateral recess and neural foramina \n\nNo subluxation / dislocation / spondylolisthesis is seen. \n\nVertebral body, pedicle, transverse process, spinous process, lamina and articular surfaces are normal. Pars interarticularis appear normal. \n\nFacetal joints appear normal. \n\nNo altered signal intensity noted in the lumbar vertebral body. \n\nThe intervertebral disc seen at lumbar vertebra shows normal signal intensity. \n\nThere is no altered signal intensity noted in the visualised part of spinal cord. \n\nCord ends at L1 vertebral body and show normal signal intensity. \n\nCauda equina & filum terminale appear normal. \n\nThe iliopsoas and perivertebral soft tissues are unremarkable. Sacroiliac joint appear normal. \n\nThe sagittal diameters of the lumbar spinal canal are as follows (in mm): \n\n|Level :|L1-2|L2-3|L3-4|L4-5|L5-S1|\n|---|---|---|---|---|---|\n|(mm):|15.4|14.5|13.5|12.8|13.2|\n\n\n\n\n\n|Patient ID:  PA02|Patient Name:|\n|---|---|\n|Age:27 Years|Sex:F|\n|Accession Number:|Modality:MR|\n|Referring Physician:|Study:MRI LUMBAR SPINE +WSS|\n|Study Date:||\n\n\n\nCERVICAL SPINE: \n\nThere is reversal of cervical curvature with mild diffuse disc bulges at C3-C4 to C6 C7 levels \n\nThe cervical vertebrae reveal normal signal intensity and alignment. \n\nThe intervertebral discs are of normal signal intensity on T2 weighted images. \n\nNo disc bulge is noted. The facet joints are unremarkable. \n\nThe cord is of normal signal intensity. \n\nNo abnormal pre or para vertebral soft tissue is seen. \n\nDORSAL SPINE: \n\nThe dorsal vertebrae reveal normal signal intensity and alignment. \n\nThe intervertebral discs are of normal signal intensity on T2 weighted images. \n\nNo disc bulge is noted. The facet joints are unremarkable. \n\nThe cord is of normal signal intensity. No abnormality is detected in the conus medullaris. \n\nNo abnormal pre or para vertebral soft tissue is seen. \n\n<u>IMPRESSION: -</u> \n\n- Mild Diffuse disc bulge with posterocentral disc is seen at the L5-S1 level indenting the thecal sac with mild  narrowing of bilateral lateral recess and neural foramina",
+    "markdown": "\n<!-- page 1 -->\n|**Patient ID**: PA02|**Patient Name**: Anonymous|\n|---|---|\n|**Age**:27 Years|**Sex**:F|\n|**Accession Number**:|**Modality**:MR|\n|**Referring Physician**:|**Study**:MRI LUMBAR SPINE +WSS|\n|**Study Date**:||\n\n\n\n# **<u>MRI LUMBAR SPINE + WSS</u>** \n\n# **<u>PROTOCOL:-</u>** \n\nAxial T1 Spin Echo and T2 Fast Spin Echo. \n\nSagittal T1 Spin Echo and T2 Fast Spin Echo. \n\nCoronal STIR. \n\n# **<u>OBSERVATIONS:-</u>** \n\nLumbar lordosis straightened \n\n# **Marginal osteophytes are seen at multiple levels** \n\n**Mild Diffuse disc bulge with posterocentral disc is seen at the L5-S1 level indenting the thecal sac with mild  narrowing of bilateral lateral recess and neural foramina** \n\nNo subluxation / dislocation / spondylolisthesis is seen. \n\nVertebral body, pedicle, transverse process, spinous process, lamina and articular surfaces are normal. Pars interarticularis appear normal. \n\nFacetal joints appear normal. \n\nNo altered signal intensity noted in the lumbar vertebral body. \n\nThe intervertebral disc seen at lumbar vertebra shows normal signal intensity. \n\nThere is no altered signal intensity noted in the visualised part of spinal cord. \n\nCord ends at L1 vertebral body and show normal signal intensity. \n\nCauda equina & filum terminale appear normal. \n\nThe iliopsoas and perivertebral soft tissues are unremarkable. Sacroiliac joint appear normal. \n\nThe sagittal diameters of the lumbar spinal canal are as follows (in mm): \n\n|Level :|L1-2|L2-3|L3-4|L4-5|L5-S1|\n|---|---|---|---|---|---|\n|(mm):|**15.4**|**14.5**|**13.5**|**12.8**|**13.2**|\n\n\n\n\n<!-- page 2 -->\n|**Patient ID**:  PA02|**Patient Name**:|\n|---|---|\n|**Age**:27 Years|**Sex**:F|\n|**Accession Number**:|**Modality**:MR|\n|**Referring Physician**:|**Study**:MRI LUMBAR SPINE +WSS|\n|**Study Date**:||\n\n\n\n# **_CERVICAL SPINE:_** \n\n# **There is reversal of cervical curvature with mild diffuse disc bulges at C3-C4 to C6 C7 levels** \n\n_The cervical vertebrae reveal normal signal intensity and alignment._ \n\n_The intervertebral discs are of normal signal intensity on T2 weighted images._ \n\n_No disc bulge is noted. The facet joints are unremarkable._ \n\n_The cord is of normal signal intensity._ \n\n_No abnormal pre or para vertebral soft tissue is seen._ \n\n# **_DORSAL SPINE:_** \n\n_The dorsal vertebrae reveal normal signal intensity and alignment._ \n\n_The intervertebral discs are of normal signal intensity on T2 weighted images._ \n\n_No disc bulge is noted. The facet joints are unremarkable._ \n\n_The cord is of normal signal intensity. No abnormality is detected in the conus medullaris._ \n\n_No abnormal pre or para vertebral soft tissue is seen._ \n\n# **<u>IMPRESSION: -</u>** \n\n- **Mild Diffuse disc bulge with posterocentral disc is seen at the L5-S1 level indenting the thecal sac with mild  narrowing of bilateral lateral recess and neural foramina** \n\n"
+  },
+  "validation": {
+    "status": "GOOD",
+    "warnings": [
+      "[table_coherence] Minor table inconsistencies (4/12 rows)"
+    ],
+    "scores": {
+      "non_empty": 1.0,
+      "garbage_ratio": 1.0,
+      "meaningful_words": 1.0,
+      "line_count": 1.0,
+      "table_coherence": 0.7,
+      "heading_preservation": 1.0,
+      "measurement_plausibility": 1.0,
+      "_aggregate": 0.95
+    }
+  }
+}

@@ -774,6 +774,118 @@ RADIOLOGY = ReportSignature(
 
 
 # ---------------------------------------------------------------------------
+# General Narrative Clinical Note Signature
+# ---------------------------------------------------------------------------
+
+GENERAL_CLINICAL_NOTE = ReportSignature(
+    canonical_name="general_clinical_note",
+    aliases=[
+        "general_note",
+        "clinical_note",
+        "consultation_note",
+        "outpatient_note",
+        "progress_note",
+    ],
+    title_patterns=[
+        "MEDICAL REPORT",
+        "CLINICAL NOTE",
+        "CONSULTATION NOTE",
+        "PROGRESS NOTE",
+        "OUTPATIENT NOTE",
+        "PHYSICIAN NOTE",
+        "CLINICAL SUMMARY",
+        "PATIENT CONSULTATION",
+    ],
+    section_patterns=[
+        "CHIEF COMPLAINT",
+        "CLINICAL OBSERVATIONS",
+        "PRELIMINARY DIAGNOSIS",
+        "RECOMMENDATIONS",
+        "HISTORY OF PRESENT ILLNESS",
+        "PAST MEDICAL HISTORY",
+        "PHYSICAL EXAMINATION",
+        "VITALS",
+        "ASSESSMENT AND PLAN",
+    ],
+    table_patterns=[],
+    measurement_patterns=[
+        "BP",
+        "Blood Pressure",
+        "Pulse",
+        "Heart Rate",
+        "Temp",
+        "Temperature",
+        "BMI",
+        "Body Mass Index",
+        "Respiratory Rate",
+        "SpO2",
+        "Oxygen Saturation",
+    ],
+    strong_keyword_groups=[
+        SignalGroup(
+            patterns=[
+                "chief complaint",
+                "clinical observations",
+                "preliminary diagnosis",
+                "vitals",
+                "blood pressure",
+                "irregular menstrual cycles",
+                "hirsutism",
+                "weight gain",
+                "polycystic ovary syndrome",
+                "pcos",
+            ],
+            weight=5.0,
+            category="strong_keyword",
+        ),
+        SignalGroup(
+            patterns=[
+                "physical examination",
+                "general appearance",
+                "recommendations",
+                "differential diagnosis",
+                "complains of",
+                "presenting complaint",
+            ],
+            weight=4.0,
+            category="strong_keyword",
+        ),
+    ],
+    supporting_keyword_groups=[
+        SignalGroup(
+            patterns=[
+                "patient",
+                "diagnosis",
+                "symptoms",
+                "examination",
+                "history",
+                "observation",
+                "bp",
+                "pulse",
+                "temp",
+                "bmi",
+            ],
+            weight=1.5,
+            category="supporting_keyword",
+        ),
+    ],
+    exclusion_patterns=[
+        "ejection fraction",
+        "m-mode",
+        "mitral valve",
+        "tricuspid valve",
+        "haematocrit",
+        "platelet count",
+        "hounsfield",
+        "computed tomography",
+        "magnetic resonance",
+        "echocardiogram",
+    ],
+    min_score_threshold=8.0,
+)
+
+
+# ---------------------------------------------------------------------------
 # Registry — all signatures in priority order
 # ---------------------------------------------------------------------------
 # The classifier iterates this list.  Order does NOT affect scoring but
@@ -788,4 +900,5 @@ ALL_SIGNATURES: list[ReportSignature] = [
     THYROID_FUNCTION,
     ECG,
     RADIOLOGY,
+    GENERAL_CLINICAL_NOTE,
 ]

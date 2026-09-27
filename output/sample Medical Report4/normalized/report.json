@@ -1,0 +1,526 @@
+{
+  "document": {
+    "file_name": "sample Medical Report4.pdf",
+    "page_count": 1,
+    "source_type": "digital_pdf",
+    "extractor": "pymupdf4llm"
+  },
+  "classification": {
+    "report_type": "echocardiography",
+    "confidence": 0.2286,
+    "status": "UNCERTAIN",
+    "evidence": [
+      {
+        "signal_text": "Medical Report 2 — Patient Summary Patient Name: Aisha Rahman Age: 28 Gender: Female Chief Complaint: Complains of irreg",
+        "signal_category": "strong_keyword",
+        "source_field": "section_text",
+        "weight": 5.0,
+        "page": 1,
+        "section": null,
+        "matched_pattern": "EF"
+      },
+      {
+        "signal_text": "Medical Report 2 — Patient Summary Patient Name: Aisha Rahman Age: 28 Gender: Female Chief Complaint: Complains of irreg",
+        "signal_category": "supporting_keyword",
+        "source_field": "section_text",
+        "weight": 1.5,
+        "page": 1,
+        "section": null,
+        "matched_pattern": "LV"
+      },
+      {
+        "signal_text": "Medical Report 2 — Patient Summary Patient Name: Aisha Rahman Age: 28 Gender: Female Chief Complaint: Complains of irreg",
+        "signal_category": "supporting_keyword",
+        "source_field": "section_text",
+        "weight": 1.5,
+        "page": 1,
+        "section": null,
+        "matched_pattern": "RV"
+      }
+    ],
+    "alternatives": [
+      {
+        "report_type": "radiology",
+        "score": 5.0,
+        "evidence_count": 1
+      }
+    ]
+  },
+  "clinical_information": {
+    "entities": [
+      {
+        "text": "no hirsutism",
+        "type": "FINDING",
+        "normalized": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "assertion": "ABSENT",
+        "negated": true,
+        "page": 1,
+        "source_section": null,
+        "source_text": "- Mild acne on face, no hirsutism",
+        "confidence": 1.0,
+        "semantic_category": "OTHER_CLINICAL",
+        "modifiers": {},
+        "related_anatomy": []
+      },
+      {
+        "text": "Aisha Rahman Age",
+        "type": "MEASUREMENT",
+        "normalized": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 1,
+        "source_section": null,
+        "source_text": "Patient Name: Aisha Rahman Age: 28 Gender: Female",
+        "confidence": 1.0,
+        "semantic_category": "MEASUREMENT",
+        "modifiers": {},
+        "related_anatomy": []
+      },
+      {
+        "text": "BMI",
+        "type": "MEASUREMENT",
+        "normalized": "Body Mass Index",
+        "normalization_source": "terminology_corpus",
+        "ambiguity": false,
+        "ambiguity_status": "RESOLVED",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 1,
+        "source_section": null,
+        "source_text": "- BMI: 29.1",
+        "confidence": 1.0,
+        "semantic_category": "MEASUREMENT",
+        "modifiers": {},
+        "related_anatomy": [],
+        "candidates": [
+          "Body Mass Index"
+        ]
+      },
+      {
+        "text": "Dr. Neha Kapoor Date",
+        "type": "MEASUREMENT",
+        "normalized": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "assertion": "PRESENT",
+        "negated": false,
+        "page": 1,
+        "source_section": null,
+        "source_text": "Physician: Dr. Neha Kapoor Date: 2025-04-08",
+        "confidence": 1.0,
+        "semantic_category": "MEASUREMENT",
+        "modifiers": {},
+        "related_anatomy": []
+      }
+    ],
+    "measurements": [
+      {
+        "name": "Aisha Rahman Age",
+        "value": 28,
+        "unit": "Gender",
+        "reference_range": null,
+        "page": 1,
+        "source_section": null,
+        "source_text": "Patient Name: Aisha Rahman Age: 28 Gender: Female",
+        "normalized_name": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "semantic_category": "MEASUREMENT",
+        "modifiers": {},
+        "related_anatomy": []
+      },
+      {
+        "name": "BMI",
+        "value": 29.1,
+        "unit": null,
+        "reference_range": null,
+        "page": 1,
+        "source_section": null,
+        "source_text": "- BMI: 29.1",
+        "normalized_name": "Body Mass Index",
+        "normalization_source": "terminology_corpus",
+        "ambiguity": false,
+        "ambiguity_status": "RESOLVED",
+        "semantic_category": "MEASUREMENT",
+        "modifiers": {},
+        "related_anatomy": [],
+        "candidates": [
+          "Body Mass Index"
+        ]
+      },
+      {
+        "name": "Dr. Neha Kapoor Date",
+        "value": 2025,
+        "unit": null,
+        "reference_range": null,
+        "page": 1,
+        "source_section": null,
+        "source_text": "Physician: Dr. Neha Kapoor Date: 2025-04-08",
+        "normalized_name": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "semantic_category": "MEASUREMENT",
+        "modifiers": {},
+        "related_anatomy": []
+      }
+    ],
+    "findings": [
+      {
+        "text": "no hirsutism",
+        "normalized": null,
+        "normalization_source": null,
+        "ambiguity": false,
+        "ambiguity_status": "UNKNOWN",
+        "assertion": "ABSENT",
+        "negated": true,
+        "page": 1,
+        "source_section": null,
+        "source_text": "- Mild acne on face, no hirsutism",
+        "semantic_category": "OTHER_CLINICAL",
+        "modifiers": {},
+        "related_anatomy": []
+      }
+    ],
+    "anatomy": [],
+    "relationships": [],
+    "structured_clinical_concepts": [
+      {
+        "concept": "no hirsutism",
+        "original_text": "no hirsutism",
+        "type": "FINDING",
+        "semantic_category": "OTHER_CLINICAL",
+        "value": null,
+        "unit": null,
+        "reference_range": null,
+        "assertion": "ABSENT",
+        "modifiers": {},
+        "related_anatomy": [],
+        "provenance": {
+          "page": 1,
+          "source_section": null,
+          "source_text": "- Mild acne on face, no hirsutism",
+          "normalization_source": null,
+          "ambiguity": false,
+          "ambiguity_status": "UNKNOWN",
+          "candidates": []
+        }
+      },
+      {
+        "concept": "Aisha Rahman Age",
+        "original_text": "Aisha Rahman Age",
+        "type": "MEASUREMENT",
+        "semantic_category": "MEASUREMENT",
+        "value": 28,
+        "unit": "Gender",
+        "reference_range": null,
+        "assertion": "PRESENT",
+        "modifiers": {},
+        "related_anatomy": [],
+        "provenance": {
+          "page": 1,
+          "source_section": null,
+          "source_text": "Patient Name: Aisha Rahman Age: 28 Gender: Female",
+          "normalization_source": null,
+          "ambiguity": false,
+          "ambiguity_status": "UNKNOWN",
+          "candidates": []
+        }
+      },
+      {
+        "concept": "Body Mass Index",
+        "original_text": "BMI",
+        "type": "MEASUREMENT",
+        "semantic_category": "MEASUREMENT",
+        "value": 29.1,
+        "unit": null,
+        "reference_range": null,
+        "assertion": "PRESENT",
+        "modifiers": {},
+        "related_anatomy": [],
+        "provenance": {
+          "page": 1,
+          "source_section": null,
+          "source_text": "- BMI: 29.1",
+          "normalization_source": "terminology_corpus",
+          "ambiguity": false,
+          "ambiguity_status": "RESOLVED",
+          "candidates": [
+            "Body Mass Index"
+          ]
+        }
+      },
+      {
+        "concept": "Dr. Neha Kapoor Date",
+        "original_text": "Dr. Neha Kapoor Date",
+        "type": "MEASUREMENT",
+        "semantic_category": "MEASUREMENT",
+        "value": 2025,
+        "unit": null,
+        "reference_range": null,
+        "assertion": "PRESENT",
+        "modifiers": {},
+        "related_anatomy": [],
+        "provenance": {
+          "page": 1,
+          "source_section": null,
+          "source_text": "Physician: Dr. Neha Kapoor Date: 2025-04-08",
+          "normalization_source": null,
+          "ambiguity": false,
+          "ambiguity_status": "UNKNOWN",
+          "candidates": []
+        }
+      }
+    ],
+    "explanations": [
+      {
+        "concept": "no hirsutism",
+        "original_text": "no hirsutism",
+        "type": "FINDING",
+        "semantic_category": "OTHER_CLINICAL",
+        "assertion": "ABSENT",
+        "value": null,
+        "unit": null,
+        "reference_range": null,
+        "related_anatomy": [],
+        "modifiers": {},
+        "status": "EXPLANATION_UNAVAILABLE",
+        "explanation": "Explanation unavailable: unmapped or unknown concept.",
+        "provenance": {
+          "page": 1,
+          "source_section": null,
+          "source_text": "- Mild acne on face, no hirsutism",
+          "normalization_source": null,
+          "ambiguity": false,
+          "ambiguity_status": "UNKNOWN",
+          "candidates": []
+        },
+        "unavailability_reason": "UNKNOWN_CONCEPT"
+      },
+      {
+        "concept": "Aisha Rahman Age",
+        "original_text": "Aisha Rahman Age",
+        "type": "MEASUREMENT",
+        "semantic_category": "MEASUREMENT",
+        "assertion": "PRESENT",
+        "value": 28,
+        "unit": "Gender",
+        "reference_range": null,
+        "related_anatomy": [],
+        "modifiers": {},
+        "status": "EXPLANATION_UNAVAILABLE",
+        "explanation": "Explanation unavailable: unmapped or unknown concept.",
+        "provenance": {
+          "page": 1,
+          "source_section": null,
+          "source_text": "Patient Name: Aisha Rahman Age: 28 Gender: Female",
+          "normalization_source": null,
+          "ambiguity": false,
+          "ambiguity_status": "UNKNOWN",
+          "candidates": []
+        },
+        "unavailability_reason": "UNKNOWN_CONCEPT"
+      },
+      {
+        "concept": "Body Mass Index",
+        "original_text": "BMI",
+        "type": "MEASUREMENT",
+        "semantic_category": "MEASUREMENT",
+        "assertion": "PRESENT",
+        "value": 29.1,
+        "unit": null,
+        "reference_range": null,
+        "related_anatomy": [],
+        "modifiers": {},
+        "status": "EXPLANATION_UNAVAILABLE",
+        "explanation": "Explanation unavailable: concept is not currently in the knowledge base.",
+        "provenance": {
+          "page": 1,
+          "source_section": null,
+          "source_text": "- BMI: 29.1",
+          "normalization_source": "terminology_corpus",
+          "ambiguity": false,
+          "ambiguity_status": "RESOLVED",
+          "candidates": [
+            "Body Mass Index"
+          ]
+        },
+        "unavailability_reason": "NOT_IN_KNOWLEDGE_BASE"
+      },
+      {
+        "concept": "Dr. Neha Kapoor Date",
+        "original_text": "Dr. Neha Kapoor Date",
+        "type": "MEASUREMENT",
+        "semantic_category": "MEASUREMENT",
+        "assertion": "PRESENT",
+        "value": 2025,
+        "unit": null,
+        "reference_range": null,
+        "related_anatomy": [],
+        "modifiers": {},
+        "status": "EXPLANATION_UNAVAILABLE",
+        "explanation": "Explanation unavailable: unmapped or unknown concept.",
+        "provenance": {
+          "page": 1,
+          "source_section": null,
+          "source_text": "Physician: Dr. Neha Kapoor Date: 2025-04-08",
+          "normalization_source": null,
+          "ambiguity": false,
+          "ambiguity_status": "UNKNOWN",
+          "candidates": []
+        },
+        "unavailability_reason": "UNKNOWN_CONCEPT"
+      }
+    ],
+    "explanation_sections": [
+      {
+        "title": "Heart Dimensions & Thickness",
+        "category": "MEASUREMENT",
+        "explanations": [
+          {
+            "concept": "Aisha Rahman Age",
+            "original_text": "Aisha Rahman Age",
+            "type": "MEASUREMENT",
+            "semantic_category": "MEASUREMENT",
+            "assertion": "PRESENT",
+            "value": 28,
+            "unit": "Gender",
+            "reference_range": null,
+            "related_anatomy": [],
+            "modifiers": {},
+            "status": "EXPLANATION_UNAVAILABLE",
+            "explanation": "Explanation unavailable: unmapped or unknown concept.",
+            "provenance": {
+              "page": 1,
+              "source_section": null,
+              "source_text": "Patient Name: Aisha Rahman Age: 28 Gender: Female",
+              "normalization_source": null,
+              "ambiguity": false,
+              "ambiguity_status": "UNKNOWN",
+              "candidates": []
+            },
+            "unavailability_reason": "UNKNOWN_CONCEPT"
+          },
+          {
+            "concept": "Body Mass Index",
+            "original_text": "BMI",
+            "type": "MEASUREMENT",
+            "semantic_category": "MEASUREMENT",
+            "assertion": "PRESENT",
+            "value": 29.1,
+            "unit": null,
+            "reference_range": null,
+            "related_anatomy": [],
+            "modifiers": {},
+            "status": "EXPLANATION_UNAVAILABLE",
+            "explanation": "Explanation unavailable: concept is not currently in the knowledge base.",
+            "provenance": {
+              "page": 1,
+              "source_section": null,
+              "source_text": "- BMI: 29.1",
+              "normalization_source": "terminology_corpus",
+              "ambiguity": false,
+              "ambiguity_status": "RESOLVED",
+              "candidates": [
+                "Body Mass Index"
+              ]
+            },
+            "unavailability_reason": "NOT_IN_KNOWLEDGE_BASE"
+          },
+          {
+            "concept": "Dr. Neha Kapoor Date",
+            "original_text": "Dr. Neha Kapoor Date",
+            "type": "MEASUREMENT",
+            "semantic_category": "MEASUREMENT",
+            "assertion": "PRESENT",
+            "value": 2025,
+            "unit": null,
+            "reference_range": null,
+            "related_anatomy": [],
+            "modifiers": {},
+            "status": "EXPLANATION_UNAVAILABLE",
+            "explanation": "Explanation unavailable: unmapped or unknown concept.",
+            "provenance": {
+              "page": 1,
+              "source_section": null,
+              "source_text": "Physician: Dr. Neha Kapoor Date: 2025-04-08",
+              "normalization_source": null,
+              "ambiguity": false,
+              "ambiguity_status": "UNKNOWN",
+              "candidates": []
+            },
+            "unavailability_reason": "UNKNOWN_CONCEPT"
+          }
+        ]
+      },
+      {
+        "title": "Other Findings",
+        "category": "OTHER_CLINICAL",
+        "explanations": [
+          {
+            "concept": "no hirsutism",
+            "original_text": "no hirsutism",
+            "type": "FINDING",
+            "semantic_category": "OTHER_CLINICAL",
+            "assertion": "ABSENT",
+            "value": null,
+            "unit": null,
+            "reference_range": null,
+            "related_anatomy": [],
+            "modifiers": {},
+            "status": "EXPLANATION_UNAVAILABLE",
+            "explanation": "Explanation unavailable: unmapped or unknown concept.",
+            "provenance": {
+              "page": 1,
+              "source_section": null,
+              "source_text": "- Mild acne on face, no hirsutism",
+              "normalization_source": null,
+              "ambiguity": false,
+              "ambiguity_status": "UNKNOWN",
+              "candidates": []
+            },
+            "unavailability_reason": "UNKNOWN_CONCEPT"
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "title": null,
+      "page": 1,
+      "text": "Medical Report 2 — Patient Summary \n\nPatient Name: Aisha Rahman Age: 28 Gender: Female \n\nChief Complaint: \n\nComplains of irregular menstrual cycles and recent weight gain. \n\nClinical Observations: \n\n- Vitals: BP 118/76 mmHg, Pulse 82 bpm \n\n- Mild acne on face, no hirsutism \n\n- BMI: 29.1 \n\nPreliminary Diagnosis: Polycystic Ovary Syndrome (PCOS) \n\nRecommendations: \n\n1. Pelvic ultrasound to confirm ovarian cysts \n\n2. Prescribe Metformin and recommend low-carb diet \n\n3. Follow-up in 6 weeks to monitor response \n\nPhysician: Dr. Neha Kapoor Date: 2025-04-08",
+      "table_refs": []
+    }
+  ],
+  "tables": [],
+  "measurements": [],
+  "raw": {
+    "text": "Medical Report 2 — Patient Summary \n\nPatient Name: Aisha Rahman Age: 28 Gender: Female \n\nChief Complaint: \n\nComplains of irregular menstrual cycles and recent weight gain. \n\nClinical Observations: \n\n- Vitals: BP 118/76 mmHg, Pulse 82 bpm \n\n- Mild acne on face, no hirsutism \n\n- BMI: 29.1 \n\nPreliminary Diagnosis: Polycystic Ovary Syndrome (PCOS) \n\nRecommendations: \n\n1. Pelvic ultrasound to confirm ovarian cysts \n\n2. Prescribe Metformin and recommend low-carb diet \n\n3. Follow-up in 6 weeks to monitor response \n\nPhysician: Dr. Neha Kapoor Date: 2025-04-08",
+    "markdown": "\n<!-- page 1 -->\nMedical Report 2 — Patient Summary \n\nPatient Name: Aisha Rahman Age: 28 Gender: Female \n\nChief Complaint: \n\nComplains of irregular menstrual cycles and recent weight gain. \n\nClinical Observations: \n\n- Vitals: BP 118/76 mmHg, Pulse 82 bpm \n\n- Mild acne on face, no hirsutism \n\n- BMI: 29.1 \n\nPreliminary Diagnosis: Polycystic Ovary Syndrome (PCOS) \n\nRecommendations: \n\n1. Pelvic ultrasound to confirm ovarian cysts \n\n2. Prescribe Metformin and recommend low-carb diet \n\n3. Follow-up in 6 weeks to monitor response \n\nPhysician: Dr. Neha Kapoor Date: 2025-04-08 \n\n"
+  },
+  "validation": {
+    "status": "GOOD",
+    "warnings": [
+      "[heading_preservation] No recognisable headings found (Markdown or ALL-CAPS)."
+    ],
+    "scores": {
+      "non_empty": 1.0,
+      "garbage_ratio": 1.0,
+      "meaningful_words": 1.0,
+      "line_count": 1.0,
+      "table_coherence": 1.0,
+      "heading_preservation": 0.8,
+      "measurement_plausibility": 1.0,
+      "_aggregate": 0.9889
+    }
+  }
+}

@@ -139,7 +139,8 @@ def extract_measurements(
                     "dated", "ref by", "age", "sex", "age/sex",
                     "page", "id", "name", "dr", "no", "date", "ipd", "opd",
                 }
-                if param_name.lower() in excluded_params:
+                param_words = param_name.lower().split()
+                if param_name.lower() in excluded_params or (param_words and param_words[-1] in excluded_params):
                     continue
 
                 parsed_val = _parse_value(param_val_str)
