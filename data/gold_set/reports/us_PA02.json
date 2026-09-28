@@ -1,0 +1,43 @@
+{
+  "report_id": "us_PA02",
+  "modality": "ultrasound",
+  "file_name": "PA02.pdf",
+  "patient_metadata": {
+    "name": "PA02",
+    "age": "45Yrs",
+    "sex": "Male",
+    "date": "21/05/2025"
+  },
+  "facts": [
+    {
+      "fact_id": "us2_f01",
+      "source_text": "Liver: is mildly enlarged in size (~15.5cm)",
+      "concept": "liver span",
+      "assertion": "PRESENT",
+      "value": 15.5,
+      "unit": "cm",
+      "reference_range": null,
+      "section": "Liver"
+    },
+    {
+      "fact_id": "us2_f02",
+      "source_text": "Grade-II fatty liver",
+      "concept": "fatty liver",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Liver"
+    },
+    {
+      "fact_id": "us2_f03",
+      "source_text": "Cholelithiasis with mild sludge.",
+      "concept": "cholelithiasis",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "IMPRESSION"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ClinRESET Gold Standard Clinical Fact Schema",
+  "type": "object",
+  "required": ["report_id", "modality", "file_name", "facts"],
+  "properties": {
+    "report_id": {
+      "type": "string",
+      "description": "Unique identifier for the report, e.g. echo_PA01"
+    },
+    "modality": {
+      "type": "string",
+      "enum": ["echocardiography", "general", "ct_scan", "mri", "ultrasound", "xray"]
+    },
+    "file_name": {
+      "type": "string"
+    },
+    "patient_metadata": {
+      "type": "object",
+      "properties": {
+        "name": { "type": ["string", "null"] },
+        "age": { "type": ["string", "null"] },
+        "sex": { "type": ["string", "null"] },
+        "date": { "type": ["string", "null"] }
+      }
+    },
+    "facts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["fact_id", "source_text", "concept", "assertion"],
+        "properties": {
+          "fact_id": { "type": "string" },
+          "source_text": { "type": "string" },
+          "concept": { "type": "string" },
+          "assertion": {
+            "type": "string",
+            "enum": ["PRESENT", "ABSENT", "NORMAL"]
+          },
+          "value": { "type": ["number", "null"] },
+          "unit": { "type": ["string", "null"] },
+          "reference_range": {
+            "type": ["object", "null"],
+            "properties": {
+              "low": { "type": ["number", "null"] },
+              "high": { "type": ["number", "null"] },
+              "unit": { "type": ["string", "null"] }
+            }
+          },
+          "section": { "type": ["string", "null"] }
+        }
+      }
+    }
+  }
+}

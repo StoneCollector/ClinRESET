@@ -1,0 +1,63 @@
+{
+  "report_id": "mri_PA01",
+  "modality": "mri",
+  "file_name": "PA01.pdf",
+  "patient_metadata": {
+    "name": "Anonymous",
+    "age": "8 Years",
+    "sex": "F",
+    "date": null
+  },
+  "facts": [
+    {
+      "fact_id": "mri1_f01",
+      "source_text": "The cervical vertebrae reveal normal signal intensity and alignment.",
+      "concept": "cervical vertebrae signal and alignment",
+      "assertion": "NORMAL",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "CERVICAL SPINE"
+    },
+    {
+      "fact_id": "mri1_f02",
+      "source_text": "No disc bulge is noted.",
+      "concept": "disc bulge",
+      "assertion": "ABSENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "CERVICAL SPINE"
+    },
+    {
+      "fact_id": "mri1_f03",
+      "source_text": "The facet joints are unremarkable.",
+      "concept": "facet joint morphology",
+      "assertion": "NORMAL",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "CERVICAL SPINE"
+    },
+    {
+      "fact_id": "mri1_f04",
+      "source_text": "No abnormal pre or para vertebral soft tissue is seen.",
+      "concept": "paravertebral soft tissue mass",
+      "assertion": "ABSENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "CERVICAL SPINE"
+    },
+    {
+      "fact_id": "mri1_f05",
+      "source_text": "No abnormality is detected in the conus medullaris.",
+      "concept": "conus medullaris abnormality",
+      "assertion": "ABSENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "DORSAL SPINE"
+    }
+  ]
+}

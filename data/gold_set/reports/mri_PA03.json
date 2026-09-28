@@ -1,0 +1,43 @@
+{
+  "report_id": "mri_PA03",
+  "modality": "mri",
+  "file_name": "PA03.pdf",
+  "patient_metadata": {
+    "name": null,
+    "age": null,
+    "sex": null,
+    "date": null
+  },
+  "facts": [
+    {
+      "fact_id": "mri3_f01",
+      "source_text": "Moderate scoliosis with convexity to left side",
+      "concept": "scoliosis",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "OBSERVATIONS"
+    },
+    {
+      "fact_id": "mri3_f02",
+      "source_text": "No evidence of osteolysis/ osteosclerosis.",
+      "concept": "osteolysis or osteosclerosis",
+      "assertion": "ABSENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "OBSERVATIONS"
+    },
+    {
+      "fact_id": "mri3_f03",
+      "source_text": "L4-L5 shows diffuse disc bulge with biparacentral and foraminal herniation",
+      "concept": "disc herniation",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Impression"
+    }
+  ]
+}

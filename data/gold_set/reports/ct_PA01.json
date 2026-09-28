@@ -1,0 +1,153 @@
+{
+  "report_id": "ct_PA01",
+  "modality": "ct_scan",
+  "file_name": "PA01.pdf",
+  "patient_metadata": {
+    "name": "PA01",
+    "age": null,
+    "sex": null,
+    "date": null
+  },
+  "facts": [
+    {
+      "fact_id": "ct1_f01",
+      "source_text": "Trachea is normal in diameter, shape, position & bifurcation.",
+      "concept": "trachea diameter and position",
+      "assertion": "NORMAL",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Trachea & bronchi"
+    },
+    {
+      "fact_id": "ct1_f02",
+      "source_text": "No evidence of any narrowing or intraluminal mass lesion.",
+      "concept": "tracheal narrowing or intraluminal mass",
+      "assertion": "ABSENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Trachea & bronchi"
+    },
+    {
+      "fact_id": "ct1_f03",
+      "source_text": "Right and left main bronchi are normal in size & diameter.",
+      "concept": "main bronchi caliber",
+      "assertion": "NORMAL",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Trachea & bronchi"
+    },
+    {
+      "fact_id": "ct1_f04",
+      "source_text": "Large right sided pneumothorax is seen",
+      "concept": "pneumothorax",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Lungs & Pleura"
+    },
+    {
+      "fact_id": "ct1_f05",
+      "source_text": "mild pleural effusion showing air fluid level",
+      "concept": "pleural effusion",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Lungs & Pleura"
+    },
+    {
+      "fact_id": "ct1_f06",
+      "source_text": "compression atelectasis of right lung",
+      "concept": "atelectasis",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Lungs & Pleura"
+    },
+    {
+      "fact_id": "ct1_f07",
+      "source_text": "No pleural thickening is seen.",
+      "concept": "pleural thickening",
+      "assertion": "ABSENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Lungs & Pleura"
+    },
+    {
+      "fact_id": "ct1_f08",
+      "source_text": "Minimal left pleural effusion is seen",
+      "concept": "pleural effusion",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Lungs & Pleura"
+    },
+    {
+      "fact_id": "ct1_f09",
+      "source_text": "consolidation posterior basal segment left lower lobe",
+      "concept": "pulmonary consolidation",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Lungs & Pleura"
+    },
+    {
+      "fact_id": "ct1_f10",
+      "source_text": "No lung mass or nodule is seen.",
+      "concept": "pulmonary nodule or mass",
+      "assertion": "ABSENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Lungs & Pleura"
+    },
+    {
+      "fact_id": "ct1_f11",
+      "source_text": "No abnormal mediastinal lymphadenopathy is seen.",
+      "concept": "mediastinal lymphadenopathy",
+      "assertion": "ABSENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Mediastinum"
+    },
+    {
+      "fact_id": "ct1_f12",
+      "source_text": "No evidence of pericardial effusion.",
+      "concept": "pericardial effusion",
+      "assertion": "ABSENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Mediastinum"
+    },
+    {
+      "fact_id": "ct1_f13",
+      "source_text": "Moderate pneumomediastinum is seen with extension of air in visceral spaces of neck, bilateral chest wall and in right axilla.",
+      "concept": "pneumomediastinum",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Mediastinum"
+    },
+    {
+      "fact_id": "ct1_f14",
+      "source_text": "No evidence of axillary lymphadenopathy.",
+      "concept": "axillary lymphadenopathy",
+      "assertion": "ABSENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Chest wall & axillae"
+    }
+  ]
+}

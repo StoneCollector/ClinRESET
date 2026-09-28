@@ -1,0 +1,53 @@
+{
+  "report_id": "ct_PA03",
+  "modality": "ct_scan",
+  "file_name": "PA03.pdf",
+  "patient_metadata": {
+    "name": "PA03",
+    "age": null,
+    "sex": null,
+    "date": null
+  },
+  "facts": [
+    {
+      "fact_id": "ct3_f01",
+      "source_text": "IV ventricle is normal & midline.",
+      "concept": "fourth ventricle",
+      "assertion": "NORMAL",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "POSTERIOR FOSSA"
+    },
+    {
+      "fact_id": "ct3_f02",
+      "source_text": "Both cerebellar hemisphere & region of brain stem are normal.",
+      "concept": "cerebellar hemisphere and brainstem",
+      "assertion": "NORMAL",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "POSTERIOR FOSSA"
+    },
+    {
+      "fact_id": "ct3_f03",
+      "source_text": "Focal small gliosis is seen in left basal ganglia.",
+      "concept": "gliosis",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "SUPRATENTORIAL"
+    },
+    {
+      "fact_id": "ct3_f04",
+      "source_text": "Age related diffuse cerebral atrophy.",
+      "concept": "cerebral atrophy",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Impression"
+    }
+  ]
+}

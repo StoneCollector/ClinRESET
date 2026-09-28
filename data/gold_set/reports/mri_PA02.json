@@ -1,0 +1,53 @@
+{
+  "report_id": "mri_PA02",
+  "modality": "mri",
+  "file_name": "PA02.pdf",
+  "patient_metadata": {
+    "name": null,
+    "age": "27 Years",
+    "sex": null,
+    "date": null
+  },
+  "facts": [
+    {
+      "fact_id": "mri2_f01",
+      "source_text": "Lumbar lordosis straightened",
+      "concept": "loss of lumbar lordosis",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "OBSERVATIONS"
+    },
+    {
+      "fact_id": "mri2_f02",
+      "source_text": "Marginal osteophytes are seen at multiple levels",
+      "concept": "osteophytes",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "OBSERVATIONS"
+    },
+    {
+      "fact_id": "mri2_f03",
+      "source_text": "Mild Diffuse disc bulge with posterocentral disc is seen at the L5-S1 level indenting the thecal sac",
+      "concept": "disc bulge",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "OBSERVATIONS"
+    },
+    {
+      "fact_id": "mri2_f04",
+      "source_text": "mild narrowing of bilateral lateral recess and neural foramina",
+      "concept": "neural foraminal stenosis",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "OBSERVATIONS"
+    }
+  ]
+}

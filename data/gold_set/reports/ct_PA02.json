@@ -1,0 +1,73 @@
+{
+  "report_id": "ct_PA02",
+  "modality": "ct_scan",
+  "file_name": "PA02.pdf",
+  "patient_metadata": {
+    "name": "PA02",
+    "age": null,
+    "sex": null,
+    "date": null
+  },
+  "facts": [
+    {
+      "fact_id": "ct2_f01",
+      "source_text": "Mild bilateral pleural effusion is seen with consolidation basal segment both lower lobes",
+      "concept": "pleural effusion",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Lungs & Pleura"
+    },
+    {
+      "fact_id": "ct2_f02",
+      "source_text": "consolidation basal segment both lower lobes",
+      "concept": "pulmonary consolidation",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Lungs & Pleura"
+    },
+    {
+      "fact_id": "ct2_f03",
+      "source_text": "patchy illdefined areas of ground glass attenuation in posterior segment bilateral upper lobes",
+      "concept": "ground glass attenuation",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Lungs & Pleura"
+    },
+    {
+      "fact_id": "ct2_f04",
+      "source_text": "No lung mass or nodule is seen.",
+      "concept": "pulmonary nodule or mass",
+      "assertion": "ABSENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Lungs & Pleura"
+    },
+    {
+      "fact_id": "ct2_f05",
+      "source_text": "Small intramural exophytic hypodense mildly enhancing lesion in anterior wall body of uterus likely leiomyoma.",
+      "concept": "uterine leiomyoma",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Impression"
+    },
+    {
+      "fact_id": "ct2_f06",
+      "source_text": "Diffuse fatty changes in liver.",
+      "concept": "hepatic steatosis",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Impression"
+    }
+  ]
+}

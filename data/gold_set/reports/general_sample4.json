@@ -1,0 +1,103 @@
+{
+  "report_id": "general_sample4",
+  "modality": "general",
+  "file_name": "sample Medical Report4.pdf",
+  "patient_metadata": {
+    "name": "Aisha Rahman",
+    "age": "28",
+    "sex": "Female",
+    "date": "2025-04-08"
+  },
+  "facts": [
+    {
+      "fact_id": "gen4_f01",
+      "source_text": "Complains of irregular menstrual cycles and recent weight gain.",
+      "concept": "irregular menstrual cycles",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Chief Complaint"
+    },
+    {
+      "fact_id": "gen4_f02",
+      "source_text": "Complains of irregular menstrual cycles and recent weight gain.",
+      "concept": "weight gain",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Chief Complaint"
+    },
+    {
+      "fact_id": "gen4_f03",
+      "source_text": "BP 118/76 mmHg",
+      "concept": "systolic blood pressure",
+      "assertion": "NORMAL",
+      "value": 118.0,
+      "unit": "mmHg",
+      "reference_range": null,
+      "section": "Clinical Observations"
+    },
+    {
+      "fact_id": "gen4_f04",
+      "source_text": "BP 118/76 mmHg",
+      "concept": "diastolic blood pressure",
+      "assertion": "NORMAL",
+      "value": 76.0,
+      "unit": "mmHg",
+      "reference_range": null,
+      "section": "Clinical Observations"
+    },
+    {
+      "fact_id": "gen4_f05",
+      "source_text": "Pulse 82 bpm",
+      "concept": "heart rate",
+      "assertion": "NORMAL",
+      "value": 82.0,
+      "unit": "bpm",
+      "reference_range": null,
+      "section": "Clinical Observations"
+    },
+    {
+      "fact_id": "gen4_f06",
+      "source_text": "Mild acne on face, no hirsutism",
+      "concept": "acne",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Clinical Observations"
+    },
+    {
+      "fact_id": "gen4_f07",
+      "source_text": "Mild acne on face, no hirsutism",
+      "concept": "hirsutism",
+      "assertion": "ABSENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Clinical Observations"
+    },
+    {
+      "fact_id": "gen4_f08",
+      "source_text": "BMI: 29.1",
+      "concept": "body mass index",
+      "assertion": "PRESENT",
+      "value": 29.1,
+      "unit": null,
+      "reference_range": null,
+      "section": "Clinical Observations"
+    },
+    {
+      "fact_id": "gen4_f09",
+      "source_text": "Polycystic Ovary Syndrome (PCOS)",
+      "concept": "polycystic ovary syndrome",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Preliminary Diagnosis"
+    }
+  ]
+}

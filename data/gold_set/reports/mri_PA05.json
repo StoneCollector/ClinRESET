@@ -1,0 +1,73 @@
+{
+  "report_id": "mri_PA05",
+  "modality": "mri",
+  "file_name": "PA05.pdf",
+  "patient_metadata": {
+    "name": "Anonymous",
+    "age": null,
+    "sex": null,
+    "date": null
+  },
+  "facts": [
+    {
+      "fact_id": "mri5_f01",
+      "source_text": "Liver is enlarged in size -19.1 cm in size",
+      "concept": "liver span",
+      "assertion": "PRESENT",
+      "value": 19.1,
+      "unit": "cm",
+      "reference_range": null,
+      "section": "Liver"
+    },
+    {
+      "fact_id": "mri5_f02",
+      "source_text": "No focal lesions seen.",
+      "concept": "hepatic focal lesion",
+      "assertion": "ABSENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Liver"
+    },
+    {
+      "fact_id": "mri5_f03",
+      "source_text": "Multiple filling defects in the gall bladder lumen seen , largest measuring 27 mm at the GB neck",
+      "concept": "cholelithiasis",
+      "assertion": "PRESENT",
+      "value": 27.0,
+      "unit": "mm",
+      "reference_range": null,
+      "section": "Gall bladder"
+    },
+    {
+      "fact_id": "mri5_f04",
+      "source_text": "wall of GB is normal -2mm",
+      "concept": "gallbladder wall thickness",
+      "assertion": "NORMAL",
+      "value": 2.0,
+      "unit": "mm",
+      "reference_range": null,
+      "section": "Gall bladder"
+    },
+    {
+      "fact_id": "mri5_f05",
+      "source_text": "CBD measures 15 mm at porta and there is a calculus of 5.5 mm",
+      "concept": "common bile duct diameter",
+      "assertion": "PRESENT",
+      "value": 15.0,
+      "unit": "mm",
+      "reference_range": null,
+      "section": "CBD"
+    },
+    {
+      "fact_id": "mri5_f06",
+      "source_text": "there is a calculus of 5.5 mm",
+      "concept": "choledocholithiasis",
+      "assertion": "PRESENT",
+      "value": 5.5,
+      "unit": "mm",
+      "reference_range": null,
+      "section": "CBD"
+    }
+  ]
+}

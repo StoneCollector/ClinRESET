@@ -1,0 +1,133 @@
+{
+  "report_id": "us_PA01",
+  "modality": "ultrasound",
+  "file_name": "PA01.pdf",
+  "patient_metadata": {
+    "name": "PA01",
+    "age": "62Yrs",
+    "sex": "Male",
+    "date": "28/03/2025"
+  },
+  "facts": [
+    {
+      "fact_id": "us1_f01",
+      "source_text": "Liver: is enlarged in size (~15.8cm)",
+      "concept": "liver span",
+      "assertion": "PRESENT",
+      "value": 15.8,
+      "unit": "cm",
+      "reference_range": null,
+      "section": "Liver"
+    },
+    {
+      "fact_id": "us1_f02",
+      "source_text": "shows diffusely increased in parenchymal echogenicity and obscuring periportal echogenecity S/O Grade-II fatty liver.",
+      "concept": "fatty liver",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Liver"
+    },
+    {
+      "fact_id": "us1_f03",
+      "source_text": "No focal lesion is seen.",
+      "concept": "hepatic focal lesion",
+      "assertion": "ABSENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Liver"
+    },
+    {
+      "fact_id": "us1_f04",
+      "source_text": "No intrahepatic biliary dilatation seen.",
+      "concept": "intrahepatic biliary dilatation",
+      "assertion": "ABSENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Liver"
+    },
+    {
+      "fact_id": "us1_f05",
+      "source_text": "No e/o any calculus / mass seen in its lumen.",
+      "concept": "gallbladder calculus",
+      "assertion": "ABSENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Gall bladder"
+    },
+    {
+      "fact_id": "us1_f06",
+      "source_text": "MPD is not dilated.",
+      "concept": "main pancreatic duct dilatation",
+      "assertion": "ABSENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Pancreas"
+    },
+    {
+      "fact_id": "us1_f07",
+      "source_text": "Spleen: is normal in size (~11cm)",
+      "concept": "spleen span",
+      "assertion": "NORMAL",
+      "value": 11.0,
+      "unit": "cm",
+      "reference_range": null,
+      "section": "Spleen"
+    },
+    {
+      "fact_id": "us1_f08",
+      "source_text": "Right kidney: is normal in size (~9.1cm)",
+      "concept": "right kidney bipolar length",
+      "assertion": "NORMAL",
+      "value": 9.1,
+      "unit": "cm",
+      "reference_range": null,
+      "section": "Right kidney"
+    },
+    {
+      "fact_id": "us1_f09",
+      "source_text": "No calculus or hydronephrosis is seen.",
+      "concept": "renal calculus or hydronephrosis",
+      "assertion": "ABSENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Right kidney"
+    },
+    {
+      "fact_id": "us1_f10",
+      "source_text": "Left kidney: is normal in size (~11cm)",
+      "concept": "left kidney bipolar length",
+      "assertion": "NORMAL",
+      "value": 11.0,
+      "unit": "cm",
+      "reference_range": null,
+      "section": "Left kidney"
+    },
+    {
+      "fact_id": "us1_f11",
+      "source_text": "Prostate: is normal in size (Vol~22cc)",
+      "concept": "prostate volume",
+      "assertion": "NORMAL",
+      "value": 22.0,
+      "unit": "cc",
+      "reference_range": null,
+      "section": "Prostate"
+    },
+    {
+      "fact_id": "us1_f12",
+      "source_text": "No lymphadenopathy / free fluid seen.",
+      "concept": "ascites or abdominal lymphadenopathy",
+      "assertion": "ABSENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Abdomen"
+    }
+  ]
+}

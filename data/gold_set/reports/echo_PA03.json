@@ -1,0 +1,77 @@
+{
+  "report_id": "echo_PA03",
+  "modality": "echocardiography",
+  "file_name": "PA03.pdf",
+  "patient_metadata": {
+    "name": "PA03",
+    "age": null,
+    "sex": null,
+    "date": null
+  },
+  "facts": [
+    {
+      "fact_id": "echo_PA03_f01",
+      "source_text": "MITRAL VALVE : Normal",
+      "concept": "mitral valve morphology",
+      "assertion": "NORMAL",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "VALVES"
+    },
+    {
+      "fact_id": "echo_PA03_f02",
+      "source_text": "Ejection Fraction 62 % (55-74%)",
+      "concept": "left ventricular ejection fraction",
+      "assertion": "NORMAL",
+      "value": 62.0,
+      "unit": "%",
+      "reference_range": {
+        "low": 55.0,
+        "high": 74.0,
+        "unit": "%"
+      },
+      "section": "LEFT VENTRICLE FUNCTION INDICES"
+    },
+    {
+      "fact_id": "echo_PA03_f03",
+      "source_text": "No evidence of any mass / vegetation",
+      "concept": "cardiac mass or vegetation",
+      "assertion": "ABSENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "OTHERS"
+    },
+    {
+      "fact_id": "echo_PA03_f04",
+      "source_text": "No effusion",
+      "concept": "pericardial effusion",
+      "assertion": "ABSENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "OTHERS"
+    },
+    {
+      "fact_id": "echo_PA03_f05",
+      "source_text": "No RWMA",
+      "concept": "regional wall motion abnormality",
+      "assertion": "ABSENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "FINAL IMPRESSION"
+    },
+    {
+      "fact_id": "echo_PA03_f06",
+      "source_text": "PASP=30mmHg",
+      "concept": "pulmonary artery systolic pressure",
+      "assertion": "PRESENT",
+      "value": 30.0,
+      "unit": "mmHg",
+      "reference_range": null,
+      "section": "FINAL IMPRESSION"
+    }
+  ]
+}

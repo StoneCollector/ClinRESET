@@ -1,0 +1,43 @@
+{
+  "report_id": "xray_PA02",
+  "modality": "xray",
+  "file_name": "PA02.pdf",
+  "patient_metadata": {
+    "name": "PA02",
+    "age": null,
+    "sex": null,
+    "date": null
+  },
+  "facts": [
+    {
+      "fact_id": "xr2_f01",
+      "source_text": "Patchy haze in left apex.",
+      "concept": "pulmonary apical haze",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Chest PA"
+    },
+    {
+      "fact_id": "xr2_f02",
+      "source_text": "Cardio-thoracic ratio is within normal limits",
+      "concept": "cardiothoracic ratio",
+      "assertion": "NORMAL",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Chest PA"
+    },
+    {
+      "fact_id": "xr2_f03",
+      "source_text": "CP angles appear clear",
+      "concept": "costophrenic angles",
+      "assertion": "NORMAL",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Chest PA"
+    }
+  ]
+}

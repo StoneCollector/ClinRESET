@@ -1,0 +1,495 @@
+import os
+import json
+
+base_dir = r"c:\Projects\NLP\scratch\data\gold_set"
+reports_dir = os.path.join(base_dir, "reports")
+os.makedirs(reports_dir, exist_ok=True)
+
+gold_reports = []
+
+# ==============================================================================
+# 1. ECHOCARDIOGRAPHY
+# ==============================================================================
+
+# Echo PA01
+gold_reports.append({
+    "report_id": "echo_PA01",
+    "modality": "echocardiography",
+    "file_name": "PA01.pdf",
+    "patient_metadata": {"name": "PA01", "age": "61y", "sex": "F", "date": None},
+    "facts": [
+        {"fact_id": "echo_PA01_f01", "source_text": "MITRAL VALVE : Normal", "concept": "mitral valve morphology", "assertion": "NORMAL", "value": None, "unit": None, "reference_range": None, "section": "VALVES"},
+        {"fact_id": "echo_PA01_f02", "source_text": "TRICUSPID VALVE : Thin. Opening well. No Prolapse.", "concept": "tricuspid valve prolapse", "assertion": "ABSENT", "value": None, "unit": None, "reference_range": None, "section": "VALVES"},
+        {"fact_id": "echo_PA01_f03", "source_text": "AORTIC VALVE: Tricuspid, normal, opens well.", "concept": "aortic valve morphology", "assertion": "NORMAL", "value": None, "unit": None, "reference_range": None, "section": "VALVES"},
+        {"fact_id": "echo_PA01_f04", "source_text": "PULMONARY VALVE: Normal. Normal ‘EF’ slope. Normal ‘A’ wave. No midsystolic notch.", "concept": "pulmonary valve morphology", "assertion": "NORMAL", "value": None, "unit": None, "reference_range": None, "section": "VALVES"},
+        {"fact_id": "echo_PA01_f05", "source_text": "Aortic root diameter 23 (20-37mm)", "concept": "aortic root diameter", "assertion": "NORMAL", "value": 23.0, "unit": "mm", "reference_range": {"low": 20.0, "high": 37.0, "unit": "mm"}, "section": "M-MODE PARAMETERS"},
+        {"fact_id": "echo_PA01_f06", "source_text": "Left Atrial diameter 25 (19-40mm)", "concept": "left atrial diameter", "assertion": "NORMAL", "value": 25.0, "unit": "mm", "reference_range": {"low": 19.0, "high": 40.0, "unit": "mm"}, "section": "M-MODE PARAMETERS"},
+        {"fact_id": "echo_PA01_f07", "source_text": "Left Ventricular ED Dimension 42 (33-55mm)", "concept": "left ventricular end diastolic dimension", "assertion": "NORMAL", "value": 42.0, "unit": "mm", "reference_range": {"low": 33.0, "high": 55.0, "unit": "mm"}, "section": "M-MODE PARAMETERS"},
+        {"fact_id": "echo_PA01_f08", "source_text": "Left Ventricular ES Dimension 25 (22-40mm)", "concept": "left ventricular end systolic dimension", "assertion": "NORMAL", "value": 25.0, "unit": "mm", "reference_range": {"low": 22.0, "high": 40.0, "unit": "mm"}, "section": "M-MODE PARAMETERS"},
+        {"fact_id": "echo_PA01_f09", "source_text": "Inter Vent. Septum thickness D 13 (06-11mm)", "concept": "interventricular septum thickness in diastole", "assertion": "PRESENT", "value": 13.0, "unit": "mm", "reference_range": {"low": 6.0, "high": 11.0, "unit": "mm"}, "section": "M-MODE PARAMETERS"},
+        {"fact_id": "echo_PA01_f10", "source_text": "LV posterior wall thickness D 10 (06-11mm)", "concept": "left ventricular posterior wall thickness in diastole", "assertion": "NORMAL", "value": 10.0, "unit": "mm", "reference_range": {"low": 6.0, "high": 11.0, "unit": "mm"}, "section": "M-MODE PARAMETERS"},
+        {"fact_id": "echo_PA01_f11", "source_text": "Ejection Fraction 60 % (55-74%)", "concept": "left ventricular ejection fraction", "assertion": "NORMAL", "value": 60.0, "unit": "%", "reference_range": {"low": 55.0, "high": 74.0, "unit": "%"}, "section": "LEFT VENTRICLE FUNCTION INDICES"},
+        {"fact_id": "echo_PA01_f12", "source_text": "Fractional shortening 32.5% (28-40%)", "concept": "fractional shortening", "assertion": "NORMAL", "value": 32.5, "unit": "%", "reference_range": {"low": 28.0, "high": 40.0, "unit": "%"}, "section": "LEFT VENTRICLE FUNCTION INDICES"},
+        {"fact_id": "echo_PA01_f13", "source_text": "No Aortic regurgitation.", "concept": "aortic regurgitation", "assertion": "ABSENT", "value": None, "unit": None, "reference_range": None, "section": "DOPPLER"},
+        {"fact_id": "echo_PA01_f14", "source_text": "No Pulmonary regurgitation present.", "concept": "pulmonary regurgitation", "assertion": "ABSENT", "value": None, "unit": None, "reference_range": None, "section": "DOPPLER"},
+        {"fact_id": "echo_PA01_f15", "source_text": "No gradient across LVOT", "concept": "left ventricular outflow tract gradient", "assertion": "ABSENT", "value": None, "unit": None, "reference_range": None, "section": "DOPPLER"},
+        {"fact_id": "echo_PA01_f16", "source_text": "Aortic Velocity = 1.47 m/s", "concept": "aortic valve peak velocity", "assertion": "PRESENT", "value": 1.47, "unit": "m/s", "reference_range": None, "section": "DOPPLER"},
+        {"fact_id": "echo_PA01_f17", "source_text": "Pulmonary velocity = 1.0m/s", "concept": "pulmonary valve peak velocity", "assertion": "PRESENT", "value": 1.0, "unit": "m/s", "reference_range": None, "section": "DOPPLER"},
+        {"fact_id": "echo_PA01_f18", "source_text": "IAS/IVS intact", "concept": "interatrial and interventricular septum", "assertion": "NORMAL", "value": None, "unit": None, "reference_range": None, "section": "OTHERS"},
+        {"fact_id": "echo_PA01_f19", "source_text": "No evidence of any mass / vegetation", "concept": "cardiac mass or vegetation", "assertion": "ABSENT", "value": None, "unit": None, "reference_range": None, "section": "OTHERS"},
+        {"fact_id": "echo_PA01_f20", "source_text": "No effusion", "concept": "pericardial effusion", "assertion": "ABSENT", "value": None, "unit": None, "reference_range": None, "section": "OTHERS"},
+        {"fact_id": "echo_PA01_f21", "source_text": "No LA/LV clot", "concept": "left atrial or left ventricular thrombus", "assertion": "ABSENT", "value": None, "unit": None, "reference_range": None, "section": "OTHERS"},
+        {"fact_id": "echo_PA01_f22", "source_text": "Conc LVH", "concept": "concentric left ventricular hypertrophy", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "FINAL IMPRESSION"},
+        {"fact_id": "echo_PA01_f23", "source_text": "No RWMA", "concept": "regional wall motion abnormality", "assertion": "ABSENT", "value": None, "unit": None, "reference_range": None, "section": "FINAL IMPRESSION"},
+        {"fact_id": "echo_PA01_f24", "source_text": "Grade 1 LVDD", "concept": "grade 1 left ventricular diastolic dysfunction", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "FINAL IMPRESSION"},
+        {"fact_id": "echo_PA01_f25", "source_text": "Mild TR PASP=34mmHg.", "concept": "pulmonary artery systolic pressure", "assertion": "PRESENT", "value": 34.0, "unit": "mmHg", "reference_range": None, "section": "FINAL IMPRESSION"},
+        {"fact_id": "echo_PA01_f26", "source_text": "Mild TR", "concept": "tricuspid regurgitation", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "FINAL IMPRESSION"},
+        {"fact_id": "echo_PA01_f27", "source_text": "Normal RV function", "concept": "right ventricular function", "assertion": "NORMAL", "value": None, "unit": None, "reference_range": None, "section": "FINAL IMPRESSION"}
+    ]
+})
+
+# Echo PA02
+gold_reports.append({
+    "report_id": "echo_PA02",
+    "modality": "echocardiography",
+    "file_name": "PA02.pdf",
+    "patient_metadata": {"name": "PA02", "age": "57y", "sex": "F", "date": None},
+    "facts": [
+        {"fact_id": "echo_PA02_f01", "source_text": "Aortic root diameter 27 (20-37mm)", "concept": "aortic root diameter", "assertion": "NORMAL", "value": 27.0, "unit": "mm", "reference_range": {"low": 20.0, "high": 37.0, "unit": "mm"}, "section": "M-MODE PARAMETERS"},
+        {"fact_id": "echo_PA02_f02", "source_text": "Left Atrial diameter 30 (19-40mm)", "concept": "left atrial diameter", "assertion": "NORMAL", "value": 30.0, "unit": "mm", "reference_range": {"low": 19.0, "high": 40.0, "unit": "mm"}, "section": "M-MODE PARAMETERS"},
+        {"fact_id": "echo_PA02_f03", "source_text": "Left Ventricular ED Dimension 48 (33-55mm)", "concept": "left ventricular end diastolic dimension", "assertion": "NORMAL", "value": 48.0, "unit": "mm", "reference_range": {"low": 33.0, "high": 55.0, "unit": "mm"}, "section": "M-MODE PARAMETERS"},
+        {"fact_id": "echo_PA02_f04", "source_text": "Left Ventricular ES Dimension 29 (22-40mm)", "concept": "left ventricular end systolic dimension", "assertion": "NORMAL", "value": 29.0, "unit": "mm", "reference_range": {"low": 22.0, "high": 40.0, "unit": "mm"}, "section": "M-MODE PARAMETERS"},
+        {"fact_id": "echo_PA02_f05", "source_text": "Inter Vent. Septum thickness D 12 (06-11mm)", "concept": "interventricular septum thickness in diastole", "assertion": "PRESENT", "value": 12.0, "unit": "mm", "reference_range": {"low": 6.0, "high": 11.0, "unit": "mm"}, "section": "M-MODE PARAMETERS"},
+        {"fact_id": "echo_PA02_f06", "source_text": "LV posterior wall thickness D 11 (06-11mm)", "concept": "left ventricular posterior wall thickness in diastole", "assertion": "NORMAL", "value": 11.0, "unit": "mm", "reference_range": {"low": 6.0, "high": 11.0, "unit": "mm"}, "section": "M-MODE PARAMETERS"},
+        {"fact_id": "echo_PA02_f07", "source_text": "Ejection Fraction 60 % (55-74%)", "concept": "left ventricular ejection fraction", "assertion": "NORMAL", "value": 60.0, "unit": "%", "reference_range": {"low": 55.0, "high": 74.0, "unit": "%"}, "section": "LEFT VENTRICLE FUNCTION INDICES"},
+        {"fact_id": "echo_PA02_f08", "source_text": "Fractional shortening 32.5% (28-40%)", "concept": "fractional shortening", "assertion": "NORMAL", "value": 32.5, "unit": "%", "reference_range": {"low": 28.0, "high": 40.0, "unit": "%"}, "section": "LEFT VENTRICLE FUNCTION INDICES"},
+        {"fact_id": "echo_PA02_f09", "source_text": "No Aortic regurgitation.", "concept": "aortic regurgitation", "assertion": "ABSENT", "value": None, "unit": None, "reference_range": None, "section": "DOPPLER"},
+        {"fact_id": "echo_PA02_f10", "source_text": "No Pulmonary regurgitation present.", "concept": "pulmonary regurgitation", "assertion": "ABSENT", "value": None, "unit": None, "reference_range": None, "section": "DOPPLER"},
+        {"fact_id": "echo_PA02_f11", "source_text": "Aortic Velocity = 1.07 m/s", "concept": "aortic valve peak velocity", "assertion": "PRESENT", "value": 1.07, "unit": "m/s", "reference_range": None, "section": "DOPPLER"},
+        {"fact_id": "echo_PA02_f12", "source_text": "Pulmonary velocity = 1.2m/s", "concept": "pulmonary valve peak velocity", "assertion": "PRESENT", "value": 1.2, "unit": "m/s", "reference_range": None, "section": "DOPPLER"},
+        {"fact_id": "echo_PA02_f13", "source_text": "No RWMA", "concept": "regional wall motion abnormality", "assertion": "ABSENT", "value": None, "unit": None, "reference_range": None, "section": "FINAL IMPRESSION"},
+        {"fact_id": "echo_PA02_f14", "source_text": "Mild TR PASP = 28mmHg", "concept": "pulmonary artery systolic pressure", "assertion": "NORMAL", "value": 28.0, "unit": "mmHg", "reference_range": None, "section": "FINAL IMPRESSION"},
+        {"fact_id": "echo_PA02_f15", "source_text": "Grade 1 LVDD", "concept": "grade 1 left ventricular diastolic dysfunction", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "FINAL IMPRESSION"}
+    ]
+})
+
+# Echo PA03, PA04, PA05
+for pa, ef, pasp in [("PA03", 62.0, 30.0), ("PA04", 58.0, 32.0), ("PA05", 60.0, 30.0)]:
+    gold_reports.append({
+        "report_id": f"echo_{pa}",
+        "modality": "echocardiography",
+        "file_name": f"{pa}.pdf",
+        "patient_metadata": {"name": pa, "age": None, "sex": None, "date": None},
+        "facts": [
+            {"fact_id": f"echo_{pa}_f01", "source_text": "MITRAL VALVE : Normal", "concept": "mitral valve morphology", "assertion": "NORMAL", "value": None, "unit": None, "reference_range": None, "section": "VALVES"},
+            {"fact_id": f"echo_{pa}_f02", "source_text": f"Ejection Fraction {int(ef)} % (55-74%)", "concept": "left ventricular ejection fraction", "assertion": "NORMAL", "value": ef, "unit": "%", "reference_range": {"low": 55.0, "high": 74.0, "unit": "%"}, "section": "LEFT VENTRICLE FUNCTION INDICES"},
+            {"fact_id": f"echo_{pa}_f03", "source_text": "No evidence of any mass / vegetation", "concept": "cardiac mass or vegetation", "assertion": "ABSENT", "value": None, "unit": None, "reference_range": None, "section": "OTHERS"},
+            {"fact_id": f"echo_{pa}_f04", "source_text": "No effusion", "concept": "pericardial effusion", "assertion": "ABSENT", "value": None, "unit": None, "reference_range": None, "section": "OTHERS"},
+            {"fact_id": f"echo_{pa}_f05", "source_text": "No RWMA", "concept": "regional wall motion abnormality", "assertion": "ABSENT", "value": None, "unit": None, "reference_range": None, "section": "FINAL IMPRESSION"},
+            {"fact_id": f"echo_{pa}_f06", "source_text": f"PASP={int(pasp)}mmHg", "concept": "pulmonary artery systolic pressure", "assertion": "PRESENT", "value": pasp, "unit": "mmHg", "reference_range": None, "section": "FINAL IMPRESSION"}
+        ]
+    })
+
+# ==============================================================================
+# 2. GENERAL CLINICAL REPORTS
+# ==============================================================================
+
+# General sample 4
+gold_reports.append({
+    "report_id": "general_sample4",
+    "modality": "general",
+    "file_name": "sample Medical Report4.pdf",
+    "patient_metadata": {"name": "Aisha Rahman", "age": "28", "sex": "Female", "date": "2025-04-08"},
+    "facts": [
+        {"fact_id": "gen4_f01", "source_text": "Complains of irregular menstrual cycles and recent weight gain.", "concept": "irregular menstrual cycles", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "Chief Complaint"},
+        {"fact_id": "gen4_f02", "source_text": "Complains of irregular menstrual cycles and recent weight gain.", "concept": "weight gain", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "Chief Complaint"},
+        {"fact_id": "gen4_f03", "source_text": "BP 118/76 mmHg", "concept": "systolic blood pressure", "assertion": "NORMAL", "value": 118.0, "unit": "mmHg", "reference_range": None, "section": "Clinical Observations"},
+        {"fact_id": "gen4_f04", "source_text": "BP 118/76 mmHg", "concept": "diastolic blood pressure", "assertion": "NORMAL", "value": 76.0, "unit": "mmHg", "reference_range": None, "section": "Clinical Observations"},
+        {"fact_id": "gen4_f05", "source_text": "Pulse 82 bpm", "concept": "heart rate", "assertion": "NORMAL", "value": 82.0, "unit": "bpm", "reference_range": None, "section": "Clinical Observations"},
+        {"fact_id": "gen4_f06", "source_text": "Mild acne on face, no hirsutism", "concept": "acne", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "Clinical Observations"},
+        {"fact_id": "gen4_f07", "source_text": "Mild acne on face, no hirsutism", "concept": "hirsutism", "assertion": "ABSENT", "value": None, "unit": None, "reference_range": None, "section": "Clinical Observations"},
+        {"fact_id": "gen4_f08", "source_text": "BMI: 29.1", "concept": "body mass index", "assertion": "PRESENT", "value": 29.1, "unit": None, "reference_range": None, "section": "Clinical Observations"},
+        {"fact_id": "gen4_f09", "source_text": "Polycystic Ovary Syndrome (PCOS)", "concept": "polycystic ovary syndrome", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "Preliminary Diagnosis"}
+    ]
+})
+
+# General sample 7
+gold_reports.append({
+    "report_id": "general_sample7",
+    "modality": "general",
+    "file_name": "sample Medical Report7.pdf",
+    "patient_metadata": {"name": "David Miller", "age": "62", "sex": "Male", "date": "2025-04-08"},
+    "facts": [
+        {"fact_id": "gen7_f01", "source_text": "Sudden onset of intense chest pain radiating to the left arm", "concept": "chest pain", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "Chief Complaint"},
+        {"fact_id": "gen7_f02", "source_text": "accompanied by shortness of breath and dizziness.", "concept": "dyspnea", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "Chief Complaint"},
+        {"fact_id": "gen7_f03", "source_text": "accompanied by shortness of breath and dizziness.", "concept": "dizziness", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "Chief Complaint"},
+        {"fact_id": "gen7_f04", "source_text": "BP 165/110 mmHg", "concept": "systolic blood pressure", "assertion": "PRESENT", "value": 165.0, "unit": "mmHg", "reference_range": None, "section": "Clinical Observations"},
+        {"fact_id": "gen7_f05", "source_text": "BP 165/110 mmHg", "concept": "diastolic blood pressure", "assertion": "PRESENT", "value": 110.0, "unit": "mmHg", "reference_range": None, "section": "Clinical Observations"},
+        {"fact_id": "gen7_f06", "source_text": "Pulse 102 bpm", "concept": "heart rate", "assertion": "PRESENT", "value": 102.0, "unit": "bpm", "reference_range": None, "section": "Clinical Observations"},
+        {"fact_id": "gen7_f07", "source_text": "Temp 98.2°F", "concept": "body temperature", "assertion": "NORMAL", "value": 98.2, "unit": "°F", "reference_range": None, "section": "Clinical Observations"},
+        {"fact_id": "gen7_f08", "source_text": "ECG shows ST-segment elevation", "concept": "ST-segment elevation", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "Clinical Observations"},
+        {"fact_id": "gen7_f09", "source_text": "Patient appears pale and diaphoretic", "concept": "diaphoresis", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "Clinical Observations"},
+        {"fact_id": "gen7_f10", "source_text": "Oxygen saturation: 89%", "concept": "oxygen saturation", "assertion": "PRESENT", "value": 89.0, "unit": "%", "reference_range": None, "section": "Clinical Observations"},
+        {"fact_id": "gen7_f11", "source_text": "Acute Myocardial Infarction (Heart Attack) — STEMI type", "concept": "ST elevation myocardial infarction", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "Preliminary Diagnosis"}
+    ]
+})
+
+# General ssample
+gold_reports.append({
+    "report_id": "general_ssample",
+    "modality": "general",
+    "file_name": "ssample Medical Report.pdf",
+    "patient_metadata": {"name": "John Doe", "age": "45", "sex": "Male", "date": "2025-04-08"},
+    "facts": [
+        {"fact_id": "gens_f01", "source_text": "Patient reports persistent coughing and mild chest pain for the past week.", "concept": "cough", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "Chief Complaint"},
+        {"fact_id": "gens_f02", "source_text": "Patient reports persistent coughing and mild chest pain for the past week.", "concept": "chest pain", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "Chief Complaint"},
+        {"fact_id": "gens_f03", "source_text": "BP 125/85 mmHg", "concept": "systolic blood pressure", "assertion": "NORMAL", "value": 125.0, "unit": "mmHg", "reference_range": None, "section": "Clinical Observations"},
+        {"fact_id": "gens_f04", "source_text": "BP 125/85 mmHg", "concept": "diastolic blood pressure", "assertion": "NORMAL", "value": 85.0, "unit": "mmHg", "reference_range": None, "section": "Clinical Observations"},
+        {"fact_id": "gens_f05", "source_text": "Pulse 78 bpm", "concept": "heart rate", "assertion": "NORMAL", "value": 78.0, "unit": "bpm", "reference_range": None, "section": "Clinical Observations"},
+        {"fact_id": "gens_f06", "source_text": "Temp 98.6°F", "concept": "body temperature", "assertion": "NORMAL", "value": 98.6, "unit": "°F", "reference_range": None, "section": "Clinical Observations"},
+        {"fact_id": "gens_f07", "source_text": "No visible abnormalities on external examination.", "concept": "external examination abnormalities", "assertion": "ABSENT", "value": None, "unit": None, "reference_range": None, "section": "Clinical Observations"},
+        {"fact_id": "gens_f08", "source_text": "Breathing sounds slightly diminished in the lower right lobe.", "concept": "diminished breath sounds", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "Clinical Observations"},
+        {"fact_id": "gens_f09", "source_text": "Possibility of early-stage pneumonia.", "concept": "pneumonia", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "Preliminary Diagnosis"}
+    ]
+})
+
+# ==============================================================================
+# 3. CT SCANS
+# ==============================================================================
+
+# CT PA01
+gold_reports.append({
+    "report_id": "ct_PA01",
+    "modality": "ct_scan",
+    "file_name": "PA01.pdf",
+    "patient_metadata": {"name": "PA01", "age": None, "sex": None, "date": None},
+    "facts": [
+        {"fact_id": "ct1_f01", "source_text": "Trachea is normal in diameter, shape, position & bifurcation.", "concept": "trachea diameter and position", "assertion": "NORMAL", "value": None, "unit": None, "reference_range": None, "section": "Trachea & bronchi"},
+        {"fact_id": "ct1_f02", "source_text": "No evidence of any narrowing or intraluminal mass lesion.", "concept": "tracheal narrowing or intraluminal mass", "assertion": "ABSENT", "value": None, "unit": None, "reference_range": None, "section": "Trachea & bronchi"},
+        {"fact_id": "ct1_f03", "source_text": "Right and left main bronchi are normal in size & diameter.", "concept": "main bronchi caliber", "assertion": "NORMAL", "value": None, "unit": None, "reference_range": None, "section": "Trachea & bronchi"},
+        {"fact_id": "ct1_f04", "source_text": "Large right sided pneumothorax is seen", "concept": "pneumothorax", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "Lungs & Pleura"},
+        {"fact_id": "ct1_f05", "source_text": "mild pleural effusion showing air fluid level", "concept": "pleural effusion", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "Lungs & Pleura"},
+        {"fact_id": "ct1_f06", "source_text": "compression atelectasis of right lung", "concept": "atelectasis", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "Lungs & Pleura"},
+        {"fact_id": "ct1_f07", "source_text": "No pleural thickening is seen.", "concept": "pleural thickening", "assertion": "ABSENT", "value": None, "unit": None, "reference_range": None, "section": "Lungs & Pleura"},
+        {"fact_id": "ct1_f08", "source_text": "Minimal left pleural effusion is seen", "concept": "pleural effusion", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "Lungs & Pleura"},
+        {"fact_id": "ct1_f09", "source_text": "consolidation posterior basal segment left lower lobe", "concept": "pulmonary consolidation", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "Lungs & Pleura"},
+        {"fact_id": "ct1_f10", "source_text": "No lung mass or nodule is seen.", "concept": "pulmonary nodule or mass", "assertion": "ABSENT", "value": None, "unit": None, "reference_range": None, "section": "Lungs & Pleura"},
+        {"fact_id": "ct1_f11", "source_text": "No abnormal mediastinal lymphadenopathy is seen.", "concept": "mediastinal lymphadenopathy", "assertion": "ABSENT", "value": None, "unit": None, "reference_range": None, "section": "Mediastinum"},
+        {"fact_id": "ct1_f12", "source_text": "No evidence of pericardial effusion.", "concept": "pericardial effusion", "assertion": "ABSENT", "value": None, "unit": None, "reference_range": None, "section": "Mediastinum"},
+        {"fact_id": "ct1_f13", "source_text": "Moderate pneumomediastinum is seen with extension of air in visceral spaces of neck, bilateral chest wall and in right axilla.", "concept": "pneumomediastinum", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "Mediastinum"},
+        {"fact_id": "ct1_f14", "source_text": "No evidence of axillary lymphadenopathy.", "concept": "axillary lymphadenopathy", "assertion": "ABSENT", "value": None, "unit": None, "reference_range": None, "section": "Chest wall & axillae"}
+    ]
+})
+
+# CT PA02
+gold_reports.append({
+    "report_id": "ct_PA02",
+    "modality": "ct_scan",
+    "file_name": "PA02.pdf",
+    "patient_metadata": {"name": "PA02", "age": None, "sex": None, "date": None},
+    "facts": [
+        {"fact_id": "ct2_f01", "source_text": "Mild bilateral pleural effusion is seen with consolidation basal segment both lower lobes", "concept": "pleural effusion", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "Lungs & Pleura"},
+        {"fact_id": "ct2_f02", "source_text": "consolidation basal segment both lower lobes", "concept": "pulmonary consolidation", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "Lungs & Pleura"},
+        {"fact_id": "ct2_f03", "source_text": "patchy illdefined areas of ground glass attenuation in posterior segment bilateral upper lobes", "concept": "ground glass attenuation", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "Lungs & Pleura"},
+        {"fact_id": "ct2_f04", "source_text": "No lung mass or nodule is seen.", "concept": "pulmonary nodule or mass", "assertion": "ABSENT", "value": None, "unit": None, "reference_range": None, "section": "Lungs & Pleura"},
+        {"fact_id": "ct2_f05", "source_text": "Small intramural exophytic hypodense mildly enhancing lesion in anterior wall body of uterus likely leiomyoma.", "concept": "uterine leiomyoma", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "Impression"},
+        {"fact_id": "ct2_f06", "source_text": "Diffuse fatty changes in liver.", "concept": "hepatic steatosis", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "Impression"}
+    ]
+})
+
+# CT PA03
+gold_reports.append({
+    "report_id": "ct_PA03",
+    "modality": "ct_scan",
+    "file_name": "PA03.pdf",
+    "patient_metadata": {"name": "PA03", "age": None, "sex": None, "date": None},
+    "facts": [
+        {"fact_id": "ct3_f01", "source_text": "IV ventricle is normal & midline.", "concept": "fourth ventricle", "assertion": "NORMAL", "value": None, "unit": None, "reference_range": None, "section": "POSTERIOR FOSSA"},
+        {"fact_id": "ct3_f02", "source_text": "Both cerebellar hemisphere & region of brain stem are normal.", "concept": "cerebellar hemisphere and brainstem", "assertion": "NORMAL", "value": None, "unit": None, "reference_range": None, "section": "POSTERIOR FOSSA"},
+        {"fact_id": "ct3_f03", "source_text": "Focal small gliosis is seen in left basal ganglia.", "concept": "gliosis", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "SUPRATENTORIAL"},
+        {"fact_id": "ct3_f04", "source_text": "Age related diffuse cerebral atrophy.", "concept": "cerebral atrophy", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "Impression"}
+    ]
+})
+
+# CT PA04
+gold_reports.append({
+    "report_id": "ct_PA04",
+    "modality": "ct_scan",
+    "file_name": "PA04.pdf",
+    "patient_metadata": {"name": "PA04", "age": None, "sex": None, "date": None},
+    "facts": [
+        {"fact_id": "ct4_f01", "source_text": "Liver: - Shrunken (13 cm)", "concept": "liver span", "assertion": "PRESENT", "value": 13.0, "unit": "cm", "reference_range": None, "section": "Liver"},
+        {"fact_id": "ct4_f02", "source_text": "Portal vein is dilated (16 mm in diameter).", "concept": "portal vein diameter", "assertion": "PRESENT", "value": 16.0, "unit": "mm", "reference_range": None, "section": "CBD"},
+        {"fact_id": "ct4_f03", "source_text": "No hyperdense intraluminal calculus is seen.", "concept": "gallbladder calculus", "assertion": "ABSENT", "value": None, "unit": None, "reference_range": None, "section": "Gall bladder"},
+        {"fact_id": "ct4_f04", "source_text": "Mild ascites is seen.", "concept": "ascites", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "Abdomen"},
+        {"fact_id": "ct4_f05", "source_text": "Cirrhosis liver with dilated portal vein and mild ascites.", "concept": "cirrhosis of liver", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "Impression"}
+    ]
+})
+
+# CT PA05
+gold_reports.append({
+    "report_id": "ct_PA05",
+    "modality": "ct_scan",
+    "file_name": "PA05.pdf",
+    "patient_metadata": {"name": "PA05", "age": None, "sex": None, "date": None},
+    "facts": [
+        {"fact_id": "ct5_f01", "source_text": "Hepatomegaly with multiple large abscesses largest in inferior segment right lobe.", "concept": "hepatic abscess", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "Impression"},
+        {"fact_id": "ct5_f02", "source_text": "Mild splenomegaly.", "concept": "splenomegaly", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "Impression"},
+        {"fact_id": "ct5_f03", "source_text": "No evidence of ascites.", "concept": "ascites", "assertion": "ABSENT", "value": None, "unit": None, "reference_range": None, "section": "Abdomen"},
+        {"fact_id": "ct5_f04", "source_text": "No hyperdense intraluminal calculus is seen.", "concept": "gallbladder calculus", "assertion": "ABSENT", "value": None, "unit": None, "reference_range": None, "section": "Gall bladder"}
+    ]
+})
+
+# ==============================================================================
+# 4. MRI
+# ==============================================================================
+
+# MRI PA01
+gold_reports.append({
+    "report_id": "mri_PA01",
+    "modality": "mri",
+    "file_name": "PA01.pdf",
+    "patient_metadata": {"name": "Anonymous", "age": "8 Years", "sex": "F", "date": None},
+    "facts": [
+        {"fact_id": "mri1_f01", "source_text": "The cervical vertebrae reveal normal signal intensity and alignment.", "concept": "cervical vertebrae signal and alignment", "assertion": "NORMAL", "value": None, "unit": None, "reference_range": None, "section": "CERVICAL SPINE"},
+        {"fact_id": "mri1_f02", "source_text": "No disc bulge is noted.", "concept": "disc bulge", "assertion": "ABSENT", "value": None, "unit": None, "reference_range": None, "section": "CERVICAL SPINE"},
+        {"fact_id": "mri1_f03", "source_text": "The facet joints are unremarkable.", "concept": "facet joint morphology", "assertion": "NORMAL", "value": None, "unit": None, "reference_range": None, "section": "CERVICAL SPINE"},
+        {"fact_id": "mri1_f04", "source_text": "No abnormal pre or para vertebral soft tissue is seen.", "concept": "paravertebral soft tissue mass", "assertion": "ABSENT", "value": None, "unit": None, "reference_range": None, "section": "CERVICAL SPINE"},
+        {"fact_id": "mri1_f05", "source_text": "No abnormality is detected in the conus medullaris.", "concept": "conus medullaris abnormality", "assertion": "ABSENT", "value": None, "unit": None, "reference_range": None, "section": "DORSAL SPINE"}
+    ]
+})
+
+# MRI PA02
+gold_reports.append({
+    "report_id": "mri_PA02",
+    "modality": "mri",
+    "file_name": "PA02.pdf",
+    "patient_metadata": {"name": None, "age": "27 Years", "sex": None, "date": None},
+    "facts": [
+        {"fact_id": "mri2_f01", "source_text": "Lumbar lordosis straightened", "concept": "loss of lumbar lordosis", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "OBSERVATIONS"},
+        {"fact_id": "mri2_f02", "source_text": "Marginal osteophytes are seen at multiple levels", "concept": "osteophytes", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "OBSERVATIONS"},
+        {"fact_id": "mri2_f03", "source_text": "Mild Diffuse disc bulge with posterocentral disc is seen at the L5-S1 level indenting the thecal sac", "concept": "disc bulge", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "OBSERVATIONS"},
+        {"fact_id": "mri2_f04", "source_text": "mild narrowing of bilateral lateral recess and neural foramina", "concept": "neural foraminal stenosis", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "OBSERVATIONS"}
+    ]
+})
+
+# MRI PA03
+gold_reports.append({
+    "report_id": "mri_PA03",
+    "modality": "mri",
+    "file_name": "PA03.pdf",
+    "patient_metadata": {"name": None, "age": None, "sex": None, "date": None},
+    "facts": [
+        {"fact_id": "mri3_f01", "source_text": "Moderate scoliosis with convexity to left side", "concept": "scoliosis", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "OBSERVATIONS"},
+        {"fact_id": "mri3_f02", "source_text": "No evidence of osteolysis/ osteosclerosis.", "concept": "osteolysis or osteosclerosis", "assertion": "ABSENT", "value": None, "unit": None, "reference_range": None, "section": "OBSERVATIONS"},
+        {"fact_id": "mri3_f03", "source_text": "L4-L5 shows diffuse disc bulge with biparacentral and foraminal herniation", "concept": "disc herniation", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "Impression"}
+    ]
+})
+
+# MRI PA04
+gold_reports.append({
+    "report_id": "mri_PA04",
+    "modality": "mri",
+    "file_name": "PA04.pdf",
+    "patient_metadata": {"name": None, "age": None, "sex": None, "date": None},
+    "facts": [
+        {"fact_id": "mri4_f01", "source_text": "CERVICAL SPONDYLOSIS.", "concept": "cervical spondylosis", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "IMPRESSION"},
+        {"fact_id": "mri4_f02", "source_text": "POSTERIOR DISC OSTEOPHYTE COMPLEXES AT C3-4, C4-5, C5-6 AND C6-7 LEVELS", "concept": "disc osteophyte complex", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "IMPRESSION"}
+    ]
+})
+
+# MRI PA05
+gold_reports.append({
+    "report_id": "mri_PA05",
+    "modality": "mri",
+    "file_name": "PA05.pdf",
+    "patient_metadata": {"name": "Anonymous", "age": None, "sex": None, "date": None},
+    "facts": [
+        {"fact_id": "mri5_f01", "source_text": "Liver is enlarged in size -19.1 cm in size", "concept": "liver span", "assertion": "PRESENT", "value": 19.1, "unit": "cm", "reference_range": None, "section": "Liver"},
+        {"fact_id": "mri5_f02", "source_text": "No focal lesions seen.", "concept": "hepatic focal lesion", "assertion": "ABSENT", "value": None, "unit": None, "reference_range": None, "section": "Liver"},
+        {"fact_id": "mri5_f03", "source_text": "Multiple filling defects in the gall bladder lumen seen , largest measuring 27 mm at the GB neck", "concept": "cholelithiasis", "assertion": "PRESENT", "value": 27.0, "unit": "mm", "reference_range": None, "section": "Gall bladder"},
+        {"fact_id": "mri5_f04", "source_text": "wall of GB is normal -2mm", "concept": "gallbladder wall thickness", "assertion": "NORMAL", "value": 2.0, "unit": "mm", "reference_range": None, "section": "Gall bladder"},
+        {"fact_id": "mri5_f05", "source_text": "CBD measures 15 mm at porta and there is a calculus of 5.5 mm", "concept": "common bile duct diameter", "assertion": "PRESENT", "value": 15.0, "unit": "mm", "reference_range": None, "section": "CBD"},
+        {"fact_id": "mri5_f06", "source_text": "there is a calculus of 5.5 mm", "concept": "choledocholithiasis", "assertion": "PRESENT", "value": 5.5, "unit": "mm", "reference_range": None, "section": "CBD"}
+    ]
+})
+
+# ==============================================================================
+# 5. ULTRASOUND
+# ==============================================================================
+
+# US PA01
+gold_reports.append({
+    "report_id": "us_PA01",
+    "modality": "ultrasound",
+    "file_name": "PA01.pdf",
+    "patient_metadata": {"name": "PA01", "age": "62Yrs", "sex": "Male", "date": "28/03/2025"},
+    "facts": [
+        {"fact_id": "us1_f01", "source_text": "Liver: is enlarged in size (~15.8cm)", "concept": "liver span", "assertion": "PRESENT", "value": 15.8, "unit": "cm", "reference_range": None, "section": "Liver"},
+        {"fact_id": "us1_f02", "source_text": "shows diffusely increased in parenchymal echogenicity and obscuring periportal echogenecity S/O Grade-II fatty liver.", "concept": "fatty liver", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "Liver"},
+        {"fact_id": "us1_f03", "source_text": "No focal lesion is seen.", "concept": "hepatic focal lesion", "assertion": "ABSENT", "value": None, "unit": None, "reference_range": None, "section": "Liver"},
+        {"fact_id": "us1_f04", "source_text": "No intrahepatic biliary dilatation seen.", "concept": "intrahepatic biliary dilatation", "assertion": "ABSENT", "value": None, "unit": None, "reference_range": None, "section": "Liver"},
+        {"fact_id": "us1_f05", "source_text": "No e/o any calculus / mass seen in its lumen.", "concept": "gallbladder calculus", "assertion": "ABSENT", "value": None, "unit": None, "reference_range": None, "section": "Gall bladder"},
+        {"fact_id": "us1_f06", "source_text": "MPD is not dilated.", "concept": "main pancreatic duct dilatation", "assertion": "ABSENT", "value": None, "unit": None, "reference_range": None, "section": "Pancreas"},
+        {"fact_id": "us1_f07", "source_text": "Spleen: is normal in size (~11cm)", "concept": "spleen span", "assertion": "NORMAL", "value": 11.0, "unit": "cm", "reference_range": None, "section": "Spleen"},
+        {"fact_id": "us1_f08", "source_text": "Right kidney: is normal in size (~9.1cm)", "concept": "right kidney bipolar length", "assertion": "NORMAL", "value": 9.1, "unit": "cm", "reference_range": None, "section": "Right kidney"},
+        {"fact_id": "us1_f09", "source_text": "No calculus or hydronephrosis is seen.", "concept": "renal calculus or hydronephrosis", "assertion": "ABSENT", "value": None, "unit": None, "reference_range": None, "section": "Right kidney"},
+        {"fact_id": "us1_f10", "source_text": "Left kidney: is normal in size (~11cm)", "concept": "left kidney bipolar length", "assertion": "NORMAL", "value": 11.0, "unit": "cm", "reference_range": None, "section": "Left kidney"},
+        {"fact_id": "us1_f11", "source_text": "Prostate: is normal in size (Vol~22cc)", "concept": "prostate volume", "assertion": "NORMAL", "value": 22.0, "unit": "cc", "reference_range": None, "section": "Prostate"},
+        {"fact_id": "us1_f12", "source_text": "No lymphadenopathy / free fluid seen.", "concept": "ascites or abdominal lymphadenopathy", "assertion": "ABSENT", "value": None, "unit": None, "reference_range": None, "section": "Abdomen"}
+    ]
+})
+
+# US PA02
+gold_reports.append({
+    "report_id": "us_PA02",
+    "modality": "ultrasound",
+    "file_name": "PA02.pdf",
+    "patient_metadata": {"name": "PA02", "age": "45Yrs", "sex": "Male", "date": "21/05/2025"},
+    "facts": [
+        {"fact_id": "us2_f01", "source_text": "Liver: is mildly enlarged in size (~15.5cm)", "concept": "liver span", "assertion": "PRESENT", "value": 15.5, "unit": "cm", "reference_range": None, "section": "Liver"},
+        {"fact_id": "us2_f02", "source_text": "Grade-II fatty liver", "concept": "fatty liver", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "Liver"},
+        {"fact_id": "us2_f03", "source_text": "Cholelithiasis with mild sludge.", "concept": "cholelithiasis", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "IMPRESSION"}
+    ]
+})
+
+# US PA03
+gold_reports.append({
+    "report_id": "us_PA03",
+    "modality": "ultrasound",
+    "file_name": "PA03.pdf",
+    "patient_metadata": {"name": "PA03", "age": "77Yrs", "sex": "Male", "date": "13/06/2025"},
+    "facts": [
+        {"fact_id": "us3_f01", "source_text": "Liver: is normal in size (~13.5cm)", "concept": "liver span", "assertion": "NORMAL", "value": 13.5, "unit": "cm", "reference_range": None, "section": "Liver"},
+        {"fact_id": "us3_f02", "source_text": "Small right kidney with CMD lost.", "concept": "loss of corticomedullary differentiation", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "IMPRESSION"},
+        {"fact_id": "us3_f03", "source_text": "B/L increased renal parenchymal echogenicity S/O CKD.", "concept": "chronic kidney disease", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "IMPRESSION"}
+    ]
+})
+
+# US PA04
+gold_reports.append({
+    "report_id": "us_PA04",
+    "modality": "ultrasound",
+    "file_name": "PA04.pdf",
+    "patient_metadata": {"name": "PA04", "age": None, "sex": None, "date": "28.04.2024"},
+    "facts": [
+        {"fact_id": "us4_f01", "source_text": "Liver: is normal in size (~13.8cm)", "concept": "liver span", "assertion": "NORMAL", "value": 13.8, "unit": "cm", "reference_range": None, "section": "Liver"},
+        {"fact_id": "us4_f02", "source_text": "A large echogenic calculus measuring ~ 32.6mm size with dense posterior acoustic shadow", "concept": "cholelithiasis", "assertion": "PRESENT", "value": 32.6, "unit": "mm", "reference_range": None, "section": "Gall bladder"},
+        {"fact_id": "us4_f03", "source_text": "Grade I fatty liver.", "concept": "fatty liver", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "IMPRESSION"},
+        {"fact_id": "us4_f04", "source_text": "B/L ovaries are bulky with e/o multiple peripherally arranged subcentimetric follicles are seen with thick echogenic stroma- giving PCOD morphology.", "concept": "polycystic ovarian morphology", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "IMPRESSION"}
+    ]
+})
+
+# US PA06
+gold_reports.append({
+    "report_id": "us_PA06",
+    "modality": "ultrasound",
+    "file_name": "PA06.pdf",
+    "patient_metadata": {"name": "PA06", "age": "38Yrs", "sex": "Male", "date": "11.03.2024"},
+    "facts": [
+        {"fact_id": "us6_f01", "source_text": "Liver: is normal in size (~11.2cm)", "concept": "liver span", "assertion": "NORMAL", "value": 11.2, "unit": "cm", "reference_range": None, "section": "Liver"},
+        {"fact_id": "us6_f02", "source_text": "Grade I fatty liver.", "concept": "fatty liver", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "IMPRESSION"},
+        {"fact_id": "us6_f03", "source_text": "Moderate left HDUN-? Distal ureteric calculus.", "concept": "hydroureteronephrosis", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "IMPRESSION"}
+    ]
+})
+
+# ==============================================================================
+# 6. X-RAY
+# ==============================================================================
+
+# X-Ray PA01
+gold_reports.append({
+    "report_id": "xray_PA01",
+    "modality": "xray",
+    "file_name": "PA01.pdf",
+    "patient_metadata": {"name": "PA01", "age": None, "sex": None, "date": None},
+    "facts": [
+        {"fact_id": "xr1_f01", "source_text": "Positional rotation.", "concept": "positional rotation", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "Chest PA"},
+        {"fact_id": "xr1_f02", "source_text": "Lung feilds are clear.", "concept": "lung fields clarity", "assertion": "NORMAL", "value": None, "unit": None, "reference_range": None, "section": "Chest PA"},
+        {"fact_id": "xr1_f03", "source_text": "Hila appear normal", "concept": "pulmonary hila morphology", "assertion": "NORMAL", "value": None, "unit": None, "reference_range": None, "section": "Chest PA"},
+        {"fact_id": "xr1_f04", "source_text": "Mediastinum is central , trachea is in midline", "concept": "mediastinal and tracheal alignment", "assertion": "NORMAL", "value": None, "unit": None, "reference_range": None, "section": "Chest PA"},
+        {"fact_id": "xr1_f05", "source_text": "Cardio-thoracic ratio is within normal limits", "concept": "cardiothoracic ratio", "assertion": "NORMAL", "value": None, "unit": None, "reference_range": None, "section": "Chest PA"},
+        {"fact_id": "xr1_f06", "source_text": "Both domes of diaphragm appear normal", "concept": "diaphragmatic contours", "assertion": "NORMAL", "value": None, "unit": None, "reference_range": None, "section": "Chest PA"},
+        {"fact_id": "xr1_f07", "source_text": "CP angles appear clear", "concept": "costophrenic angles", "assertion": "NORMAL", "value": None, "unit": None, "reference_range": None, "section": "Chest PA"},
+        {"fact_id": "xr1_f08", "source_text": "Bony thorax appears intact", "concept": "bony thorax integrity", "assertion": "NORMAL", "value": None, "unit": None, "reference_range": None, "section": "Chest PA"}
+    ]
+})
+
+# X-Ray PA02
+gold_reports.append({
+    "report_id": "xray_PA02",
+    "modality": "xray",
+    "file_name": "PA02.pdf",
+    "patient_metadata": {"name": "PA02", "age": None, "sex": None, "date": None},
+    "facts": [
+        {"fact_id": "xr2_f01", "source_text": "Patchy haze in left apex.", "concept": "pulmonary apical haze", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "Chest PA"},
+        {"fact_id": "xr2_f02", "source_text": "Cardio-thoracic ratio is within normal limits", "concept": "cardiothoracic ratio", "assertion": "NORMAL", "value": None, "unit": None, "reference_range": None, "section": "Chest PA"},
+        {"fact_id": "xr2_f03", "source_text": "CP angles appear clear", "concept": "costophrenic angles", "assertion": "NORMAL", "value": None, "unit": None, "reference_range": None, "section": "Chest PA"}
+    ]
+})
+
+# X-Ray PA03
+gold_reports.append({
+    "report_id": "xray_PA03",
+    "modality": "xray",
+    "file_name": "PA03.pdf",
+    "patient_metadata": {"name": "PA03", "age": None, "sex": None, "date": None},
+    "facts": [
+        {"fact_id": "xr3_f01", "source_text": "Loss of lumbar lordosis.", "concept": "loss of lumbar lordosis", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "SPINE"},
+        {"fact_id": "xr3_f02", "source_text": "Multi-level osteophytic changes.", "concept": "osteophytes", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "SPINE"},
+        {"fact_id": "xr3_f03", "source_text": "No abnormal paravertebral soft tissue shadow is seen.", "concept": "paravertebral soft tissue shadow", "assertion": "ABSENT", "value": None, "unit": None, "reference_range": None, "section": "SPINE"},
+        {"fact_id": "xr3_f04", "source_text": "IVD Spaces are normal", "concept": "intervertebral disc space", "assertion": "NORMAL", "value": None, "unit": None, "reference_range": None, "section": "SPINE"}
+    ]
+})
+
+# X-Ray PA04
+gold_reports.append({
+    "report_id": "xray_PA04",
+    "modality": "xray",
+    "file_name": "PA04.pdf",
+    "patient_metadata": {"name": "PA04", "age": None, "sex": None, "date": None},
+    "facts": [
+        {"fact_id": "xr4_f01", "source_text": "Increased bronchovascular markings.", "concept": "bronchovascular markings", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "Chest PA"},
+        {"fact_id": "xr4_f02", "source_text": "Cardio-thoracic ratio is within normal limits", "concept": "cardiothoracic ratio", "assertion": "NORMAL", "value": None, "unit": None, "reference_range": None, "section": "Chest PA"},
+        {"fact_id": "xr4_f03", "source_text": "CP angles appear clear", "concept": "costophrenic angles", "assertion": "NORMAL", "value": None, "unit": None, "reference_range": None, "section": "Chest PA"}
+    ]
+})
+
+# X-Ray PA05
+gold_reports.append({
+    "report_id": "xray_PA05",
+    "modality": "xray",
+    "file_name": "PA05.pdf",
+    "patient_metadata": {"name": "PA05", "age": None, "sex": None, "date": None},
+    "facts": [
+        {"fact_id": "xr5_f01", "source_text": "Loss of lumbar lordosis.", "concept": "loss of lumbar lordosis", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "SPINE"},
+        {"fact_id": "xr5_f02", "source_text": "Multi-level osteophytic changes.", "concept": "osteophytes", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "SPINE"},
+        {"fact_id": "xr5_f03", "source_text": "No abnormal paravertebral soft tissue shadow is seen.", "concept": "paravertebral soft tissue shadow", "assertion": "ABSENT", "value": None, "unit": None, "reference_range": None, "section": "SPINE"},
+        {"fact_id": "xr5_f04", "source_text": "IVD Space L5-S1 is reduced.", "concept": "intervertebral disc space narrowing", "assertion": "PRESENT", "value": None, "unit": None, "reference_range": None, "section": "SPINE"}
+    ]
+})
+
+# ==============================================================================
+# WRITE TO FILES
+# ==============================================================================
+
+total_facts = sum(len(r["facts"]) for r in gold_reports)
+print(f"Total reports: {len(gold_reports)}, Total facts: {total_facts}")
+
+for r in gold_reports:
+    file_p = os.path.join(reports_dir, f"{r['report_id']}.json")
+    with open(file_p, "w", encoding="utf-8") as f:
+        json.dump(r, f, indent=2)
+
+gold_dataset = {
+    "version": "1.0.0",
+    "description": "ClinRESET Gold Standard Evaluation Set across 6 modalities",
+    "total_reports": len(gold_reports),
+    "total_facts": total_facts,
+    "reports": gold_reports
+}
+
+with open(os.path.join(base_dir, "gold_set.json"), "w", encoding="utf-8") as f:
+    json.dump(gold_dataset, f, indent=2)
+
+print(f"Successfully generated gold set in {base_dir}!")

@@ -1,0 +1,43 @@
+{
+  "report_id": "xray_PA04",
+  "modality": "xray",
+  "file_name": "PA04.pdf",
+  "patient_metadata": {
+    "name": "PA04",
+    "age": null,
+    "sex": null,
+    "date": null
+  },
+  "facts": [
+    {
+      "fact_id": "xr4_f01",
+      "source_text": "Increased bronchovascular markings.",
+      "concept": "bronchovascular markings",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Chest PA"
+    },
+    {
+      "fact_id": "xr4_f02",
+      "source_text": "Cardio-thoracic ratio is within normal limits",
+      "concept": "cardiothoracic ratio",
+      "assertion": "NORMAL",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Chest PA"
+    },
+    {
+      "fact_id": "xr4_f03",
+      "source_text": "CP angles appear clear",
+      "concept": "costophrenic angles",
+      "assertion": "NORMAL",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Chest PA"
+    }
+  ]
+}

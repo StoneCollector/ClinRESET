@@ -1,0 +1,53 @@
+{
+  "report_id": "us_PA04",
+  "modality": "ultrasound",
+  "file_name": "PA04.pdf",
+  "patient_metadata": {
+    "name": "PA04",
+    "age": null,
+    "sex": null,
+    "date": "28.04.2024"
+  },
+  "facts": [
+    {
+      "fact_id": "us4_f01",
+      "source_text": "Liver: is normal in size (~13.8cm)",
+      "concept": "liver span",
+      "assertion": "NORMAL",
+      "value": 13.8,
+      "unit": "cm",
+      "reference_range": null,
+      "section": "Liver"
+    },
+    {
+      "fact_id": "us4_f02",
+      "source_text": "A large echogenic calculus measuring ~ 32.6mm size with dense posterior acoustic shadow",
+      "concept": "cholelithiasis",
+      "assertion": "PRESENT",
+      "value": 32.6,
+      "unit": "mm",
+      "reference_range": null,
+      "section": "Gall bladder"
+    },
+    {
+      "fact_id": "us4_f03",
+      "source_text": "Grade I fatty liver.",
+      "concept": "fatty liver",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "IMPRESSION"
+    },
+    {
+      "fact_id": "us4_f04",
+      "source_text": "B/L ovaries are bulky with e/o multiple peripherally arranged subcentimetric follicles are seen with thick echogenic stroma- giving PCOD morphology.",
+      "concept": "polycystic ovarian morphology",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "IMPRESSION"
+    }
+  ]
+}

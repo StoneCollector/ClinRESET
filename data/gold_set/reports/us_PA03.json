@@ -1,0 +1,43 @@
+{
+  "report_id": "us_PA03",
+  "modality": "ultrasound",
+  "file_name": "PA03.pdf",
+  "patient_metadata": {
+    "name": "PA03",
+    "age": "77Yrs",
+    "sex": "Male",
+    "date": "13/06/2025"
+  },
+  "facts": [
+    {
+      "fact_id": "us3_f01",
+      "source_text": "Liver: is normal in size (~13.5cm)",
+      "concept": "liver span",
+      "assertion": "NORMAL",
+      "value": 13.5,
+      "unit": "cm",
+      "reference_range": null,
+      "section": "Liver"
+    },
+    {
+      "fact_id": "us3_f02",
+      "source_text": "Small right kidney with CMD lost.",
+      "concept": "loss of corticomedullary differentiation",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "IMPRESSION"
+    },
+    {
+      "fact_id": "us3_f03",
+      "source_text": "B/L increased renal parenchymal echogenicity S/O CKD.",
+      "concept": "chronic kidney disease",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "IMPRESSION"
+    }
+  ]
+}

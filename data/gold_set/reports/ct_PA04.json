@@ -1,0 +1,63 @@
+{
+  "report_id": "ct_PA04",
+  "modality": "ct_scan",
+  "file_name": "PA04.pdf",
+  "patient_metadata": {
+    "name": "PA04",
+    "age": null,
+    "sex": null,
+    "date": null
+  },
+  "facts": [
+    {
+      "fact_id": "ct4_f01",
+      "source_text": "Liver: - Shrunken (13 cm)",
+      "concept": "liver span",
+      "assertion": "PRESENT",
+      "value": 13.0,
+      "unit": "cm",
+      "reference_range": null,
+      "section": "Liver"
+    },
+    {
+      "fact_id": "ct4_f02",
+      "source_text": "Portal vein is dilated (16 mm in diameter).",
+      "concept": "portal vein diameter",
+      "assertion": "PRESENT",
+      "value": 16.0,
+      "unit": "mm",
+      "reference_range": null,
+      "section": "CBD"
+    },
+    {
+      "fact_id": "ct4_f03",
+      "source_text": "No hyperdense intraluminal calculus is seen.",
+      "concept": "gallbladder calculus",
+      "assertion": "ABSENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Gall bladder"
+    },
+    {
+      "fact_id": "ct4_f04",
+      "source_text": "Mild ascites is seen.",
+      "concept": "ascites",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Abdomen"
+    },
+    {
+      "fact_id": "ct4_f05",
+      "source_text": "Cirrhosis liver with dilated portal vein and mild ascites.",
+      "concept": "cirrhosis of liver",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Impression"
+    }
+  ]
+}

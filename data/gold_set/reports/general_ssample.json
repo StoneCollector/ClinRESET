@@ -1,0 +1,103 @@
+{
+  "report_id": "general_ssample",
+  "modality": "general",
+  "file_name": "ssample Medical Report.pdf",
+  "patient_metadata": {
+    "name": "John Doe",
+    "age": "45",
+    "sex": "Male",
+    "date": "2025-04-08"
+  },
+  "facts": [
+    {
+      "fact_id": "gens_f01",
+      "source_text": "Patient reports persistent coughing and mild chest pain for the past week.",
+      "concept": "cough",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Chief Complaint"
+    },
+    {
+      "fact_id": "gens_f02",
+      "source_text": "Patient reports persistent coughing and mild chest pain for the past week.",
+      "concept": "chest pain",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Chief Complaint"
+    },
+    {
+      "fact_id": "gens_f03",
+      "source_text": "BP 125/85 mmHg",
+      "concept": "systolic blood pressure",
+      "assertion": "NORMAL",
+      "value": 125.0,
+      "unit": "mmHg",
+      "reference_range": null,
+      "section": "Clinical Observations"
+    },
+    {
+      "fact_id": "gens_f04",
+      "source_text": "BP 125/85 mmHg",
+      "concept": "diastolic blood pressure",
+      "assertion": "NORMAL",
+      "value": 85.0,
+      "unit": "mmHg",
+      "reference_range": null,
+      "section": "Clinical Observations"
+    },
+    {
+      "fact_id": "gens_f05",
+      "source_text": "Pulse 78 bpm",
+      "concept": "heart rate",
+      "assertion": "NORMAL",
+      "value": 78.0,
+      "unit": "bpm",
+      "reference_range": null,
+      "section": "Clinical Observations"
+    },
+    {
+      "fact_id": "gens_f06",
+      "source_text": "Temp 98.6\u00b0F",
+      "concept": "body temperature",
+      "assertion": "NORMAL",
+      "value": 98.6,
+      "unit": "\u00b0F",
+      "reference_range": null,
+      "section": "Clinical Observations"
+    },
+    {
+      "fact_id": "gens_f07",
+      "source_text": "No visible abnormalities on external examination.",
+      "concept": "external examination abnormalities",
+      "assertion": "ABSENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Clinical Observations"
+    },
+    {
+      "fact_id": "gens_f08",
+      "source_text": "Breathing sounds slightly diminished in the lower right lobe.",
+      "concept": "diminished breath sounds",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Clinical Observations"
+    },
+    {
+      "fact_id": "gens_f09",
+      "source_text": "Possibility of early-stage pneumonia.",
+      "concept": "pneumonia",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Preliminary Diagnosis"
+    }
+  ]
+}

@@ -1,0 +1,195 @@
+{
+  "report_id": "echo_PA02",
+  "modality": "echocardiography",
+  "file_name": "PA02.pdf",
+  "patient_metadata": {
+    "name": "PA02",
+    "age": "57y",
+    "sex": "F",
+    "date": null
+  },
+  "facts": [
+    {
+      "fact_id": "echo_PA02_f01",
+      "source_text": "Aortic root diameter 27 (20-37mm)",
+      "concept": "aortic root diameter",
+      "assertion": "NORMAL",
+      "value": 27.0,
+      "unit": "mm",
+      "reference_range": {
+        "low": 20.0,
+        "high": 37.0,
+        "unit": "mm"
+      },
+      "section": "M-MODE PARAMETERS"
+    },
+    {
+      "fact_id": "echo_PA02_f02",
+      "source_text": "Left Atrial diameter 30 (19-40mm)",
+      "concept": "left atrial diameter",
+      "assertion": "NORMAL",
+      "value": 30.0,
+      "unit": "mm",
+      "reference_range": {
+        "low": 19.0,
+        "high": 40.0,
+        "unit": "mm"
+      },
+      "section": "M-MODE PARAMETERS"
+    },
+    {
+      "fact_id": "echo_PA02_f03",
+      "source_text": "Left Ventricular ED Dimension 48 (33-55mm)",
+      "concept": "left ventricular end diastolic dimension",
+      "assertion": "NORMAL",
+      "value": 48.0,
+      "unit": "mm",
+      "reference_range": {
+        "low": 33.0,
+        "high": 55.0,
+        "unit": "mm"
+      },
+      "section": "M-MODE PARAMETERS"
+    },
+    {
+      "fact_id": "echo_PA02_f04",
+      "source_text": "Left Ventricular ES Dimension 29 (22-40mm)",
+      "concept": "left ventricular end systolic dimension",
+      "assertion": "NORMAL",
+      "value": 29.0,
+      "unit": "mm",
+      "reference_range": {
+        "low": 22.0,
+        "high": 40.0,
+        "unit": "mm"
+      },
+      "section": "M-MODE PARAMETERS"
+    },
+    {
+      "fact_id": "echo_PA02_f05",
+      "source_text": "Inter Vent. Septum thickness D 12 (06-11mm)",
+      "concept": "interventricular septum thickness in diastole",
+      "assertion": "PRESENT",
+      "value": 12.0,
+      "unit": "mm",
+      "reference_range": {
+        "low": 6.0,
+        "high": 11.0,
+        "unit": "mm"
+      },
+      "section": "M-MODE PARAMETERS"
+    },
+    {
+      "fact_id": "echo_PA02_f06",
+      "source_text": "LV posterior wall thickness D 11 (06-11mm)",
+      "concept": "left ventricular posterior wall thickness in diastole",
+      "assertion": "NORMAL",
+      "value": 11.0,
+      "unit": "mm",
+      "reference_range": {
+        "low": 6.0,
+        "high": 11.0,
+        "unit": "mm"
+      },
+      "section": "M-MODE PARAMETERS"
+    },
+    {
+      "fact_id": "echo_PA02_f07",
+      "source_text": "Ejection Fraction 60 % (55-74%)",
+      "concept": "left ventricular ejection fraction",
+      "assertion": "NORMAL",
+      "value": 60.0,
+      "unit": "%",
+      "reference_range": {
+        "low": 55.0,
+        "high": 74.0,
+        "unit": "%"
+      },
+      "section": "LEFT VENTRICLE FUNCTION INDICES"
+    },
+    {
+      "fact_id": "echo_PA02_f08",
+      "source_text": "Fractional shortening 32.5% (28-40%)",
+      "concept": "fractional shortening",
+      "assertion": "NORMAL",
+      "value": 32.5,
+      "unit": "%",
+      "reference_range": {
+        "low": 28.0,
+        "high": 40.0,
+        "unit": "%"
+      },
+      "section": "LEFT VENTRICLE FUNCTION INDICES"
+    },
+    {
+      "fact_id": "echo_PA02_f09",
+      "source_text": "No Aortic regurgitation.",
+      "concept": "aortic regurgitation",
+      "assertion": "ABSENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "DOPPLER"
+    },
+    {
+      "fact_id": "echo_PA02_f10",
+      "source_text": "No Pulmonary regurgitation present.",
+      "concept": "pulmonary regurgitation",
+      "assertion": "ABSENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "DOPPLER"
+    },
+    {
+      "fact_id": "echo_PA02_f11",
+      "source_text": "Aortic Velocity = 1.07 m/s",
+      "concept": "aortic valve peak velocity",
+      "assertion": "PRESENT",
+      "value": 1.07,
+      "unit": "m/s",
+      "reference_range": null,
+      "section": "DOPPLER"
+    },
+    {
+      "fact_id": "echo_PA02_f12",
+      "source_text": "Pulmonary velocity = 1.2m/s",
+      "concept": "pulmonary valve peak velocity",
+      "assertion": "PRESENT",
+      "value": 1.2,
+      "unit": "m/s",
+      "reference_range": null,
+      "section": "DOPPLER"
+    },
+    {
+      "fact_id": "echo_PA02_f13",
+      "source_text": "No RWMA",
+      "concept": "regional wall motion abnormality",
+      "assertion": "ABSENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "FINAL IMPRESSION"
+    },
+    {
+      "fact_id": "echo_PA02_f14",
+      "source_text": "Mild TR PASP = 28mmHg",
+      "concept": "pulmonary artery systolic pressure",
+      "assertion": "NORMAL",
+      "value": 28.0,
+      "unit": "mmHg",
+      "reference_range": null,
+      "section": "FINAL IMPRESSION"
+    },
+    {
+      "fact_id": "echo_PA02_f15",
+      "source_text": "Grade 1 LVDD",
+      "concept": "grade 1 left ventricular diastolic dysfunction",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "FINAL IMPRESSION"
+    }
+  ]
+}

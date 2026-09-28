@@ -1,0 +1,315 @@
+{
+  "report_id": "echo_PA01",
+  "modality": "echocardiography",
+  "file_name": "PA01.pdf",
+  "patient_metadata": {
+    "name": "PA01",
+    "age": "61y",
+    "sex": "F",
+    "date": null
+  },
+  "facts": [
+    {
+      "fact_id": "echo_PA01_f01",
+      "source_text": "MITRAL VALVE : Normal",
+      "concept": "mitral valve morphology",
+      "assertion": "NORMAL",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "VALVES"
+    },
+    {
+      "fact_id": "echo_PA01_f02",
+      "source_text": "TRICUSPID VALVE : Thin. Opening well. No Prolapse.",
+      "concept": "tricuspid valve prolapse",
+      "assertion": "ABSENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "VALVES"
+    },
+    {
+      "fact_id": "echo_PA01_f03",
+      "source_text": "AORTIC VALVE: Tricuspid, normal, opens well.",
+      "concept": "aortic valve morphology",
+      "assertion": "NORMAL",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "VALVES"
+    },
+    {
+      "fact_id": "echo_PA01_f04",
+      "source_text": "PULMONARY VALVE: Normal. Normal \u2018EF\u2019 slope. Normal \u2018A\u2019 wave. No midsystolic notch.",
+      "concept": "pulmonary valve morphology",
+      "assertion": "NORMAL",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "VALVES"
+    },
+    {
+      "fact_id": "echo_PA01_f05",
+      "source_text": "Aortic root diameter 23 (20-37mm)",
+      "concept": "aortic root diameter",
+      "assertion": "NORMAL",
+      "value": 23.0,
+      "unit": "mm",
+      "reference_range": {
+        "low": 20.0,
+        "high": 37.0,
+        "unit": "mm"
+      },
+      "section": "M-MODE PARAMETERS"
+    },
+    {
+      "fact_id": "echo_PA01_f06",
+      "source_text": "Left Atrial diameter 25 (19-40mm)",
+      "concept": "left atrial diameter",
+      "assertion": "NORMAL",
+      "value": 25.0,
+      "unit": "mm",
+      "reference_range": {
+        "low": 19.0,
+        "high": 40.0,
+        "unit": "mm"
+      },
+      "section": "M-MODE PARAMETERS"
+    },
+    {
+      "fact_id": "echo_PA01_f07",
+      "source_text": "Left Ventricular ED Dimension 42 (33-55mm)",
+      "concept": "left ventricular end diastolic dimension",
+      "assertion": "NORMAL",
+      "value": 42.0,
+      "unit": "mm",
+      "reference_range": {
+        "low": 33.0,
+        "high": 55.0,
+        "unit": "mm"
+      },
+      "section": "M-MODE PARAMETERS"
+    },
+    {
+      "fact_id": "echo_PA01_f08",
+      "source_text": "Left Ventricular ES Dimension 25 (22-40mm)",
+      "concept": "left ventricular end systolic dimension",
+      "assertion": "NORMAL",
+      "value": 25.0,
+      "unit": "mm",
+      "reference_range": {
+        "low": 22.0,
+        "high": 40.0,
+        "unit": "mm"
+      },
+      "section": "M-MODE PARAMETERS"
+    },
+    {
+      "fact_id": "echo_PA01_f09",
+      "source_text": "Inter Vent. Septum thickness D 13 (06-11mm)",
+      "concept": "interventricular septum thickness in diastole",
+      "assertion": "PRESENT",
+      "value": 13.0,
+      "unit": "mm",
+      "reference_range": {
+        "low": 6.0,
+        "high": 11.0,
+        "unit": "mm"
+      },
+      "section": "M-MODE PARAMETERS"
+    },
+    {
+      "fact_id": "echo_PA01_f10",
+      "source_text": "LV posterior wall thickness D 10 (06-11mm)",
+      "concept": "left ventricular posterior wall thickness in diastole",
+      "assertion": "NORMAL",
+      "value": 10.0,
+      "unit": "mm",
+      "reference_range": {
+        "low": 6.0,
+        "high": 11.0,
+        "unit": "mm"
+      },
+      "section": "M-MODE PARAMETERS"
+    },
+    {
+      "fact_id": "echo_PA01_f11",
+      "source_text": "Ejection Fraction 60 % (55-74%)",
+      "concept": "left ventricular ejection fraction",
+      "assertion": "NORMAL",
+      "value": 60.0,
+      "unit": "%",
+      "reference_range": {
+        "low": 55.0,
+        "high": 74.0,
+        "unit": "%"
+      },
+      "section": "LEFT VENTRICLE FUNCTION INDICES"
+    },
+    {
+      "fact_id": "echo_PA01_f12",
+      "source_text": "Fractional shortening 32.5% (28-40%)",
+      "concept": "fractional shortening",
+      "assertion": "NORMAL",
+      "value": 32.5,
+      "unit": "%",
+      "reference_range": {
+        "low": 28.0,
+        "high": 40.0,
+        "unit": "%"
+      },
+      "section": "LEFT VENTRICLE FUNCTION INDICES"
+    },
+    {
+      "fact_id": "echo_PA01_f13",
+      "source_text": "No Aortic regurgitation.",
+      "concept": "aortic regurgitation",
+      "assertion": "ABSENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "DOPPLER"
+    },
+    {
+      "fact_id": "echo_PA01_f14",
+      "source_text": "No Pulmonary regurgitation present.",
+      "concept": "pulmonary regurgitation",
+      "assertion": "ABSENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "DOPPLER"
+    },
+    {
+      "fact_id": "echo_PA01_f15",
+      "source_text": "No gradient across LVOT",
+      "concept": "left ventricular outflow tract gradient",
+      "assertion": "ABSENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "DOPPLER"
+    },
+    {
+      "fact_id": "echo_PA01_f16",
+      "source_text": "Aortic Velocity = 1.47 m/s",
+      "concept": "aortic valve peak velocity",
+      "assertion": "PRESENT",
+      "value": 1.47,
+      "unit": "m/s",
+      "reference_range": null,
+      "section": "DOPPLER"
+    },
+    {
+      "fact_id": "echo_PA01_f17",
+      "source_text": "Pulmonary velocity = 1.0m/s",
+      "concept": "pulmonary valve peak velocity",
+      "assertion": "PRESENT",
+      "value": 1.0,
+      "unit": "m/s",
+      "reference_range": null,
+      "section": "DOPPLER"
+    },
+    {
+      "fact_id": "echo_PA01_f18",
+      "source_text": "IAS/IVS intact",
+      "concept": "interatrial and interventricular septum",
+      "assertion": "NORMAL",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "OTHERS"
+    },
+    {
+      "fact_id": "echo_PA01_f19",
+      "source_text": "No evidence of any mass / vegetation",
+      "concept": "cardiac mass or vegetation",
+      "assertion": "ABSENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "OTHERS"
+    },
+    {
+      "fact_id": "echo_PA01_f20",
+      "source_text": "No effusion",
+      "concept": "pericardial effusion",
+      "assertion": "ABSENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "OTHERS"
+    },
+    {
+      "fact_id": "echo_PA01_f21",
+      "source_text": "No LA/LV clot",
+      "concept": "left atrial or left ventricular thrombus",
+      "assertion": "ABSENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "OTHERS"
+    },
+    {
+      "fact_id": "echo_PA01_f22",
+      "source_text": "Conc LVH",
+      "concept": "concentric left ventricular hypertrophy",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "FINAL IMPRESSION"
+    },
+    {
+      "fact_id": "echo_PA01_f23",
+      "source_text": "No RWMA",
+      "concept": "regional wall motion abnormality",
+      "assertion": "ABSENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "FINAL IMPRESSION"
+    },
+    {
+      "fact_id": "echo_PA01_f24",
+      "source_text": "Grade 1 LVDD",
+      "concept": "grade 1 left ventricular diastolic dysfunction",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "FINAL IMPRESSION"
+    },
+    {
+      "fact_id": "echo_PA01_f25",
+      "source_text": "Mild TR PASP=34mmHg.",
+      "concept": "pulmonary artery systolic pressure",
+      "assertion": "PRESENT",
+      "value": 34.0,
+      "unit": "mmHg",
+      "reference_range": null,
+      "section": "FINAL IMPRESSION"
+    },
+    {
+      "fact_id": "echo_PA01_f26",
+      "source_text": "Mild TR",
+      "concept": "tricuspid regurgitation",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "FINAL IMPRESSION"
+    },
+    {
+      "fact_id": "echo_PA01_f27",
+      "source_text": "Normal RV function",
+      "concept": "right ventricular function",
+      "assertion": "NORMAL",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "FINAL IMPRESSION"
+    }
+  ]
+}

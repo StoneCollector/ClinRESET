@@ -1,0 +1,33 @@
+{
+  "report_id": "mri_PA04",
+  "modality": "mri",
+  "file_name": "PA04.pdf",
+  "patient_metadata": {
+    "name": null,
+    "age": null,
+    "sex": null,
+    "date": null
+  },
+  "facts": [
+    {
+      "fact_id": "mri4_f01",
+      "source_text": "CERVICAL SPONDYLOSIS.",
+      "concept": "cervical spondylosis",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "IMPRESSION"
+    },
+    {
+      "fact_id": "mri4_f02",
+      "source_text": "POSTERIOR DISC OSTEOPHYTE COMPLEXES AT C3-4, C4-5, C5-6 AND C6-7 LEVELS",
+      "concept": "disc osteophyte complex",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "IMPRESSION"
+    }
+  ]
+}

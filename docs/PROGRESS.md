@@ -1,22 +1,24 @@
 # ClinRESET Project Progress Tracker
 
 ## Status Summary
-- **Current Phase**: Phase 0 (Setup + Gold Set)
-- **Scaffold Status**: Completed (project structure, reference, notebooks, and legacy salvaging initialized)
-- **Active Task**: Gold set definition and evaluation harness implementation
+- **Current Phase**: Phase 1 (Parse)
+- **Scaffold Status**: Completed
+- **Phase 0 Status**: COMPLETED (Gold set with 28 reports & 189 facts, evaluation harness with score table)
+- **Active Task**: Phase 1: PDF to clean text and sections with OCR fallback
 
 ---
 
 ## Phase Checklist
 
-- [ ] **Phase 0: Setup + Gold Set**
+- [x] **Phase 0: Setup + Gold Set**
   - [x] Project scaffolding in `scratch/`
   - [x] Salvaged modules copied to `legacy/` (read-only)
   - [x] Reference data, sample reports, and notebooks copied
   - [x] Standing context (`AGENTS.md`) and project docs initialized
-  - [ ] Curate and hand-label gold set facts across report modalities (~5 reports per modality)
-  - [ ] Implement evaluation script (`evaluate_extractor.py`) reporting Precision, Recall, F1 for concepts, assertions, values, and units
-  - [ ] Benchmark baseline / score table verification
+  - [x] Curate and hand-label gold set facts across report modalities (28 reports, 189 facts)
+  - [x] Implement evaluation script (`src/evaluation/scorer.py`, `evaluate.py`) reporting Precision, Recall, F1 for concepts, assertions, values, and units
+  - [x] Benchmark baseline / score table verification (`python evaluate.py --self-test` passed 100%)
+
 
 - [ ] **Phase 1: Parse**
   - [ ] Implement text & section parser (`src/parsing/`)
@@ -63,4 +65,11 @@
 ---
 
 ## Verification Log
-- **2026-09-28**: Scaffolded `scratch/` directory. All subfolders created (`docs`, `data`, `reference`, `notebooks`, `legacy`, `src`, `.agents`). Copied 31 PDF reports across 6 modalities (`echo`, `general`, `ct scans`, `mri`, `ultrasound`, `xray`), reference files (`ClinRESET_medical_abbreviation_terminology_corpus.txt`, `sample_report.pdf`, `sample_report_expected.json`), `clause_extraction_model_test.ipynb`, and salvaged legacy modules.
+- **2026-09-28 [Phase 0 Complete]**:
+  - Scaffolded `scratch/` workspace with standing rules in `AGENTS.md` and project roadmap in `docs/PLAN.md`.
+  - Salvaged legacy modules into `legacy/` (strictly read-only).
+  - Curated gold standard set across all 6 modalities (`echo`, `general`, `ct scans`, `mri`, `ultrasound`, `xray`): 28 reports, 189 clinical facts (`data/gold_set/`).
+  - Implemented evaluation scorer (`src/evaluation/scorer.py`) and CLI (`evaluate.py`) with metric calculation across Concepts (P/R/F1), Assertions (Accuracy), Measurements (Value/Unit match).
+  - Executed evaluation self-test (`python evaluate.py --self-test`): 100% metrics across all 6 modalities.
+  - Added unit test suite in `tests/test_evaluation.py`: 3/3 tests passed with `pytest`.
+

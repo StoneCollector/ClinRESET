@@ -1,0 +1,123 @@
+{
+  "report_id": "general_sample7",
+  "modality": "general",
+  "file_name": "sample Medical Report7.pdf",
+  "patient_metadata": {
+    "name": "David Miller",
+    "age": "62",
+    "sex": "Male",
+    "date": "2025-04-08"
+  },
+  "facts": [
+    {
+      "fact_id": "gen7_f01",
+      "source_text": "Sudden onset of intense chest pain radiating to the left arm",
+      "concept": "chest pain",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Chief Complaint"
+    },
+    {
+      "fact_id": "gen7_f02",
+      "source_text": "accompanied by shortness of breath and dizziness.",
+      "concept": "dyspnea",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Chief Complaint"
+    },
+    {
+      "fact_id": "gen7_f03",
+      "source_text": "accompanied by shortness of breath and dizziness.",
+      "concept": "dizziness",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Chief Complaint"
+    },
+    {
+      "fact_id": "gen7_f04",
+      "source_text": "BP 165/110 mmHg",
+      "concept": "systolic blood pressure",
+      "assertion": "PRESENT",
+      "value": 165.0,
+      "unit": "mmHg",
+      "reference_range": null,
+      "section": "Clinical Observations"
+    },
+    {
+      "fact_id": "gen7_f05",
+      "source_text": "BP 165/110 mmHg",
+      "concept": "diastolic blood pressure",
+      "assertion": "PRESENT",
+      "value": 110.0,
+      "unit": "mmHg",
+      "reference_range": null,
+      "section": "Clinical Observations"
+    },
+    {
+      "fact_id": "gen7_f06",
+      "source_text": "Pulse 102 bpm",
+      "concept": "heart rate",
+      "assertion": "PRESENT",
+      "value": 102.0,
+      "unit": "bpm",
+      "reference_range": null,
+      "section": "Clinical Observations"
+    },
+    {
+      "fact_id": "gen7_f07",
+      "source_text": "Temp 98.2\u00b0F",
+      "concept": "body temperature",
+      "assertion": "NORMAL",
+      "value": 98.2,
+      "unit": "\u00b0F",
+      "reference_range": null,
+      "section": "Clinical Observations"
+    },
+    {
+      "fact_id": "gen7_f08",
+      "source_text": "ECG shows ST-segment elevation",
+      "concept": "ST-segment elevation",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Clinical Observations"
+    },
+    {
+      "fact_id": "gen7_f09",
+      "source_text": "Patient appears pale and diaphoretic",
+      "concept": "diaphoresis",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Clinical Observations"
+    },
+    {
+      "fact_id": "gen7_f10",
+      "source_text": "Oxygen saturation: 89%",
+      "concept": "oxygen saturation",
+      "assertion": "PRESENT",
+      "value": 89.0,
+      "unit": "%",
+      "reference_range": null,
+      "section": "Clinical Observations"
+    },
+    {
+      "fact_id": "gen7_f11",
+      "source_text": "Acute Myocardial Infarction (Heart Attack) \u2014 STEMI type",
+      "concept": "ST elevation myocardial infarction",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Preliminary Diagnosis"
+    }
+  ]
+}

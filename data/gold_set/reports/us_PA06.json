@@ -1,0 +1,43 @@
+{
+  "report_id": "us_PA06",
+  "modality": "ultrasound",
+  "file_name": "PA06.pdf",
+  "patient_metadata": {
+    "name": "PA06",
+    "age": "38Yrs",
+    "sex": "Male",
+    "date": "11.03.2024"
+  },
+  "facts": [
+    {
+      "fact_id": "us6_f01",
+      "source_text": "Liver: is normal in size (~11.2cm)",
+      "concept": "liver span",
+      "assertion": "NORMAL",
+      "value": 11.2,
+      "unit": "cm",
+      "reference_range": null,
+      "section": "Liver"
+    },
+    {
+      "fact_id": "us6_f02",
+      "source_text": "Grade I fatty liver.",
+      "concept": "fatty liver",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "IMPRESSION"
+    },
+    {
+      "fact_id": "us6_f03",
+      "source_text": "Moderate left HDUN-? Distal ureteric calculus.",
+      "concept": "hydroureteronephrosis",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "IMPRESSION"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "report_id": "ct_PA05",
+  "modality": "ct_scan",
+  "file_name": "PA05.pdf",
+  "patient_metadata": {
+    "name": "PA05",
+    "age": null,
+    "sex": null,
+    "date": null
+  },
+  "facts": [
+    {
+      "fact_id": "ct5_f01",
+      "source_text": "Hepatomegaly with multiple large abscesses largest in inferior segment right lobe.",
+      "concept": "hepatic abscess",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Impression"
+    },
+    {
+      "fact_id": "ct5_f02",
+      "source_text": "Mild splenomegaly.",
+      "concept": "splenomegaly",
+      "assertion": "PRESENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Impression"
+    },
+    {
+      "fact_id": "ct5_f03",
+      "source_text": "No evidence of ascites.",
+      "concept": "ascites",
+      "assertion": "ABSENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Abdomen"
+    },
+    {
+      "fact_id": "ct5_f04",
+      "source_text": "No hyperdense intraluminal calculus is seen.",
+      "concept": "gallbladder calculus",
+      "assertion": "ABSENT",
+      "value": null,
+      "unit": null,
+      "reference_range": null,
+      "section": "Gall bladder"
+    }
+  ]
+}
