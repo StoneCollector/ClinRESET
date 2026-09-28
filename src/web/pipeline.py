@@ -156,7 +156,16 @@ def process_clinical_pdf(
             "patient_explanation": explanation.to_dict(),
             "interpretation": interp_dict,
             "findings": normalized_findings,
-            "clusters": [c.to_dict() for c in interpretation.clusters],
+            "clusters": [
+                {
+                    "cluster_name": c.cluster_name,
+                    "matched_concepts": c.matched_concepts,
+                    "findings": c.matched_concepts,
+                    "organ_system": c.organ_system,
+                    "explanation": c.explanation,
+                }
+                for c in interpretation.clusters
+            ],
             "sections": [s.model_dump() if hasattr(s, "model_dump") else s.dict() for s in doc.sections],
         }
 

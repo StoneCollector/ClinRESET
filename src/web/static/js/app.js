@@ -461,7 +461,7 @@ function renderClusters(clusters) {
   const container = document.getElementById('clusters-list');
   container.innerHTML = '';
 
-  if (clusters.length === 0) {
+  if (!clusters || clusters.length === 0) {
     container.innerHTML = '<div class="empty-state">No multi-observation clinical clusters identified.</div>';
     return;
   }
@@ -470,18 +470,22 @@ function renderClusters(clusters) {
     const card = document.createElement('div');
     card.className = 'cluster-card';
 
-    const findingsTags = cluster.findings
-      .map((f) => `<span class="cluster-tag">${escapeHtml(f)}</span>`)
-      .join('');
+    const clusterTitle = cluster.cluster_name || cluster.name || 'Clinical Observation Cluster';
+    const concepts = cluster.matched_concepts || cluster.findings || [];
+
+    const findingsTags = Array.isArray(concepts)
+      ? concepts.map((f) => `<span class="cluster-tag">${escapeHtml(f)}</span>`).join('')
+      : '';
 
     card.innerHTML = `
       <div class="cluster-header">
-        <h3>${escapeHtml(cluster.name)}</h3>
-        <span class="badge badge-info">${escapeHtml(cluster.organ_system)}</span>
+        <h3>${escapeHtml(clusterTitle)}</h3>
+        <span class="badge badge-info">${escapeHtml(cluster.organ_system || 'General')}</span>
       </div>
       <div class="cluster-tags-container">
         ${findingsTags}
       </div>
+      ${cluster.explanation ? `<p class="cluster-expl" style="margin-top: 0.6rem; font-size: 0.85rem; color: var(--text-muted);">${escapeHtml(cluster.explanation)}</p>` : ''}
     `;
     container.appendChild(card);
   });

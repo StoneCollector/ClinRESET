@@ -10,7 +10,7 @@ import logging
 import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, Response
 from fastapi.staticfiles import StaticFiles
 
 from .routes import methodologies, reports
@@ -41,6 +41,12 @@ app.include_router(methodologies.router)
 # Mount static assets
 if os.path.exists(STATIC_DIR):
     app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
+
+
+@app.get("/favicon.ico", include_in_schema=False)
+def favicon():
+    """Suppresses browser 404 for favicon."""
+    return Response(status_code=204)
 
 
 @app.get("/api/health")
