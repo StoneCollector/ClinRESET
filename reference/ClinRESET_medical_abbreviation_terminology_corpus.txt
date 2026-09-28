@@ -1,0 +1,661 @@
+ClinRESET — MEDICAL ABBREVIATION / ACRONYM TERMINOLOGY CORPUS
+===============================================================
+
+Purpose:
+  Reference corpus for Phase 3/4 terminology normalization and semantic
+  structuring in the ClinRESET clinical-report simplification project.
+
+IMPORTANT:
+  This is a broad reference corpus assembled from authoritative web sources,
+  not a claim of exhaustive coverage of every abbreviation ever used in
+  medicine. Medical abbreviations are context-dependent and facility-specific.
+
+SOURCE SET USED
+---------------
+1. U.S. National Library of Medicine / MedlinePlus, Appendix B:
+   Common Abbreviations
+   https://medlineplus.gov/appendixb.html
+
+2. Merck Manual Consumer Version, Abbreviations:
+   https://www.merckmanuals.com/home/resourcespages/abbreviations
+
+3. U.S. National Cancer Institute / SEER Training, Common Abbreviations (All):
+   https://training.seer.cancer.gov/abstracting/additional/abbreviations/all.html
+
+4. American Society of Echocardiography, Guideline for the Standardization
+   of Adult Echocardiographic Reporting, Measurement Dictionary and
+   abbreviations:
+   https://www.asecho.org/
+
+ENTRY FORMAT
+------------
+ABBREVIATION | EXPANSION | DOMAIN / CONTEXT
+
+DESIGN RULES FOR IMPLEMENTATION
+-------------------------------
+- Preserve the original abbreviation exactly as encountered.
+- Normalize matching case-insensitively, but retain original surface form.
+- Do NOT blindly replace an abbreviation when it has multiple meanings.
+- Ambiguous abbreviations must be resolved using report type, section,
+  neighboring terms, anatomy, measurements, and local context.
+- A single abbreviation may map to multiple candidate concepts.
+- Never infer a clinical finding merely because an abbreviation is present.
+- Never use the corpus to assign NORMAL/ABNORMAL/PRESENT/ABSENT status.
+- Keep normalization separate from interpretation.
+- Preserve provenance: original text, page, section, source span.
+- Prefer report-specific terminology over generic terminology when the
+  report type is known.
+- For echocardiography, prefer the ASE terminology where applicable.
+- Do not automatically expand medication/dosing abbreviations in a way that
+  could alter clinical meaning; keep the source abbreviation and normalized
+  expansion separately.
+- Treat one-letter abbreviations (A, P, R, T, U, etc.) as highly ambiguous.
+- Treat symbols, units, and dose designations separately from clinical
+  abbreviations.
+- The Joint Commission "Do Not Use" list is a SAFETY resource, not an
+  expansion dictionary. Its entries should be stored separately as
+  prohibited/error-prone forms.
+
+JOINT COMMISSION SAFETY NOTE
+----------------------------
+The Joint Commission identifies prohibited/error-prone abbreviations and
+dose designations including:
+  U/u, IU, QD/q.d./Q.D., QOD/q.o.d./Q.O.D., trailing zero (X.0 mg),
+  missing leading zero (.X mg), MS, MSO4, MgSO4.
+These must NOT be silently normalized as if they were unambiguous medical
+concepts. They should trigger an ambiguity/safety flag where appropriate.
+
+RECOMMENDED INTERNAL RECORD
+---------------------------
+{
+  "surface_form": "LVH",
+  "normalized_term": "Left Ventricular Hypertrophy",
+  "domain": "echocardiography",
+  "candidates": [],
+  "ambiguity": false,
+  "source": "...",
+  "confidence": "source-backed"
+}
+
+END OF HEADER
+
+ENTRIES
+=======
+ABG | Arterial blood gases | general
+ACE | Angiotensin-converting enzyme | general/cardiovascular
+ACL | Anterior cruciate ligament | musculoskeletal
+ADHD | Attention deficit hyperactivity disorder | general
+AFIB | Atrial fibrillation | cardiovascular
+AIDS | Acquired immunodeficiency syndrome | infectious disease
+ALP | Alkaline phosphatase | laboratory
+ALS | Amyotrophic lateral sclerosis | neurology
+ALT | Alanine aminotransferase | laboratory/liver
+AMD | Age-related macular degeneration | ophthalmology
+AMI | Acute myocardial infarction | cardiovascular
+AODM | Adult onset diabetes mellitus | endocrine
+AST | Aspartate aminotransferase | laboratory/liver
+AVM | Arteriovenous malformation | vascular
+BID | Twice a day | medication/dosing
+BMI | Body mass index | general
+BP | Blood pressure | vital signs/cardiovascular
+BPH | Benign prostatic hypertrophy | urology
+BRCA | Breast Cancer Gene | genetics/oncology
+BUN | Blood urea nitrogen | laboratory/renal
+CA | Cancer OR Calcium | ambiguous/general/laboratory
+CA-125 | Cancer antigen 125 | oncology/laboratory
+CABG | Coronary artery bypass graft | cardiovascular/procedure
+CAD | Coronary artery disease | cardiovascular
+CAT | Computerized axial tomography | radiology
+CBC | Complete blood count | laboratory/hematology
+CHD | Congenital heart disease | cardiovascular
+CHF | Congestive heart failure | cardiovascular
+CMV | Cytomegalovirus | infectious disease
+CNS | Central nervous system | neurology/anatomy
+COPD | Chronic obstructive pulmonary disease | respiratory
+CPK | Creatine phosphokinase | laboratory
+CPR | Cardiopulmonary resuscitation | emergency/procedure
+CRF | Chronic renal failure | renal
+CRP | C-reactive protein | laboratory
+CSF | Cerebrospinal fluid | neurology/laboratory
+CVA | Cerebrovascular accident | neurology
+CXR | Chest x-ray | radiology
+D&C | Dilatation and curettage | gynecology/procedure
+DJD | Degenerative joint disease | musculoskeletal
+DM | Diabetes mellitus | endocrine
+DTP | Diphtheria, tetanus, pertussis | infectious disease/vaccine
+DVT | Deep-vein thrombosis | vascular
+DX | Diagnosis | clinical documentation
+ECG | Electrocardiogram | cardiovascular/test
+EKG | Electrocardiogram | cardiovascular/test
+ECHO | Echocardiogram | cardiovascular/test
+EEG | Electroencephalogram | neurology/test
+EMG | Electromyography | neurology/test
+ENT | Ear, nose and throat | specialty/anatomy
+ERCP | Endoscopic retrograde cholangiopancreatography | gastroenterology/procedure
+ESR | Erythrocyte sedimentation rate | laboratory
+ESRD | End-stage renal disease | renal
+FSH | Follicle stimulating hormone | endocrine/laboratory
+GERD | Gastroesophageal reflux disease | gastroenterology
+GI | Gastrointestinal | anatomy/specialty
+GFR | Glomerular filtration rate | renal/laboratory
+GU | Genitourinary | anatomy/specialty
+HAV | Hepatitis A virus | infectious disease
+HBV | Hepatitis B virus | infectious disease
+HCT | Hematocrit | hematology/laboratory
+HCV | Hepatitis C virus | infectious disease
+HDL | High-density lipoprotein | laboratory/cardiovascular
+HGB | Hemoglobin | hematology/laboratory
+HIV | Human immunodeficiency virus | infectious disease
+HPV | Human papilloma virus | infectious disease
+HRT | Hormone replacement therapy | endocrine/treatment
+HTN | Hypertension | cardiovascular
+IBD | Inflammatory bowel disease | gastroenterology
+IBS | Irritable bowel syndrome | gastroenterology
+ICD | Implantable cardioverter defibrillator | cardiovascular/device
+ICU | Intensive care unit | clinical setting
+IDDM | Insulin-dependent diabetes mellitus | endocrine
+IM | Intramuscular | route/procedure
+IUD | Intrauterine device | gynecology/device
+IV | Intravenous | route/procedure
+IVP | Intravenous pyelogram | radiology/renal
+LDL | Low-density lipoprotein | laboratory/cardiovascular
+LFT | Liver function tests | laboratory/liver
+MI | Myocardial infarction | cardiovascular
+MMR | Measles, mumps, and rubella | infectious disease/vaccine
+MRI | Magnetic resonance imaging | radiology
+MRSA | Methicillin-resistant Staphylococcus aureus | infectious disease
+MS | Multiple sclerosis OR Mitral stenosis | ambiguous/neurology/cardiology
+NG | Nasogastric | procedure/anatomy
+NIDDM | Non-insulin dependent diabetes mellitus | endocrine
+NKDA | No known drug allergies | clinical history
+NSAID | Non-steroidal anti-inflammatory drug | medication
+OCD | Obsessive-compulsive disorder | psychiatry
+PAD | Peripheral arterial disease | vascular
+PAP | Papanicolaou | gynecology/test
+PAT | Paroxysmal atrial tachycardia | cardiovascular
+PET | Positron emission tomography | radiology
+PFT | Pulmonary function test | respiratory/test
+PID | Pelvic inflammatory disease | gynecology
+PMS | Premenstrual syndrome | gynecology
+PPD | Purified protein derivative | infectious disease/test
+PRN | As needed | medication/dosing
+PSA | Prostate specific antigen | urology/laboratory
+PT | Prothrombin time | laboratory/coagulation
+PTH | Parathyroid hormone | endocrine/laboratory
+PTSD | Post-traumatic stress syndrome | psychiatry
+PTT | Partial thromboplastin time | laboratory/coagulation
+PUD | Peptic ulcer disease | gastroenterology
+PVC | Premature ventricular contraction | cardiovascular
+QID | Four times a day | medication/dosing
+RA | Rheumatoid arthritis OR Right atrium OR Radium | ambiguous
+RBC | Red blood cell | hematology
+RSV | Respiratory syncytial virus | infectious disease
+RX | Prescription OR treatment | clinical documentation
+SAD | Seasonal affective disorder | psychiatry
+SIDS | Sudden infant death syndrome | pediatrics
+SLE | Systemic lupus erythematosus | rheumatology
+SOB | Shortness of Breath | symptom
+STD | Sexually transmitted disease | infectious disease
+T3 | Triiodothyronine | endocrine/laboratory
+T4 | Thyroxine | endocrine/laboratory
+TB | Tuberculosis | infectious disease
+TAH | Total abdominal hysterectomy | gynecology/procedure
+TIA | Transient ischemic attack | neurology
+TIBC | Total iron binding capacity | laboratory
+TID | Three times a day | medication/dosing
+TMJ | Temporomandibular joint | anatomy
+TORCH | Group of infections causing congenital disease | infectious disease
+TSH | Thyroid stimulating hormone | endocrine/laboratory
+TURP | Transurethral resection of prostate gland | urology/procedure
+URI | Upper respiratory infection | respiratory
+UTI | Urinary tract infection | urinary/infectious
+XRT | Radiotherapy | oncology/treatment
+WBC | White blood cell | hematology/laboratory
+ABG | arterial blood gas | Merck
+ACTH | adrenocorticotropic hormone | Merck
+ADH | antidiuretic hormone | Merck
+ATP | adenosine triphosphate | Merck
+BCG | bacille Calmette-Guérin | Merck
+BID/bid | two times a day | Merck
+BMR | basal metabolic rate | Merck
+BSA | body surface area | Merck
+C | Celsius; centigrade; complement | ambiguous
+Ca | calcium | laboratory
+cAMP | cyclic adenosine monophosphate | laboratory
+cGy | centigray | radiation/unit
+Ci | curie | radiation/unit
+CK | creatine kinase | laboratory
+CK-MB | creatine kinase muscle band isoenzyme | cardiovascular/laboratory
+Cl | chloride; chlorine | laboratory/chemistry
+cm | centimeter | unit
+CO2 | carbon dioxide | laboratory/respiratory
+CT | computed tomography | radiology
+D&C | dilation and curettage | procedure
+dL | deciliter | unit
+DNA | deoxyribonucleic acid | genetics
+D/W or D | dextrose in water | medication/solution
+ECF | extracellular fluid | physiology
+FUO | fever of unknown origin | symptom/finding
+g | gram | unit
+G6PD | glucose-6-phosphate dehydrogenase | laboratory/genetics
+Gy | gray | radiation/unit
+H | hour | unit/time
+Hb | hemoglobin | hematology
+HCl | hydrochloric acid; hydrochloride | chemistry
+HCO3 | bicarbonate | laboratory
+Hg | mercury | chemistry
+HLA | human leukocyte antigen | immunology/genetics
+HMG-CoA | hydroxymethyl glutaryl coenzyme A | biochemistry
+Hz | hertz | unit
+ICF | intracellular fluid | physiology
+IgA | immunoglobulin A | immunology
+IL | interleukin | immunology
+INR | international normalized ratio | coagulation
+IPPB | intermittent positive pressure breathing | respiratory
+IU | international unit | unit
+IVU | intravenous urography | radiology
+K | potassium | laboratory
+kcal | kilocalorie | unit
+kg | kilogram | unit
+L | liter | unit
+lb | pound | unit
+LDH | lactic dehydrogenase | laboratory
+M | molar | laboratory
+m | meter | unit
+MCH | mean corpuscular hemoglobin | hematology
+MCHC | mean corpuscular hemoglobin concentration | hematology
+mCi | millicurie | radiation/unit
+MCV | mean corpuscular volume | hematology
+mEq | milliequivalent | laboratory/unit
+Mg | magnesium | laboratory
+mg | milligram | unit
+MIC | minimum inhibitory concentration | microbiology
+mIU | milli-international unit | unit
+mL | milliliter | unit
+mm | millimeter | unit
+mmol | millimole | unit
+mo | month | time
+mOsm | milliosmole | laboratory/unit
+Na | sodium | laboratory
+NaCl | sodium chloride | medication/solution
+ng | nanogram | unit
+nmol | nanomole | unit
+NPO | nothing by mouth | clinical instruction
+NSAID | nonsteroidal anti-inflammatory drug | medication
+O2 | oxygen | respiratory
+OTC | over-the-counter | medication
+oz | ounce | unit
+P | phosphorus OR pressure | ambiguous
+PaCO2 | arterial carbon dioxide partial pressure | respiratory/laboratory
+PAO2 | alveolar oxygen partial pressure | respiratory/laboratory
+PaO2 | arterial oxygen partial pressure | respiratory/laboratory
+PAS | periodic acid-Schiff | laboratory/pathology
+PCR | polymerase chain reaction | laboratory
+pH | hydrogen ion concentration | laboratory
+PMN | polymorphonuclear leukocyte | hematology
+PO | orally | medication/route
+PO2 | oxygen partial pressure | respiratory/laboratory
+ppm | parts per million | unit
+PRN/prn | as needed | medication
+q | every | medication/dosing
+QID/qid | four times a day | medication/dosing
+RNA | ribonucleic acid | genetics
+SaO2 | arterial oxygen saturation | respiratory/laboratory
+SBE | subacute bacterial endocarditis | cardiovascular/infectious
+SC/sc | subcutaneous | route
+SI | International System of Units | unit
+SSRI | selective serotonin reuptake inhibitor | medication
+TID/tid | three times a day | medication/dosing
+TPN | total parenteral nutrition | nutrition/treatment
+WHO | World Health Organization | organization
+A | Allergy; Anterior; Aortic; Artery; Axial | SEER
+AA | Aplastic anemia | SEER
+AB | Antibody; About; Abort | ambiguous
+ABD/ABDOM | Abdomen | SEER
+ABN | Abnormal | clinical descriptor
+ABP | Arterial blood pressure | vital signs
+AC | Adrenal cortex; Air contrast; Anterior chamber | ambiguous
+ACTH | Adrenocorticotrophic hormone | endocrine
+ADENOCA | Adenocarcinoma | oncology
+ADR | Adverse drug reaction | medication
+AFP | Alpha-fetoprotein | oncology/laboratory
+AG | Atrial gallop; Antigen; Argentum | ambiguous
+A/G RATIO | Albumin-globulin ratio | laboratory
+AGNO3 | Silver nitrate | chemistry
+AK(A) | Above knee (amputation) | procedure
+AKA | Also known as | clinical documentation
+ALB | Albumin | laboratory
+ALCL | Anaplastic large cell lymphoma | oncology
+ALK PHOS | Alkaline phosphatase | laboratory
+ALL | Acute lymphocytic leukemia | hematology/oncology
+AMA | Against medical advice | clinical documentation
+AMB | Ambulatory | clinical descriptor
+AML | Acute myelogenous leukemia | hematology/oncology
+ANAP | Anaplastic | pathology
+ANAT | Anatomy | clinical documentation
+A&P | Auscultation and percussion | examination
+AP | Anteroposterior; abdominal perineal; anterior pituitary | ambiguous
+AP&LAT | Anteroposterior and lateral | radiology
+BA | Barium; bronchial asthma | ambiguous
+BALT | Bronchial-associated lymphoid tissue | anatomy/immunology
+BAS | Basal | pathology
+BASOS | Basophils | hematology
+BBB | Blood-brain barrier; bundle-branch block | ambiguous
+BC | Birth control; bone conduction | ambiguous
+BCC | Basal cell carcinoma | oncology
+BMT | Bone marrow transplant | hematology/procedure
+BSO | Bilateral salpingo-oophorectomy | gynecology/procedure
+BX | Biopsy | procedure
+CBD | Common bile duct | anatomy
+CC | Chief complaint; cubic centimeter | ambiguous
+CCU | Coronary care unit | cardiovascular/clinical setting
+CEA | Carcinoembryonic antigen | oncology/laboratory
+CGL | Chronic granulocytic leukemia | hematology/oncology
+CIN | Cervical intraepithelial neoplasia | gynecology/oncology
+CIS | Carcinoma-in-situ | pathology/oncology
+CLL | Chronic lymphocytic leukemia | hematology/oncology
+CML | Chronic myeloid/myelocytic leukemia | hematology/oncology
+C/O | Complaining of | clinical documentation
+COR | Heart | anatomy
+CR | Complete remission | oncology
+C-SPINE | Cervical spine | anatomy/radiology
+CTCL | Cutaneous T-cell lymphoma | oncology
+C/W | Consistent with | clinical documentation
+CX | Cervix | anatomy
+CYSTO | Cystoscopy | procedure
+CYTO | Cytology | pathology
+DC | Discharge; discontinued | clinical documentation
+DCIS | Ductal carcinoma in situ | oncology
+DERM | Dermatology | specialty
+DD | Discharge diagnosis | clinical documentation
+DDX | Differential diagnosis | clinical documentation
+DIAM | Diameter | measurement
+DIFF | Differentiated; differential | pathology
+DNR | Do not resuscitate | clinical instruction
+DOA | Dead on arrival | clinical status
+DOB | Date of birth | demographic
+DOD | Date of death | demographic
+DOE | Dyspnea on exertion | symptom
+DTR | Deep tendon reflex | examination
+EENT | Eyes, ears, nose, throat | anatomy
+EGD | Esophagogastroduodenoscopy | gastroenterology/procedure
+ENL | Enlarged | descriptor
+ER | Emergency room | clinical setting
+ER(A) | Estrogen receptor (assay) | oncology/pathology
+EUA | Examination under anesthesia | procedure
+EXAM | Examination | clinical documentation
+EXC | Excision | procedure
+EXP LAP | Exploratory laparotomy | procedure
+FBS | Fasting blood sugar | laboratory
+FIGO | International Federation of Gynecology and Obstetrics | organization
+F(M)H | Family medical history | history
+FLURO | Fluoroscopy | radiology
+FU | Follow-up | clinical documentation
+FX | Fracture; frozen section | ambiguous
+GA | Gastric analysis | gastroenterology
+GB | Gallbladder | anatomy
+GBM | Glioblastoma multiforme | neurology/oncology
+GCT | Germ cell tumor | oncology
+GP | General practitioner | profession
+GYN | Gynecology | specialty
+HCG | Human chorionic gonadotropin | endocrine/obstetrics
+HCL | Hairy cell leukemia | hematology/oncology
+HCVD | Hypertensive cardiovascular disease | cardiovascular
+HEENT | Head, eyes, ears, nose and throat | examination
+H/O | History of | clinical documentation
+H&P | History and physical | clinical documentation
+HPF | High power field | laboratory/pathology
+HPI | History of present illness | clinical documentation
+HR | Hour(s) | time
+HX | History | clinical documentation
+HYST | Hysterectomy | procedure
+IARC | International Agency for Research on Cancer | organization
+ICD-O-1 | International Classification of Diseases for Oncology, 1st Ed. | classification
+ICD-O-2 | International Classification of Diseases for Oncology, 2nd Ed. | classification
+ICD-O-3 | International Classification of Diseases for Oncology, 3rd Ed. | classification
+ICM | Intercostal margin | anatomy
+ICS | Intercostal space | anatomy
+IG | Immunoglobulin | immunology
+IMA | Internal mammary artery | anatomy
+IMP | Impression | report section
+INCL | Includes, including | documentation
+INF | Inferior; infraction; infusion | ambiguous
+INFILT | Infiltrating | pathology
+INJ | Injection | procedure
+INPT | Inpatient | clinical setting
+IT | Intrathecal | route
+IVC | Inferior vena cava | anatomy
+JVD | Jugular venous distention | cardiovascular/finding
+KUB | Kidneys, ureters, bladder | radiology/anatomy
+LAD | Lymphadenopathy | finding
+LAT | Lateral | radiology
+LCIS | Lobular carcinoma in situ | oncology
+LE | Lower extremity; lupus erythematosus | ambiguous
+LG | Large | descriptor
+LIF | Left iliac fossa | anatomy
+LINAC | Linear accelerator | radiation oncology
+LLE | Left lower extremity | anatomy
+LLL | Left lower lobe | anatomy
+LLQ | Left lower quadrant | anatomy
+LMP | Last menstrual period | gynecology/history
+LN(S) | Lymph node(s) | anatomy
+LP | Lumbar puncture | procedure
+LPN | Licensed practical nurse | profession
+LS | Lumbosacral | anatomy
+LSO | Left salpingo-oophorectomy | procedure
+L-SPINE | Lumbar spine | anatomy
+LT | Left | laterality
+LUE | Left upper extremity | anatomy
+LUL | Left upper lobe | anatomy
+LUQ | Left upper quadrant | anatomy
+MAB | Monoclonal antibody | treatment
+MAL | Malignant | pathology
+MALT | Mucosal-associated lymphoid tissue | anatomy/immunology
+MAND | Mandible | anatomy
+MAST | Mastectomy | procedure
+M-CSF | Macrophage colony-stimulating factor | hematology
+MCL | Mid clavicular line | anatomy
+MET/METS | Metastatic; metastases | oncology
+MPNST | Malignant peripheral nerve sheath tumor | oncology
+MRM | Modified radical mastectomy | procedure
+MS | Mitral stenosis; multiple sclerosis | ambiguous
+MSL | Mid sternal line | anatomy
+NA | Not applicable | documentation
+NBS | Normal bowel sounds | examination
+NEC | Not elsewhere classified | classification
+NED | No evidence of disease | oncology
+NEG | Negative | assertion
+NERD | No evidence of recurrent disease | oncology
+NHL | Non-Hodgkin lymphoma | oncology
+NK | Natural killer | immunology
+NL | Normal | assertion
+NOS | Not otherwise specified | documentation
+NR | Not recorded; not reportable | documentation
+NSCLC | Non-small cell lung carcinoma | oncology
+N&V | Nausea and vomiting | symptoms
+NVD | Neck vein distention | cardiovascular/finding
+OB | Obstetrics | specialty
+OD | Right eye (oculus dexter) | ophthalmology
+OH | Occupational history | history
+OP | Operation; outpatient | ambiguous
+OPD | Outpatient clinic/department | clinical setting
+OPHTH | Ophthalmology | specialty
+OR | Operating room | clinical setting
+ORTH | Orthopedics | specialty
+OS | Left eye; bone; mouth; opening | highly ambiguous
+OU | Each eye (oculus uterque) | ophthalmology
+OV | Office visit | clinical documentation
+P | Pulse; phosphorus; pressure | highly ambiguous
+P&A | Percussion and auscultation | examination
+PA | Posteroanterior; pulmonary artery; physician assistant | highly ambiguous
+PALP | Palpable/palpated/palpation | examination
+PAR | Post-anesthesia room | clinical setting
+PATH | Pathology | specialty
+PCV | Packed cell volume | hematology
+PD | Poorly differentiated | pathology
+PE | Physical examination | examination
+PED | Pediatrics | specialty
+PEG | Pneumoencephalography; percutaneous gastrostomy tube | ambiguous
+PERC | Percutaneous | procedure
+PH | Past/personal history | history
+PI | Present illness | history
+PIN | Prostatic intraepithelial neoplasia | urology/oncology
+PLT | Platelets | hematology
+PMH | Past medical history | history
+PND | Postnasal drip | symptom
+PNET | Peripheral/primitive neuroectodermal tumor | oncology
+POD | Postoperative day | procedure/time
+POS | Positive | assertion
+POSS | Possible | assertion
+POST | Posterior; postmortem examination | ambiguous
+PPD | Purified protein derivative; packs per day | ambiguous
+PR | Partial response | oncology
+PR(A) | Progesterone receptor (assay) | oncology/pathology
+PREOP | Preoperative | procedure/time
+PROB | Probable | assertion
+PULM | Pulmonary | anatomy
+Q | Quadrant | anatomy
+RAD | Radiation; radiation absorbed dose; radical | ambiguous
+RAIU | Radioactive iodine uptake | endocrine/test
+RBC | Red blood cells | hematology
+RESEC | Resection | procedure
+RESP | Respiratory | system
+RIF | Right iliac fossa | anatomy
+RLE | Right lower extremity | anatomy
+RLL | Right lower lobe | anatomy
+RLQ | Right lower quadrant | anatomy
+RML | Right middle lobe | anatomy
+RN | Registered nurse | profession
+RNP | Registered nurse practitioner | profession
+RO/R-O | Rule out | clinical documentation
+ROM | Range of motion | examination
+RSO | Right salpingo-oophorectomy | procedure
+RT | Radiation therapy; right | ambiguous
+RUE | Right upper extremity | anatomy
+RUL | Right upper lobe | anatomy
+RUQ | Right upper quadrant | anatomy
+RX | Treatment | treatment
+SB | Small bowel | anatomy
+SCC | Squamous cell carcinoma | oncology
+SGOT | Serum glutamic oxaloacetic transaminase | laboratory/liver
+SGPT | Serum glutamic pyruvic transaminase | laboratory/liver
+S/P | Status post | clinical documentation
+SPEC | Specimen | laboratory/pathology
+SP GR | Specific gravity | laboratory
+SQ/SUBQ | Subcutaneous | route
+SQ CELL CA | Squamous cell carcinoma | oncology
+STAT | Immediately | clinical instruction
+STAPH | Staphylococcus | microbiology
+STREP | Streptococcus | microbiology
+SVC | Superior vena cava | anatomy
+SX | Symptoms | symptom
+T | Temperature; thoracic | ambiguous
+T&A | Tonsillectomy and adenoidectomy | procedure
+TAH-BSO | Total abdominal hysterectomy-bilateral salpingo-oophorectomy | gynecology/procedure
+TCC | Transitional cell carcinoma | oncology
+TNM | Tumor, Nodes, Metastasis | oncology/staging
+TP | Total protein | laboratory
+TPR | Temperature, pulse and respiration | vital signs
+TS | Tumor size | oncology/measurement
+T-SPINE | Thoracic spine | anatomy
+TUR | Transurethral resection | urology/procedure
+TURB | Transurethral resection-bladder | urology/procedure
+TVH | Total vaginal hysterectomy | gynecology/procedure
+TX | Treatment | treatment
+U | Unit | medication/unit
+UE | Upper extremity | anatomy
+UGI | Upper gastrointestinal | gastroenterology
+UIQ | Upper inner quadrant | anatomy
+UOQ | Upper outer quadrant | anatomy
+UR | Urine | laboratory
+UROL | Urology | specialty
+VAG | Vagina/vaginal | anatomy
+VAIN | Vaginal intraepithelial neoplasia | gynecology/oncology
+VASC | Vascular | system
+VS | Vital signs | vital signs
+W/ | With | documentation
+WBC | White blood cells | hematology
+WNL | Within normal limits | assertion
+W/O | Without | documentation
+WT | Weight | measurement
+W/U | Work-up | clinical documentation
+XR | X-ray | radiology
+Y/O | Year old | demographic
+YR | Year | time
+LVIDd | Left ventricular internal diastolic dimension | echocardiography
+LVIDs | Left ventricular internal systolic dimension | echocardiography
+IVSD | Interventricular septal wall diastolic dimension | echocardiography
+LVPWD | LV posterior wall diastolic dimension | echocardiography
+RWT | Relative wall thickness | echocardiography
+LVEDV | Left ventricular end-diastolic volume | echocardiography
+LVEDVi | Left ventricular end-diastolic volume index | echocardiography
+LVESV | Left ventricular end-systolic volume | echocardiography
+LVESVi | Left ventricular end-systolic volume index | echocardiography
+LV EF | Left ventricular ejection fraction | echocardiography
+LV FS | Left ventricular fractional shortening | echocardiography
+LVOTd | Left ventricular outflow tract diameter | echocardiography
+LVOT VTI | Left ventricular outflow tract velocity time integral | echocardiography
+LVOT peak PG | Left ventricular outflow tract peak pressure gradient | echocardiography
+SV | Stroke volume | echocardiography
+SVi | Stroke volume index | echocardiography
+CO | Cardiac output | echocardiography
+CI | Cardiac index | echocardiography
+LV GLS | Left ventricular global longitudinal strain | echocardiography
+LV RWMS | Left ventricular regional wall motion score | echocardiography
+LV WMSI | Left ventricular wall motion score index | echocardiography
+RVSP | Right ventricular systolic pressure | echocardiography
+PASP | Pulmonary artery systolic pressure | echocardiography
+TAPSE | Tricuspid annular plane systolic excursion | echocardiography
+TAPSV | Tricuspid annular peak systolic velocity | echocardiography
+RV EF | Right ventricular ejection fraction | echocardiography
+2D | Two-dimensional | echocardiography
+AR | Aortic regurgitation | echocardiography
+ASE | American Society of Echocardiography | echocardiography
+AV | Atrioventricular | echocardiography/anatomy
+CW | Continuous-wave | echocardiography
+DT | Deceleration time | echocardiography
+EACVI | European Association of Cardiovascular Imaging | echocardiography
+EF | Ejection fraction | echocardiography
+GLS | Global longitudinal strain | echocardiography
+HCM | Hypertrophic cardiomyopathy | echocardiography
+HFpEF | Heart failure with preserved ejection fraction | cardiovascular
+HFrEF | Heart failure with reduced ejection fraction | cardiovascular
+IVRT | Isovolumic relaxation time | echocardiography
+LA | Left atrial/left atrium | echocardiography
+LAP | Left atrial pressure | echocardiography
+LV | Left ventricular/left ventricle | echocardiography
+LVEDP | Left ventricular end-diastolic pressure | echocardiography
+LVEF | Left ventricular ejection fraction | echocardiography
+MAC | Mitral annular calcification | echocardiography
+MR | Mitral regurgitation | echocardiography
+PCWP | Pulmonary capillary wedge pressure | cardiovascular
+RV | Right ventricular/right ventricle | echocardiography
+STE | Speckle-tracking echocardiography | echocardiography
+TR | Tricuspid regurgitation | echocardiography
+RWMA | Regional wall motion abnormality | echocardiography
+LVH | Left ventricular hypertrophy | echocardiography
+LVDD | Left ventricular diastolic dysfunction | echocardiography
+FS | Fractional shortening | echocardiography
+LVOT | Left ventricular outflow tract | echocardiography
+IVS | Interventricular septum | echocardiography
+IAS | Interatrial septum | echocardiography
+RVOT | Right ventricular outflow tract | echocardiography
+LVPW | Left ventricular posterior wall | echocardiography
+LVEDD | Left ventricular end-diastolic dimension | echocardiography
+LVESD | Left ventricular end-systolic dimension | echocardiography
+IVSd | Interventricular septum thickness in diastole | echocardiography
+LVPWd | Left ventricular posterior wall thickness in diastole | echocardiography
+TRV | Tricuspid regurgitation velocity | echocardiography
+E/A | Early-to-late transmitral flow velocity ratio | echocardiography
+E/e' | Early transmitral velocity to mitral annular early diastolic velocity ratio | echocardiography
+LA volume | Left atrial volume | echocardiography
+LA volume index | Left atrial volume index | echocardiography
+U/u | Unit (prohibited/error-prone in medication documentation) | Joint Commission safety list
+IU | International Unit (prohibited/error-prone in medication documentation) | Joint Commission safety list
+QD/q.d./Q.D. | Daily (prohibited/error-prone) | Joint Commission safety list
+QOD/q.o.d./Q.O.D. | Every other day (prohibited/error-prone) | Joint Commission safety list
+X.0 mg | Trailing zero dose designation (prohibited/error-prone) | Joint Commission safety list
+.X mg | Missing leading zero dose designation (prohibited/error-prone) | Joint Commission safety list
+MS | Morphine sulfate OR magnesium sulfate; context required | Joint Commission safety list
+MSO4 | Morphine sulfate (error-prone abbreviation) | Joint Commission safety list
+MgSO4 | Magnesium sulfate (error-prone abbreviation) | Joint Commission safety list

@@ -1,0 +1,7 @@
+# Ignore large generated folders and virtual environments
+venv/
+.venv/
+env/
+output/
+__pycache__/
+.pytest_cache/
