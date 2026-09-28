@@ -1,12 +1,13 @@
 # ClinRESET Project Progress Tracker
 
 ## Status Summary
-- **Current Phase**: Phase 3 (Rule Extraction)
+- **Current Phase**: Phase 4 (Small-Model Concepts)
 - **Scaffold Status**: Completed
 - **Phase 0 Status**: COMPLETED (Gold set with 28 reports & 189 facts, evaluation harness)
 - **Phase 1 Status**: COMPLETED (PDF parser with section detection & OCR fallback, 30/30 PDFs verified)
 - **Phase 2 Status**: COMPLETED (Clause segmentation & header noise filter, 751 clean clauses, zero metadata leakage)
-- **Active Task**: Phase 3: Rule extraction (no model) - number grammar, negation & assertion cues
+- **Phase 3 Status**: COMPLETED (Rule extraction with number grammar & assertion cues, 86.4% assertion accuracy)
+- **Active Task**: Phase 4: Small-model concepts (Qwen2.5-1.5B 4-bit) with strict text-grounding validation
 
 ---
 
@@ -32,10 +33,16 @@
   - [x] Maintain page and section provenance per clause (`src/segmentation/segmenter.py`)
   - [x] Validate zero metadata contamination across all 30 reports (751 clauses extracted)
 
-- [ ] **Phase 3: Rule Extraction (No Model)**
-  - [ ] Implement generalized measurement & unit regex parser (`src/extraction/rules/measurements.py`)
-  - [ ] Implement negation and normal cue detector (`src/extraction/rules/assertion.py`)
-  - [ ] Benchmark against Phase 0 gold set
+- [x] **Phase 3: Rule Extraction (No Model)**
+  - [x] Implement generalized measurement & unit regex parser (`src/extraction/rules/measurements.py`)
+  - [x] Implement negation and normal cue detector (`src/extraction/rules/assertions.py`)
+  - [x] Implement unified rule extractor (`src/extraction/rules/rule_extractor.py`)
+  - [x] Benchmark against Phase 0 gold set (`python evaluate.py --rules`, 86.4% assertion accuracy)
+
+- [ ] **Phase 4: Small-Model Concepts**
+  - [ ] Integrate quantized SLM (Qwen2.5-1.5B 4-bit) for concept extraction
+  - [ ] Implement strict text-grounding validation filter
+  - [ ] Evaluate recall and assertion accuracy on held-out clauses
 
 - [ ] **Phase 3: Rule Extraction (No Model)**
   - [ ] Implement generalized measurement & unit regex parser (`src/extraction/rules/measurements.py`)
@@ -91,4 +98,12 @@
   - Verified atomic clause splitting on coordinate negations and decimals without splitting numbers or medical abbreviations.
   - Segmented all 30 reports in data suite into 751 clean clinical clauses with full page and section provenance.
   - Full pytest suite (11/11 tests) passing cleanly in 1.12s.
+- **2026-09-28 [Phase 3 Complete]**:
+  - Implemented `src/extraction/rules` with `MeasurementParser`, `AssertionClassifier`, and `RuleExtractor`.
+  - Parsed in-situ reference ranges (`13 (06-11mm)`), blood pressures (`118/76 mmHg`), inline findings (`PASP=34mmHg`, `Aortic Velocity = 1.47 m/s`), and body metrics (`~15.8cm`).
+  - Implemented deterministic assertion classifier recognizing prefix negations, suffix negations, and normalcy cues.
+  - Executed benchmark `python evaluate.py --rules` across all 28 gold reports (189 facts):
+    - Overall Assertion Accuracy: **86.4%** (100% on CT, General, US, X-ray).
+    - Established baseline for Phase 4 concept identification.
+  - Full pytest suite (16/16 tests) passing cleanly in 1.16s.
 

@@ -63,15 +63,67 @@ def run_evaluation(scorer: EvaluationScorer, predictions_path: str):
     print(table)
 
 
+from src.parsing.parser import PDFParser
+from src.segmentation.segmenter import ReportSegmenter
+from src.extraction.rules.rule_extractor import RuleExtractor
+
+
+def run_rule_extraction_benchmark(scorer: EvaluationScorer):
+    """Runs Phase 1-3 pipeline (PDF -> Segments -> Rules) across all gold reports and scores."""
+    print("Running end-to-end Rule-Based Extractor (No Model) benchmark across all Gold Reports...")
+    parser = PDFParser()
+    cur_dir = os.path.dirname(os.path.abspath(__file__))
+    data_dir = os.path.join(cur_dir, "data")
+
+    # Map modality to folder name
+    modality_to_folder = {
+        "echocardiography": "echo",
+        "general": "general",
+        "ct_scan": "ct scans",
+        "mri": "mri",
+        "ultrasound": "ultrasound",
+        "xray": "xray"
+    }
+
+    rule_preds = {}
+    total_extracted_facts = 0
+
+    for r_id, report in scorer.reports_by_id.items():
+        mod = report["modality"]
+        folder = modality_to_folder.get(mod, mod)
+        pdf_path = os.path.join(data_dir, folder, report["file_name"])
+
+        if not os.path.exists(pdf_path):
+            print(f"Warning: PDF not found: {pdf_path}")
+            continue
+
+        doc = parser.parse(pdf_path)
+        clauses = ReportSegmenter.segment_document(doc)
+        facts = RuleExtractor.extract_from_clauses(clauses)
+
+        rule_preds[r_id] = [f.to_scorer_dict() for f in facts]
+        total_extracted_facts += len(facts)
+
+    print(f"Extraction complete! Total facts extracted by rules: {total_extracted_facts}\n")
+    result = scorer.score_predictions(rule_preds)
+    table = scorer.format_score_table(result)
+    print(table)
+
+
 def main():
     parser = argparse.ArgumentParser(description="Evaluate clinical extraction predictions against gold set.")
     parser.add_argument("--gold-set", type=str, default=None, help="Path to gold_set.json")
     parser.add_argument("--predictions", type=str, default=None, help="Path to predictions JSON")
     parser.add_argument("--self-test", action="store_true", help="Run self-test on gold set")
+    parser.add_argument("--rules", action="store_true", help="Run end-to-end rule extractor on gold set")
 
     args = parser.parse_args()
 
     scorer = EvaluationScorer(args.gold_set)
+
+    if args.rules:
+        run_rule_extraction_benchmark(scorer)
+        return
 
     if args.self_test or args.predictions is None:
         run_self_test(scorer)
@@ -82,3 +134,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
