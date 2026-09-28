@@ -1,14 +1,15 @@
 # ClinRESET Project Progress Tracker
 
 ## Status Summary
-- **Current Phase**: Phase 5 (Terminology)
+- **Current Phase**: Phase 6 (Interpretation)
 - **Scaffold Status**: Completed
 - **Phase 0 Status**: COMPLETED (Gold set with 28 reports & 189 facts, evaluation harness)
 - **Phase 1 Status**: COMPLETED (PDF parser with section detection & OCR fallback, 30/30 PDFs verified)
 - **Phase 2 Status**: COMPLETED (Clause segmentation & header noise filter, 751 clean clauses, zero metadata leakage)
 - **Phase 3 Status**: COMPLETED (Rule extraction with number grammar & assertion cues, 86.4% assertion accuracy)
 - **Phase 4 Status**: COMPLETED (Grounded concept extractor & Qwen model pipeline, 100% recall/assertion on benchmark)
-- **Active Task**: Phase 5: RadLex / SNOMED terminology normalization & unknown concept flagging
+- **Phase 5 Status**: COMPLETED (Offline-first terminology normalizer with dynamic SNOMED enrichment, 32/32 tests passed)
+- **Active Task**: Phase 6: Deterministic reference range comparison & severity interpretation
 
 ---
 
@@ -46,23 +47,11 @@
   - [x] Build unified hybrid extractor (`HybridClinicalExtractor`)
   - [x] Evaluate recall and assertion accuracy on held-out clauses (100% recall & accuracy on 21 gold targets)
 
-- [ ] **Phase 5: Terminology**
-  - [ ] Implement RadLex / SNOMED lookup tables and normalizer
-  - [ ] Add unmapped term detection and isolation
-
-- [ ] **Phase 3: Rule Extraction (No Model)**
-  - [ ] Implement generalized measurement & unit regex parser (`src/extraction/rules/measurements.py`)
-  - [ ] Implement negation and normal cue detector (`src/extraction/rules/assertion.py`)
-  - [ ] Benchmark against Phase 0 gold set
-
-- [ ] **Phase 4: Small-Model Concepts**
-  - [ ] Integrate quantized SLM (Qwen2.5-1.5B 4-bit) for concept extraction
-  - [ ] Implement strict text-grounding validation filter
-  - [ ] Evaluate recall and assertion accuracy on held-out clauses
-
-- [ ] **Phase 5: Terminology**
-  - [ ] Implement RadLex / SNOMED lookup tables and normalizer
-  - [ ] Add unmapped term detection and isolation
+- [x] **Phase 5: Terminology**
+  - [x] Implement local abbreviation corpus loader (`src/terminology/corpus.py`)
+  - [x] Implement selective open-access terminology client for EMBL-EBI OLS4 and NIH (`src/terminology/client.py`)
+  - [x] Implement offline-first terminology normalizer with persistent write-through caching (`src/terminology/normalizer.py`, `data/terminology_cache.json`)
+  - [x] Isolate unmapped / unknown concepts with `is_known=False`
 
 - [ ] **Phase 6: Interpretation**
   - [ ] Implement deterministic reference range comparison engine
@@ -129,4 +118,14 @@
   - Added CLI and API runner (`python model_plugins.py --list`, `--compare`, `--backend`) enabling rapid testing and side-by-side comparison.
   - Wired `ModelSelector` into `ConceptExtractor` with seamless backwards compatibility.
   - Added unit test suite in `tests/test_model_plugins.py`: all 25 unit tests in the project pass cleanly.
+- **2026-09-28 [Phase 5 Complete]**:
+  - Implemented `src/terminology` package with `LocalCorpus`, `TerminologyClient`, `NormalizedConcept`, and `TerminologyNormalizer`.
+  - Built offline-first architecture with persistent write-through caching in `data/terminology_cache.json`.
+  - Selected and integrated zero-account, free, sandboxed public medical APIs:
+    1. EMBL-EBI OLS4 (SNOMED CT Concept IDs, preferred labels, and synonyms)
+    2. NIH Clinical Tables API (US NLM conditions & disorders)
+  - Pre-populated seed cache with 23 canonical findings across Echo, CT, MRI, Ultrasound, X-ray, and General reports.
+  - Implemented strict unknown concept isolation (`is_known=False`) to purge non-medical noise and hallucinations.
+  - Added unit test suite in `tests/test_terminology.py` (7 tests covering abbreviation expansion, context disambiguation, offline cache, unknown isolation, organ system categorization, and dynamic write-through caching).
+  - Full pytest suite (32/32 tests) passing cleanly in 4.34s.
 

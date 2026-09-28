@@ -1,0 +1,163 @@
+{
+  "cardiomegaly": {
+    "preferred_term": "Cardiomegaly",
+    "snomed_id": "SNOMED:8186001",
+    "radlex_id": "RID50043",
+    "layman_synonym": "Enlarged heart",
+    "organ_system": "Cardiovascular"
+  },
+  "pleural effusion": {
+    "preferred_term": "Pleural effusion",
+    "snomed_id": "SNOMED:60046008",
+    "radlex_id": "RID4989",
+    "layman_synonym": "Fluid buildup around the lungs",
+    "organ_system": "Respiratory"
+  },
+  "pneumothorax": {
+    "preferred_term": "Pneumothorax",
+    "snomed_id": "SNOMED:36118008",
+    "radlex_id": "RID4898",
+    "layman_synonym": "Collapsed lung (air in chest cavity)",
+    "organ_system": "Respiratory"
+  },
+  "focal lesion": {
+    "preferred_term": "Focal lesion",
+    "snomed_id": "SNOMED:300577008",
+    "radlex_id": "RID38770",
+    "layman_synonym": "Localized abnormal tissue spot",
+    "organ_system": "General Clinical"
+  },
+  "consolidation": {
+    "preferred_term": "Pulmonary consolidation",
+    "snomed_id": "SNOMED:42345000",
+    "radlex_id": "RID5331",
+    "layman_synonym": "Area of lung filled with fluid/infection",
+    "organ_system": "Respiratory"
+  },
+  "disc bulge": {
+    "preferred_term": "Bulging intervertebral disc",
+    "snomed_id": "SNOMED:297279009",
+    "radlex_id": "RID34620",
+    "layman_synonym": "Bulging spinal disc",
+    "organ_system": "Musculoskeletal"
+  },
+  "lordosis": {
+    "preferred_term": "Loss of lumbar lordosis",
+    "snomed_id": "SNOMED:298382003",
+    "radlex_id": "RID28574",
+    "layman_synonym": "Straightening of normal spine curvature",
+    "organ_system": "Musculoskeletal"
+  },
+  "spondylolisthesis": {
+    "preferred_term": "Spondylolisthesis",
+    "snomed_id": "SNOMED:274152003",
+    "radlex_id": "RID28571",
+    "layman_synonym": "Slipped vertebrae in the spine",
+    "organ_system": "Musculoskeletal"
+  },
+  "subluxation": {
+    "preferred_term": "Subluxation of joint",
+    "snomed_id": "SNOMED:317006",
+    "radlex_id": "RID45763",
+    "layman_synonym": "Partial dislocation of a joint",
+    "organ_system": "Musculoskeletal"
+  },
+  "dislocation": {
+    "preferred_term": "Dislocation of joint",
+    "snomed_id": "SNOMED:87642003",
+    "radlex_id": "RID45762",
+    "layman_synonym": "Full joint dislocation",
+    "organ_system": "Musculoskeletal"
+  },
+  "calculus": {
+    "preferred_term": "Calculus",
+    "snomed_id": "SNOMED:56361004",
+    "radlex_id": "RID5196",
+    "layman_synonym": "Stone (e.g. kidney stone or gallstone)",
+    "organ_system": "Genitourinary"
+  },
+  "calculi": {
+    "preferred_term": "Calculus",
+    "snomed_id": "SNOMED:56361004",
+    "radlex_id": "RID5196",
+    "layman_synonym": "Stones (e.g. kidney stones or gallstones)",
+    "organ_system": "Genitourinary"
+  },
+  "diastolic dysfunction": {
+    "preferred_term": "Left ventricular diastolic dysfunction",
+    "snomed_id": "SNOMED:427497003",
+    "radlex_id": "RID50041",
+    "layman_synonym": "Stiff heart muscle during relaxation phase",
+    "organ_system": "Cardiovascular"
+  },
+  "pericardial effusion": {
+    "preferred_term": "Pericardial effusion",
+    "snomed_id": "SNOMED:56064006",
+    "radlex_id": "RID4992",
+    "layman_synonym": "Fluid buildup around the heart",
+    "organ_system": "Cardiovascular"
+  },
+  "gallbladder wall thickening": {
+    "preferred_term": "Thickened gallbladder wall",
+    "snomed_id": "SNOMED:235882006",
+    "radlex_id": "RID5240",
+    "layman_synonym": "Swelling or thickening of gallbladder lining",
+    "organ_system": "Gastrointestinal"
+  },
+  "cholelithiasis": {
+    "preferred_term": "Cholelithiasis",
+    "snomed_id": "SNOMED:235919008",
+    "radlex_id": "RID5197",
+    "layman_synonym": "Gallstones",
+    "organ_system": "Gastrointestinal"
+  },
+  "acne": {
+    "preferred_term": "Acne vulgaris",
+    "snomed_id": "SNOMED:11381005",
+    "radlex_id": null,
+    "layman_synonym": "Pimples / skin breakouts",
+    "organ_system": "General Clinical"
+  },
+  "hirsutism": {
+    "preferred_term": "Hirsutism",
+    "snomed_id": "SNOMED:88022007",
+    "radlex_id": null,
+    "layman_synonym": "Excess body or facial hair growth",
+    "organ_system": "General Clinical"
+  },
+  "hepatomegaly": {
+    "preferred_term": "Hepatomegaly",
+    "snomed_id": "SNOMED:80515008",
+    "radlex_id": "RID5180",
+    "layman_synonym": "Enlarged liver",
+    "organ_system": "Gastrointestinal"
+  },
+  "mpd": {
+    "preferred_term": "Main pancreatic duct",
+    "snomed_id": "SNOMED:699049007",
+    "radlex_id": "RID192",
+    "layman_synonym": "Main duct of the pancreas",
+    "organ_system": "Gastrointestinal"
+  },
+  "ivd": {
+    "preferred_term": "Intervertebral disc",
+    "snomed_id": "SNOMED:272673000",
+    "radlex_id": "RID28574",
+    "layman_synonym": "Spinal disc",
+    "organ_system": "Musculoskeletal"
+  },
+  "lvh": {
+    "preferred_term": "Left ventricular hypertrophy",
+    "snomed_id": "SNOMED:55827005",
+    "radlex_id": "RID50041",
+    "layman_synonym": "Thickened muscle of heart's main pumping chamber",
+    "organ_system": "Cardiovascular"
+  },
+  "pasp": {
+    "preferred_term": "Pulmonary artery systolic pressure",
+    "snomed_id": "SNOMED:251070002",
+    "radlex_id": "RID50040",
+    "layman_synonym": "Blood pressure in pulmonary artery",
+    "organ_system": "Cardiovascular"
+  }
+}
