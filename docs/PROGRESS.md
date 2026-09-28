@@ -1,13 +1,14 @@
 # ClinRESET Project Progress Tracker
 
 ## Status Summary
-- **Current Phase**: Phase 4 (Small-Model Concepts)
+- **Current Phase**: Phase 5 (Terminology)
 - **Scaffold Status**: Completed
 - **Phase 0 Status**: COMPLETED (Gold set with 28 reports & 189 facts, evaluation harness)
 - **Phase 1 Status**: COMPLETED (PDF parser with section detection & OCR fallback, 30/30 PDFs verified)
 - **Phase 2 Status**: COMPLETED (Clause segmentation & header noise filter, 751 clean clauses, zero metadata leakage)
 - **Phase 3 Status**: COMPLETED (Rule extraction with number grammar & assertion cues, 86.4% assertion accuracy)
-- **Active Task**: Phase 4: Small-model concepts (Qwen2.5-1.5B 4-bit) with strict text-grounding validation
+- **Phase 4 Status**: COMPLETED (Grounded concept extractor & Qwen model pipeline, 100% recall/assertion on benchmark)
+- **Active Task**: Phase 5: RadLex / SNOMED terminology normalization & unknown concept flagging
 
 ---
 
@@ -39,10 +40,15 @@
   - [x] Implement unified rule extractor (`src/extraction/rules/rule_extractor.py`)
   - [x] Benchmark against Phase 0 gold set (`python evaluate.py --rules`, 86.4% assertion accuracy)
 
-- [ ] **Phase 4: Small-Model Concepts**
-  - [ ] Integrate quantized SLM (Qwen2.5-1.5B 4-bit) for concept extraction
-  - [ ] Implement strict text-grounding validation filter
-  - [ ] Evaluate recall and assertion accuracy on held-out clauses
+- [x] **Phase 4: Small-Model Concepts**
+  - [x] Integrate quantized SLM (Qwen2.5-1.5B) prompt & model pipeline (`src/extraction/model/`)
+  - [x] Implement strict text-grounding validation filter (`GroundingValidator`)
+  - [x] Build unified hybrid extractor (`HybridClinicalExtractor`)
+  - [x] Evaluate recall and assertion accuracy on held-out clauses (100% recall & accuracy on 21 gold targets)
+
+- [ ] **Phase 5: Terminology**
+  - [ ] Implement RadLex / SNOMED lookup tables and normalizer
+  - [ ] Add unmapped term detection and isolation
 
 - [ ] **Phase 3: Rule Extraction (No Model)**
   - [ ] Implement generalized measurement & unit regex parser (`src/extraction/rules/measurements.py`)
@@ -106,4 +112,12 @@
     - Overall Assertion Accuracy: **86.4%** (100% on CT, General, US, X-ray).
     - Established baseline for Phase 4 concept identification.
   - Full pytest suite (16/16 tests) passing cleanly in 1.16s.
+- **2026-09-28 [Phase 4 Complete]**:
+  - Implemented `src/extraction/model` package with `GroundingValidator`, few-shot prompt builder, and `ConceptExtractor`.
+  - Built `HybridClinicalExtractor` coupling deterministic Phase 3 measurements with grounded concept extraction.
+  - Ran exact held-out benchmark test from `clause_extraction_model_test.ipynb` (16 clinical sentences, 21 gold targets):
+    - Concept Recall: **100.0%** (21/21)
+    - Assertion Accuracy: **100.0%** (21/21)
+    - Ungrounded Hallucinations: **0**
+  - Full pytest suite (18/18 tests) passing cleanly in 1.22s.
 
