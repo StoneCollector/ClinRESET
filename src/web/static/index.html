@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClinRESET — Clinical Report Simplification Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <!-- Header Navigation -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="brand">
+        <div class="brand-icon">✚</div>
+        <div class="brand-text">
+          <h1>ClinRESET</h1>
+          <span class="brand-subtitle">Clinical Report Simplification</span>
+        </div>
+      </div>
+
+      <nav class="nav-tabs">
+        <button id="tab-simplifier-btn" class="nav-btn active" onclick="switchTab('simplifier')">
+          <span class="icon">📑</span> Report Simplifier
+        </button>
+        <button id="tab-studio-btn" class="nav-btn" onclick="switchTab('studio')">
+          <span class="icon">⚙️</span> Methodology Studio
+        </button>
+      </nav>
+
+      <div class="nav-status">
+        <span class="status-indicator-dot" id="active-backend-dot"></span>
+        <span class="status-label">Engine:</span>
+        <span class="status-badge" id="active-backend-badge">HEURISTIC</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="main-container">
+    
+    <!-- ================================================================= -->
+    <!-- TAB 1: REPORT SIMPLIFIER                                          -->
+    <!-- ================================================================= -->
+    <section id="tab-simplifier" class="tab-pane active">
+      
+      <!-- Upload Card -->
+      <div class="card upload-card">
+        <div class="card-header">
+          <h2>Upload & Simplify Medical Report</h2>
+          <p>Drop any clinical imaging PDF (Echo, CT, MRI, Ultrasound, X-Ray, General) or select a pre-loaded sample.</p>
+        </div>
+
+        <div class="upload-grid">
+          <!-- Drag & Drop Zone -->
+          <div class="drop-zone" id="drop-zone">
+            <input type="file" id="pdf-input" accept=".pdf" class="file-input">
+            <div class="drop-zone-content">
+              <div class="upload-icon">📄</div>
+              <h3>Drag and drop your PDF here</h3>
+              <p>or <span class="browse-link">browse files</span> from your computer</p>
+              <div id="selected-file-name" class="selected-file"></div>
+            </div>
+          </div>
+
+          <!-- Quick Sample Selector -->
+          <div class="sample-zone">
+            <h3>Or choose a pre-loaded sample report:</h3>
+            <p>Test real clinical reports with 1-click execution:</p>
+            <select id="sample-select" class="form-select">
+              <option value="">-- Select a sample report --</option>
+            </select>
+            <button id="simplify-btn" class="btn btn-primary btn-block" onclick="runSimplification()">
+              <span id="btn-text">Simplify Report</span>
+              <span id="btn-spinner" class="spinner hidden"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results Section (Hidden until report is processed) -->
+      <div id="results-container" class="results-container hidden">
+
+        <!-- Report Overview Header -->
+        <div class="card meta-card">
+          <div class="meta-row">
+            <div>
+              <span class="meta-label">Document:</span>
+              <strong id="res-filename">-</strong>
+            </div>
+            <div>
+              <span class="meta-label">Modality:</span>
+              <span id="res-modality" class="badge badge-info">-</span>
+            </div>
+            <div>
+              <span class="meta-label">Extracted Findings:</span>
+              <strong id="res-findings-count">0</strong>
+            </div>
+            <div>
+              <span class="meta-label">Engine:</span>
+              <span id="res-methodology" class="badge badge-primary">-</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Patient Friendly Summary Card -->
+        <div class="card summary-card">
+          <div class="card-header-flex">
+            <h2>Patient Plain-Language Summary</h2>
+            <span class="badge badge-success">Grounded & Verified</span>
+          </div>
+          <p id="res-patient-summary" class="patient-summary-text"></p>
+        </div>
+
+        <!-- Triage Alert Counter Bar -->
+        <div class="card triage-card">
+          <div class="triage-grid">
+            <div class="triage-stat green">
+              <span class="triage-count" id="count-green">0</span>
+              <span class="triage-desc">Normal / Reassuring</span>
+            </div>
+            <div class="triage-stat yellow">
+              <span class="triage-count" id="count-yellow">0</span>
+              <span class="triage-desc">Notable Observations</span>
+            </div>
+            <div class="triage-stat orange">
+              <span class="triage-count" id="count-orange">0</span>
+              <span class="triage-desc">Outside Standard Range</span>
+            </div>
+            <div class="triage-stat red">
+              <span class="triage-count" id="count-red">0</span>
+              <span class="triage-desc">Urgent Alerts</span>
+            </div>
+            <div class="triage-stat grey">
+              <span class="triage-count" id="count-grey">0</span>
+              <span class="triage-desc">Contextual Metrics</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Non-Causal Finding Clusters -->
+        <div id="clusters-container" class="card clusters-card">
+          <h2>Clinical Finding Clusters</h2>
+          <p class="section-subtitle">Groups related observations reported in parallel without implying medical causation.</p>
+          <div id="clusters-list" class="clusters-grid"></div>
+        </div>
+
+        <!-- Detailed Findings & Measurements Table -->
+        <div class="card findings-card">
+          <div class="card-header-flex">
+            <h2>Detailed Findings & Measurements</h2>
+            <span class="hint-text">💡 Click on any finding to inspect exact text provenance and reference details</span>
+          </div>
+
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Status</th>
+                  <th>Clinical Finding</th>
+                  <th>Assertion</th>
+                  <th>Value / Measurement</th>
+                  <th>Reported Range</th>
+                  <th>Layman Translation</th>
+                  <th>SNOMED CT</th>
+                </tr>
+              </thead>
+              <tbody id="findings-table-body">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Questions to Ask Your Doctor -->
+        <div class="card questions-card">
+          <h2>Suggested Questions to Ask Your Doctor</h2>
+          <p class="section-subtitle">Empowering questions for your next clinic appointment:</p>
+          <ul id="questions-list" class="questions-list"></ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- TAB 2: METHODOLOGY & MODEL STUDIO                                 -->
+    <!-- ================================================================= -->
+    <section id="tab-studio" class="tab-pane">
+      
+      <div class="card studio-header-card">
+        <h2>Concept Extraction Methodology Studio</h2>
+        <p>Switch between clinical extraction engines, configure API credentials or local endpoints, and run live extraction tests.</p>
+      </div>
+
+      <!-- Methodology Cards Grid -->
+      <div class="methodology-grid">
+        <!-- Heuristic Card -->
+        <div class="card backend-card" id="card-heuristic">
+          <div class="backend-header">
+            <h3>1. Heuristic NLP</h3>
+            <span class="badge badge-success" id="badge-heuristic">ACTIVE</span>
+          </div>
+          <p class="backend-desc">Pure deterministic rule-based grounded clinical NLP. Instantaneous, 100% offline, 0 GPU/RAM requirements, zero hallucination.</p>
+          <div class="backend-meta">
+            <span>Dependencies: <strong>0 (stdlib + regex)</strong></span>
+            <span>Speed: <strong>&lt; 1 ms</strong></span>
+          </div>
+          <button class="btn btn-outline btn-block" onclick="selectBackend('heuristic')">Select Heuristic</button>
+        </div>
+
+        <!-- Ollama Card -->
+        <div class="card backend-card" id="card-ollama">
+          <div class="backend-header">
+            <h3>2. Ollama / LM Studio</h3>
+            <span class="badge badge-secondary" id="badge-ollama">DETECTING...</span>
+          </div>
+          <p class="backend-desc">Local 4-bit quantized SLM running on your PC (e.g. Qwen2.5:1.5b). Safe, private, and runs via local REST API.</p>
+          <div class="backend-meta">
+            <span>Server: <strong>http://localhost:11434</strong></span>
+            <span>Model: <strong>qwen2.5:1.5b</strong></span>
+          </div>
+          <button class="btn btn-outline btn-block" onclick="selectBackend('ollama')">Select Ollama</button>
+        </div>
+
+        <!-- Hugging Face API Card -->
+        <div class="card backend-card" id="card-hf_api">
+          <div class="backend-header">
+            <h3>3. Hugging Face Serverless</h3>
+            <span class="badge badge-secondary" id="badge-hf_api">DETECTING...</span>
+          </div>
+          <p class="backend-desc">Cloud-based inference API using official Hugging Face models. Zero weights download; runs via free user access token.</p>
+          <div class="backend-meta">
+            <span>Model: <strong>Qwen2.5-1.5B-Instruct</strong></span>
+            <span>Auth: <strong>HF Access Token</strong></span>
+          </div>
+          <button class="btn btn-outline btn-block" onclick="selectBackend('hf_api')">Select HF API</button>
+        </div>
+
+        <!-- Transformers Local Card -->
+        <div class="card backend-card" id="card-transformers">
+          <div class="backend-header">
+            <h3>4. PyTorch / Transformers</h3>
+            <span class="badge badge-secondary" id="badge-transformers">DETECTING...</span>
+          </div>
+          <p class="backend-desc">Direct PyTorch execution loading model weights into memory. Maximum offline power when CUDA/PyTorch is installed.</p>
+          <div class="backend-meta">
+            <span>Framework: <strong>Hugging Face Transformers</strong></span>
+            <span>Device: <strong>Auto (CUDA/CPU)</strong></span>
+          </div>
+          <button class="btn btn-outline btn-block" onclick="selectBackend('transformers')">Select Transformers</button>
+        </div>
+      </div>
+
+      <!-- Configuration Form Card -->
+      <div class="card settings-card">
+        <h2>Configure Methodology & Credentials</h2>
+        <form id="config-form" onsubmit="saveConfiguration(event)">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="cfg-backend">Active Extraction Engine:</label>
+              <select id="cfg-backend" class="form-select">
+                <option value="heuristic">Heuristic (Deterministic NLP)</option>
+                <option value="ollama">Ollama (Local GGUF LLM)</option>
+                <option value="hf_api">Hugging Face API (Serverless)</option>
+                <option value="transformers">PyTorch / Transformers (Local Weights)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="cfg-ollama-url">Ollama Base URL:</label>
+              <input type="text" id="cfg-ollama-url" class="form-input" placeholder="http://localhost:11434">
+            </div>
+
+            <div class="form-group">
+              <label for="cfg-ollama-model">Ollama Model Name:</label>
+              <input type="text" id="cfg-ollama-model" class="form-input" placeholder="qwen2.5:1.5b">
+            </div>
+
+            <div class="form-group">
+              <label for="cfg-hf-token">Hugging Face API Token / Key:</label>
+              <input type="password" id="cfg-hf-token" class="form-input" placeholder="hf_xxxxxxxxxxxxxxxxxxxxx">
+            </div>
+
+            <div class="form-group">
+              <label for="cfg-hf-model">Hugging Face Model ID:</label>
+              <input type="text" id="cfg-hf-model" class="form-input" placeholder="Qwen/Qwen2.5-1.5B-Instruct">
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Save & Apply Configuration</button>
+            <span id="save-status" class="save-status"></span>
+          </div>
+        </form>
+      </div>
+
+      <!-- Live Extraction Testing Sandbox -->
+      <div class="card sandbox-card">
+        <h2>Live Extraction Testing Sandbox</h2>
+        <p class="section-subtitle">Test any clinical clause or sentence against your active methodology in real-time:</p>
+
+        <div class="sandbox-input-row">
+          <select id="sandbox-preset" class="form-select" onchange="applySandboxPreset()">
+            <option value="">-- Or choose a sample clinical sentence --</option>
+            <option value="Liver is enlarged in size (~15.8cm), normal in outline; no focal lesion seen.">Abdominal Ultrasound finding</option>
+            <option value="Large right sided pneumothorax is seen with mild pleural effusion.">Chest Radiography finding</option>
+            <option value="Loss of lumbar lordosis, no disc bulge is noted.">Spine MRI finding</option>
+            <option value="Grade 1 left ventricular diastolic dysfunction, no pericardial effusion.">Echocardiography finding</option>
+            <option value="Lung feilds are clear, cardio-thoracic ratio is within normal limits.">Normal Chest X-Ray</option>
+          </select>
+        </div>
+
+        <div class="sandbox-input-row">
+          <textarea id="sandbox-sentence" class="form-textarea" rows="3" placeholder="Type or paste a clinical finding sentence here..."></textarea>
+        </div>
+
+        <div class="sandbox-actions">
+          <button class="btn btn-primary" onclick="runSandboxTest()">
+            <span id="sandbox-btn-text">Run Extraction Test</span>
+            <span id="sandbox-spinner" class="spinner hidden"></span>
+          </button>
+        </div>
+
+        <!-- Sandbox Output Box -->
+        <div id="sandbox-output-container" class="sandbox-output-container hidden">
+          <div class="sandbox-stats-bar">
+            <span>Engine Used: <strong id="sb-engine">-</strong></span>
+            <span>Response Latency: <strong id="sb-latency">- ms</strong></span>
+            <span>Concepts Extracted: <strong id="sb-count">0</strong></span>
+          </div>
+
+          <div class="sandbox-results-grid" id="sandbox-results-list"></div>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ================================================================= -->
+  <!-- MODAL: FACT PROVENANCE INSPECTOR                                  -->
+  <!-- ================================================================= -->
+  <div id="inspector-modal" class="modal-overlay hidden" onclick="closeInspectorOnOverlay(event)">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <h3 id="modal-concept-name">Finding Details</h3>
+          <span id="modal-organ" class="badge badge-info">Organ System</span>
+        </div>
+        <button class="modal-close-btn" onclick="closeInspector()">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="inspector-field">
+          <label>Standardized Canonical Term:</label>
+          <div id="modal-preferred-term" class="inspector-value highlight"></div>
+        </div>
+
+        <div class="inspector-row">
+          <div class="inspector-field">
+            <label>SNOMED CT Code:</label>
+            <div id="modal-snomed-id" class="inspector-value badge badge-snomed"></div>
+          </div>
+          <div class="inspector-field">
+            <label>Triage Alert Level:</label>
+            <div id="modal-alert-badge" class="inspector-value"></div>
+          </div>
+        </div>
+
+        <div class="inspector-field">
+          <label>Patient Layman Translation:</label>
+          <div id="modal-layman-term" class="inspector-value"></div>
+        </div>
+
+        <div class="inspector-field">
+          <label>Deterministic Range Evaluation:</label>
+          <div id="modal-range-basis" class="inspector-value quote-box"></div>
+        </div>
+
+        <div class="inspector-field">
+          <label>Verbatim Source Clause (Exact Text Provenance):</label>
+          <div id="modal-source-text" class="inspector-value code-box"></div>
+        </div>
+
+        <div class="inspector-row">
+          <div class="inspector-field">
+            <label>Source Page:</label>
+            <div id="modal-page" class="inspector-value">Page 1</div>
+          </div>
+          <div class="inspector-field">
+            <label>Report Section:</label>
+            <div id="modal-section" class="inspector-value">FINDINGS</div>
+          </div>
+          <div class="inspector-field">
+            <label>Extraction Method:</label>
+            <div id="modal-method" class="inspector-value">Rule + Small Model</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeInspector()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

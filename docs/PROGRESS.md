@@ -1,7 +1,7 @@
 # ClinRESET Project Progress Tracker
 
 ## Status Summary
-- **Current Phase**: Phase 8 (Web UI)
+- **Current Phase**: Phase 9 (Hardening & Final Evaluation)
 - **Scaffold Status**: Completed
 - **Phase 0 Status**: COMPLETED (Gold set with 28 reports & 189 facts, evaluation harness)
 - **Phase 1 Status**: COMPLETED (PDF parser with section detection & OCR fallback, 30/30 PDFs verified)
@@ -11,7 +11,8 @@
 - **Phase 5 Status**: COMPLETED (Offline-first terminology normalizer with dynamic SNOMED enrichment, 32/32 tests passed)
 - **Phase 6 Status**: COMPLETED (Deterministic reference range comparator, triage alerts, and finding clusters, 38/38 tests passed)
 - **Phase 7 Status**: COMPLETED (Grounded patient explanations with strict zero-discrepancy cross-checker, 43/43 tests passed)
-- **Active Task**: Phase 8: FastAPI server & interactive Web UI with provenance inspection
+- **Phase 8 Status**: COMPLETED (FastAPI server & interactive Web UI with Methodology Studio, 52/52 tests passed)
+- **Active Task**: Phase 9: Hardening & End-to-End Evaluation on held-out reports
 
 ---
 
@@ -67,9 +68,13 @@
   - [x] Provide offline deterministic template fallback (`src/explanation/templates.py`)
   - [x] Implement unified `ClinicalExplainer` engine (`src/explanation/engine.py`)
 
-- [ ] **Phase 8: Web UI**
-  - [ ] Implement FastAPI server exposing extraction & explanation endpoints
-  - [ ] Create static frontend with provenance badges and interactive fact inspectors
+- [x] **Phase 8: Web UI**
+  - [x] Implement FastAPI server exposing extraction, explanation, sample reports, and methodology endpoints (`src/web/routes/`)
+  - [x] Create modern single-page frontend with Report Simplifier and Methodology Studio tabs (`src/web/static/`)
+  - [x] Build interactive Fact Provenance Inspector modal with verbatim source clauses, SNOMED codes, and clinical basis
+  - [x] Implement Methodology Studio with live backend switching (`heuristic`, `ollama`, `hf_api`, `transformers`), credential configuration, and live extraction testing playground
+  - [x] Create server launcher script `run_web.py`
+  - [x] Add comprehensive web test suite in `tests/test_web.py` (9 tests passing)
 
 - [ ] **Phase 9: Hardening**
   - [ ] End-to-end evaluation on held-out reports
@@ -140,10 +145,14 @@
   - Built non-causal contextual clustering across Cardiovascular, Respiratory, Hepatobiliary, and Spinal modalities.
   - Added unit test suite in `tests/test_interpretation.py` (6 tests covering bounds parsing, range comparison, qualitative/quantitative triage classification, cluster discovery, and report summary).
   - Full pytest suite (38/38 tests) passing cleanly in 4.26s.
-- **2026-09-28 [Phase 7 Complete]**:
-  - Implemented `src/explanation` package with `NumericalCrossChecker`, `DeterministicTemplateExplainer`, `GroundedLLMExplainer`, and `ClinicalExplainer`.
-  - Built strict numerical verification engine (`NumericalCrossChecker`) scanning generated text against authorized source facts and rejecting any ungrounded numerical deviations (zero discrepancy invariant).
-  - Built deterministic rule-based template explainer (`DeterministicTemplateExplainer`) generating compassionate, 6th-grade reading level summaries, section breakdowns (Key Findings, Reassuring Observations, Additional Metrics), and doctor question prompts.
-  - Added unit test suite in `tests/test_explanation.py` (5 tests covering authorized number verification, hallucinated number rejection, template finding generation, report breakdown, and facade execution).
-  - Full pytest suite (43/43 tests) passing cleanly in 4.33s.
+- **2026-09-28 [Phase 8 Complete]**:
+  - Implemented `src/web` FastAPI application with routers for report simplification (`src/web/routes/reports.py`) and dynamic methodology management (`src/web/routes/methodologies.py`).
+  - Built interactive single-page web UI (`src/web/static/index.html`, `style.css`, `app.js`):
+    - **Report Simplifier**: Drag-and-drop PDF uploader, 1-click clinical report samples selector, real-time pipeline execution, triage summary counter bar (Green, Yellow, Orange, Red, Grey), cluster cards, and interactive findings data table.
+    - **Fact Provenance Inspector**: Deep modal inspection showing exact verbatim clause text, source page number, section header, SNOMED CT Concept ID, layman translation, and clinical comparison basis for each finding.
+    - **Methodology Studio**: Visual engine selector (`heuristic`, `ollama`, `hf_api`, `transformers`), dynamic credential and endpoint configuration form, and live clinical sentence extraction sandbox with latency measurement and grounding verification.
+  - Implemented standalone CLI/web server launcher `run_web.py` with custom host/port/reload support.
+  - Added test suite in `tests/test_web.py` (9 tests covering health check, static files, methodology list/config/test, sample reports, and PDF upload validation).
+  - Full pytest suite (52/52 tests) passing cleanly in 12.09s.
+
 

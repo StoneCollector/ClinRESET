@@ -159,5 +159,89 @@
     "radlex_id": "RID50040",
     "layman_synonym": "Blood pressure in pulmonary artery",
     "organ_system": "Cardiovascular"
+  },
+  "mitral valve": {
+    "preferred_term": "Ratio of mitral valve acceleration time to mitral valve deceleration time",
+    "snomed_id": "SNOMED:399062002",
+    "radlex_id": null,
+    "layman_synonym": "Ratio of mitral valve acceleration time to mitral valve deceleration time",
+    "organ_system": "Cardiovascular"
+  },
+  "prolapse": {
+    "preferred_term": "Prolapse",
+    "snomed_id": "SNOMED:29696001",
+    "radlex_id": null,
+    "layman_synonym": "Prolapse",
+    "organ_system": "General Clinical"
+  },
+  "aortic valve tricuspid": {
+    "preferred_term": "Tricuspid aortic valve present",
+    "snomed_id": "SNOMED:449115006",
+    "radlex_id": null,
+    "layman_synonym": "Tricuspid aortic valve present",
+    "organ_system": "Cardiovascular"
+  },
+  "normal,": {
+    "preferred_term": "Vaginal delivery - spontaneous",
+    "snomed_id": null,
+    "radlex_id": null,
+    "layman_synonym": "Vaginal delivery - spontaneous",
+    "organ_system": "Gastrointestinal"
+  },
+  "pulmonary valve": {
+    "preferred_term": "Replacement of aortic root using pulmonary valve autograft and replacement of pulmonary valve",
+    "snomed_id": "SNOMED:449338000",
+    "radlex_id": null,
+    "layman_synonym": "Replacement of aortic root using pulmonary valve autograft and replacement of pulmonary valve",
+    "organ_system": "Cardiovascular"
+  },
+  "normal \u2018a\u2019 wave": {
+    "preferred_term": "Electrocardiographic P wave normal (finding)",
+    "snomed_id": "SNOMED:164911006",
+    "radlex_id": null,
+    "layman_synonym": "Electrocardiographic P wave normal (finding)",
+    "organ_system": "Cardiovascular"
+  },
+  "aortic regurgitation": {
+    "preferred_term": "Paraprosthetic aortic regurgitation",
+    "snomed_id": "SNOMED:250975000",
+    "radlex_id": null,
+    "layman_synonym": "Paraprosthetic aortic regurgitation",
+    "organ_system": "Cardiovascular"
+  },
+  "pulmonary regurgitation": {
+    "preferred_term": "Functional pulmonary regurgitation",
+    "snomed_id": "SNOMED:233866009",
+    "radlex_id": null,
+    "layman_synonym": "Functional pulmonary regurgitation",
+    "organ_system": "Respiratory"
+  },
+  "a aortic velocity": {
+    "preferred_term": "Ratio of left ventricle outflow tract velocity-time integral to aortic valve jet velocity-time integral (observable entity)",
+    "snomed_id": "SNOMED:45841000087105",
+    "radlex_id": null,
+    "layman_synonym": "Ratio of left ventricle outflow tract velocity-time integral to aortic valve jet velocity-time integral (observable entity)",
+    "organ_system": "Cardiovascular"
+  },
+  "ejection fraction": {
+    "preferred_term": "Cardiac ejection fraction",
+    "snomed_id": "SNOMED:70822001",
+    "radlex_id": null,
+    "layman_synonym": "Cardiac ejection fraction",
+    "organ_system": "General Clinical"
+  },
+  "left ventricular diastolic dysfunction": {
+    "preferred_term": "Left ventricular diastolic dysfunction",
+    "snomed_id": "SNOMED:395704004",
+    "radlex_id": null,
+    "layman_synonym": "Left ventricular diastolic dysfunction",
+    "organ_system": "Cardiovascular"
+  },
+  "positional rotation": {
+    "preferred_term": "Simulated rotation test positive",
+    "snomed_id": "SNOMED:298700005",
+    "radlex_id": null,
+    "layman_synonym": "Simulated rotation test positive",
+    "organ_system": "General Clinical"
   }
 }
