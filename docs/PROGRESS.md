@@ -1,7 +1,7 @@
 # ClinRESET Project Progress Tracker
 
 ## Status Summary
-- **Current Phase**: Phase 7 (Explanation)
+- **Current Phase**: Phase 8 (Web UI)
 - **Scaffold Status**: Completed
 - **Phase 0 Status**: COMPLETED (Gold set with 28 reports & 189 facts, evaluation harness)
 - **Phase 1 Status**: COMPLETED (PDF parser with section detection & OCR fallback, 30/30 PDFs verified)
@@ -10,7 +10,8 @@
 - **Phase 4 Status**: COMPLETED (Grounded concept extractor & Qwen model pipeline, 100% recall/assertion on benchmark)
 - **Phase 5 Status**: COMPLETED (Offline-first terminology normalizer with dynamic SNOMED enrichment, 32/32 tests passed)
 - **Phase 6 Status**: COMPLETED (Deterministic reference range comparator, triage alerts, and finding clusters, 38/38 tests passed)
-- **Active Task**: Phase 7: Grounded patient explanation with strict number verification & offline template fallback
+- **Phase 7 Status**: COMPLETED (Grounded patient explanations with strict zero-discrepancy cross-checker, 43/43 tests passed)
+- **Active Task**: Phase 8: FastAPI server & interactive Web UI with provenance inspection
 
 ---
 
@@ -60,10 +61,11 @@
   - [x] Implement non-causal contextual finding clusters (`src/interpretation/clusters.py`)
   - [x] Build unified `ClinicalInterpreter` report engine (`src/interpretation/engine.py`)
 
-- [ ] **Phase 7: Explanation (API)**
-  - [ ] Implement structured LLM prompt using verified facts only
-  - [ ] Add strict numerical cross-checker (output vs. source)
-  - [ ] Provide offline deterministic template fallback
+- [x] **Phase 7: Explanation (API)**
+  - [x] Implement structured LLM prompt using verified facts only (`src/explanation/llm_explainer.py`)
+  - [x] Add strict numerical cross-checker with zero-discrepancy enforcement (`src/explanation/verifier.py`)
+  - [x] Provide offline deterministic template fallback (`src/explanation/templates.py`)
+  - [x] Implement unified `ClinicalExplainer` engine (`src/explanation/engine.py`)
 
 - [ ] **Phase 8: Web UI**
   - [ ] Implement FastAPI server exposing extraction & explanation endpoints
@@ -138,4 +140,10 @@
   - Built non-causal contextual clustering across Cardiovascular, Respiratory, Hepatobiliary, and Spinal modalities.
   - Added unit test suite in `tests/test_interpretation.py` (6 tests covering bounds parsing, range comparison, qualitative/quantitative triage classification, cluster discovery, and report summary).
   - Full pytest suite (38/38 tests) passing cleanly in 4.26s.
+- **2026-09-28 [Phase 7 Complete]**:
+  - Implemented `src/explanation` package with `NumericalCrossChecker`, `DeterministicTemplateExplainer`, `GroundedLLMExplainer`, and `ClinicalExplainer`.
+  - Built strict numerical verification engine (`NumericalCrossChecker`) scanning generated text against authorized source facts and rejecting any ungrounded numerical deviations (zero discrepancy invariant).
+  - Built deterministic rule-based template explainer (`DeterministicTemplateExplainer`) generating compassionate, 6th-grade reading level summaries, section breakdowns (Key Findings, Reassuring Observations, Additional Metrics), and doctor question prompts.
+  - Added unit test suite in `tests/test_explanation.py` (5 tests covering authorized number verification, hallucinated number rejection, template finding generation, report breakdown, and facade execution).
+  - Full pytest suite (43/43 tests) passing cleanly in 4.33s.
 
