@@ -120,4 +120,13 @@
     - Assertion Accuracy: **100.0%** (21/21)
     - Ungrounded Hallucinations: **0**
   - Full pytest suite (18/18 tests) passing cleanly in 1.22s.
+- **2026-09-28 [Model Plugins & Methodology Selector]**:
+  - Implemented `model_plugins.py` (and `src/extraction/model/model_plugins.py`) with `ModelSelector` supporting 4 distinct methodologies:
+    1. `heuristic` (Fast, pure deterministic clinical NLP, offline, 0 memory, zero hallucination)
+    2. `ollama` (Local Ollama/LM Studio server via HTTP API e.g. Qwen2.5:1.5b)
+    3. `hf_api` (Hugging Face Serverless Inference API via free token)
+    4. `transformers` (Local PyTorch / Transformers weights pipeline)
+  - Added CLI and API runner (`python model_plugins.py --list`, `--compare`, `--backend`) enabling rapid testing and side-by-side comparison.
+  - Wired `ModelSelector` into `ConceptExtractor` with seamless backwards compatibility.
+  - Added unit test suite in `tests/test_model_plugins.py`: all 25 unit tests in the project pass cleanly.
 
