@@ -103,7 +103,7 @@ def process_clinical_pdf(
         # -------------------------------------------------------------------
         # Phase 5: Terminology Normalization & SNOMED CT Enrichment
         # -------------------------------------------------------------------
-        normalizer = TerminologyNormalizer(online=True)
+        normalizer = TerminologyNormalizer(online=CONFIG_STATE.online_terminology)
         normalized_findings: List[Dict[str, Any]] = []
 
         for item in extracted_findings:

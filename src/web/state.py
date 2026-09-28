@@ -19,6 +19,7 @@ class AppConfigState:
         self.hf_token: Optional[str] = os.environ.get("HUGGINGFACE_API_KEY") or os.environ.get("HF_TOKEN")
         self.hf_model: str = "Qwen/Qwen2.5-1.5B-Instruct"
         self.transformers_model: str = "Qwen/Qwen2.5-1.5B-Instruct"
+        self.online_terminology: bool = False
 
     def get_backend_kwargs(self) -> Dict[str, Any]:
         """Returns kwargs matching the active backend configuration."""
@@ -34,6 +35,7 @@ class AppConfigState:
     def to_dict(self) -> Dict[str, Any]:
         return {
             "active_backend": self.active_backend,
+            "online_terminology": self.online_terminology,
             "ollama_url": self.ollama_url,
             "ollama_model": self.ollama_model,
             "hf_token_set": bool(self.hf_token),

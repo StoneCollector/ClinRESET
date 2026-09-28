@@ -29,6 +29,7 @@ class ConfigureMethodologyRequest(BaseModel):
     hf_token: Optional[str] = None
     hf_model: Optional[str] = None
     transformers_model: Optional[str] = None
+    online_terminology: Optional[bool] = None
 
 
 class TestExtractionRequest(BaseModel):
@@ -82,6 +83,9 @@ def update_methodology_configuration(req: ConfigureMethodologyRequest) -> Dict[s
 
     if req.transformers_model:
         CONFIG_STATE.transformers_model = req.transformers_model.strip()
+
+    if req.online_terminology is not None:
+        CONFIG_STATE.online_terminology = req.online_terminology
 
     # Also update environment variable
     os.environ["LLM_BACKEND"] = chosen

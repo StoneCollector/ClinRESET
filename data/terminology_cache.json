@@ -243,5 +243,40 @@
     "radlex_id": null,
     "layman_synonym": "Simulated rotation test positive",
     "organ_system": "General Clinical"
+  },
+  "pars interarticularis": {
+    "preferred_term": "Entire pars interarticularis of vertebra",
+    "snomed_id": "SNOMED:731518006",
+    "radlex_id": null,
+    "layman_synonym": "Entire pars interarticularis of vertebra",
+    "organ_system": "Musculoskeletal"
+  },
+  "facetal joints": {
+    "preferred_term": "Local anesthetic facet joint nerve block (procedure)",
+    "snomed_id": "SNOMED:231210007",
+    "radlex_id": null,
+    "layman_synonym": "Local anesthetic facet joint nerve block (procedure)",
+    "organ_system": "Musculoskeletal"
+  },
+  "sacroiliac joint": {
+    "preferred_term": "Hemarthrosis of sacroiliac joint (disorder)",
+    "snomed_id": "SNOMED:202412000",
+    "radlex_id": null,
+    "layman_synonym": "Hemarthrosis of sacroiliac joint (disorder)",
+    "organ_system": "Musculoskeletal"
+  },
+  "the facet joints are": {
+    "preferred_term": "Local anesthetic facet joint nerve block (procedure)",
+    "snomed_id": "SNOMED:231210007",
+    "radlex_id": null,
+    "layman_synonym": "Local anesthetic facet joint nerve block (procedure)",
+    "organ_system": "Musculoskeletal"
+  },
+  "60 %": {
+    "preferred_term": "Casirivimab 60 mg/mL and imdevimab 60 mg/mL solution for injection",
+    "snomed_id": "SNOMED:1162709001",
+    "radlex_id": null,
+    "layman_synonym": "Casirivimab 60 mg/mL and imdevimab 60 mg/mL solution for injection",
+    "organ_system": "General Clinical"
   }
 }

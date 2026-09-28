@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 class TerminologyClient:
     """Client for querying open-access terminology APIs with zero authentication."""
 
-    def __init__(self, timeout: float = 1.5, user_agent: str = "ClinRESET-Research/1.0"):
+    def __init__(self, timeout: float = 0.8, user_agent: str = "ClinRESET-Research/1.0"):
         self.timeout = timeout
         self.user_agent = user_agent
 

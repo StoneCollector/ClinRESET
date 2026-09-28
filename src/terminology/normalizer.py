@@ -138,8 +138,16 @@ class TerminologyNormalizer:
                 confidence=1.0,
             )
 
-        # 3. Dynamic API Query (Only when online and enabled)
-        if self.online and len(expanded_term) >= 3:
+        # 3. Dynamic API Query (Only for plausible atomic concepts when online)
+        words = expanded_term.split()
+        is_candidate_for_api = (
+            self.online
+            and 1 <= len(words) <= 4
+            and 3 <= len(expanded_term) <= 35
+            and not any(ch in expanded_term for ch in ["&", "/", "?", ";", ":", "\\", "\n", "\r", "%"])
+        )
+
+        if is_candidate_for_api:
             # Query EBI OLS SNOMED
             api_res = self.client.search_snomed(expanded_term)
             if not api_res and expanded_term != clean:
@@ -163,6 +171,7 @@ class TerminologyNormalizer:
                     "radlex_id": None,
                     "layman_synonym": layman,
                     "organ_system": organ,
+                    "is_known": True,
                 }
                 self._dirty_cache = True
                 self.save_cache()
@@ -177,6 +186,17 @@ class TerminologyNormalizer:
                     source=api_source,
                     confidence=0.95,
                 )
+            else:
+                # Negative cache: remember this term was checked and unmapped
+                self.cache[lookup_key] = {
+                    "preferred_term": expanded_term.title(),
+                    "snomed_id": None,
+                    "radlex_id": None,
+                    "layman_synonym": expanded_term,
+                    "organ_system": TerminologyClient._infer_organ_system(expanded_term),
+                    "is_known": False,
+                }
+                self._dirty_cache = True
 
         # 4. If expanded from corpus but no SNOMED entry, it is still a known clinical term!
         if corpus_match:
