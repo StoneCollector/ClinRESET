@@ -1,11 +1,12 @@
 # ClinRESET Project Progress Tracker
 
 ## Status Summary
-- **Current Phase**: Phase 2 (Segment)
+- **Current Phase**: Phase 3 (Rule Extraction)
 - **Scaffold Status**: Completed
 - **Phase 0 Status**: COMPLETED (Gold set with 28 reports & 189 facts, evaluation harness)
 - **Phase 1 Status**: COMPLETED (PDF parser with section detection & OCR fallback, 30/30 PDFs verified)
-- **Active Task**: Phase 2: Sentence & clause segmentation with header noise filtering
+- **Phase 2 Status**: COMPLETED (Clause segmentation & header noise filter, 751 clean clauses, zero metadata leakage)
+- **Active Task**: Phase 3: Rule extraction (no model) - number grammar, negation & assertion cues
 
 ---
 
@@ -25,10 +26,16 @@
   - [x] Configure PyMuPDF / OCR fallback (`src/parsing/ocr.py`)
   - [x] Validate zero crashes across all PDF files in `data/` (30/30 passed)
 
-- [ ] **Phase 2: Segment**
-  - [ ] Implement sentence & clause splitter (`src/segmentation/`)
-  - [ ] Add header/metadata filtering (filter out Name, Age, Sex, Date, Ref By)
-  - [ ] Maintain page and section provenance per clause
+- [x] **Phase 2: Segment**
+  - [x] Implement sentence & clause splitter (`src/segmentation/clause_splitter.py`)
+  - [x] Add header/metadata filtering (`src/segmentation/header_filter.py`)
+  - [x] Maintain page and section provenance per clause (`src/segmentation/segmenter.py`)
+  - [x] Validate zero metadata contamination across all 30 reports (751 clauses extracted)
+
+- [ ] **Phase 3: Rule Extraction (No Model)**
+  - [ ] Implement generalized measurement & unit regex parser (`src/extraction/rules/measurements.py`)
+  - [ ] Implement negation and normal cue detector (`src/extraction/rules/assertion.py`)
+  - [ ] Benchmark against Phase 0 gold set
 
 - [ ] **Phase 3: Rule Extraction (No Model)**
   - [ ] Implement generalized measurement & unit regex parser (`src/extraction/rules/measurements.py`)
@@ -78,4 +85,10 @@
   - Added unit tests in `tests/test_parsing.py` validating section extraction and batch parsing across all 30 PDF reports.
   - Ran batch test on entire data suite: 30 / 30 PDFs successfully parsed with 0 errors or crashes.
   - Full pytest suite (6/6 tests) passing cleanly in 0.66s.
+- **2026-09-28 [Phase 2 Complete]**:
+  - Implemented `src/segmentation` package with `HeaderNoiseFilter`, `ClauseSplitter`, and `ReportSegmenter`.
+  - Validated that demographic headers (e.g. "Aisha Rahman Age", doctor signatures, dates, hospital boilerplate) are 100% blocked from emitted clauses.
+  - Verified atomic clause splitting on coordinate negations and decimals without splitting numbers or medical abbreviations.
+  - Segmented all 30 reports in data suite into 751 clean clinical clauses with full page and section provenance.
+  - Full pytest suite (11/11 tests) passing cleanly in 1.12s.
 
