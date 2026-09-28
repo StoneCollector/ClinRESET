@@ -1,10 +1,11 @@
 # ClinRESET Project Progress Tracker
 
 ## Status Summary
-- **Current Phase**: Phase 1 (Parse)
+- **Current Phase**: Phase 2 (Segment)
 - **Scaffold Status**: Completed
-- **Phase 0 Status**: COMPLETED (Gold set with 28 reports & 189 facts, evaluation harness with score table)
-- **Active Task**: Phase 1: PDF to clean text and sections with OCR fallback
+- **Phase 0 Status**: COMPLETED (Gold set with 28 reports & 189 facts, evaluation harness)
+- **Phase 1 Status**: COMPLETED (PDF parser with section detection & OCR fallback, 30/30 PDFs verified)
+- **Active Task**: Phase 2: Sentence & clause segmentation with header noise filtering
 
 ---
 
@@ -19,11 +20,10 @@
   - [x] Implement evaluation script (`src/evaluation/scorer.py`, `evaluate.py`) reporting Precision, Recall, F1 for concepts, assertions, values, and units
   - [x] Benchmark baseline / score table verification (`python evaluate.py --self-test` passed 100%)
 
-
-- [ ] **Phase 1: Parse**
-  - [ ] Implement text & section parser (`src/parsing/`)
-  - [ ] Configure PyMuPDF / OCR fallback (Tesseract)
-  - [ ] Validate zero crashes across all PDF files in `data/`
+- [x] **Phase 1: Parse**
+  - [x] Implement text & section parser (`src/parsing/`)
+  - [x] Configure PyMuPDF / OCR fallback (`src/parsing/ocr.py`)
+  - [x] Validate zero crashes across all PDF files in `data/` (30/30 passed)
 
 - [ ] **Phase 2: Segment**
   - [ ] Implement sentence & clause splitter (`src/segmentation/`)
@@ -72,4 +72,10 @@
   - Implemented evaluation scorer (`src/evaluation/scorer.py`) and CLI (`evaluate.py`) with metric calculation across Concepts (P/R/F1), Assertions (Accuracy), Measurements (Value/Unit match).
   - Executed evaluation self-test (`python evaluate.py --self-test`): 100% metrics across all 6 modalities.
   - Added unit test suite in `tests/test_evaluation.py`: 3/3 tests passed with `pytest`.
+- **2026-09-28 [Phase 1 Complete]**:
+  - Implemented `src/parsing` package with `PDFParser`, `SectionDetector`, and `OCREngine` fallback.
+  - Configured project virtual environment (`scratch/venv`) with PyMuPDF, pytesseract, Pillow, Pydantic, and pytest.
+  - Added unit tests in `tests/test_parsing.py` validating section extraction and batch parsing across all 30 PDF reports.
+  - Ran batch test on entire data suite: 30 / 30 PDFs successfully parsed with 0 errors or crashes.
+  - Full pytest suite (6/6 tests) passing cleanly in 0.66s.
 
