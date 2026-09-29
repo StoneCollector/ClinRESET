@@ -17,7 +17,7 @@ class AppConfigState:
         self.ollama_url: str = "http://localhost:11434"
         self.ollama_model: str = "qwen2.5:1.5b"
         self.hf_token: Optional[str] = os.environ.get("HUGGINGFACE_API_KEY") or os.environ.get("HF_TOKEN")
-        self.hf_model: str = "Qwen/Qwen2.5-1.5B-Instruct"
+        self.hf_model: str = "Qwen/Qwen2.5-Coder-7B-Instruct"
         self.transformers_model: str = "Qwen/Qwen2.5-1.5B-Instruct"
         self.online_terminology: bool = False
 

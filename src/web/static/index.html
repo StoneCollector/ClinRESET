@@ -285,7 +285,15 @@
 
             <div class="form-group">
               <label for="cfg-hf-model">Hugging Face Model ID:</label>
-              <input type="text" id="cfg-hf-model" class="form-input" placeholder="Qwen/Qwen2.5-1.5B-Instruct">
+              <input type="text" id="cfg-hf-model" class="form-input" list="hf-models-list" placeholder="Qwen/Qwen2.5-Coder-7B-Instruct">
+              <datalist id="hf-models-list">
+                <option value="Qwen/Qwen2.5-Coder-7B-Instruct">Qwen 2.5 Coder 7B (Fast, Open, Strict JSON)</option>
+                <option value="Qwen/Qwen2.5-72B-Instruct">Qwen 2.5 72B (Highest Reasoning)</option>
+                <option value="deepseek-ai/DeepSeek-R1-Distill-Qwen-7B">DeepSeek R1 Distill Qwen 7B (Clinical Reasoning)</option>
+                <option value="meta-llama/Llama-3.1-8B-Instruct">Meta Llama 3.1 8B (Meta License Required)</option>
+                <option value="Qwen/Qwen2.5-Coder-32B-Instruct">Qwen 2.5 Coder 32B (Very Accurate)</option>
+                <option value="microsoft/phi-4">Microsoft Phi-4 (14B Reasoning)</option>
+              </datalist>
             </div>
           </div>
 
