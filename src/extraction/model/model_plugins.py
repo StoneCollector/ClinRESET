@@ -217,23 +217,61 @@ class HuggingFaceApiPlugin(BaseModelPlugin):
             return HeuristicPlugin().extract(sentence)
 
         prompt_text = build_prompt(sentence)
-        payload = {
+
+        # 1. Primary: Hugging Face Router Chat Completions (supports broad provider catalog)
+        chat_url = "https://router.huggingface.co/v1/chat/completions"
+        chat_payload = {
+            "model": self.model_id,
+            "messages": [{"role": "user", "content": prompt_text}],
+            "temperature": 0.01,
+            "max_tokens": 128,
+            "stream": False,
+        }
+        try:
+            req = urllib.request.Request(
+                chat_url,
+                data=json.dumps(chat_payload).encode("utf-8"),
+                headers={
+                    "Content-Type": "application/json",
+                    "Authorization": f"Bearer {self.api_token.strip()}",
+                },
+            )
+            with urllib.request.urlopen(req, timeout=15) as resp:
+                result = json.loads(resp.read().decode("utf-8"))
+                if isinstance(result, dict) and "choices" in result and result["choices"]:
+                    content = result["choices"][0].get("message", {}).get("content", "")
+                    if content:
+                        parsed = OllamaPlugin._parse_json(content)
+                        if parsed:
+                            return parsed
+        except urllib.error.HTTPError as e:
+            err_msg = ""
+            try:
+                err_msg = e.read().decode("utf-8")
+            except Exception:
+                pass
+            logger.info(f"HF Router Chat endpoint {e.code}: {err_msg[:120]}. Trying task endpoint...")
+        except Exception as e:
+            logger.info(f"HF Router Chat endpoint error: {e}. Trying task endpoint...")
+
+        # 2. Secondary: Direct task endpoint on hf-inference
+        model_url = f"https://router.huggingface.co/hf-inference/models/{self.model_id}"
+        model_payload = {
             "inputs": prompt_text,
             "parameters": {
                 "max_new_tokens": 128,
                 "return_full_text": False,
-                "temperature": 0.01
-            }
+                "temperature": 0.01,
+            },
         }
         try:
-            data = json.dumps(payload).encode("utf-8")
             req = urllib.request.Request(
-                self.endpoint,
-                data=data,
+                model_url,
+                data=json.dumps(model_payload).encode("utf-8"),
                 headers={
                     "Content-Type": "application/json",
-                    "Authorization": f"Bearer {self.api_token.strip()}"
-                }
+                    "Authorization": f"Bearer {self.api_token.strip()}",
+                },
             )
             with urllib.request.urlopen(req, timeout=15) as resp:
                 result = json.loads(resp.read().decode("utf-8"))
@@ -244,14 +282,9 @@ class HuggingFaceApiPlugin(BaseModelPlugin):
                     gen_text = result.get("generated_text", "")
 
                 if gen_text:
-                    return OllamaPlugin._parse_json(gen_text)
-        except urllib.error.HTTPError as e:
-            err_body = ""
-            try:
-                err_body = e.read().decode("utf-8")
-            except Exception:
-                pass
-            logger.warning(f"HF API HTTP {e.code} error: {err_body or e.reason}. Falling back to heuristic.")
+                    parsed = OllamaPlugin._parse_json(gen_text)
+                    if parsed:
+                        return parsed
         except Exception as e:
             logger.warning(f"HF API inference failed: {e}. Falling back to heuristic.")
 
