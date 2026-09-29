@@ -9,6 +9,29 @@ import os
 from typing import Any, Dict, Optional
 
 
+def _load_dotenv_if_exists() -> None:
+    for candidate in [".env", os.path.join(os.path.dirname(__file__), "../../../.env")]:
+        abs_path = os.path.abspath(candidate)
+        if os.path.isfile(abs_path):
+            try:
+                with open(abs_path, "r", encoding="utf-8") as f:
+                    for line in f:
+                        line = line.strip()
+                        if not line or line.startswith("#") or "=" not in line:
+                            continue
+                        k, v = line.split("=", 1)
+                        k = k.strip()
+                        v = v.strip().strip('"').strip("'")
+                        if k and k not in os.environ:
+                            os.environ[k] = v
+                break
+            except Exception:
+                pass
+
+
+_load_dotenv_if_exists()
+
+
 class AppConfigState:
     """Singleton state holding user-configured methodologies and credentials."""
 

@@ -25,6 +25,30 @@ from .prompt import build_prompt
 logger = logging.getLogger(__name__)
 
 
+def _load_dotenv_if_exists() -> None:
+    """Loads key-value pairs from .env into os.environ without external dependencies."""
+    for candidate in [".env", os.path.join(os.path.dirname(__file__), "../../../.env")]:
+        abs_path = os.path.abspath(candidate)
+        if os.path.isfile(abs_path):
+            try:
+                with open(abs_path, "r", encoding="utf-8") as f:
+                    for line in f:
+                        line = line.strip()
+                        if not line or line.startswith("#") or "=" not in line:
+                            continue
+                        k, v = line.split("=", 1)
+                        k = k.strip()
+                        v = v.strip().strip('"').strip("'")
+                        if k and k not in os.environ:
+                            os.environ[k] = v
+                break
+            except Exception:
+                pass
+
+
+_load_dotenv_if_exists()
+
+
 class BaseModelPlugin(ABC):
     """Abstract base class for concept extraction backends."""
 
@@ -250,9 +274,9 @@ class HuggingFaceApiPlugin(BaseModelPlugin):
                 err_msg = e.read().decode("utf-8")
             except Exception:
                 pass
-            logger.info(f"HF Router Chat endpoint {e.code}: {err_msg[:120]}. Trying task endpoint...")
+            logger.warning(f"HF Router Chat endpoint error HTTP {e.code}: {err_msg[:200]}")
         except Exception as e:
-            logger.info(f"HF Router Chat endpoint error: {e}. Trying task endpoint...")
+            logger.warning(f"HF Router Chat endpoint error: {e}")
 
         # 2. Secondary: Direct task endpoint on hf-inference
         model_url = f"https://router.huggingface.co/hf-inference/models/{self.model_id}"
@@ -285,6 +309,13 @@ class HuggingFaceApiPlugin(BaseModelPlugin):
                     parsed = OllamaPlugin._parse_json(gen_text)
                     if parsed:
                         return parsed
+        except urllib.error.HTTPError as e:
+            err_msg = ""
+            try:
+                err_msg = e.read().decode("utf-8")
+            except Exception:
+                pass
+            logger.warning(f"HF Task endpoint failed (HTTP {e.code}: {err_msg[:200]}). Falling back to heuristic.")
         except Exception as e:
             logger.warning(f"HF API inference failed: {e}. Falling back to heuristic.")
 
