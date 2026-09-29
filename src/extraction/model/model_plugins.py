@@ -196,9 +196,17 @@ class HuggingFaceApiPlugin(BaseModelPlugin):
         model_name: Optional[str] = None,
         **kwargs
     ):
-        self.model_id = model_name or model_id
+        raw_id = model_name or model_id or "Qwen/Qwen2.5-1.5B-Instruct"
+        # Sanitize model_id in case user entered URL or leading/trailing slashes
+        clean_id = (
+            raw_id.replace("https://huggingface.co/", "")
+            .replace("http://huggingface.co/", "")
+            .strip("/")
+            .strip()
+        )
+        self.model_id = clean_id
         self.api_token = api_token or os.environ.get("HUGGINGFACE_API_KEY") or os.environ.get("HF_TOKEN")
-        self.endpoint = f"https://api-inference.huggingface.co/models/{self.model_id}"
+        self.endpoint = f"https://router.huggingface.co/hf-inference/models/{self.model_id}"
 
     def is_available(self) -> bool:
         return bool(self.api_token)
@@ -224,14 +232,26 @@ class HuggingFaceApiPlugin(BaseModelPlugin):
                 data=data,
                 headers={
                     "Content-Type": "application/json",
-                    "Authorization": f"Bearer {self.api_token}"
+                    "Authorization": f"Bearer {self.api_token.strip()}"
                 }
             )
-            with urllib.request.urlopen(req, timeout=12) as resp:
+            with urllib.request.urlopen(req, timeout=15) as resp:
                 result = json.loads(resp.read().decode("utf-8"))
+                gen_text = ""
                 if isinstance(result, list) and result:
                     gen_text = result[0].get("generated_text", "")
+                elif isinstance(result, dict):
+                    gen_text = result.get("generated_text", "")
+
+                if gen_text:
                     return OllamaPlugin._parse_json(gen_text)
+        except urllib.error.HTTPError as e:
+            err_body = ""
+            try:
+                err_body = e.read().decode("utf-8")
+            except Exception:
+                pass
+            logger.warning(f"HF API HTTP {e.code} error: {err_body or e.reason}. Falling back to heuristic.")
         except Exception as e:
             logger.warning(f"HF API inference failed: {e}. Falling back to heuristic.")
 
