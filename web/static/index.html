@@ -3,284 +3,290 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ClinRESET — Clinical Report Simplifier</title>
+  <title>ClinRESET - Understand Your Medical Report</title>
+  <meta name="description" content="ClinRESET translates complex clinical PDF reports into plain, easy-to-understand English.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
   <div class="app-wrapper">
-    <!-- Header -->
     <header class="app-header">
       <div class="brand-container">
         <div class="brand-logo">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
-            <path d="M12 5v14"/>
-            <path d="M5 12h14"/>
+            <path d="M12 5v14"/><path d="M5 12h14"/>
           </svg>
         </div>
-        <div>
-          <h1 class="brand-title">ClinRESET</h1>
-          <p class="brand-tagline">Clinical Report Simplification & Explanation Tool</p>
+        <div class="brand-text">
+          <span class="brand-title">ClinRESET</span>
+          <span class="brand-tagline">Medical Report Simplifier</span>
+        </div>
+      </div>
+      <div class="header-actions">
+        <div class="header-status-pill">
+          <span class="status-dot"></span>
+          <span>Engine Ready</span>
         </div>
       </div>
     </header>
 
-    <!-- Main Container -->
     <main class="app-main">
-      <!-- UPLOAD VIEW -->
       <section id="upload-view" class="view-panel active">
-        <div class="upload-card">
-          <div class="card-intro">
-            <h2>Analyze Medical Report</h2>
-            <p>Upload a clinical PDF to run deterministic extraction, terminology normalization, reference range evaluation, and plain-language explanation generation.</p>
+        <div class="hero-section">
+          <div class="hero-bg-orbs">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
           </div>
-
-          <!-- Dropzone -->
-          <div id="drop-zone" class="drop-zone">
-            <input type="file" id="pdf-input" accept="application/pdf" hidden>
-            <div class="drop-icon">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
-                <polyline points="14 2 14 8 20 8"/>
-                <path d="M12 18v-6"/>
-                <path d="m9 15 3-3 3 3"/>
-              </svg>
+          <div class="hero-content">
+            <div class="hero-badge">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              AI-Powered Clinical Analysis
             </div>
-            <div class="drop-text">
-              <h3>Drag & drop medical PDF report</h3>
-              <p>or <button type="button" id="btn-browse" class="btn-text">browse from your computer</button></p>
-            </div>
-            <div class="drop-footer">
-              <span>Standard digital PDF supported</span>
-              <span>•</span>
-              <span>100% Deterministic Engine</span>
-            </div>
-          </div>
-
-          <!-- Processing State (Cosmetic Progress Sequence) -->
-          <div id="processing-state" class="processing-state is-hidden" hidden>
-            <div class="spinner-container">
-              <div class="pulse-ring"></div>
-              <div class="spinner"></div>
-            </div>
-            <h3 id="status-title">Processing Report</h3>
-            <!-- Client-side cosmetic status progression clearly commented in app.js -->
-            <p id="status-text" class="status-animated-text">Extracting document text & tables...</p>
-            <div class="progress-bar-track">
-              <div id="progress-bar-fill" class="progress-bar-fill"></div>
+            <h1 class="hero-title">Understand Your<br><span class="hero-title-accent">Medical Report</span></h1>
+            <p class="hero-subtitle">Upload any clinical PDF report and get a clear, plain-language explanation of every finding - powered by deterministic medical AI.</p>
+            <div class="feature-pills">
+              <div class="feature-pill">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+                Plain Language
+              </div>
+              <div class="feature-pill">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                100% Private
+              </div>
+              <div class="feature-pill">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                Instant Results
+              </div>
+              <div class="feature-pill">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                Reference Ranges
+              </div>
             </div>
           </div>
+        </div>
 
-          <!-- Error State -->
-          <div id="error-state" class="error-state is-hidden" hidden>
-            <div class="error-icon">
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"/>
-                <line x1="12" y1="8" x2="12" y2="12"/>
-                <line x1="12" y1="16" x2="12.01" y2="16"/>
-              </svg>
+        <div class="upload-card-wrapper">
+          <div class="upload-card">
+            <div id="drop-zone" class="drop-zone">
+              <input type="file" id="pdf-input" accept="application/pdf" hidden>
+              <div class="drop-zone-inner">
+                <div class="drop-icon-wrapper">
+                  <div class="drop-icon-ring"></div>
+                  <div class="drop-icon-bg">
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                      <polyline points="14 2 14 8 20 8"/>
+                      <line x1="12" y1="18" x2="12" y2="12"/>
+                      <line x1="9" y1="15" x2="15" y2="15"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="drop-text">
+                  <h3>Drop your PDF report here</h3>
+                  <p>or <button type="button" id="btn-browse" class="btn-browse-inline">browse files</button> from your computer</p>
+                </div>
+                <div class="drop-meta">
+                  <span class="drop-meta-chip">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/></svg>
+                    PDF format
+                  </span>
+                  <span class="drop-meta-chip">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+                    Encrypted &amp; private
+                  </span>
+                </div>
+              </div>
             </div>
-            <div class="error-content">
-              <h3>Analysis Failed</h3>
-              <p id="error-message">An error occurred during report processing.</p>
-              <button type="button" id="btn-retry" class="btn-secondary">Try Another File</button>
+
+            <div id="processing-state" class="processing-state is-hidden" hidden>
+              <div class="processing-visual">
+                <div class="processing-rings">
+                  <div class="pring pring-1"></div>
+                  <div class="pring pring-2"></div>
+                  <div class="pring pring-3"></div>
+                </div>
+                <div class="processing-icon">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                </div>
+              </div>
+              <div class="processing-info">
+                <h3 id="status-title">Analyzing Report</h3>
+                <p id="status-text" class="status-animated-text">Extracting document text &amp; tables...</p>
+              </div>
+              <div class="progress-track">
+                <div id="progress-bar-fill" class="progress-fill"></div>
+              </div>
+              <div class="processing-steps">
+                <div class="proc-step active" id="proc-step-1"><div class="proc-step-dot"></div><span>Extract</span></div>
+                <div class="proc-step-line"></div>
+                <div class="proc-step" id="proc-step-2"><div class="proc-step-dot"></div><span>Classify</span></div>
+                <div class="proc-step-line"></div>
+                <div class="proc-step" id="proc-step-3"><div class="proc-step-dot"></div><span>Analyze</span></div>
+                <div class="proc-step-line"></div>
+                <div class="proc-step" id="proc-step-4"><div class="proc-step-dot"></div><span>Explain</span></div>
+              </div>
             </div>
+
+            <div id="error-state" class="error-state is-hidden" hidden>
+              <div class="error-icon-wrap">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              </div>
+              <div class="error-content">
+                <h3>Analysis Failed</h3>
+                <p id="error-message">An error occurred during report processing.</p>
+                <button type="button" id="btn-retry" class="btn-primary">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                  Try Another File
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="stats-row">
+            <div class="stat-chip"><span class="stat-val">CBC</span><span class="stat-lbl">Blood Counts</span></div>
+            <div class="stat-chip"><span class="stat-val">Echo</span><span class="stat-lbl">Cardiac Reports</span></div>
+            <div class="stat-chip"><span class="stat-val">LFT / KFT</span><span class="stat-lbl">Organ Function</span></div>
+            <div class="stat-chip"><span class="stat-val">+ More</span><span class="stat-lbl">Report Types</span></div>
           </div>
         </div>
       </section>
 
-      <!-- RESULTS VIEW -->
       <section id="results-view" class="view-panel is-hidden" hidden>
-        <!-- Top Toolbar -->
         <div class="results-toolbar">
-          <div class="report-meta-header" id="report-meta-header">
-            <!-- Populated dynamically: report_type, status, confidence -->
+          <div class="results-toolbar-left">
+            <div id="report-meta-header" class="report-meta-header"></div>
           </div>
-          <button type="button" id="btn-reset" class="btn-secondary">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
-              <path d="M3 3v5h5"/>
-            </svg>
-            Process Another Report
-          </button>
+          <div class="results-toolbar-right">
+            <div id="export-toolbar-container"></div>
+            <button type="button" id="btn-reset" class="btn-outline-sm">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+              New Report
+            </button>
+          </div>
         </div>
-        
-        <div id="export-toolbar-container"></div>
 
-        <!-- Side Navigation & Action Dock -->
-        <aside class="results-sidebar" id="results-sidebar">
-          <!-- Compact Alert-Color Legend (Minimizable) -->
-          <div class="alert-legend-bar" id="alert-legend-bar">
-            <div class="legend-header" id="legend-header" role="button" tabindex="0" aria-expanded="true" aria-controls="legend-items" title="Click to toggle legend">
-              <div class="legend-title-group">
-                <svg class="legend-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"/>
-                  <line x1="12" y1="16" x2="12" y2="12"/>
-                  <line x1="12" y1="8" x2="12.01" y2="8"/>
-                </svg>
-                <span class="legend-title legend-title-expanded">Triage Legend</span>
-                <span class="legend-title legend-title-collapsed">Legend</span>
+        <div class="results-body">
+          <aside class="results-sidebar" id="results-sidebar">
+            <div class="sidebar-widget" id="alert-legend-bar">
+              <div class="sidebar-widget-header" id="legend-header" role="button" tabindex="0" aria-expanded="true" aria-controls="legend-items">
+                <div class="sidebar-widget-title">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                  Triage Legend
+                </div>
+                <button type="button" class="btn-legend-toggle" id="btn-legend-toggle" aria-label="Toggle legend">
+                  <svg class="toggle-icon-collapse" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m18 15-6-6-6 6"/></svg>
+                  <svg class="toggle-icon-expand" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
               </div>
-              <button type="button" class="btn-legend-toggle" id="btn-legend-toggle" aria-label="Toggle legend">
-                <svg class="toggle-icon-collapse" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="m18 15-6-6-6 6"/>
-                </svg>
-                <svg class="toggle-icon-expand" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="m6 9 6 6 6-6"/>
-                </svg>
-              </button>
-            </div>
-            <div class="legend-items" id="legend-items">
-              <div class="legend-item">
-                <span class="legend-dot dot-green"></span>
-                <span class="legend-label"><strong>Green</strong> = Within reported range</span>
-              </div>
-              <div class="legend-item">
-                <span class="legend-dot dot-yellow"></span>
-                <span class="legend-label"><strong>Yellow</strong> = Notable finding</span>
-              </div>
-              <div class="legend-item">
-                <span class="legend-dot dot-orange"></span>
-                <span class="legend-label"><strong>Orange</strong> = Outside reported range</span>
-              </div>
-              <div class="legend-item">
-                <span class="legend-dot dot-red"></span>
-                <span class="legend-label"><strong>Red</strong> = Critical</span>
-              </div>
-              <div class="legend-item">
-                <span class="legend-dot dot-grey"></span>
-                <span class="legend-label"><strong>Grey</strong> = Unresolved</span>
+              <div class="legend-items" id="legend-items">
+                <div class="legend-item"><span class="legend-dot dot-green"></span><span>Normal range</span></div>
+                <div class="legend-item"><span class="legend-dot dot-yellow"></span><span>Notable finding</span></div>
+                <div class="legend-item"><span class="legend-dot dot-orange"></span><span>Outside range</span></div>
+                <div class="legend-item"><span class="legend-dot dot-red"></span><span>Critical</span></div>
+                <div class="legend-item"><span class="legend-dot dot-grey"></span><span>Unresolved</span></div>
               </div>
             </div>
-          </div>
-
-          <!-- Section Toggle Buttons Dock -->
-          <div class="section-nav-dock" id="section-nav-dock">
-            <button type="button" class="section-nav-btn" data-section="sec-summary" title="Minimize / Maximize Section 0: Report Summary">
-              <span class="sec-nav-label-box">
-                <span class="sec-nav-label">Summary</span>
-              </span>
-            </button>
-
-            <button type="button" class="section-nav-btn" data-section="sec-findings" title="Minimize / Maximize Section 1: Key Clinical Findings">
-              <span class="sec-nav-label-box">
-                <span class="sec-nav-label">Findings</span>
-              </span>
-            </button>
-
-            <button type="button" class="section-nav-btn" data-section="sec-measurements" title="Minimize / Maximize Section 2: Measurements of Interest">
-              <span class="sec-nav-label-box">
-                <span class="sec-nav-label">Measurements</span>
-              </span>
-            </button>
-
-            <button type="button" class="section-nav-btn" data-section="sec-context" title="Minimize / Maximize Section 3: Contextual Relationships">
-              <span class="sec-nav-label-box">
-                <span class="sec-nav-label">Context</span>
-              </span>
-            </button>
-
-            <button type="button" class="section-nav-btn" data-section="sec-limitations" title="Minimize / Maximize Section 4: Clinical Limitations">
-              <span class="sec-nav-label-box">
-                <span class="sec-nav-label">Limitations</span>
-              </span>
-            </button>
-          </div>
-        </aside>
-
-        <!-- 0. Overall Report Summary Section -->
-        <section class="results-section" id="sec-summary">
-          <div class="section-title-wrap">
-            <div class="section-badge-row">
-              <div class="section-badge" style="background-color: var(--badge-blue-bg); color: var(--badge-blue-text);">Section 0</div>
-              <span class="section-minimized-badge">Minimized — Click to expand</span>
+            <div class="sidebar-widget sidebar-nav-widget">
+              <div class="sidebar-widget-title-plain">Sections</div>
+              <nav class="section-nav-dock" id="section-nav-dock">
+                <button type="button" class="section-nav-btn" data-section="sec-summary">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 13h6M9 17h4"/></svg>
+                  <span class="sec-nav-label">Summary</span>
+                </button>
+                <button type="button" class="section-nav-btn" data-section="sec-findings">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                  <span class="sec-nav-label">Findings</span>
+                </button>
+                <button type="button" class="section-nav-btn" data-section="sec-measurements">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+                  <span class="sec-nav-label">Measurements</span>
+                </button>
+                <button type="button" class="section-nav-btn" data-section="sec-context">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="5" r="3"/><circle cx="5" cy="19" r="3"/><circle cx="19" cy="19" r="3"/><path d="M12 8v3m-4.5 4.5 4.5-3 4.5 3"/></svg>
+                  <span class="sec-nav-label">Context</span>
+                </button>
+                <button type="button" class="section-nav-btn" data-section="sec-limitations">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+                  <span class="sec-nav-label">Limitations</span>
+                </button>
+              </nav>
             </div>
-            <h2>Overall Report Summary</h2>
-            <span class="section-subtitle">Plain-language summary of the overall health picture</span>
-          </div>
-          <div id="report-summary-container" class="report-summary-box">
-            <!-- Summary rendered dynamically -->
-          </div>
-        </section>
+          </aside>
 
-        <!-- 1. Key Findings Section -->
-        <section class="results-section" id="sec-findings">
-          <div class="section-title-wrap">
-            <div class="section-badge-row">
-              <div class="section-badge">Section 1</div>
-              <span class="section-minimized-badge">Minimized — Click to expand</span>
-            </div>
-            <h2>Key Clinical Findings</h2>
-            <span class="section-subtitle">Qualitative observations, wall motion assessments, and structural findings</span>
-          </div>
-          <div id="key-findings-container" class="cards-grid">
-            <!-- Cards rendered dynamically -->
-          </div>
-        </section>
+          <div class="results-content">
+            <section class="results-section" id="sec-summary">
+              <div class="section-header">
+                <div class="section-header-left">
+                  <div class="section-tag tag-blue">Summary</div>
+                  <div><h2 class="section-title">Overall Report Summary</h2><p class="section-desc">Plain-language overview of your health picture</p></div>
+                </div>
+                <div class="section-minimized-badge">Minimized - click to expand</div>
+              </div>
+              <div id="report-summary-container" class="report-summary-box"></div>
+            </section>
 
-        <!-- 2. Measurements of Interest Section -->
-        <section class="results-section" id="sec-measurements">
-          <div class="section-title-wrap">
-            <div class="section-badge-row">
-              <div class="section-badge">Section 2</div>
-              <span class="section-minimized-badge">Minimized — Click to expand</span>
-            </div>
-            <h2>Measurements of Interest</h2>
-            <span class="section-subtitle">Quantitative dimensions and Doppler velocities evaluated against reported reference ranges</span>
-          </div>
-          <div id="measurements-container" class="measurements-list">
-            <!-- Measurements rendered dynamically -->
-          </div>
-        </section>
+            <section class="results-section" id="sec-findings">
+              <div class="section-header">
+                <div class="section-header-left">
+                  <div class="section-tag tag-default">Section 1</div>
+                  <div><h2 class="section-title">Key Clinical Findings</h2><p class="section-desc">Qualitative observations and structural findings</p></div>
+                </div>
+                <div class="section-minimized-badge">Minimized - click to expand</div>
+              </div>
+              <div id="key-findings-container" class="cards-grid"></div>
+            </section>
 
-        <!-- 3. Contextual Relationships Section -->
-        <section class="results-section" id="sec-context">
-          <div class="section-title-wrap">
-            <div class="section-badge-row">
-              <div class="section-badge neutral">Section 3</div>
-              <span class="section-minimized-badge">Minimized — Click to expand</span>
-            </div>
-            <h2>Contextual Relationships</h2>
-            <span class="section-subtitle">Observed co-occurring findings evaluated in standard clinical assessment</span>
-          </div>
-          <div id="context-container" class="context-grid">
-            <!-- Context cards rendered dynamically -->
-          </div>
-        </section>
+            <section class="results-section" id="sec-measurements">
+              <div class="section-header">
+                <div class="section-header-left">
+                  <div class="section-tag tag-default">Section 2</div>
+                  <div><h2 class="section-title">Measurements of Interest</h2><p class="section-desc">Quantitative values evaluated against reference ranges</p></div>
+                </div>
+                <div class="section-minimized-badge">Minimized - click to expand</div>
+              </div>
+              <div id="measurements-container" class="measurements-list"></div>
+            </section>
 
-        <!-- 4. Clinical Limitations Disclaimer -->
-        <section class="results-section limitations-section" id="sec-limitations">
-          <div class="section-title-wrap">
-            <div class="section-badge-row">
-              <div class="section-badge" style="background-color: rgba(234, 179, 8, 0.15); color: var(--alert-yellow);">Section 4</div>
-              <span class="section-minimized-badge">Minimized — Click to expand</span>
-            </div>
+            <section class="results-section" id="sec-context">
+              <div class="section-header">
+                <div class="section-header-left">
+                  <div class="section-tag tag-purple">Section 3</div>
+                  <div><h2 class="section-title">Contextual Relationships</h2><p class="section-desc">Co-occurring findings evaluated in clinical context</p></div>
+                </div>
+                <div class="section-minimized-badge">Minimized - click to expand</div>
+              </div>
+              <div id="context-container" class="context-grid"></div>
+            </section>
+
+            <section class="results-section limitations-section" id="sec-limitations">
+              <div class="section-header">
+                <div class="section-header-left">
+                  <div class="section-tag tag-yellow">Notice</div>
+                  <div><h2 class="section-title">Clinical Limitations &amp; Governance</h2></div>
+                </div>
+                <div class="section-minimized-badge">Minimized - click to expand</div>
+              </div>
+              <div class="limitations-box">
+                <div class="limitations-icon-row">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
+                  <span>Deterministic System Notice</span>
+                </div>
+                <ul id="limitations-list" class="limitations-list"></ul>
+              </div>
+            </section>
           </div>
-          <div class="limitations-box">
-            <div class="limitations-header">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
-                <path d="m9 12 2 2 4-4"/>
-              </svg>
-              <h3>Deterministic System Limitations & Clinical Governance</h3>
-            </div>
-            <ul id="limitations-list" class="limitations-list">
-              <!-- Populated dynamically from FinalReport.limitations -->
-            </ul>
-          </div>
-        </section>
+        </div>
       </section>
     </main>
 
-    <!-- Footer -->
     <footer class="app-footer">
-      <p>ClinRESET — Advanced Agentic Medical Information Extraction & Explanation Framework</p>
+      <p>ClinRESET &mdash; Advanced Medical Information Extraction &amp; Explanation Framework &mdash; For informational use only.</p>
     </footer>
   </div>
-
   <script src="/static/app.js"></script>
 </body>
 </html>

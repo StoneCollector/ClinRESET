@@ -69,11 +69,11 @@
      synchronous extraction and reporting pipeline.
      ========================================================================== */
   const COSMETIC_STEPS = [
-    { text: 'Extracting document text & tables (PyMuPDF4LLM)...', progress: '25%' },
-    { text: 'Classifying document type (Rule-based signature)...', progress: '45%' },
-    { text: 'Extracting clinical entities & terminology normalization...', progress: '65%' },
-    { text: 'Evaluating reference intervals & clinical significance...', progress: '85%' },
-    { text: 'Generating deterministic explanations & final report...', progress: '95%' },
+    { text: 'Extracting document text & tables (PyMuPDF4LLM)...', progress: '25%', step: 1 },
+    { text: 'Classifying document type (Rule-based signature)...', progress: '45%', step: 2 },
+    { text: 'Extracting clinical entities & terminology normalization...', progress: '65%', step: 3 },
+    { text: 'Evaluating reference intervals & clinical significance...', progress: '85%', step: 3 },
+    { text: 'Generating deterministic explanations & final report...', progress: '95%', step: 4 },
   ];
 
   function startCosmeticProgress() {
@@ -81,18 +81,26 @@
     let stepIndex = 0;
     if (statusText) statusText.textContent = COSMETIC_STEPS[0].text;
     if (progressBarFill) progressBarFill.style.width = COSMETIC_STEPS[0].progress;
+    document.querySelectorAll('.proc-step').forEach((el, i) => el.classList.toggle('active', i === 0));
 
     cosmeticTimer = setInterval(() => {
       stepIndex++;
       if (stepIndex < COSMETIC_STEPS.length) {
+        const step = COSMETIC_STEPS[stepIndex];
         if (statusText) statusText.style.opacity = '0';
         setTimeout(() => {
           if (statusText) {
-            statusText.textContent = COSMETIC_STEPS[stepIndex].text;
+            statusText.textContent = step.text;
             statusText.style.opacity = '1';
           }
           if (progressBarFill) {
-            progressBarFill.style.width = COSMETIC_STEPS[stepIndex].progress;
+            progressBarFill.style.width = step.progress;
+          }
+          // Activate processing step dots
+          if (step.step) {
+            document.querySelectorAll('.proc-step').forEach((el, i) => {
+              el.classList.toggle('active', i + 1 <= step.step);
+            });
           }
         }, 200);
       }
@@ -298,15 +306,18 @@
 
     // Also allow clicking directly on a minimized section header to expand it
     document.querySelectorAll('.results-section').forEach((sec) => {
-      const titleWrap = sec.querySelector('.section-title-wrap');
-      if (titleWrap) {
-        titleWrap.addEventListener('click', () => {
+      const header = sec.querySelector('.section-header');
+      if (header) {
+        header.addEventListener('click', (e) => {
+          if (e.target.closest('button')) return; // let buttons handle themselves
           if (sec.classList.contains('is-minimized')) {
             sec.classList.remove('is-minimized');
             const matchingBtn = document.querySelector(`.section-nav-btn[data-section="${sec.id}"]`);
-            if (matchingBtn) {
-              matchingBtn.classList.remove('is-minimized');
-            }
+            if (matchingBtn) matchingBtn.classList.remove('is-minimized');
+          } else {
+            sec.classList.add('is-minimized');
+            const matchingBtn = document.querySelector(`.section-nav-btn[data-section="${sec.id}"]`);
+            if (matchingBtn) matchingBtn.classList.add('is-minimized');
           }
         });
       }
