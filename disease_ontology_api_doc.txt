@@ -1,0 +1,867 @@
+openapi: 3.1.0
+info:
+  title: Disease Ontology - API
+  description: |-
+    The Human Disease Ontology API Specification.
+    - Learn more about the [Human Disease Ontology (DO)](https://disease-ontology.org/)
+  contact:
+    name: Contact Us
+    url: https://disease-ontology.org/outreach/contact-us
+  license:
+    name: Licensed under Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+  - url: https://api.disease-ontology.org/v1
+paths:
+  /info:
+    get:
+      tags:
+        - info
+      summary: Get DO API Metadata
+      description: 
+      operationId: getDOMetadata
+      parameters:
+        - name: lang
+          in: query
+          description: Future use. We only support lang=en at this time.
+          schema:
+            type: string
+          required: false      
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: false
+                required:
+                  - api
+                  - data
+                properties:
+                  api:
+                    additionalProperties: false
+                    required:
+                      - description
+                      - documentation
+                      - version
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        examples:
+                          - The Disease Ontology API provides a powerful RESTful interface typically used programmatically to interact with disease-related data. Our API specification is OpenAPI 3.1 compliant, ensuring a modern and standardized approach to interacting with the data. Through this platform, you can easily perform operations such as retrieving specific disease terms, conducting searches similar to the site's advanced search page, and utilizing faceted search to filter results by different categories. See our documentation for more information.
+                      documentation:
+                        type: string
+                        examples:
+                          - https://disease-ontology.org/do-kb/api_doc
+                      version:
+                        type: string
+                        examples:
+                          - 1.0.0
+                  data:
+                    additionalProperties: false
+                    required:
+                      - description
+                      - release_url
+                      - documentation
+                      - license
+                      - version
+                      - url
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        examples:
+                        - The Disease Ontology (DO) provides stable, reusable and sustainable descriptions of human disease terms, disease-disease and disease-characteristic relationships, and extensive cross mappings to other authoritative medical vocabularies.
+                      release_url:
+                        type: string
+                        examples:
+                          - https://github.com/DiseaseOntology/HumanDiseaseOntology/releases/tag/v2024-09-27
+                      documentation:
+                        type: string
+                        examples:
+                          - https://github.com/DiseaseOntology/HumanDiseaseOntology
+                      license:
+                        type: string
+                        examples:
+                          - CC0 1.0 - https://creativecommons.org/publicdomain/zero/1.0/
+                      version:
+                        type: string
+                        examples:
+                          - 2025-02-03
+                      url:
+                        type: string
+                        examples:
+                          - http://purl.obolibrary.org/obo/doid.owl
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Not Found
+          content:
+              application/json:
+                schema:
+                  type: string
+                  examples:
+                   - Page not found
+        '5XX':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /terms:
+    get:
+      tags:
+        - terms
+      summary: Get all disease terms
+      description: Returns an array of disease terms
+      operationId: getTerms
+      parameters:
+        - name: page
+          in: query
+          description: page number to request (min:1, optional)
+          schema:
+            type: integer
+            minimum: 1
+          required: false
+        - name: page_size
+          in: query
+          description: number of results returned per page
+          schema:
+            type: integer
+            minimum: 1
+          required: false
+        - name: lang
+          in: query
+          description: Future use. We only support lang=en at this time.
+          schema:
+            type: string
+          required: false
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  page:
+                    type: integer
+                    examples:
+                      - 1
+                  page_size:
+                    type: integer
+                    examples:
+                      - 10
+                  page_count:
+                    type: integer
+                    examples:
+                      - 100
+                  result_count:
+                    type: integer
+                    examples:
+                      - 1000
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Term'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Not Found
+          content:
+              application/json:
+                schema:
+                  type: string
+                  examples:
+                   - Page not found
+        '5XX':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /terms/{termId}:
+    get:
+      tags:
+        - terms
+      summary: Find Term by ID
+      description: Returns a single Term
+      operationId: getTermById
+      parameters:
+        - name: termId
+          in: path
+          description: ID of Term to return
+          required: true
+          schema:
+            type: string
+            examples:
+              - DOID_13921
+        - name: lang
+          in: query
+          description: Future use. We only support lang=en at this time.
+          schema:
+            type: string
+          required: false
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Term'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Not Found
+          content:
+              application/json:
+                schema:
+                  type: string
+                  examples:
+                   - Page not found
+        '5XX':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /terms/label/{label}:
+    get:
+      tags:
+        - terms
+      summary: Find Term by Label
+      description: Returns a single Term
+      operationId: getTermByLabel
+      parameters:
+        - name: label
+          in: path
+          description: Human-readable label of Term to return
+          required: true
+          schema:
+            type: string
+            examples:
+              - disease
+        - name: lang
+          in: query
+          description: Future use. We only support lang=en at this time.
+          schema:
+            type: string
+          required: false
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Term'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Not Found
+          content:
+              application/json:
+                schema:
+                  type: string
+                  examples:
+                   - Page not found
+        '5XX':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /terms/search:
+    post:
+      tags:
+        - terms
+      summary: Search for disease terms
+      description: Search for disease terms using disease properties (ids, names, xrefs, etc), imports that are related to diseases (eg. symptoms, anatomy, etc), or a combination of the two.
+      operationId: searchTerms
+      parameters:
+        - name: page
+          in: query
+          description: page number to request (min:1, optional)
+          schema:
+            type: integer
+            minimum: 1
+          required: false
+        - name: page_size
+          in: query
+          description: number of results returned per page
+          schema:
+            type: integer
+            minimum: 1
+          required: false
+        - name: lang
+          in: query
+          description: Future use. We only support lang=en at this time.
+          schema:
+            type: string
+          required: false
+        - name: sort
+          in: query
+          description: sort field (default id)
+          required: false
+          schema:
+            type: string
+            enum:
+              - id
+              - name
+      requestBody:
+        description: Any provided values will be combined using a logical AND to query for results; the exception being that multiple values provided in a single list will be added to the query using a logical OR within that list of values.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SearchCriteria"
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  page:
+                    type: integer
+                    examples:
+                      - 1
+                  page_size:
+                    type: integer
+                    examples:
+                      - 10
+                  page_count:
+                    type: integer
+                    examples:
+                      - 100
+                  result_count:
+                    type: integer
+                    examples:
+                      - 1000
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Term'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Not Found
+          content:
+              application/json:
+                schema:
+                  type: string
+                  examples:
+                   - Page not found
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /imports:
+    get:
+      tags:
+        - imports
+      summary: Get a list of all DO Imports
+      operationId: getImports
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: false
+                  required:
+                    - name
+                    - iri
+                  properties:
+                    name:
+                      type: string
+                      examples:
+                        - anatomy
+                    iri:
+                      type: string
+                      examples:
+                        - http://purl.obolibrary.org/obo/uberon.owl
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Not Found
+          content:
+              application/json:
+                schema:
+                  type: string
+                  examples:
+                   - Page not found
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /imports/{importName}:
+    get:
+      tags:
+        - imports
+      summary: Get all valid terms from this import
+      description: Returns all terms for this import
+      operationId: getImportTerms
+      parameters:
+        - name: importName
+          in: path
+          description: name of import
+          required: true
+          schema:
+            type: string
+            enum:
+              - anatomy
+              - symptom
+              - ncbitaxon
+              - chebi
+              - cell_type
+              - phenotype
+              - onset
+              - evidence
+              - food_material
+              - inheritance_pattern
+              - sequence
+              - transmission_process
+        - name: keyword
+          in: query
+          description: optional keyword to filter results
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Import'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Not Found
+          content:
+              application/json:
+                schema:
+                  type: string
+                  examples:
+                   - Page not found
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /prefixes:
+    get:
+      tags:
+        - prefixes
+      summary: Get DO Prefixes and URIs
+      description: Returns a dictionary of prefixes and their corresponding URIs
+      operationId: getDOPrefixes
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Prefix'
+                  
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Not Found
+          content:
+              application/json:
+                schema:
+                  type: string
+                  examples:
+                   - Page not found
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    Import:
+      additionalProperties: false
+      required:
+        - id
+        - name
+        - term_count
+        - purl
+      type: object
+      properties:
+        id:
+          type: string
+          examples:
+            - CL:0000115
+        name:
+          type: string
+          examples:
+            - endothelial cell
+        term_count:
+          type: integer
+          examples:
+            - 757
+        purl:
+          type: string
+          examples:
+            - http://purl.obolibrary.org/obo/CL_0000115
+    ImportValue:
+      additionalProperties: false
+      required:
+        - id
+        - label
+      type: object
+      properties:
+        id:
+          type: string
+        label:
+          type: string
+    ImportResult:
+      additionalProperties: false
+      type: object
+      properties:
+        anatomy:
+          type: array
+          items:
+            $ref: '#/components/schemas/ImportValue'
+        symptom:
+          type: array
+          items:
+            $ref: '#/components/schemas/ImportValue'
+        ncbitaxon:
+          type: array
+          items:
+            $ref: '#/components/schemas/ImportValue'
+        chebi:
+          type: array
+          items:
+            $ref: '#/components/schemas/ImportValue'
+        cell_type:
+          type: array
+          items:
+            $ref: '#/components/schemas/ImportValue'
+        phenotype:
+          type: array
+          items:
+            $ref: '#/components/schemas/ImportValue'
+        onset:
+          type: array
+          items:
+            $ref: '#/components/schemas/ImportValue'
+        evidence:
+          type: array
+          items:
+            $ref: '#/components/schemas/ImportValue'
+        food_material:
+          type: array
+          items:
+            $ref: '#/components/schemas/ImportValue'
+        inheritance_pattern:
+          type: array
+          items:
+            $ref: '#/components/schemas/ImportValue'
+        sequence:
+          type: array
+          items:
+            $ref: '#/components/schemas/ImportValue'
+        transmission_process:
+          type: array
+          items:
+            $ref: '#/components/schemas/ImportValue'
+    Term:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: string
+          examples: 
+            - DOID:2745
+        name:
+          type: string
+          examples: 
+            - Lynch syndrome
+        xrefs:
+          type: array
+          items:
+            type: string
+            examples:
+              - GARD:9905
+              - MESH:D003123
+        subsets:
+          type: array
+          items:
+            type: string
+            examples:
+              - DO_rare_slim
+        alternate_ids:
+            type: array
+            items:
+              type: string
+              examples:
+                - DOID:0050586
+        definition:
+          type: string
+          examples: 
+            - A syndrome that is characterized by an increased risk for colon cancer and cancers of the endometrium, ovary, stomach, small intestine, hepatobiliary tract, urinary tract, brain, and skin and has_material_basis_in mutation of mismatch repair genes that increases the risk of many types of cancers.
+        parents:
+          type: array
+          items:
+            type: string
+            examples:
+              - DOID:225
+        children:
+          type: array
+          items:
+            type: string
+            examples:
+              - DOID:0070276
+        synonyms:
+          type: array
+          items:
+            additionalProperties: false
+            required:
+            - val
+            - pred
+            type: object
+            properties:
+              val:
+                type: string
+                examples:
+                  - ALS3
+              pred:
+                type: string
+                examples:
+                  - EXACT
+              synonym_type:
+                type: string
+                examples:
+                  - OMO:0003012
+              xrefs:
+                type: array
+                items:
+                  type: string
+                  examples:
+                    - MIM:606640
+        skos:
+          type: array
+          items:
+            additionalProperties: false
+            required:
+            - val
+            - pred
+            type: object
+            properties:
+              val:
+                type: string
+                examples:
+                  - UMLS_CUI:C1832916
+              pred:
+                type: string
+                examples:
+                  - BROAD
+        sources:
+          type: array
+          items:
+            type: string
+            examples:
+              - http://en.wikipedia.org/wiki/Hereditary_nonpolyposis_colorectal_cancer
+              - http://ghr.nlm.nih.gov/condition/lynch-syndrome
+        imports:
+          type: object
+          $ref: '#/components/schemas/ImportResult'
+
+    SearchCriteria:
+      additionalProperties: false
+      type: object
+      properties:
+        data:
+          additionalProperties: false
+          type: object
+          properties:
+            ids:
+              type: array
+              items:
+                type: string
+                examples:
+                  - DOID:4
+            names:
+              type: array
+              items:
+                type: string
+                examples: 
+                  - gene(tic)?
+            xrefs:
+              type: array
+              items:
+                type: string
+                examples:
+                  - ICD10CM:F60.81
+            synonyms:
+              type: array
+              items:
+                type: string
+                examples:
+                  - synonym value
+            subsets:
+              type: array
+              items:
+                type: string
+                examples:
+                  - NCIthesaurus
+            definitions:
+              type: array
+              items:
+                type: string
+                examples: 
+                  - chromosome
+        imports:
+          additionalProperties: false
+          type: object
+          properties:
+            anatomy:
+              type: array
+              items:
+                  type: string
+            symptom:
+              type: array
+              items:
+                  type: string
+            ncbitaxon:
+              type: array
+              items:
+                  type: string
+            chebi:
+              type: array
+              items:
+                  type: string
+            cell_type:
+              type: array
+              items:
+                  type: string
+            phenotype:
+              type: array
+              items:
+                  type: string
+            onset:
+              type: array
+              items:
+                  type: string
+            evidence:
+              type: array
+              items:
+                  type: string
+            food_material:
+              type: array
+              items:
+                  type: string
+            inheritance_pattern:
+              type: array
+              items:
+                  type: string
+            sequence:
+              type: array
+              items:
+                  type: string
+            transmission_process:
+              type: array
+              items:
+                  type: string
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          examples:
+            - Invalid URL requested
+        http_status:
+          type: integer
+          examples:
+            - 400
+    Prefix:
+      additionalProperties: false
+      required:
+        - prefix
+        - URI
+      type: object
+      properties:
+        prefix:
+          type: string
+          examples:
+            - "CHEBI"
+            - "CL"
+            - "DOID"
+            - "ECO"
+            - "FOODON"
+            - "GENO"
+            - "HP"
+            - "NCBITaxon"
+            - "SO"
+            - "SYMP"
+            - "TRANS"
+            - "UBERON"
+        URI:
+          type: string
+          examples:
+            - "http://purl.obolibrary.org/obo/CHEBI_"
+            - "http://purl.obolibrary.org/obo/CL_"
+            - "http://purl.obolibrary.org/obo/DOID_"
+            - "http://purl.obolibrary.org/obo/ECO_"
+            - "http://purl.obolibrary.org/obo/FOODON_"
+            - "http://purl.obolibrary.org/obo/GENO_"
+            - "http://purl.obolibrary.org/obo/HP_"
+            - "http://purl.obolibrary.org/obo/NCBITaxon_"
+            - "http://purl.obolibrary.org/obo/SO_"
+            - "http://purl.obolibrary.org/obo/SYMP_"
+            - "http://purl.obolibrary.org/obo/TRANS_"
+            - "http://purl.obolibrary.org/obo/UBERON_"

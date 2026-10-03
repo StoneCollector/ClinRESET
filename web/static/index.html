@@ -107,6 +107,8 @@
             Process Another Report
           </button>
         </div>
+        
+        <div id="export-toolbar-container"></div>
 
         <!-- Side Navigation & Action Dock -->
         <aside class="results-sidebar" id="results-sidebar">
@@ -157,6 +159,12 @@
 
           <!-- Section Toggle Buttons Dock -->
           <div class="section-nav-dock" id="section-nav-dock">
+            <button type="button" class="section-nav-btn" data-section="sec-summary" title="Minimize / Maximize Section 0: Report Summary">
+              <span class="sec-nav-label-box">
+                <span class="sec-nav-label">Summary</span>
+              </span>
+            </button>
+
             <button type="button" class="section-nav-btn" data-section="sec-findings" title="Minimize / Maximize Section 1: Key Clinical Findings">
               <span class="sec-nav-label-box">
                 <span class="sec-nav-label">Findings</span>
@@ -182,6 +190,21 @@
             </button>
           </div>
         </aside>
+
+        <!-- 0. Overall Report Summary Section -->
+        <section class="results-section" id="sec-summary">
+          <div class="section-title-wrap">
+            <div class="section-badge-row">
+              <div class="section-badge" style="background-color: var(--badge-blue-bg); color: var(--badge-blue-text);">Section 0</div>
+              <span class="section-minimized-badge">Minimized — Click to expand</span>
+            </div>
+            <h2>Overall Report Summary</h2>
+            <span class="section-subtitle">Plain-language summary of the overall health picture</span>
+          </div>
+          <div id="report-summary-container" class="report-summary-box">
+            <!-- Summary rendered dynamically -->
+          </div>
+        </section>
 
         <!-- 1. Key Findings Section -->
         <section class="results-section" id="sec-findings">

@@ -12,6 +12,12 @@ from __future__ import annotations
 import re
 from typing import Any, Optional
 
+from clinical_extraction.filters import (
+    filter_measurements,
+    is_admin_field,
+    is_date_artefact,
+    is_metadata_section,
+)
 from clinical_extraction.models import ClinicalMeasurement
 from clinical_extraction.normalization import normalize_term
 
@@ -111,6 +117,10 @@ def extract_measurements(
         if not sec_text:
             continue
 
+        # Skip metadata sections (patient demographics, registration, footer)
+        if is_metadata_section(sec_title):
+            continue
+
         # Look for inline measurements in lines
         for line in sec_text.splitlines():
             line_str = line.strip()
@@ -134,7 +144,14 @@ def extract_measurements(
                 if re.match(r"^[A-Za-z]\s+[A-Za-z]", param_name):
                     param_name = re.sub(r"^[A-Za-z]\s+", "", param_name)
 
-                # Filter out obvious false positives like "DATED: AGE", "AGE/SEX", "PAGE: 1"
+                # Reject admin fields and date artefacts via centralised filter
+                if is_admin_field(param_name):
+                    continue
+                parsed_val_early = _parse_value(param_val_str)
+                if is_date_artefact(param_name, parsed_val_early, raw_unit):
+                    continue
+
+                # Filter out other obvious false positives
                 excluded_params = {
                     "dated", "ref by", "age", "sex", "age/sex",
                     "page", "id", "name", "dr", "no", "date", "ipd", "opd",
@@ -163,4 +180,5 @@ def extract_measurements(
                 measurements.append(inline_meas)
                 seen_keys.add(key)
 
-    return measurements
+    # Final pass: remove any admin / date artefacts that slipped through
+    return filter_measurements(measurements)

@@ -25,10 +25,16 @@
   const btnRetry = document.getElementById('btn-retry');
   const btnReset = document.getElementById('btn-reset');
 
+  // State
+  let _lastReport = null;   // Holds the last processed report for export
+  let _lastFilename = null; // Holds the last uploaded filename
+
   const reportMetaHeader = document.getElementById('report-meta-header');
   const alertLegendBar = document.getElementById('alert-legend-bar');
   const legendHeader = document.getElementById('legend-header');
   const btnLegendToggle = document.getElementById('btn-legend-toggle');
+  const reportSummaryContainer = document.getElementById('report-summary-container');
+  const secSummary = document.getElementById('sec-summary');
   const keyFindingsContainer = document.getElementById('key-findings-container');
   const measurementsContainer = document.getElementById('measurements-container');
   const contextContainer = document.getElementById('context-container');
@@ -317,6 +323,7 @@
 
     const formData = new FormData();
     formData.append('file', file);
+    _lastFilename = file.name;
 
     try {
       const response = await fetch('/api/reports', {
@@ -359,6 +366,10 @@
           stopPolling();
           stopCosmeticProgress();
           if (progressBarFill) progressBarFill.style.width = '100%';
+          // Save to history before switching view
+          if (data.result) {
+            saveToHistory(data.result, _lastFilename);
+          }
           setTimeout(() => {
             setView('done', data.result);
           }, 350);
@@ -383,6 +394,7 @@
      ========================================================================== */
   function renderFinalReport(report) {
     if (!report) return;
+    _lastReport = report;
 
     // Reset all sections and nav buttons to expanded state
     document.querySelectorAll('.results-section').forEach((sec) => sec.classList.remove('is-minimized'));
@@ -391,25 +403,53 @@
     // 1. Header (report_type + status from report_summary)
     renderHeader(report.report_summary || {});
 
-    // 2. Key Findings
+    // 2. Export toolbar
+    renderExportToolbar(report);
+
+    // 2.5 Overall Report Summary
+    renderOverallSummary(report.report_summary || {});
+
+    // 3. Key Findings
     renderKeyFindings(report.key_findings || []);
 
-    // 3. Measurements of Interest (with SVG range bars)
+    // 4. Measurements of Interest (with SVG range bars)
     renderMeasurements(report.measurements_of_interest || []);
 
-    // 4. Contextual Relationships
+    // 5. Contextual Relationships
     renderContext(report.context || []);
 
-    // 5. Limitations (persistent disclaimer block)
+    // 6. Limitations (persistent disclaimer block)
     renderLimitations(report.limitations || []);
   }
 
   function renderHeader(summary) {
     if (!reportMetaHeader) return;
+    const historyBtn = `<button class="btn-history-nav" id="btn-history-nav" title="View report history">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="10"/></svg>
+      History
+    </button>`;
     reportMetaHeader.innerHTML = `
       <div class="report-type-badge">${escapeHtml(summary.report_type || 'MEDICAL REPORT')}</div>
       <div class="report-confidence-badge">Status: ${escapeHtml(summary.status || 'CONFIDENT')}</div>
+      ${historyBtn}
     `;
+    const btnHistNav = document.getElementById('btn-history-nav');
+    if (btnHistNav) btnHistNav.addEventListener('click', showHistoryPage);
+  }
+
+  function renderOverallSummary(summary) {
+    if (!reportSummaryContainer || !secSummary) return;
+    
+    if (summary.overall_summary) {
+      reportSummaryContainer.innerHTML = `<p>${escapeHtml(summary.overall_summary)}</p>`;
+      showElement(secSummary);
+      const navBtn = document.querySelector('.section-nav-btn[data-section="sec-summary"]');
+      if (navBtn) showElement(navBtn);
+    } else {
+      hideElement(secSummary);
+      const navBtn = document.querySelector('.section-nav-btn[data-section="sec-summary"]');
+      if (navBtn) hideElement(navBtn);
+    }
   }
 
   function renderKeyFindings(findings) {
@@ -425,12 +465,24 @@
       const card = document.createElement('div');
       card.className = `finding-card ${alertClass}`;
 
+      // Confidence pill
+      const conf = finding.confidence !== undefined ? finding.confidence : null;
+      let confPill = '';
+      if (conf !== null) {
+        const pct = Math.round(conf * 100);
+        const tier = conf >= 0.75 ? 'high' : conf >= 0.45 ? 'medium' : 'low';
+        confPill = `<span class="confidence-pill ${tier}" title="Extraction confidence">${pct}%</span>`;
+      }
+
       card.innerHTML = `
         <div class="card-header-row">
           <div class="concept-title">${escapeHtml(finding.concept)}</div>
-          <span class="assertion-pill">${escapeHtml(finding.assertion || 'PRESENT')}</span>
+          <div style="display:flex;gap:6px;align-items:center">
+            ${confPill}
+            <span class="assertion-pill">${escapeHtml(finding.assertion || 'PRESENT')}</span>
+          </div>
         </div>
-        <div class="finding-explanation">${escapeHtml(finding.explanation || 'No explanation generated.')}</div>
+        <div class="finding-explanation">${expandAbbreviations(escapeHtml(finding.explanation || 'No explanation generated.'))}</div>
         <div class="finding-basis">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>
@@ -484,8 +536,9 @@
     const val = meas.value;
     const low = meas.low;
     const high = meas.high;
+    const isLoinc = meas.range_source === 'loinc_standard';
 
-    // If reference range missing, do not invent one
+    // If reference range missing even after LOINC lookup, show pill
     if (low === null || high === null || isNaN(low) || isNaN(high) || val === null || isNaN(val)) {
       return `<span class="meas-no-range-pill">No reference range reported</span>`;
     }
@@ -507,13 +560,18 @@
 
     const isOutside = numVal < numLow || numVal > numHigh;
     const markerColor = isOutside ? '#f97316' : '#22c55e';
+    // Dashed track for LOINC standard ranges; solid for ranges from the report
+    const trackStroke = isLoinc ? '#0284c7" stroke-dasharray="4 3' : '#0284c7';
+    const loincBadge = isLoinc
+      ? `<div class="loinc-range-badge"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg>Standard range (LOINC)</div>`
+      : '';
 
     return `
       <svg class="meas-chart-svg" viewBox="0 0 260 38">
         <!-- Background Track -->
         <line x1="15" y1="18" x2="245" y2="18" stroke="#334155" stroke-width="4" stroke-linecap="round"/>
         <!-- Normal Reference Track -->
-        <line x1="${xLow}" y1="18" x2="${xHigh}" y2="18" stroke="#0284c7" stroke-width="6" stroke-linecap="round"/>
+        <line x1="${xLow}" y1="18" x2="${xHigh}" y2="18" stroke="${trackStroke}" stroke-width="6" stroke-linecap="round"/>
         <!-- Low Bound Tick & Label -->
         <line x1="${xLow}" y1="12" x2="${xLow}" y2="24" stroke="#94a3b8" stroke-width="1.5"/>
         <text x="${xLow}" y="34" fill="#94a3b8" font-size="9" text-anchor="middle" font-family="Inter, sans-serif">${cleanNum(numLow)}</text>
@@ -523,8 +581,10 @@
         <!-- Value Marker -->
         <circle cx="${xVal}" cy="18" r="6" fill="${markerColor}" stroke="#ffffff" stroke-width="2"/>
       </svg>
+      ${loincBadge}
     `;
   }
+
 
   function renderContext(contexts) {
     if (!contextContainer) return;
@@ -565,6 +625,220 @@
       const li = document.createElement('li');
       li.textContent = item;
       limitationsList.appendChild(li);
+    });
+  }
+
+  /* ==========================================================================
+     EXPORT TOOLBAR — Download PDF + Copy to Clipboard
+     ========================================================================== */
+  function renderExportToolbar(report) {
+    const container = document.getElementById('export-toolbar-container');
+    if (!container) return;
+    container.innerHTML = `
+      <div class="export-toolbar">
+        <button class="btn-export download" id="btn-download-pdf" title="Download analysis as PDF">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download PDF
+        </button>
+        <button class="btn-export copy" id="btn-copy-summary" title="Copy summary to clipboard">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy Summary
+        </button>
+      </div>
+    `;
+
+    document.getElementById('btn-download-pdf')?.addEventListener('click', () => {
+      window.print();
+    });
+
+    document.getElementById('btn-copy-summary')?.addEventListener('click', function () {
+      const btn = this;
+      const text = buildPlainTextSummary(report);
+      navigator.clipboard.writeText(text).then(() => {
+        btn.classList.add('copied');
+        btn.innerHTML = `
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Copied!
+        `;
+        setTimeout(() => {
+          btn.classList.remove('copied');
+          btn.innerHTML = `
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copy Summary
+          `;
+        }, 2000);
+      });
+    });
+  }
+
+  function buildPlainTextSummary(report) {
+    const lines = [];
+    const s = report.report_summary || {};
+    lines.push(`ClinRESET Report Analysis`);
+    lines.push(`Report Type: ${s.report_type || 'Unknown'}  |  Status: ${s.status || 'Unknown'}`);
+    lines.push('');
+
+    if (report.key_findings && report.key_findings.length) {
+      lines.push('=== KEY FINDINGS ===');
+      report.key_findings.forEach(f => {
+        lines.push(`• ${f.concept} [${f.alert_level}]: ${f.basis || ''}`);
+      });
+      lines.push('');
+    }
+    if (report.measurements_of_interest && report.measurements_of_interest.length) {
+      lines.push('=== MEASUREMENTS ===');
+      report.measurements_of_interest.forEach(m => {
+        const unit = m.unit ? ` ${m.unit}` : '';
+        lines.push(`• ${m.concept}: ${m.value}${unit}  [${m.alert_level}]  ${m.basis || ''}`);
+      });
+      lines.push('');
+    }
+    lines.push('Generated by ClinRESET — for informational purposes only.');
+    return lines.join('\n');
+  }
+
+  /* ==========================================================================
+     REPORT HISTORY — localStorage-based history list
+     ========================================================================== */
+  const HISTORY_KEY = 'clinreset_history';
+  const MAX_HISTORY = 20;
+
+  function saveToHistory(report, filename) {
+    const history = getHistory();
+    const entry = {
+      id: Date.now(),
+      filename: filename || 'report.pdf',
+      timestamp: new Date().toISOString(),
+      report_type: (report.report_summary || {}).report_type || 'UNKNOWN',
+      status: (report.report_summary || {}).status || '',
+      findings_count: (report.key_findings || []).length,
+      measurements_count: (report.measurements_of_interest || []).length,
+      report: report,
+    };
+    history.unshift(entry);    // newest first
+    if (history.length > MAX_HISTORY) history.splice(MAX_HISTORY);
+    try {
+      localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+    } catch (e) { /* storage full — skip */ }
+  }
+
+  function getHistory() {
+    try {
+      return JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
+    } catch { return []; }
+  }
+
+  function showHistoryPage() {
+    const history = getHistory();
+    let histDiv = document.getElementById('history-view');
+    if (!histDiv) {
+      histDiv = document.createElement('div');
+      histDiv.id = 'history-view';
+      resultsView?.parentElement?.insertBefore(histDiv, resultsView);
+    }
+    histDiv.removeAttribute('hidden');
+    histDiv.classList.remove('hidden');
+    hideElement(resultsView);
+
+    const emptyMsg = history.length === 0
+      ? '<div class="history-empty">No past reports found. Upload a PDF to get started.</div>'
+      : '';
+
+    const cards = history.map(entry => {
+      const date = new Date(entry.timestamp).toLocaleString();
+      return `
+        <div class="history-card" data-id="${entry.id}">
+          <div class="history-card-info">
+            <div class="history-card-name" title="${escapeHtml(entry.filename)}">${escapeHtml(entry.filename)}</div>
+            <div class="history-card-meta">${escapeHtml(date)} &bull; ${entry.findings_count} findings &bull; ${entry.measurements_count} measurements</div>
+          </div>
+          <div class="history-card-badges">
+            <span class="history-type-badge">${escapeHtml(entry.report_type)}</span>
+            <button class="btn-history-view" data-id="${entry.id}">View</button>
+          </div>
+        </div>`;
+    }).join('');
+
+    histDiv.innerHTML = `
+      <div class="history-header">
+        <h2>Report History</h2>
+        <button class="btn-export copy" id="btn-history-back">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          Back
+        </button>
+      </div>
+      <div class="history-list">${emptyMsg}${cards}</div>
+    `;
+
+    document.getElementById('btn-history-back')?.addEventListener('click', () => {
+      hideElement(histDiv);
+      if (_lastReport) showElement(resultsView);
+      else setView('idle');
+    });
+
+    histDiv.querySelectorAll('.btn-history-view').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = parseInt(btn.getAttribute('data-id'), 10);
+        const entry = getHistory().find(e => e.id === id);
+        if (entry && entry.report) {
+          hideElement(histDiv);
+          showElement(resultsView);
+          renderFinalReport(entry.report);
+        }
+      });
+    });
+  }
+
+  /* ==========================================================================
+     ABBREVIATION EXPANSION — dotted-underline tooltips on common abbrevs
+     ========================================================================== */
+  const ABBREV_MAP = {
+    'LVH': 'Left Ventricular Hypertrophy',
+    'LVEF': 'Left Ventricular Ejection Fraction',
+    'EF': 'Ejection Fraction',
+    'ECHO': 'Echocardiogram',
+    'TSH': 'Thyroid Stimulating Hormone',
+    'T3': 'Triiodothyronine (thyroid hormone)',
+    'T4': 'Thyroxine (thyroid hormone)',
+    'LDL': 'Low-Density Lipoprotein (bad cholesterol)',
+    'HDL': 'High-Density Lipoprotein (good cholesterol)',
+    'BMI': 'Body Mass Index',
+    'BP': 'Blood Pressure',
+    'HR': 'Heart Rate',
+    'SpO2': 'Blood Oxygen Saturation',
+    'HbA1c': 'Glycated Haemoglobin (3-month average blood sugar)',
+    'FSH': 'Follicle Stimulating Hormone',
+    'LH': 'Luteinizing Hormone',
+    'DHEA': 'Dehydroepiandrosterone',
+    'PCOS': 'Polycystic Ovary Syndrome',
+    'CBC': 'Complete Blood Count',
+    'WBC': 'White Blood Cell Count',
+    'RBC': 'Red Blood Cell Count',
+    'Hgb': 'Haemoglobin',
+    'Hct': 'Haematocrit',
+    'eGFR': 'estimated Glomerular Filtration Rate (kidney function)',
+    'ALT': 'Alanine Aminotransferase (liver enzyme)',
+    'AST': 'Aspartate Aminotransferase (liver enzyme)',
+    'CRP': 'C-Reactive Protein (inflammation marker)',
+    'INR': 'International Normalised Ratio (clotting time)',
+    'ECG': 'Electrocardiogram',
+    'EKG': 'Electrocardiogram',
+    'IV': 'Intravenous',
+  };
+
+  // Build a regex matching all known abbreviations as whole words (case-sensitive)
+  const _abbrevRe = new RegExp(
+    '\\b(' + Object.keys(ABBREV_MAP).map(k => k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|') + ')\\b',
+    'g'
+  );
+
+  function expandAbbreviations(html) {
+    // html is already escaped — only wrap abbrev text nodes
+    return html.replace(_abbrevRe, (match) => {
+      const full = ABBREV_MAP[match];
+      return full
+        ? `<abbr class="abbr-term" title="${full}">${match}</abbr>`
+        : match;
     });
   }
 

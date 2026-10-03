@@ -17,6 +17,11 @@ from clinical_extraction.entities import (
     create_entity,
     create_finding,
 )
+from clinical_extraction.filters import (
+    filter_measurements,
+    is_explanatory_section,
+    is_valid_finding_text,
+)
 from clinical_extraction.models import (
     AnatomicalEntity,
     AssertionStatus,
@@ -97,6 +102,11 @@ class BaseReportRules:
             if not sec_text:
                 continue
 
+            # Skip sections that contain explanatory/educational prose only
+            # (e.g. "Interpretation", "Comment", "Remarks", "Increased in")
+            if is_explanatory_section(sec_title):
+                continue
+
             clauses = split_into_clauses(sec_text)
             for clause in clauses:
                 clause_clean = clause.strip()
@@ -107,6 +117,9 @@ class BaseReportRules:
                     regex = re.compile(rf"\b{re.escape(pat)}\b", re.IGNORECASE)
                     match = regex.search(clause_clean)
                     if match:
+                        # Gate: reject multi-sentence paragraphs / very long text
+                        if not is_valid_finding_text(clause_clean):
+                            break
                         assertion, is_negated = detect_assertion(clause_clean, pat)
                         norm = normalize_term(clause_clean, self.report_type)
                         if not norm:

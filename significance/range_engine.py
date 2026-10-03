@@ -25,10 +25,36 @@ RANGE_STRING_PATTERN = re.compile(
     re.IGNORECASE,
 )
 
+# One-sided range: "< 200", "<200 mg/dL", "> 40", ">=5.6%"
+_ONE_SIDED_PATTERN = re.compile(
+    r"^\s*([<>]=?)\s*([+-]?\d+(?:\.\d+)?)\s*([a-zA-Z/%°\^][a-zA-Z0-9/%°\^\*]*)?\s*$",
+    re.IGNORECASE,
+)
+
+# Strip comparative prefix from a value string: "< 0.4 mIU/L" → 0.4
+_COMPARATIVE_VALUE_PATTERN = re.compile(
+    r"^\s*[<>]=?\s*([+-]?\d+(?:\.\d+)?)\s*(?:[a-zA-Z/%°\^][a-zA-Z0-9/%°\^\*]*)?\s*$",
+    re.IGNORECASE,
+)
+
+# Strip trailing unit text from value: "2.5 mmol/L" → 2.5
+_VALUE_WITH_UNIT_PATTERN = re.compile(
+    r"^\s*([+-]?\d+(?:\.\d+)?)\s+[a-zA-Z/%°\^][a-zA-Z0-9/%°\^\*\[\]]*\s*$",
+    re.IGNORECASE,
+)
+
+# A very large sentinel value for open-ended ranges (> X means X to ∞)
+_INF_HIGH: float = 999_999.0
+
 
 def parse_numeric_value(val: Any) -> Optional[float]:
     """
     Parse an int, float, or numeric string into a float.
+
+    Handles:
+    - Plain numbers: "37.2", "98.6"
+    - Comparative prefixes: "< 0.4", ">5.6", ">=5"
+    - Values with trailing units: "2.5 mmol/L" (extracts 2.5)
 
     Returns None if the value cannot be interpreted as a valid finite number.
     """
@@ -40,10 +66,25 @@ def parse_numeric_value(val: Any) -> Optional[float]:
         cleaned = val.strip().rstrip("%").strip()
         if not cleaned:
             return None
+        # Direct float parse (most common)
         try:
             return float(cleaned)
         except ValueError:
-            return None
+            pass
+        # Strip comparative prefix: "< 0.4", "> 5.6", ">=5"
+        m = _COMPARATIVE_VALUE_PATTERN.match(cleaned)
+        if m:
+            try:
+                return float(m.group(1))
+            except ValueError:
+                pass
+        # Strip trailing unit: "2.5 mmol/L" → 2.5
+        m2 = _VALUE_WITH_UNIT_PATTERN.match(cleaned)
+        if m2:
+            try:
+                return float(m2.group(1))
+            except ValueError:
+                pass
     return None
 
 
@@ -84,11 +125,30 @@ def parse_reference_bounds(
         unit_str = str(unit).strip() if unit is not None else None
         return low, high, unit_str
 
-    # 3. String format: e.g. '06-11mm', '20-37 mm', '55-74%'
+    # 3. String format: e.g. '06-11mm', '20-37 mm', '55-74%', '< 200 mg/dL', '> 40'
     if isinstance(reference_range, str):
         ref_str = reference_range.strip()
         if not ref_str:
             return None, None, None
+
+        # One-sided range: "< 200", "< 200 mg/dL", "> 40", ">=5.6%"
+        one = _ONE_SIDED_PATTERN.match(ref_str)
+        if one:
+            op = one.group(1).strip()       # "<", "<=", ">", ">="
+            num_str = one.group(2).strip()
+            unit_str = one.group(3).strip() if one.group(3) else None
+            try:
+                num = float(num_str)
+            except ValueError:
+                return None, None, None
+            if op in ("<", "<="):
+                # Range is 0 to num  (e.g. "<200 mg/dL" → 0–200)
+                return 0.0, num, unit_str
+            else:
+                # Range is num to ∞  (e.g. ">40 mg/dL" → 40–∞)
+                return num, _INF_HIGH, unit_str
+
+        # Two-sided range: "0.4-4.0", "70-99 mg/dL"
         match = RANGE_STRING_PATTERN.match(ref_str)
         if match:
             low = parse_numeric_value(match.group(1))

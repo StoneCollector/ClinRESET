@@ -358,14 +358,10 @@ def _build_column_map(headers: list[str]) -> dict[str, int]:
         r"\b(value|result|finding|reading)\b", re.IGNORECASE
     )
     unit_patterns = re.compile(
-        r"\b(units?)\b", re.IGNORECASE
+        r"\b(units?|u|nit)\b", re.IGNORECASE
     )
-    # Reference range: match 'reference', 'range', 'ref', 'expected',
-    # or the common medical label '(normal values)' / 'normal values'.
-    # 'normal' alone could appear in other contexts so require it to be
-    # followed by a word boundary (not part of 'parameter', 'name', etc).
     ref_patterns = re.compile(
-        r"\b(reference|range|ref|expected|normal\s+values?)\b", re.IGNORECASE
+        r"\b(reference|range|ref|expected|normal\s+values?|refere|nce)\b", re.IGNORECASE
     )
 
     # Strip Markdown from headers before keyword matching.

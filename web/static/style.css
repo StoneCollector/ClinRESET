@@ -1297,3 +1297,208 @@ body {
     font-size: 0.72rem;
   }
 }
+
+/* ==========================================================================
+   LOINC Standard Range Badge
+   ========================================================================== */
+.loinc-range-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 4px;
+  padding: 2px 8px;
+  background: rgba(2, 132, 199, 0.12);
+  border: 1px solid rgba(2, 132, 199, 0.35);
+  border-radius: 20px;
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: #38bdf8;
+  letter-spacing: 0.025em;
+  white-space: nowrap;
+}
+.loinc-range-badge svg {
+  opacity: 0.8;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Confidence Score Pill
+   ========================================================================== */
+.confidence-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+.confidence-pill.high   { background: rgba(34,197,94,0.12);  color: #22c55e; border: 1px solid rgba(34,197,94,0.3); }
+.confidence-pill.medium { background: rgba(234,179,8,0.12); color: #eab308; border: 1px solid rgba(234,179,8,0.3); }
+.confidence-pill.low    { background: rgba(249,115,22,0.12); color: #f97316; border: 1px solid rgba(249,115,22,0.3); }
+
+/* ==========================================================================
+   Export Toolbar
+   ========================================================================== */
+.export-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0 4px;
+  flex-wrap: wrap;
+}
+.btn-export {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: background 0.18s, transform 0.12s;
+}
+.btn-export:active { transform: scale(0.97); }
+.btn-export.download {
+  background: linear-gradient(135deg, #0284c7, #0369a1);
+  color: #fff;
+}
+.btn-export.download:hover { background: linear-gradient(135deg, #0ea5e9, #0284c7); }
+.btn-export.copy {
+  background: rgba(148,163,184,0.12);
+  color: #94a3b8;
+  border: 1px solid rgba(148,163,184,0.2);
+}
+.btn-export.copy:hover { background: rgba(148,163,184,0.2); color: #f8fafc; }
+.btn-export.copy.copied { color: #22c55e; border-color: rgba(34,197,94,0.4); }
+
+/* ==========================================================================
+   Report History Page
+   ========================================================================== */
+#history-view {
+  padding: 32px 0;
+}
+.history-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+.history-header h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.history-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.history-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  transition: border-color 0.18s, background 0.18s;
+  cursor: pointer;
+}
+.history-card:hover {
+  border-color: var(--border-medium);
+  background: var(--bg-card-hover);
+}
+.history-card-info { flex: 1; min-width: 0; }
+.history-card-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.history-card-meta {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 3px;
+}
+.history-card-badges {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.history-type-badge {
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  background: rgba(56,189,248,0.12);
+  color: #38bdf8;
+  border: 1px solid rgba(56,189,248,0.25);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.btn-history-view {
+  padding: 5px 14px;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: rgba(2,132,199,0.15);
+  color: #38bdf8;
+  border: 1px solid rgba(2,132,199,0.3);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.btn-history-view:hover { background: rgba(2,132,199,0.28); }
+
+/* History nav button in header */
+.btn-history-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 14px;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: rgba(148,163,184,0.1);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.btn-history-nav:hover { background: rgba(148,163,184,0.18); color: var(--text-primary); }
+
+/* Abbreviation tooltip */
+.abbr-term {
+  border-bottom: 1px dashed #38bdf8;
+  cursor: help;
+  color: inherit;
+}
+
+/* Overall Report Summary */
+.report-summary-box {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-top: 1rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.2);
+}
+
+.report-summary-box p {
+  margin: 0;
+}

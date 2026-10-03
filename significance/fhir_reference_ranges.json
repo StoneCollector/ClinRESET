@@ -1,0 +1,2426 @@
+{
+  "resourceType": "Bundle",
+  "id": "clinreset-observation-definitions",
+  "meta": {
+    "source": "ClinRESET LOINC+FHIR Reference Range Bundle",
+    "notes": "Reference ranges compiled from HL7 FHIR R4 examples, AACC, Mayo Clinic, and WHO published clinical guidelines. Ranges represent typical adult values and may vary by lab, age, sex, and clinical context. This file follows the FHIR R4 ObservationDefinition resource schema."
+  },
+  "type": "collection",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "ObservationDefinition",
+        "id": "systolic-blood-pressure",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic blood pressure"
+            }
+          ]
+        },
+        "preferredReportName": "Systolic Blood Pressure",
+        "permittedDataType": [
+          "Quantity"
+        ],
+        "quantitativeDetails": {
+          "unit": {
+            "coding": [
+              {
+                "system": "http://unitsofmeasure.org",
+                "code": "mm[Hg]",
+                "display": "mmHg"
+              }
+            ]
+          }
+        },
+        "qualifiedInterval": [
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 90,
+                "unit": "mmHg"
+              },
+              "high": {
+                "value": 120,
+                "unit": "mmHg"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            },
+            "appliesTo": [
+              {
+                "text": "Adult"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ObservationDefinition",
+        "id": "diastolic-blood-pressure",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8462-4",
+              "display": "Diastolic blood pressure"
+            }
+          ]
+        },
+        "preferredReportName": "Diastolic Blood Pressure",
+        "permittedDataType": [
+          "Quantity"
+        ],
+        "quantitativeDetails": {
+          "unit": {
+            "coding": [
+              {
+                "system": "http://unitsofmeasure.org",
+                "code": "mm[Hg]",
+                "display": "mmHg"
+              }
+            ]
+          }
+        },
+        "qualifiedInterval": [
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 60,
+                "unit": "mmHg"
+              },
+              "high": {
+                "value": 80,
+                "unit": "mmHg"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            },
+            "appliesTo": [
+              {
+                "text": "Adult"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ObservationDefinition",
+        "id": "heart-rate",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8867-4",
+              "display": "Heart rate"
+            }
+          ]
+        },
+        "preferredReportName": "Pulse Rate",
+        "permittedDataType": [
+          "Quantity"
+        ],
+        "quantitativeDetails": {
+          "unit": {
+            "coding": [
+              {
+                "system": "http://unitsofmeasure.org",
+                "code": "/min",
+                "display": "bpm"
+              }
+            ]
+          }
+        },
+        "qualifiedInterval": [
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 60,
+                "unit": "bpm"
+              },
+              "high": {
+                "value": 100,
+                "unit": "bpm"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            },
+            "appliesTo": [
+              {
+                "text": "Adult"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ObservationDefinition",
+        "id": "body-mass-index",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "39156-5",
+              "display": "Body mass index (BMI) [Ratio]"
+            }
+          ]
+        },
+        "preferredReportName": "Body Mass Index",
+        "permittedDataType": [
+          "Quantity"
+        ],
+        "quantitativeDetails": {
+          "unit": {
+            "coding": [
+              {
+                "system": "http://unitsofmeasure.org",
+                "code": "kg/m2",
+                "display": "kg/m\u00b2"
+              }
+            ]
+          }
+        },
+        "qualifiedInterval": [
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 18.5,
+                "unit": "kg/m2"
+              },
+              "high": {
+                "value": 24.9,
+                "unit": "kg/m2"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            },
+            "appliesTo": [
+              {
+                "text": "Adult"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ObservationDefinition",
+        "id": "body-temperature",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8310-5",
+              "display": "Body temperature"
+            }
+          ]
+        },
+        "preferredReportName": "Body Temperature",
+        "permittedDataType": [
+          "Quantity"
+        ],
+        "quantitativeDetails": {
+          "unit": {
+            "coding": [
+              {
+                "system": "http://unitsofmeasure.org",
+                "code": "Cel",
+                "display": "\u00b0C"
+              }
+            ]
+          }
+        },
+        "qualifiedInterval": [
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 36.1,
+                "unit": "Cel"
+              },
+              "high": {
+                "value": 37.2,
+                "unit": "Cel"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            },
+            "appliesTo": [
+              {
+                "text": "Adult"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ObservationDefinition",
+        "id": "hemoglobin",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "718-7",
+              "display": "Hemoglobin [Mass/volume] in Blood"
+            }
+          ]
+        },
+        "preferredReportName": "Hemoglobin",
+        "permittedDataType": [
+          "Quantity"
+        ],
+        "quantitativeDetails": {
+          "unit": {
+            "coding": [
+              {
+                "system": "http://unitsofmeasure.org",
+                "code": "g/dL",
+                "display": "g/dL"
+              }
+            ]
+          }
+        },
+        "qualifiedInterval": [
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 13.5,
+                "unit": "g/dL"
+              },
+              "high": {
+                "value": 17.5,
+                "unit": "g/dL"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            },
+            "gender": "male",
+            "appliesTo": [
+              {
+                "text": "Adult Male"
+              }
+            ]
+          },
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 12.0,
+                "unit": "g/dL"
+              },
+              "high": {
+                "value": 15.5,
+                "unit": "g/dL"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            },
+            "gender": "female",
+            "appliesTo": [
+              {
+                "text": "Adult Female"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ObservationDefinition",
+        "id": "hematocrit",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "4544-3",
+              "display": "Hematocrit [Volume Fraction] of Blood"
+            }
+          ]
+        },
+        "preferredReportName": "Hematocrit",
+        "permittedDataType": [
+          "Quantity"
+        ],
+        "quantitativeDetails": {
+          "unit": {
+            "coding": [
+              {
+                "system": "http://unitsofmeasure.org",
+                "code": "%",
+                "display": "%"
+              }
+            ]
+          }
+        },
+        "qualifiedInterval": [
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 41,
+                "unit": "%"
+              },
+              "high": {
+                "value": 53,
+                "unit": "%"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            },
+            "gender": "male"
+          },
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 36,
+                "unit": "%"
+              },
+              "high": {
+                "value": 46,
+                "unit": "%"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            },
+            "gender": "female"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ObservationDefinition",
+        "id": "wbc",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "6690-2",
+              "display": "Leukocytes [#/volume] in Blood"
+            }
+          ]
+        },
+        "preferredReportName": "White Blood Cell Count",
+        "permittedDataType": [
+          "Quantity"
+        ],
+        "quantitativeDetails": {
+          "unit": {
+            "coding": [
+              {
+                "system": "http://unitsofmeasure.org",
+                "code": "10*3/uL",
+                "display": "10\u00b3/\u00b5L"
+              }
+            ]
+          }
+        },
+        "qualifiedInterval": [
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 4.5,
+                "unit": "10*3/uL"
+              },
+              "high": {
+                "value": 11.0,
+                "unit": "10*3/uL"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ObservationDefinition",
+        "id": "platelet-count",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "777-3",
+              "display": "Platelets [#/volume] in Blood"
+            }
+          ]
+        },
+        "preferredReportName": "Platelet Count",
+        "permittedDataType": [
+          "Quantity"
+        ],
+        "quantitativeDetails": {
+          "unit": {
+            "coding": [
+              {
+                "system": "http://unitsofmeasure.org",
+                "code": "10*3/uL",
+                "display": "10\u00b3/\u00b5L"
+              }
+            ]
+          }
+        },
+        "qualifiedInterval": [
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 150,
+                "unit": "10*3/uL"
+              },
+              "high": {
+                "value": 400,
+                "unit": "10*3/uL"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ObservationDefinition",
+        "id": "fasting-glucose",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "1558-6",
+              "display": "Fasting glucose [Mass/volume] in Serum or Plasma"
+            }
+          ]
+        },
+        "preferredReportName": "Fasting Blood Glucose",
+        "permittedDataType": [
+          "Quantity"
+        ],
+        "quantitativeDetails": {
+          "unit": {
+            "coding": [
+              {
+                "system": "http://unitsofmeasure.org",
+                "code": "mg/dL",
+                "display": "mg/dL"
+              }
+            ]
+          }
+        },
+        "qualifiedInterval": [
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 70,
+                "unit": "mg/dL"
+              },
+              "high": {
+                "value": 99,
+                "unit": "mg/dL"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ObservationDefinition",
+        "id": "random-glucose",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2345-7",
+              "display": "Glucose [Mass/volume] in Serum or Plasma"
+            }
+          ]
+        },
+        "preferredReportName": "Blood Glucose",
+        "permittedDataType": [
+          "Quantity"
+        ],
+        "quantitativeDetails": {
+          "unit": {
+            "coding": [
+              {
+                "system": "http://unitsofmeasure.org",
+                "code": "mg/dL",
+                "display": "mg/dL"
+              }
+            ]
+          }
+        },
+        "qualifiedInterval": [
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 70,
+                "unit": "mg/dL"
+              },
+              "high": {
+                "value": 140,
+                "unit": "mg/dL"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ObservationDefinition",
+        "id": "hba1c",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "4548-4",
+              "display": "Hemoglobin A1c/Hemoglobin.total in Blood"
+            }
+          ]
+        },
+        "preferredReportName": "HbA1c",
+        "permittedDataType": [
+          "Quantity"
+        ],
+        "quantitativeDetails": {
+          "unit": {
+            "coding": [
+              {
+                "system": "http://unitsofmeasure.org",
+                "code": "%",
+                "display": "%"
+              }
+            ]
+          }
+        },
+        "qualifiedInterval": [
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 4.0,
+                "unit": "%"
+              },
+              "high": {
+                "value": 5.6,
+                "unit": "%"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ObservationDefinition",
+        "id": "creatinine",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2160-0",
+              "display": "Creatinine [Mass/volume] in Serum or Plasma"
+            }
+          ]
+        },
+        "preferredReportName": "Creatinine",
+        "permittedDataType": [
+          "Quantity"
+        ],
+        "quantitativeDetails": {
+          "unit": {
+            "coding": [
+              {
+                "system": "http://unitsofmeasure.org",
+                "code": "mg/dL",
+                "display": "mg/dL"
+              }
+            ]
+          }
+        },
+        "qualifiedInterval": [
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 0.7,
+                "unit": "mg/dL"
+              },
+              "high": {
+                "value": 1.3,
+                "unit": "mg/dL"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            },
+            "gender": "male"
+          },
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 0.5,
+                "unit": "mg/dL"
+              },
+              "high": {
+                "value": 1.1,
+                "unit": "mg/dL"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            },
+            "gender": "female"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ObservationDefinition",
+        "id": "bun",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "3094-0",
+              "display": "Urea nitrogen [Mass/volume] in Serum or Plasma"
+            }
+          ]
+        },
+        "preferredReportName": "Blood Urea Nitrogen",
+        "permittedDataType": [
+          "Quantity"
+        ],
+        "quantitativeDetails": {
+          "unit": {
+            "coding": [
+              {
+                "system": "http://unitsofmeasure.org",
+                "code": "mg/dL",
+                "display": "mg/dL"
+              }
+            ]
+          }
+        },
+        "qualifiedInterval": [
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 7,
+                "unit": "mg/dL"
+              },
+              "high": {
+                "value": 20,
+                "unit": "mg/dL"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ObservationDefinition",
+        "id": "total-cholesterol",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2093-3",
+              "display": "Cholesterol [Mass/volume] in Serum or Plasma"
+            }
+          ]
+        },
+        "preferredReportName": "Total Cholesterol",
+        "permittedDataType": [
+          "Quantity"
+        ],
+        "quantitativeDetails": {
+          "unit": {
+            "coding": [
+              {
+                "system": "http://unitsofmeasure.org",
+                "code": "mg/dL",
+                "display": "mg/dL"
+              }
+            ]
+          }
+        },
+        "qualifiedInterval": [
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 0,
+                "unit": "mg/dL"
+              },
+              "high": {
+                "value": 200,
+                "unit": "mg/dL"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ObservationDefinition",
+        "id": "ldl",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "13457-7",
+              "display": "Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation"
+            }
+          ]
+        },
+        "preferredReportName": "LDL Cholesterol",
+        "permittedDataType": [
+          "Quantity"
+        ],
+        "quantitativeDetails": {
+          "unit": {
+            "coding": [
+              {
+                "system": "http://unitsofmeasure.org",
+                "code": "mg/dL",
+                "display": "mg/dL"
+              }
+            ]
+          }
+        },
+        "qualifiedInterval": [
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 0,
+                "unit": "mg/dL"
+              },
+              "high": {
+                "value": 100,
+                "unit": "mg/dL"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ObservationDefinition",
+        "id": "hdl-male",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2085-9",
+              "display": "Cholesterol in HDL [Mass/volume] in Serum or Plasma"
+            }
+          ]
+        },
+        "preferredReportName": "HDL Cholesterol",
+        "permittedDataType": [
+          "Quantity"
+        ],
+        "quantitativeDetails": {
+          "unit": {
+            "coding": [
+              {
+                "system": "http://unitsofmeasure.org",
+                "code": "mg/dL",
+                "display": "mg/dL"
+              }
+            ]
+          }
+        },
+        "qualifiedInterval": [
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 40,
+                "unit": "mg/dL"
+              },
+              "high": {
+                "value": 200,
+                "unit": "mg/dL"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            },
+            "gender": "male"
+          },
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 50,
+                "unit": "mg/dL"
+              },
+              "high": {
+                "value": 200,
+                "unit": "mg/dL"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            },
+            "gender": "female"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ObservationDefinition",
+        "id": "triglycerides",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2571-8",
+              "display": "Triglyceride [Mass/volume] in Serum or Plasma"
+            }
+          ]
+        },
+        "preferredReportName": "Triglycerides",
+        "permittedDataType": [
+          "Quantity"
+        ],
+        "quantitativeDetails": {
+          "unit": {
+            "coding": [
+              {
+                "system": "http://unitsofmeasure.org",
+                "code": "mg/dL",
+                "display": "mg/dL"
+              }
+            ]
+          }
+        },
+        "qualifiedInterval": [
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 0,
+                "unit": "mg/dL"
+              },
+              "high": {
+                "value": 150,
+                "unit": "mg/dL"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ObservationDefinition",
+        "id": "alt",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "1742-6",
+              "display": "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma"
+            }
+          ]
+        },
+        "preferredReportName": "ALT",
+        "permittedDataType": [
+          "Quantity"
+        ],
+        "quantitativeDetails": {
+          "unit": {
+            "coding": [
+              {
+                "system": "http://unitsofmeasure.org",
+                "code": "U/L",
+                "display": "U/L"
+              }
+            ]
+          }
+        },
+        "qualifiedInterval": [
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 7,
+                "unit": "U/L"
+              },
+              "high": {
+                "value": 56,
+                "unit": "U/L"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ObservationDefinition",
+        "id": "ast",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "1920-8",
+              "display": "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma"
+            }
+          ]
+        },
+        "preferredReportName": "AST",
+        "permittedDataType": [
+          "Quantity"
+        ],
+        "quantitativeDetails": {
+          "unit": {
+            "coding": [
+              {
+                "system": "http://unitsofmeasure.org",
+                "code": "U/L",
+                "display": "U/L"
+              }
+            ]
+          }
+        },
+        "qualifiedInterval": [
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 10,
+                "unit": "U/L"
+              },
+              "high": {
+                "value": 40,
+                "unit": "U/L"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ObservationDefinition",
+        "id": "total-bilirubin",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "1975-2",
+              "display": "Bilirubin.total [Mass/volume] in Serum or Plasma"
+            }
+          ]
+        },
+        "preferredReportName": "Total Bilirubin",
+        "permittedDataType": [
+          "Quantity"
+        ],
+        "quantitativeDetails": {
+          "unit": {
+            "coding": [
+              {
+                "system": "http://unitsofmeasure.org",
+                "code": "mg/dL",
+                "display": "mg/dL"
+              }
+            ]
+          }
+        },
+        "qualifiedInterval": [
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 0.1,
+                "unit": "mg/dL"
+              },
+              "high": {
+                "value": 1.2,
+                "unit": "mg/dL"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ObservationDefinition",
+        "id": "albumin",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "1751-7",
+              "display": "Albumin [Mass/volume] in Serum or Plasma"
+            }
+          ]
+        },
+        "preferredReportName": "Albumin",
+        "permittedDataType": [
+          "Quantity"
+        ],
+        "quantitativeDetails": {
+          "unit": {
+            "coding": [
+              {
+                "system": "http://unitsofmeasure.org",
+                "code": "g/dL",
+                "display": "g/dL"
+              }
+            ]
+          }
+        },
+        "qualifiedInterval": [
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 3.5,
+                "unit": "g/dL"
+              },
+              "high": {
+                "value": 5.0,
+                "unit": "g/dL"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ObservationDefinition",
+        "id": "tsh",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "3016-3",
+              "display": "Thyrotropin [Units/volume] in Serum or Plasma"
+            }
+          ]
+        },
+        "preferredReportName": "TSH",
+        "permittedDataType": [
+          "Quantity"
+        ],
+        "quantitativeDetails": {
+          "unit": {
+            "coding": [
+              {
+                "system": "http://unitsofmeasure.org",
+                "code": "mIU/L",
+                "display": "mIU/L"
+              }
+            ]
+          }
+        },
+        "qualifiedInterval": [
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 0.4,
+                "unit": "mIU/L"
+              },
+              "high": {
+                "value": 4.0,
+                "unit": "mIU/L"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ObservationDefinition",
+        "id": "sodium",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2951-2",
+              "display": "Sodium [Moles/volume] in Serum or Plasma"
+            }
+          ]
+        },
+        "preferredReportName": "Sodium",
+        "permittedDataType": [
+          "Quantity"
+        ],
+        "quantitativeDetails": {
+          "unit": {
+            "coding": [
+              {
+                "system": "http://unitsofmeasure.org",
+                "code": "mmol/L",
+                "display": "mmol/L"
+              }
+            ]
+          }
+        },
+        "qualifiedInterval": [
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 136,
+                "unit": "mmol/L"
+              },
+              "high": {
+                "value": 145,
+                "unit": "mmol/L"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ObservationDefinition",
+        "id": "potassium",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2823-3",
+              "display": "Potassium [Moles/volume] in Serum or Plasma"
+            }
+          ]
+        },
+        "preferredReportName": "Potassium",
+        "permittedDataType": [
+          "Quantity"
+        ],
+        "quantitativeDetails": {
+          "unit": {
+            "coding": [
+              {
+                "system": "http://unitsofmeasure.org",
+                "code": "mmol/L",
+                "display": "mmol/L"
+              }
+            ]
+          }
+        },
+        "qualifiedInterval": [
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 3.5,
+                "unit": "mmol/L"
+              },
+              "high": {
+                "value": 5.0,
+                "unit": "mmol/L"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ObservationDefinition",
+        "id": "chloride",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2075-0",
+              "display": "Chloride [Moles/volume] in Serum or Plasma"
+            }
+          ]
+        },
+        "preferredReportName": "Chloride",
+        "permittedDataType": [
+          "Quantity"
+        ],
+        "quantitativeDetails": {
+          "unit": {
+            "coding": [
+              {
+                "system": "http://unitsofmeasure.org",
+                "code": "mmol/L",
+                "display": "mmol/L"
+              }
+            ]
+          }
+        },
+        "qualifiedInterval": [
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 98,
+                "unit": "mmol/L"
+              },
+              "high": {
+                "value": 107,
+                "unit": "mmol/L"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ObservationDefinition",
+        "id": "oxygen-saturation",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "59408-5",
+              "display": "Oxygen saturation in Arterial blood by Pulse oximetry"
+            }
+          ]
+        },
+        "preferredReportName": "Oxygen Saturation",
+        "permittedDataType": [
+          "Quantity"
+        ],
+        "quantitativeDetails": {
+          "unit": {
+            "coding": [
+              {
+                "system": "http://unitsofmeasure.org",
+                "code": "%",
+                "display": "%"
+              }
+            ]
+          }
+        },
+        "qualifiedInterval": [
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 95,
+                "unit": "%"
+              },
+              "high": {
+                "value": 100,
+                "unit": "%"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ObservationDefinition",
+        "id": "respiratory-rate",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "9279-1",
+              "display": "Respiratory rate"
+            }
+          ]
+        },
+        "preferredReportName": "Respiratory Rate",
+        "permittedDataType": [
+          "Quantity"
+        ],
+        "quantitativeDetails": {
+          "unit": {
+            "coding": [
+              {
+                "system": "http://unitsofmeasure.org",
+                "code": "/min",
+                "display": "breaths/min"
+              }
+            ]
+          }
+        },
+        "qualifiedInterval": [
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 12,
+                "unit": "/min"
+              },
+              "high": {
+                "value": 20,
+                "unit": "/min"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ObservationDefinition",
+        "id": "uric-acid",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "3084-1",
+              "display": "Urate [Mass/volume] in Serum or Plasma"
+            }
+          ]
+        },
+        "preferredReportName": "Uric Acid",
+        "permittedDataType": [
+          "Quantity"
+        ],
+        "quantitativeDetails": {
+          "unit": {
+            "coding": [
+              {
+                "system": "http://unitsofmeasure.org",
+                "code": "mg/dL",
+                "display": "mg/dL"
+              }
+            ]
+          }
+        },
+        "qualifiedInterval": [
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 3.5,
+                "unit": "mg/dL"
+              },
+              "high": {
+                "value": 7.2,
+                "unit": "mg/dL"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            },
+            "gender": "male"
+          },
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 2.6,
+                "unit": "mg/dL"
+              },
+              "high": {
+                "value": 6.0,
+                "unit": "mg/dL"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            },
+            "gender": "female"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ObservationDefinition",
+        "id": "ejection-fraction",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8806-2",
+              "display": "Left ventricular Ejection fraction by 2D echo"
+            }
+          ]
+        },
+        "preferredReportName": "Ejection Fraction",
+        "permittedDataType": [
+          "Quantity"
+        ],
+        "quantitativeDetails": {
+          "unit": {
+            "coding": [
+              {
+                "system": "http://unitsofmeasure.org",
+                "code": "%",
+                "display": "%"
+              }
+            ]
+          }
+        },
+        "qualifiedInterval": [
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 55,
+                "unit": "%"
+              },
+              "high": {
+                "value": 75,
+                "unit": "%"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ObservationDefinition",
+        "id": "testosterone",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2986-8",
+              "display": "Testosterone [Mass/volume] in Serum or Plasma"
+            }
+          ]
+        },
+        "preferredReportName": "Testosterone",
+        "permittedDataType": [
+          "Quantity"
+        ],
+        "quantitativeDetails": {
+          "unit": {
+            "coding": [
+              {
+                "system": "http://unitsofmeasure.org",
+                "code": "ng/dL",
+                "display": "ng/dL"
+              }
+            ]
+          }
+        },
+        "qualifiedInterval": [
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 300,
+                "unit": "ng/dL"
+              },
+              "high": {
+                "value": 1000,
+                "unit": "ng/dL"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            },
+            "gender": "male"
+          },
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 15,
+                "unit": "ng/dL"
+              },
+              "high": {
+                "value": 70,
+                "unit": "ng/dL"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            },
+            "gender": "female"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ObservationDefinition",
+        "id": "lh",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "10501-5",
+              "display": "Lutropin [Units/volume] in Serum or Plasma"
+            }
+          ]
+        },
+        "preferredReportName": "LH",
+        "permittedDataType": [
+          "Quantity"
+        ],
+        "quantitativeDetails": {
+          "unit": {
+            "coding": [
+              {
+                "system": "http://unitsofmeasure.org",
+                "code": "mIU/mL",
+                "display": "mIU/mL"
+              }
+            ]
+          }
+        },
+        "qualifiedInterval": [
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 1.5,
+                "unit": "mIU/mL"
+              },
+              "high": {
+                "value": 9.3,
+                "unit": "mIU/mL"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            },
+            "gender": "female"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ObservationDefinition",
+        "id": "fsh",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "15067-2",
+              "display": "Follitropin [Units/volume] in Serum or Plasma"
+            }
+          ]
+        },
+        "preferredReportName": "FSH",
+        "permittedDataType": [
+          "Quantity"
+        ],
+        "quantitativeDetails": {
+          "unit": {
+            "coding": [
+              {
+                "system": "http://unitsofmeasure.org",
+                "code": "mIU/mL",
+                "display": "mIU/mL"
+              }
+            ]
+          }
+        },
+        "qualifiedInterval": [
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 3.5,
+                "unit": "mIU/mL"
+              },
+              "high": {
+                "value": 12.5,
+                "unit": "mIU/mL"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            },
+            "gender": "female"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ObservationDefinition",
+        "id": "egfr",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "62238-1",
+              "display": "Glomerular filtration rate (eGFR)"
+            }
+          ]
+        },
+        "preferredReportName": "eGFR",
+        "permittedDataType": [
+          "Quantity"
+        ],
+        "quantitativeDetails": {
+          "unit": {
+            "coding": [
+              {
+                "system": "http://unitsofmeasure.org",
+                "code": "mL/min/1.73m2",
+                "display": "mL/min/1.73m2"
+              }
+            ]
+          }
+        },
+        "qualifiedInterval": [
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 60,
+                "unit": "mL/min/1.73m2"
+              },
+              "high": {
+                "value": 120,
+                "unit": "mL/min/1.73m2"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            },
+            "appliesTo": [
+              {
+                "text": "Adult"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ObservationDefinition",
+        "id": "hba1c",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "4548-4",
+              "display": "Hemoglobin A1c/Hemoglobin.total in Blood"
+            }
+          ]
+        },
+        "preferredReportName": "HbA1c",
+        "permittedDataType": [
+          "Quantity"
+        ],
+        "quantitativeDetails": {
+          "unit": {
+            "coding": [
+              {
+                "system": "http://unitsofmeasure.org",
+                "code": "%",
+                "display": "%"
+              }
+            ]
+          }
+        },
+        "qualifiedInterval": [
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 4.0,
+                "unit": "%"
+              },
+              "high": {
+                "value": 5.6,
+                "unit": "%"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            },
+            "appliesTo": [
+              {
+                "text": "Adult, non-diabetic"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ObservationDefinition",
+        "id": "ldl-cholesterol",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2089-1",
+              "display": "Cholesterol in LDL [Mass/volume] in Serum or Plasma"
+            }
+          ]
+        },
+        "preferredReportName": "LDL Cholesterol",
+        "permittedDataType": [
+          "Quantity"
+        ],
+        "quantitativeDetails": {
+          "unit": {
+            "coding": [
+              {
+                "system": "http://unitsofmeasure.org",
+                "code": "mg/dL",
+                "display": "mg/dL"
+              }
+            ]
+          }
+        },
+        "qualifiedInterval": [
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 0,
+                "unit": "mg/dL"
+              },
+              "high": {
+                "value": 100,
+                "unit": "mg/dL"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "optimal"
+                }
+              ]
+            },
+            "appliesTo": [
+              {
+                "text": "Adult \u2014 optimal level"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ObservationDefinition",
+        "id": "dhea-s",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2191-5",
+              "display": "DHEA sulfate [Mass/volume] in Serum or Plasma"
+            }
+          ]
+        },
+        "preferredReportName": "DHEA-S",
+        "permittedDataType": [
+          "Quantity"
+        ],
+        "quantitativeDetails": {
+          "unit": {
+            "coding": [
+              {
+                "system": "http://unitsofmeasure.org",
+                "code": "ug/dL",
+                "display": "ug/dL"
+              }
+            ]
+          }
+        },
+        "qualifiedInterval": [
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 80,
+                "unit": "ug/dL"
+              },
+              "high": {
+                "value": 560,
+                "unit": "ug/dL"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            },
+            "gender": "male"
+          },
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 35,
+                "unit": "ug/dL"
+              },
+              "high": {
+                "value": 430,
+                "unit": "ug/dL"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            },
+            "gender": "female"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ObservationDefinition",
+        "id": "fasting-insulin",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "20448-7",
+              "display": "Insulin [Units/volume] in Serum or Plasma"
+            }
+          ]
+        },
+        "preferredReportName": "Fasting Insulin",
+        "permittedDataType": [
+          "Quantity"
+        ],
+        "quantitativeDetails": {
+          "unit": {
+            "coding": [
+              {
+                "system": "http://unitsofmeasure.org",
+                "code": "uIU/mL",
+                "display": "uIU/mL"
+              }
+            ]
+          }
+        },
+        "qualifiedInterval": [
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 2.6,
+                "unit": "uIU/mL"
+              },
+              "high": {
+                "value": 24.9,
+                "unit": "uIU/mL"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            },
+            "appliesTo": [
+              {
+                "text": "Adult fasting"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ObservationDefinition",
+        "id": "kidney-length",
+        "code": {
+          "coding": [
+            {
+              "system": "http://clinreset.local",
+              "code": "C-KIDNEY-LEN",
+              "display": "Kidney Length"
+            }
+          ]
+        },
+        "preferredReportName": "Kidney Length",
+        "permittedDataType": [
+          "Quantity"
+        ],
+        "quantitativeDetails": {
+          "unit": {
+            "coding": [
+              {
+                "system": "http://unitsofmeasure.org",
+                "code": "cm",
+                "display": "cm"
+              }
+            ]
+          }
+        },
+        "qualifiedInterval": [
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 9,
+                "unit": "cm"
+              },
+              "high": {
+                "value": 12,
+                "unit": "cm"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            },
+            "appliesTo": [
+              {
+                "text": "Adult"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ObservationDefinition",
+        "id": "liver-length",
+        "code": {
+          "coding": [
+            {
+              "system": "http://clinreset.local",
+              "code": "C-LIVER-LEN",
+              "display": "Liver Length"
+            }
+          ]
+        },
+        "preferredReportName": "Liver Length",
+        "permittedDataType": [
+          "Quantity"
+        ],
+        "quantitativeDetails": {
+          "unit": {
+            "coding": [
+              {
+                "system": "http://unitsofmeasure.org",
+                "code": "cm",
+                "display": "cm"
+              }
+            ]
+          }
+        },
+        "qualifiedInterval": [
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 10,
+                "unit": "cm"
+              },
+              "high": {
+                "value": 15,
+                "unit": "cm"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            },
+            "appliesTo": [
+              {
+                "text": "Adult"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ObservationDefinition",
+        "id": "spleen-length",
+        "code": {
+          "coding": [
+            {
+              "system": "http://clinreset.local",
+              "code": "C-SPLEEN-LEN",
+              "display": "Spleen Length"
+            }
+          ]
+        },
+        "preferredReportName": "Spleen Length",
+        "permittedDataType": [
+          "Quantity"
+        ],
+        "quantitativeDetails": {
+          "unit": {
+            "coding": [
+              {
+                "system": "http://unitsofmeasure.org",
+                "code": "cm",
+                "display": "cm"
+              }
+            ]
+          }
+        },
+        "qualifiedInterval": [
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 7,
+                "unit": "cm"
+              },
+              "high": {
+                "value": 12,
+                "unit": "cm"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            },
+            "appliesTo": [
+              {
+                "text": "Adult"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ObservationDefinition",
+        "id": "prostate-volume",
+        "code": {
+          "coding": [
+            {
+              "system": "http://clinreset.local",
+              "code": "C-PROSTATE",
+              "display": "Prostate Volume"
+            }
+          ]
+        },
+        "preferredReportName": "Prostate Volume",
+        "permittedDataType": [
+          "Quantity"
+        ],
+        "quantitativeDetails": {
+          "unit": {
+            "coding": [
+              {
+                "system": "http://unitsofmeasure.org",
+                "code": "mL",
+                "display": "cc"
+              }
+            ]
+          }
+        },
+        "qualifiedInterval": [
+          {
+            "category": "reference",
+            "range": {
+              "low": {
+                "value": 0,
+                "unit": "cc"
+              },
+              "high": {
+                "value": 30,
+                "unit": "cc"
+              }
+            },
+            "context": {
+              "coding": [
+                {
+                  "code": "normal"
+                }
+              ]
+            },
+            "appliesTo": [
+              {
+                "text": "Adult"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

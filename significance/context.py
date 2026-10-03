@@ -26,6 +26,7 @@ logger = logging.getLogger("significance.context")
 # - Explanations describe co-occurrence in standard echocardiographic assessment
 #   and explicitly avoid asserting causation or diagnostic consequence.
 RELATIONSHIP_RULES: list[dict[str, Any]] = [
+    # --- Echocardiography clusters (existing) --------------------------------
     {
         "name": "concentric_lvh_cluster",
         "concepts": [
@@ -66,6 +67,106 @@ RELATIONSHIP_RULES: list[dict[str, Any]] = [
             "These findings and measurements reflect right-heart and pulmonary "
             "circulation hemodynamics routinely evaluated together during Doppler "
             "examination; the report does not establish that one caused another."
+        ),
+    },
+    # --- PCOS hormonal cluster -----------------------------------------------
+    {
+        "name": "pcos_hormonal_cluster",
+        "concepts": [
+            "Luteinizing Hormone",
+            "Follicle Stimulating Hormone",
+            "Testosterone",
+            "DHEA",
+            "Androgen",
+            "Prolactin",
+            "LH",
+            "FSH",
+        ],
+        "relationship": RelationshipType.RELATED_FINDINGS,
+        "explanation": (
+            "These hormone levels are part of the standard endocrine panel evaluated "
+            "in the assessment of polycystic ovary syndrome (PCOS) and related "
+            "hormonal conditions. The co-occurrence of these measurements in the report "
+            "reflects routine panel ordering and does not imply a specific diagnosis."
+        ),
+    },
+    # --- Metabolic syndrome cluster ------------------------------------------
+    {
+        "name": "metabolic_syndrome_cluster",
+        "concepts": [
+            "Blood Pressure",
+            "Blood Glucose",
+            "Fasting Glucose",
+            "Body Mass Index",
+            "Triglyceride",
+            "Waist Circumference",
+            "Insulin",
+        ],
+        "relationship": RelationshipType.RELATED_FINDINGS,
+        "explanation": (
+            "These measurements collectively reflect parameters used in the clinical "
+            "screening of metabolic syndrome (blood pressure, glucose, BMI, and lipids). "
+            "The report records these values together for routine assessment; "
+            "no single finding here implies a diagnosis."
+        ),
+    },
+    # --- Lipid panel cluster -------------------------------------------------
+    {
+        "name": "lipid_panel_cluster",
+        "concepts": [
+            "Total Cholesterol",
+            "Cholesterol",
+            "LDL",
+            "HDL",
+            "Triglyceride",
+            "VLDL",
+            "Non-HDL",
+        ],
+        "relationship": RelationshipType.RELATED_FINDINGS,
+        "explanation": (
+            "These are components of a standard fasting lipid panel. They are reported "
+            "together as part of cardiovascular risk assessment. The report does not "
+            "establish that any single value caused another."
+        ),
+    },
+    # --- Thyroid function cluster --------------------------------------------
+    {
+        "name": "thyroid_function_cluster",
+        "concepts": [
+            "Thyroid Stimulating Hormone",
+            "TSH",
+            "T3",
+            "T4",
+            "Free T4",
+            "Free T3",
+            "Thyroxine",
+            "Triiodothyronine",
+        ],
+        "relationship": RelationshipType.RELATED_FINDINGS,
+        "explanation": (
+            "These values constitute a standard thyroid function panel. They are "
+            "evaluated together to assess thyroid axis activity; the report does not "
+            "establish a causal relationship between the individual values."
+        ),
+    },
+    # --- Diabetic / glycemic screening cluster -------------------------------
+    {
+        "name": "glycemic_screening_cluster",
+        "concepts": [
+            "HbA1c",
+            "Hemoglobin A1c",
+            "Fasting Glucose",
+            "Blood Glucose",
+            "Insulin",
+            "C-Peptide",
+            "Random Blood Sugar",
+            "Post Prandial",
+        ],
+        "relationship": RelationshipType.RELATED_FINDINGS,
+        "explanation": (
+            "These measurements are components of glycemic control evaluation and "
+            "diabetic screening. They are reported together to assess blood sugar "
+            "regulation over different time horizons; no causality is implied."
         ),
     },
 ]

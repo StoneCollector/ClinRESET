@@ -313,6 +313,15 @@ def extract_document(
         logger.info("PyMuPDF4LLM validation: %s", p_status)
 
         if p_status == "GOOD":
+            # Peek at whether PyMuPDF4LLM actually found any measurements.
+            # If it found zero measurements despite tables existing, it likely botched the headers.
+            from extraction.normaliser import normalise
+            temp_norm = normalise(primary_raw, inspection, p_status, p_warnings, p_scores)
+            if not temp_norm.measurements and len(temp_norm.tables) > 0:
+                logger.info("PyMuPDF4LLM found tables but 0 measurements. Forcing fallback.")
+                p_status = "DEGRADED"
+
+        if p_status == "GOOD":
             # STEP 5: Use it.
             selected_result = primary_raw
             selected_text = text_for_validation

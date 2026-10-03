@@ -55,3 +55,9 @@ dist/
 .coverage.*
 htmlcov/
 .pytest_cache/
+
+# Project specific
+output/
+scratch/
+clinical_explanation/term_cache.json
+clinical_explanation/ollama_cache.json
